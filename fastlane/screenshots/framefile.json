@@ -1,0 +1,35 @@
+{
+  "device_frame_version": "latest",
+  "default": {
+    "title": {
+      "color": "#545454"
+    },
+    "background": "./background.jpg",
+    "padding": 30,
+    "show_complete_frame": false,
+    "stack_title" : true,
+    "title_below_image": false,
+    "frame": "BLACK"
+  },
+
+  "data": [
+    {
+      "filter": "01_videoHall_search_screen",
+      "keyword": {
+        "color": "#000000"
+      }
+    },
+    {
+      "filter": "02_videoList_screen",
+      "keyword": {
+        "color": "#000000"
+      }
+    },
+    {
+      "filter": "03_UGCVideo_screen",
+      "keyword": {
+        "color": "#000000"
+      }
+    }
+  ]
+}

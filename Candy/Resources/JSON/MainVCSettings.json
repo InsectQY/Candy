@@ -1,0 +1,26 @@
+[
+    {
+    "vcName": "VideoHallViewController",
+    "title": "放映厅",
+    "normalImg": "fangyingting-hui",
+    "selImg": "fangyingting-hong"
+},
+ {
+    "vcName": "VideoPageViewController",
+    "title": "视频",
+    "normalImg": "shipin-hui",
+    "selImg": "shipin-hong"
+ },
+ {
+     "vcName": "UGCVideoPageViewController",
+     "title": "小视频",
+     "normalImg": "xiaoshipin-hui",
+     "selImg": "xiaoshipin-hong"
+ },
+ {
+     "vcName": "UserCenterViewController",
+     "title": "我的",
+     "normalImg": "wode-hui",
+     "selImg": "wode-hong"
+ }
+ ]

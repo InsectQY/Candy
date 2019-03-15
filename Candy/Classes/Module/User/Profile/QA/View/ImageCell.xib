@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="ImageCell" customModule="QYNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="203"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="203"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkB-Vg-tCx" userLabel="分割线">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="1"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="2xj-Ct-Hzr"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEP-Co-cqq" userLabel="分割线">
+                        <rect key="frame" x="0.0" y="1" width="1" height="201"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="J0y-xe-PMJ"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr8-0p-BHf" userLabel="分割线">
+                        <rect key="frame" x="144" y="0.0" width="1" height="203"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="5Iy-fD-kUp"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fg-ke-KYn" userLabel="分割线">
+                        <rect key="frame" x="0.0" y="202" width="145" height="1"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="C5Z-CW-YRd"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftP-GL-Teb" customClass="ImageView" customModule="QYNews" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="202"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Mr8-0p-BHf" secondAttribute="trailing" id="0ab-19-WMY"/>
+                <constraint firstItem="8fg-ke-KYn" firstAttribute="top" secondItem="NEP-Co-cqq" secondAttribute="bottom" id="588-06-g1L"/>
+                <constraint firstItem="ftP-GL-Teb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8x7-Aa-0cP"/>
+                <constraint firstItem="Mr8-0p-BHf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="A84-1b-QvN"/>
+                <constraint firstItem="NEP-Co-cqq" firstAttribute="top" secondItem="hkB-Vg-tCx" secondAttribute="bottom" id="Ig1-Vd-aIh"/>
+                <constraint firstAttribute="trailing" secondItem="ftP-GL-Teb" secondAttribute="trailing" id="K2U-uU-VRR"/>
+                <constraint firstAttribute="trailing" secondItem="8fg-ke-KYn" secondAttribute="trailing" id="Pzj-Yv-D88"/>
+                <constraint firstItem="NEP-Co-cqq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Uyh-39-0jw"/>
+                <constraint firstAttribute="trailing" secondItem="hkB-Vg-tCx" secondAttribute="trailing" id="eBf-4T-dzF"/>
+                <constraint firstItem="hkB-Vg-tCx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ibj-RC-AfY"/>
+                <constraint firstItem="ftP-GL-Teb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lmN-JY-FZg"/>
+                <constraint firstItem="hkB-Vg-tCx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lrA-gx-Wyw"/>
+                <constraint firstAttribute="bottom" secondItem="8fg-ke-KYn" secondAttribute="bottom" id="o2c-LZ-TWC"/>
+                <constraint firstItem="8fg-ke-KYn" firstAttribute="top" secondItem="ftP-GL-Teb" secondAttribute="bottom" id="sWX-zC-YCU"/>
+                <constraint firstAttribute="bottom" secondItem="Mr8-0p-BHf" secondAttribute="bottom" id="xae-KP-hvf"/>
+                <constraint firstItem="8fg-ke-KYn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="y3F-Oy-ruL"/>
+            </constraints>
+            <size key="customSize" width="145" height="203"/>
+            <connections>
+                <outlet property="largeImage" destination="ftP-GL-Teb" id="64F-cX-qxJ"/>
+            </connections>
+            <point key="canvasLocation" x="205.59999999999999" y="201.04947526236884"/>
+        </collectionViewCell>
+    </objects>
+</document>

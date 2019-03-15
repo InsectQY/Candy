@@ -1,0 +1,236 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Cache (5.2.0)
+  - CleanJSON (0.6.4)
+  - DefaultsKit (0.2.0)
+  - Differentiator (3.1.0)
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
+  - Hero (1.4.0)
+  - IQKeyboardManagerSwift (6.2.0)
+  - Jelly (1.2.5)
+  - JXCategoryView (1.2.9)
+  - Kingfisher (4.10.1)
+  - KingfisherWebP (0.4.2):
+    - Kingfisher (~> 4.0)
+    - libwebp (>= 0.5.0)
+  - libwebp (1.0.2):
+    - libwebp/core (= 1.0.2)
+    - libwebp/dec (= 1.0.2)
+    - libwebp/demux (= 1.0.2)
+    - libwebp/dsp (= 1.0.2)
+    - libwebp/enc (= 1.0.2)
+    - libwebp/mux (= 1.0.2)
+    - libwebp/utils (= 1.0.2)
+    - libwebp/webp (= 1.0.2)
+  - libwebp/core (1.0.2):
+    - libwebp/webp
+  - libwebp/dec (1.0.2):
+    - libwebp/core
+  - libwebp/demux (1.0.2):
+    - libwebp/core
+  - libwebp/dsp (1.0.2):
+    - libwebp/core
+  - libwebp/enc (1.0.2):
+    - libwebp/core
+  - libwebp/mux (1.0.2):
+    - libwebp/core
+  - libwebp/utils (1.0.2):
+    - libwebp/core
+  - libwebp/webp (1.0.2)
+  - MJRefresh (3.1.15.7)
+  - MonkeyKing (1.13.0)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - "NSObject+Rx (4.4.1)":
+    - RxSwift (~> 4.3)
+  - NVActivityIndicatorView (4.6.1):
+    - NVActivityIndicatorView/Presenter (= 4.6.1)
+  - NVActivityIndicatorView/Presenter (4.6.1)
+  - PYSearch (0.9.1)
+  - QMUIKit/QMUIComponents/QMUIButton (2.9.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIKeyboardManager (2.9.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITips (2.9.3):
+    - QMUIKit/QMUIComponents/QMUIToastView
+    - QMUIKit/QMUICore
+    - QMUIKit/QMUIResources
+  - QMUIKit/QMUIComponents/QMUIToastView (2.9.3):
+    - QMUIKit/QMUIComponents/QMUIKeyboardManager
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUICore (2.9.3):
+    - QMUIKit/QMUILog
+    - QMUIKit/QMUIWeakObjectContainer
+  - QMUIKit/QMUILog (2.9.3)
+  - QMUIKit/QMUIResources (2.9.3)
+  - QMUIKit/QMUIWeakObjectContainer (2.9.3)
+  - R.swift (5.0.2):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.0)
+  - Result (4.1.0)
+  - RxActivityIndicator (0.1.1):
+    - RxCocoa
+    - RxSwift
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.3.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxMJ (0.4.0):
+    - MJRefresh (~> 3.1.15.7)
+    - RxCocoa (~> 4.3.0)
+  - RxNetwork/Cache (0.8.6):
+    - Cache
+    - RxNetwork/Core
+  - RxNetwork/Core (0.8.6):
+    - Moya/RxSwift
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - RxURLNavigator (1.1.0):
+    - RxCocoa
+    - RxSwift
+    - URLNavigator
+  - SwiftLint (0.31.0)
+  - SwiftyThirdParty (0.1.0):
+    - SwiftyThirdParty/Kingfisher (= 0.1.0)
+    - SwiftyThirdParty/MJRefresh (= 0.1.0)
+    - SwiftyThirdParty/Toast (= 0.1.0)
+  - SwiftyThirdParty/Kingfisher (0.1.0):
+    - Kingfisher
+    - SwiftyThirdParty/Kingfisher/Core (= 0.1.0)
+    - SwiftyThirdParty/Kingfisher/WebP (= 0.1.0)
+  - SwiftyThirdParty/Kingfisher/Core (0.1.0):
+    - Kingfisher
+  - SwiftyThirdParty/Kingfisher/WebP (0.1.0):
+    - Kingfisher
+    - KingfisherWebP
+  - SwiftyThirdParty/MJRefresh (0.1.0):
+    - MJRefresh
+  - SwiftyThirdParty/Toast (0.1.0):
+    - QMUIKit/QMUIComponents/QMUITips
+  - URLNavigator (2.1.0)
+  - ZFPlayer/AVPlayer (3.2.6):
+    - ZFPlayer/Core
+  - ZFPlayer/ControlView (3.2.6):
+    - ZFPlayer/Core
+  - ZFPlayer/Core (3.2.6)
+
+DEPENDENCIES:
+  - CleanJSON
+  - DefaultsKit
+  - DZNEmptyDataSet
+  - FDFullscreenPopGesture
+  - Hero
+  - IQKeyboardManagerSwift
+  - Jelly
+  - JXCategoryView
+  - MonkeyKing
+  - "NSObject+Rx"
+  - NVActivityIndicatorView
+  - PYSearch
+  - QMUIKit/QMUIComponents/QMUIButton
+  - R.swift
+  - RxActivityIndicator
+  - RxDataSources
+  - RxMJ
+  - RxNetwork/Cache
+  - RxOptional
+  - RxURLNavigator
+  - SwiftLint
+  - SwiftyThirdParty
+  - ZFPlayer/AVPlayer
+  - ZFPlayer/ControlView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Cache
+    - DefaultsKit
+    - Differentiator
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
+    - Hero
+    - IQKeyboardManagerSwift
+    - Jelly
+    - JXCategoryView
+    - Kingfisher
+    - KingfisherWebP
+    - libwebp
+    - MJRefresh
+    - MonkeyKing
+    - Moya
+    - "NSObject+Rx"
+    - NVActivityIndicatorView
+    - PYSearch
+    - QMUIKit
+    - R.swift
+    - R.swift.Library
+    - Result
+    - RxActivityIndicator
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxMJ
+    - RxOptional
+    - RxSwift
+    - RxURLNavigator
+    - SwiftLint
+    - URLNavigator
+    - ZFPlayer
+  https://github.com/InsectQY/QYSpecs.git:
+    - CleanJSON
+    - RxNetwork
+    - SwiftyThirdParty
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  CleanJSON: d5fc5381254047dea40cf7b1046b3bc78ef415be
+  DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
+  JXCategoryView: 88a56da74d553ef98e9fc827dde46e277a2c3ed4
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
+  libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  MonkeyKing: cdaa3e93d4802464eceea619aba87f70c31db2e1
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
+  QMUIKit: 5b8f0a3ab60e42af1310bd40a6fe1b54d612d15c
+  R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxMJ: c41277d217b151e18573c12f73612de3a4ce63a5
+  RxNetwork: 1a2cfb61ddc5aa5c85e3a2944523b56940641716
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  SwiftyThirdParty: d85f5462a201da40642ff41746cf8b4241c36bd7
+  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
+  ZFPlayer: 66c58fe815b21e309d11f8c03114e9028a2212f4
+
+PODFILE CHECKSUM: a839d395bfdffa7c0ec2850a1a2657d4e25b50e1
+
+COCOAPODS: 1.6.1

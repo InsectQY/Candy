@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  QYNews
+
+  Created by QY on 2019/2/11.
+  Copyright © 2019年 Insect. All rights reserved.
+*/
+
+"VideoHall.Search.Placeholder" = "搜索你想看的~";
+"VideoHall.Search.Result.Title" = "搜索结果";
+"VideoHall.Search.Result.Empty.Placeholder" = "什么都没找到啊/(ㄒoㄒ)/~~";
+"VideoHall.Filter.Result.Empty.Placeholder" = "该分类下暂时没有视频哟 T^T";
+"VideoHall.TopView.Title" = "筛选";

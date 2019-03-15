@@ -1,0 +1,91 @@
+disabled_rules: # rule identifiers to exclude from running
+  - missing_docs
+  - unused_closure_parameter
+  - variable_name
+
+opt_in_rules: # some rules are only opt-in
+  - closure_spacing # 在闭包的{}中间要有一个空格，如map({ $0 })
+  - contains_over_first_not_nil # 类似first函数不能判断是否为nil
+  - discouraged_optional_boolean # 不建议使用可选布尔值
+  - empty_count # 建议使用isEmpty判断，而不是使用count==0判断
+  # - no_extension_access_modifier # 在extension扩展前面,不建议使用(fileprivate, public)等修饰符
+  - force_unwrapping # 强制解包/拆包
+  - generic_type_name # 泛型类型名称只能包含字母数字字符，以大写字母开头，长度介于1到20个字符之间
+  - overridden_super_call # 重写父类方法
+  - vertical_parameter_alignment_on_call # 当调用多个参数的函数时,如果参数多行显示,则应该垂直对齐
+  - let_var_whitespace # let和var语句应该用空白行与其他语句分开
+  - multiline_arguments # 调用函数和方法时, 其参数应该在同一行上，或者每行一个
+  - multiline_parameters # 声明函数和方法时, 其参数应该在同一行上，或者每行一个
+  - operator_usage_whitespace # 操作符两边应该有空格。比如 “+” “-” “？？”
+  - redundant_nil_coalescing # 使用可能为为nil的可选值时，建议使用: str ?? "", ??左右两侧要有一个空格
+  # - trailing_closure # 关于闭包中{}的使用, 推荐使用尾随闭包的语法
+  - unneeded_parentheses_in_closure_argument # 在定义或使用闭包时，闭包参数不建议使用括号()
+  - yoda_condition # 执行判断语句时, 变量名应该放在运算符的左边
+
+included: # paths to include during linting. `--path` is ignored if present.
+- Candy
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Candy/Resources/R.generated.swift
+  - Carthage
+  - Candy/Classes/Expand/ThirdParty
+  - Candy/Classes/Expand/Extension
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 300
+
+function_body_length:
+  - 200 # warning
+  - 300 # error
+
+function_parameter_count:
+  - 10 # warning
+  - 15 # error
+
+large_tuple:
+  - 6 # warning
+  - 12 # error
+
+# they can set both implicitly with an array
+type_body_length:
+  - 300 # warning
+  - 400 # error
+
+# or they can set both explicitly
+file_length:
+  warning: 1000
+  error: 2000
+
+cyclomatic_complexity:
+  - 15 # warning
+  - 30 # error
+
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 3 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: # excluded via string
+    - T
+    - E
+
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - vc
+    - id
+    - in
+    - kf
+    - x
+    - y

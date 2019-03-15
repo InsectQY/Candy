@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="UserProfileHeaderView" customModule="QYNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Tm-8V-fuC" customClass="ImageView" customModule="QYNews" customModuleProvider="target">
+                    <rect key="frame" x="20" y="10" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="4Dc-IG-hEW"/>
+                        <constraint firstAttribute="height" constant="80" id="ZEH-mh-e5g"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJq-cu-UR0">
+                    <rect key="frame" x="100" y="10" width="275" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKo-qN-4NC">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头条" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-Kv-3gk" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="24" width="69" height="16"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
+                                    <color key="textColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAM-gd-8By" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="69" height="20"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="gIY-Kv-3gk" secondAttribute="bottom" id="5ok-8G-vqi"/>
+                                <constraint firstItem="WAM-gd-8By" firstAttribute="top" secondItem="kKo-qN-4NC" secondAttribute="top" id="eUY-2A-ZTN"/>
+                                <constraint firstAttribute="trailing" secondItem="gIY-Kv-3gk" secondAttribute="trailing" id="glx-ku-SmU"/>
+                                <constraint firstAttribute="trailing" secondItem="WAM-gd-8By" secondAttribute="trailing" id="llQ-Dr-CmZ"/>
+                                <constraint firstItem="gIY-Kv-3gk" firstAttribute="leading" secondItem="kKo-qN-4NC" secondAttribute="leading" id="o8U-6k-yhk"/>
+                                <constraint firstItem="WAM-gd-8By" firstAttribute="leading" secondItem="kKo-qN-4NC" secondAttribute="leading" id="pvG-R1-DFb"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eV2-Mn-nq9">
+                            <rect key="frame" x="69" y="0.0" width="68.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4I-CE-IRa" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="24" width="68.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
+                                    <color key="textColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kn-ca-Umu" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="68.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="E4I-CE-IRa" secondAttribute="trailing" id="L0D-EH-Q22"/>
+                                <constraint firstItem="5Kn-ca-Umu" firstAttribute="leading" secondItem="eV2-Mn-nq9" secondAttribute="leading" id="S7T-5d-Nk4"/>
+                                <constraint firstItem="5Kn-ca-Umu" firstAttribute="top" secondItem="eV2-Mn-nq9" secondAttribute="top" id="ZGV-JD-l2l"/>
+                                <constraint firstAttribute="bottom" secondItem="E4I-CE-IRa" secondAttribute="bottom" id="hnc-2d-Ois"/>
+                                <constraint firstAttribute="trailing" secondItem="5Kn-ca-Umu" secondAttribute="trailing" id="lDz-wG-OCb"/>
+                                <constraint firstItem="E4I-CE-IRa" firstAttribute="leading" secondItem="eV2-Mn-nq9" secondAttribute="leading" id="z7I-hn-3ML"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Huv-68-Mus">
+                            <rect key="frame" x="137.5" y="0.0" width="69" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTc-qP-6UG" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="24" width="69" height="16"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
+                                    <color key="textColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ba-MX-vz4" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="69" height="20"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="RTc-qP-6UG" secondAttribute="trailing" id="85f-o5-039"/>
+                                <constraint firstAttribute="trailing" secondItem="1ba-MX-vz4" secondAttribute="trailing" id="Hbx-zE-alN"/>
+                                <constraint firstAttribute="bottom" secondItem="RTc-qP-6UG" secondAttribute="bottom" id="JHR-zb-iYv"/>
+                                <constraint firstItem="1ba-MX-vz4" firstAttribute="leading" secondItem="Huv-68-Mus" secondAttribute="leading" id="SJ7-uJ-uD1"/>
+                                <constraint firstItem="1ba-MX-vz4" firstAttribute="top" secondItem="Huv-68-Mus" secondAttribute="top" id="XDk-V4-qvj"/>
+                                <constraint firstItem="RTc-qP-6UG" firstAttribute="leading" secondItem="Huv-68-Mus" secondAttribute="leading" id="nkp-7v-qV5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IS-qg-q0b">
+                            <rect key="frame" x="206.5" y="0.0" width="68.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获赞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfB-iI-1n4" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="24" width="68.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
+                                    <color key="textColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-CT-MlJ" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="68.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="JfB-iI-1n4" secondAttribute="bottom" id="Cgm-As-FJK"/>
+                                <constraint firstItem="JfB-iI-1n4" firstAttribute="leading" secondItem="0IS-qg-q0b" secondAttribute="leading" id="GrG-ET-bIA"/>
+                                <constraint firstAttribute="trailing" secondItem="xoT-CT-MlJ" secondAttribute="trailing" id="JNF-mO-5rJ"/>
+                                <constraint firstItem="xoT-CT-MlJ" firstAttribute="top" secondItem="0IS-qg-q0b" secondAttribute="top" id="XH5-j7-Kpa"/>
+                                <constraint firstAttribute="trailing" secondItem="JfB-iI-1n4" secondAttribute="trailing" id="gu1-Mx-MsA"/>
+                                <constraint firstItem="xoT-CT-MlJ" firstAttribute="leading" secondItem="0IS-qg-q0b" secondAttribute="leading" id="pJ4-Uy-dJs"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="kKo-qN-4NC" firstAttribute="top" secondItem="xJq-cu-UR0" secondAttribute="top" id="6Rg-Fz-7zs"/>
+                        <constraint firstAttribute="bottom" secondItem="Huv-68-Mus" secondAttribute="bottom" id="CY1-LG-uBl"/>
+                        <constraint firstItem="kKo-qN-4NC" firstAttribute="leading" secondItem="xJq-cu-UR0" secondAttribute="leading" id="HiA-ic-dJn"/>
+                        <constraint firstItem="0IS-qg-q0b" firstAttribute="leading" secondItem="Huv-68-Mus" secondAttribute="trailing" id="KFA-xG-Ahu"/>
+                        <constraint firstItem="0IS-qg-q0b" firstAttribute="top" secondItem="xJq-cu-UR0" secondAttribute="top" id="L2E-bm-mMz"/>
+                        <constraint firstItem="eV2-Mn-nq9" firstAttribute="leading" secondItem="kKo-qN-4NC" secondAttribute="trailing" id="QUF-q8-Y90"/>
+                        <constraint firstItem="Huv-68-Mus" firstAttribute="width" secondItem="eV2-Mn-nq9" secondAttribute="width" id="YKV-Nx-VbJ"/>
+                        <constraint firstItem="kKo-qN-4NC" firstAttribute="width" secondItem="xJq-cu-UR0" secondAttribute="width" multiplier="0.25" id="ZXH-UD-d0D"/>
+                        <constraint firstAttribute="bottom" secondItem="0IS-qg-q0b" secondAttribute="bottom" id="cIA-r9-aj8"/>
+                        <constraint firstAttribute="bottom" secondItem="kKo-qN-4NC" secondAttribute="bottom" id="gje-R2-Ntv"/>
+                        <constraint firstItem="eV2-Mn-nq9" firstAttribute="top" secondItem="xJq-cu-UR0" secondAttribute="top" id="kWE-0g-KpK"/>
+                        <constraint firstItem="0IS-qg-q0b" firstAttribute="width" secondItem="Huv-68-Mus" secondAttribute="width" id="n2l-vN-I0J"/>
+                        <constraint firstItem="Huv-68-Mus" firstAttribute="leading" secondItem="eV2-Mn-nq9" secondAttribute="trailing" id="qDq-N0-2OV"/>
+                        <constraint firstAttribute="bottom" secondItem="eV2-Mn-nq9" secondAttribute="bottom" id="vbM-yG-KYK"/>
+                        <constraint firstItem="eV2-Mn-nq9" firstAttribute="width" secondItem="kKo-qN-4NC" secondAttribute="width" id="wJi-Rz-L89"/>
+                        <constraint firstItem="Huv-68-Mus" firstAttribute="top" secondItem="xJq-cu-UR0" secondAttribute="top" id="wfv-Yl-9rw"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="认证: xxxxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-We-FmB" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                    <rect key="frame" x="20" y="100" width="345" height="20"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置: xxxxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjj-OV-9k8" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                    <rect key="frame" x="20" y="125" width="345" height="20"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介: xxxxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-mX-f1z" customClass="Label" customModule="QYNews" customModuleProvider="target">
+                    <rect key="frame" x="20" y="150" width="345" height="20"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-BY-erR" userLabel="分割线">
+                    <rect key="frame" x="0.0" y="218" width="375" height="5"/>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="jlx-ha-d29"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Tm-8V-fuC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="0BW-6c-svl"/>
+                <constraint firstItem="ZlT-We-FmB" firstAttribute="leading" secondItem="2Tm-8V-fuC" secondAttribute="leading" id="AwL-kg-bHg"/>
+                <constraint firstAttribute="trailing" secondItem="JAQ-BY-erR" secondAttribute="trailing" id="J3b-ZH-Alt"/>
+                <constraint firstItem="fWL-mX-f1z" firstAttribute="trailing" secondItem="sjj-OV-9k8" secondAttribute="trailing" id="Mfw-Da-AZL"/>
+                <constraint firstItem="fWL-mX-f1z" firstAttribute="leading" secondItem="sjj-OV-9k8" secondAttribute="leading" id="Oex-zl-c7N"/>
+                <constraint firstItem="fWL-mX-f1z" firstAttribute="top" secondItem="sjj-OV-9k8" secondAttribute="bottom" constant="5" id="Rn1-UO-Nos"/>
+                <constraint firstAttribute="trailing" secondItem="xJq-cu-UR0" secondAttribute="trailing" id="SbE-GG-JXp"/>
+                <constraint firstItem="sjj-OV-9k8" firstAttribute="leading" secondItem="ZlT-We-FmB" secondAttribute="leading" id="X2B-Oj-lRw"/>
+                <constraint firstItem="xJq-cu-UR0" firstAttribute="top" secondItem="2Tm-8V-fuC" secondAttribute="top" id="XD1-Jy-qbq"/>
+                <constraint firstItem="sjj-OV-9k8" firstAttribute="trailing" secondItem="ZlT-We-FmB" secondAttribute="trailing" id="Yu0-WZ-hF9"/>
+                <constraint firstItem="ZlT-We-FmB" firstAttribute="top" secondItem="2Tm-8V-fuC" secondAttribute="bottom" constant="10" id="aOU-oX-aKu"/>
+                <constraint firstItem="JAQ-BY-erR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="afU-HN-WjP"/>
+                <constraint firstItem="xJq-cu-UR0" firstAttribute="height" secondItem="2Tm-8V-fuC" secondAttribute="height" multiplier="0.5" id="co5-vf-hHT"/>
+                <constraint firstItem="xJq-cu-UR0" firstAttribute="leading" secondItem="2Tm-8V-fuC" secondAttribute="trailing" id="jsg-fu-iXC"/>
+                <constraint firstItem="sjj-OV-9k8" firstAttribute="top" secondItem="ZlT-We-FmB" secondAttribute="bottom" constant="5" id="k63-6b-l0q"/>
+                <constraint firstAttribute="trailing" secondItem="ZlT-We-FmB" secondAttribute="trailing" constant="10" id="o5U-jU-YWT"/>
+                <constraint firstAttribute="bottom" secondItem="JAQ-BY-erR" secondAttribute="bottom" id="pes-ru-d9d"/>
+                <constraint firstItem="2Tm-8V-fuC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="qKe-Tb-kGq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatarImage" destination="2Tm-8V-fuC" id="SRI-k0-MSx"/>
+                <outlet property="diggCountLabel" destination="xoT-CT-MlJ" id="ydJ-8p-9No"/>
+                <outlet property="followersCountLabel" destination="1ba-MX-vz4" id="bJ4-Vk-qwb"/>
+                <outlet property="followingCountLabel" destination="5Kn-ca-Umu" id="j8j-T3-sbA"/>
+                <outlet property="publishCountLabel" destination="WAM-gd-8By" id="1G0-5E-mdU"/>
+            </connections>
+            <point key="canvasLocation" x="168.80000000000001" y="-471.8140929535233"/>
+        </view>
+    </objects>
+</document>
