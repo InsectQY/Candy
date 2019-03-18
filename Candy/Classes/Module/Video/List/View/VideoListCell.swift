@@ -34,13 +34,13 @@ class VideoListCell: TableViewCell, NibReusable {
             titleLabel.text = item.title
 
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
-            avatarBtn.qy_setImage(item.user_info.avatar_url, placeholder: "avatar", options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarBtn.qy_setImage(item.user_info.avatar_url, placeholder: "avatar", options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize), KfOptions.fadeTransition(imageTransitionTime)])
             nameLabel.text = item.user_info.name
             commentBtn.setTitle(" \(item.commentCountString)", for: .normal)
             timeLabel.text = item.videoDurationString
             playCountLabel.text = "\(item.video_detail_info.videoWatchCountString)次播放"
             largeImage
-            .qy_setImage(item.video_detail_info.detail_video_large_image.url)
+            .qy_setImage(item.video_detail_info.detail_video_large_image.url, options: [KfOptions.fadeTransition(imageTransitionTime)])
         }
     }
 }

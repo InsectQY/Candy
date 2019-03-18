@@ -12,6 +12,9 @@ import UIKit
 public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
 public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 
+/// 网络加载图片动画时长
+public let imageTransitionTime: TimeInterval = 1.0
+
 /// 主机地址
 public let TouTiaoHostIP = "https://is.snssdk.com"
 

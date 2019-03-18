@@ -18,7 +18,7 @@ class RoleCell: CollectionViewCell, NibReusable {
 
             nameLabel.text = item?.name
             profileImage
-            .qy_setImage(item?.profile_photo_list.first?.url, placeholder: "avatar", options: [KfWebPOptions.webp(), KfWebPOptions.webpCache()])
+            .qy_setImage(item?.profile_photo_list.first?.url, placeholder: "avatar", options: [KfWebPOptions.webp(), KfWebPOptions.webpCache(), KfOptions.fadeTransition(imageTransitionTime)])
         }
     }
 }

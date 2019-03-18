@@ -10,6 +10,7 @@ import UIKit
 
 class VideoHallListCell: CollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlet
     @IBOutlet private weak var largeImage: ImageView!
     @IBOutlet private weak var scoreLabel: Label!
     @IBOutlet private weak var titleLabel: Label!
@@ -17,14 +18,14 @@ class VideoHallListCell: CollectionViewCell, NibReusable {
     public var item: VideoHallList? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item = item, let firstImage = item.album.cover_list.first else { return }
             titleLabel.text = item.album.title
-            guard let firstImage = item.album.cover_list.first else { return }
+            let options = [KfWebPOptions.webp(), KfWebPOptions.webpCache(), KfOptions.fadeTransition(imageTransitionTime)]
             // 优先显示长图做封面
             if firstImage.height > firstImage.width {
-                largeImage.qy_setImage(firstImage.url, options: [KfWebPOptions.webp(), KfWebPOptions.webpCache()])
+                largeImage.qy_setImage(firstImage.url, options: options)
             } else {
-                largeImage.qy_setImage(item.album.cover_list[1].url, options: [KfWebPOptions.webp(), KfWebPOptions.webpCache()])
+                largeImage.qy_setImage(item.album.cover_list[1].url, options: options)
             }
 
             if !item.album.bottom_label.isEmpty { // 优先显示多少集

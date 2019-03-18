@@ -2320,7 +2320,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/Candy/Resources/R.generated.swift,
+				"$SRCROOT/Candy/Resources/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
