@@ -15,7 +15,7 @@ class VideoHallSearchViewController: PYSearchViewController {
     convenience init(_ placeHoder: String) {
 
         self.init(hotSearches: nil, searchBarPlaceholder: placeHoder)
-
+        self.cancelButton.setTitleColor(.white, for: .normal)
         self.hotSearches = ["无间道", "放牛班的春天", "英雄本色", "大鱼", "血战钢锯岭", "九品芝麻官", "士兵突击", "大宋提刑官", "罗马假日", "我的团长我的团"]
         self.delegate = self
         self.hotSearchStyle = .arcBorderTag
