@@ -16,14 +16,11 @@ class TabBarController: UITabBarController {
 
         seUpTabBarAttr()
 
-        guard let jsonPath = Bundle.main.path(forResource: "MainVCSettings.json", ofType: nil) else {
-
-            print("没有获取到对应的文件路径")
+        guard let jsonPath = R.file.mainVCSettingsJson()?.path else {
             return
         }
 
         guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)) else {
-            print("没有获取到json文件中数据")
             return
         }
 
@@ -82,17 +79,12 @@ extension TabBarController {
     private func getVcFromString(_ vcName: String) -> UIViewController {
 
         guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
-
-            print("没有获取到命名空间")
             return UIViewController()
         }
         guard let childVcClass = NSClassFromString(nameSpace + "." + vcName) else {
-
-            print("没有获取到字符串对应的Class")
             return UIViewController()
         }
         guard let childVcType = childVcClass as? UIViewController.Type else {
-            print("没有获取对应控制器的类型")
             return UIViewController()
         }
 

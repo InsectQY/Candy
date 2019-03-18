@@ -27,7 +27,7 @@ extension UserCenterViewModel: ViewModelable {
     func transform(input: UserCenterViewModel.Input) -> UserCenterViewModel.Output {
 
         // 用户中心tableView数据
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "user_center", withExtension: "plist")!)
+        let data = try! Data(contentsOf: R.file.user_centerPlist()!)
         var dataSource = try! PropertyListDecoder().decode([UserCenterModel].self, from: data)
         dataSource.removeLast()
         dataSource.removeLast()

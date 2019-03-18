@@ -22,11 +22,11 @@ struct EmojiManager {
     init() {
 
         // 获取 emoji_sort.plist 的路径
-        let arrayPath = Bundle.main.path(forResource: "emoji_sort", ofType: "plist")
+        let arrayPath = R.file.emoji_sortPlist()?.path
         // 根据 plist 文件 读取数据
         let emojiSorts = NSArray(contentsOfFile: arrayPath!) as! [String]
         // 获取 emoji_mapping.plist 的路径
-        let mappingPath = Bundle.main.path(forResource: "emoji_mapping", ofType: "plist")
+        let mappingPath = R.file.emoji_mappingPlist()?.path
         // 根据 plist 文件 读取数据
         let emojiMapping = NSDictionary(contentsOfFile: mappingPath!) as! [String: String]
         // 临时数组
