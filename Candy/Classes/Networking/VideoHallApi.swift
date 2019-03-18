@@ -91,6 +91,9 @@ extension VideoHallApi: TargetType {
             parameters["m_tab"] = "long_video"
             parameters["format"] = "json"
             parameters["channel"] = "local_test"
+            parameters["count"] = 50
+            parameters["cur_tab"] = 2
+            parameters["en_qc"] = 1
         case let .parseVideoHall(videoID, token, _):
 
             parameters["action"] = "GetPlayInfo"

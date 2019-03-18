@@ -14,6 +14,15 @@ class UGCVideoActivityListViewController: TableViewController {
     // MARK: - Lazyload
     private let viewModel = UGCVideoActivityViewModel()
 
+    // MARK: - Init
+    override init(style: UITableView.Style) {
+        super.init(style: style)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

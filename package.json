@@ -1,0 +1,24 @@
+{
+  "name": "Candy",
+  "version": "1.0.0",
+  "description": "Video iOS client written in RxSwift and MVVM clean architecture",
+  "main": "index.js",
+  "dependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InsectQY/Candy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InsectQY/Candy/issues"
+  },
+  "homepage": "https://github.com/InsectQY/Candy#readme"
+}

@@ -21,9 +21,13 @@ class VideoHallSearchResultViewController: TableViewController {
     }
 
     // MARK: - convenience
-    convenience init(keyword: String) {
-        self.init()
+    init(keyword: String) {
         self.keyword = keyword
+        super.init(style: .plain)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func makeUI() {
