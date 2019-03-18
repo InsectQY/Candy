@@ -10,7 +10,7 @@
 
 @implementation NSData (CRC32)
 
--(int32_t)crc_32 {
+- (int32_t)crc_32 {
     uint32_t *table = malloc(sizeof(uint32_t) * 256);
     uint32_t crc = 0xffffffff;
     uint8_t *bytes = (uint8_t *)[self bytes];
@@ -34,7 +34,7 @@
     return crc;
 }
 
--(uLong)getCRC32 {
+- (uLong)getCRC32 {
     uLong crc = crc32(0L, Z_NULL, 0);
     crc = crc32(crc, self.bytes, (uint)self.length);
     return crc;
