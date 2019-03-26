@@ -69,7 +69,7 @@ PODS:
   - QMUIKit/QMUILog (2.9.3)
   - QMUIKit/QMUIResources (2.9.3)
   - QMUIKit/QMUIWeakObjectContainer (2.9.3)
-  - R.swift (5.0.2):
+  - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
   - Result (4.1.0)
@@ -119,11 +119,11 @@ PODS:
   - SwiftyThirdParty/Toast (0.1.0):
     - QMUIKit/QMUIComponents/QMUITips
   - URLNavigator (2.1.0)
-  - ZFPlayer/AVPlayer (3.2.6):
+  - ZFPlayer/AVPlayer (3.2.7):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.6):
+  - ZFPlayer/ControlView (3.2.7):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.6)
+  - ZFPlayer/Core (3.2.7)
 
 DEPENDENCIES:
   - CleanJSON
@@ -214,7 +214,7 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   QMUIKit: 5b8f0a3ab60e42af1310bd40a6fe1b54d612d15c
-  R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
@@ -229,7 +229,7 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyThirdParty: d85f5462a201da40642ff41746cf8b4241c36bd7
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
-  ZFPlayer: 66c58fe815b21e309d11f8c03114e9028a2212f4
+  ZFPlayer: 0e68a0ac28dbd8587418cc573e826305e1f5bb38
 
 PODFILE CHECKSUM: a839d395bfdffa7c0ec2850a1a2657d4e25b50e1
 

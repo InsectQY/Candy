@@ -22,7 +22,7 @@ class RichLabel: UILabel {
             // 把文本设置为可变的
             let attributedString = NSMutableAttributedString(attributedString: attributedText!)
             // 添加属性
-            attributedString.addAttribute(.font, value: font, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(.font, value: font ?? UIFont.systemFont(ofSize: 14), range: NSRange(location: 0, length: attributedString.length))
             // 设置 textStorage 的文本内容
             textStorage.setAttributedString(attributedString)
             // 匹配用户名 

@@ -12,7 +12,7 @@ import CleanJSON
 
 public extension Response {
 
-    public func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder(), failsOnEmptyData: Bool = true) throws -> T {
+    func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder(), failsOnEmptyData: Bool = true) throws -> T {
 
         do {
             return try map(type, atKeyPath: path, using: decoder, failsOnEmptyData: failsOnEmptyData)
@@ -21,7 +21,7 @@ public extension Response {
         }
     }
 
-    public func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) throws -> T {
+    func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) throws -> T {
 
         let response = try mapObject(Model<T>.self, atKeyPath: nil, using: decoder)
         return response.data

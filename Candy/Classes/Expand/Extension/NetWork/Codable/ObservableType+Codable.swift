@@ -12,7 +12,7 @@ import CleanJSON
 
 public extension ObservableType where E == Response {
 
-    public func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder()) -> Observable<T> {
+    func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder()) -> Observable<T> {
 
         return map {
 
@@ -23,7 +23,7 @@ public extension ObservableType where E == Response {
         }
     }
 
-    public func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) -> Observable<T> {
+    func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) -> Observable<T> {
 
         return map {
 

@@ -12,7 +12,7 @@ import CleanJSON
 
 public extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
 
-    public func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
+    func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
         return map {
 
             guard let response = try? $0.mapObject(type, atKeyPath: path, using: decoder, failsOnEmptyData: true) else {
@@ -22,7 +22,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
         }
     }
 
-    public func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
+    func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
 
         return map {
 
