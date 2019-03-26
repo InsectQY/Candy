@@ -1,8 +1,7 @@
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/InsectQY/QYSpecs.git'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'Candy' do
   
@@ -10,9 +9,8 @@ target 'Candy' do
 use_frameworks!
 inhibit_all_warnings!
 
-pod 'SwiftyThirdParty' # https://github.com/InsectQY/SwiftyThirdParty
-
-pod 'QMUIKit/QMUIComponents/QMUIButton'
+# Privacy
+pod 'SwiftyThirdParty', :git => 'https://github.com/InsectQY/SwiftyThirdParty.git' # https://github.com/InsectQY/SwiftyThirdParty
 
  # OC
  pod 'FDFullscreenPopGesture' # https://github.com/forkingdog/FDFullscreenPopGesture
@@ -25,10 +23,13 @@ pod 'ZFPlayer/ControlView'
 pod 'DZNEmptyDataSet' # https://github.com/dzenbot/DZNEmptyDataSet
 # Search
 pod 'PYSearch' # https://github.com/ko1o/PYSearch
+# QMUI
+pod 'QMUIKit/QMUIComponents/QMUIButton'
 
  # Swift
  
 # RxSwift
+pod 'RxNetwork' # https://github.com/Pircate/RxNetwork
 pod 'RxNetwork/Cache' # https://github.com/Pircate/RxNetwork
 pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources

@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
   - Cache (5.2.0)
-  - CleanJSON (0.6.4)
+  - CleanJSON (0.7.0)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - DZNEmptyDataSet (1.8.1)
@@ -52,23 +52,26 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
   - PYSearch (0.9.1)
-  - QMUIKit/QMUIComponents/QMUIButton (2.9.3):
+  - QMUIKit/QMUIComponents/QMUIButton (3.1.2):
     - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUIKeyboardManager (2.9.3):
+  - QMUIKit/QMUIComponents/QMUIKeyboardManager (3.1.2):
     - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUITips (2.9.3):
+  - QMUIKit/QMUIComponents/QMUITips (3.1.2):
     - QMUIKit/QMUIComponents/QMUIToastView
     - QMUIKit/QMUICore
     - QMUIKit/QMUIResources
-  - QMUIKit/QMUIComponents/QMUIToastView (2.9.3):
+  - QMUIKit/QMUIComponents/QMUIToastView (3.1.2):
     - QMUIKit/QMUIComponents/QMUIKeyboardManager
+    - QMUIKit/QMUIComponents/QMUIVisualEffectView
     - QMUIKit/QMUICore
-  - QMUIKit/QMUICore (2.9.3):
+  - QMUIKit/QMUIComponents/QMUIVisualEffectView (3.1.2):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUICore (3.1.2):
     - QMUIKit/QMUILog
     - QMUIKit/QMUIWeakObjectContainer
-  - QMUIKit/QMUILog (2.9.3)
-  - QMUIKit/QMUIResources (2.9.3)
-  - QMUIKit/QMUIWeakObjectContainer (2.9.3)
+  - QMUIKit/QMUILog (3.1.2)
+  - QMUIKit/QMUIResources (3.1.2)
+  - QMUIKit/QMUIWeakObjectContainer (3.1.2)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
@@ -86,10 +89,14 @@ PODS:
   - RxMJ (0.4.0):
     - MJRefresh (~> 3.1.15.7)
     - RxCocoa (~> 4.3.0)
-  - RxNetwork/Cache (0.8.6):
+  - RxNetwork (0.9.3):
+    - RxNetwork/Core (= 0.9.3)
+  - RxNetwork/Cache (0.9.3):
     - Cache
+    - RxNetwork/Cacheable
+  - RxNetwork/Cacheable (0.9.3):
     - RxNetwork/Core
-  - RxNetwork/Core (0.8.6):
+  - RxNetwork/Core (0.9.3):
     - Moya/RxSwift
   - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
@@ -143,11 +150,12 @@ DEPENDENCIES:
   - RxActivityIndicator
   - RxDataSources
   - RxMJ
+  - RxNetwork
   - RxNetwork/Cache
   - RxOptional
   - RxURLNavigator
   - SwiftLint
-  - SwiftyThirdParty
+  - SwiftyThirdParty (from `https://github.com/InsectQY/SwiftyThirdParty.git`)
   - ZFPlayer/AVPlayer
   - ZFPlayer/ControlView
 
@@ -155,6 +163,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Cache
+    - CleanJSON
     - DefaultsKit
     - Differentiator
     - DZNEmptyDataSet
@@ -181,21 +190,27 @@ SPEC REPOS:
     - RxCocoa
     - RxDataSources
     - RxMJ
+    - RxNetwork
     - RxOptional
     - RxSwift
     - RxURLNavigator
     - SwiftLint
     - URLNavigator
     - ZFPlayer
-  https://github.com/InsectQY/QYSpecs.git:
-    - CleanJSON
-    - RxNetwork
-    - SwiftyThirdParty
+
+EXTERNAL SOURCES:
+  SwiftyThirdParty:
+    :git: https://github.com/InsectQY/SwiftyThirdParty.git
+
+CHECKOUT OPTIONS:
+  SwiftyThirdParty:
+    :commit: 1534d5295fcb63d9f22cba0495a8f73df894d0c5
+    :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: d5fc5381254047dea40cf7b1046b3bc78ef415be
+  CleanJSON: 620c72006fcecb1d19706b7b5aadfdf12bdb2fe3
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -213,7 +228,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  QMUIKit: 5b8f0a3ab60e42af1310bd40a6fe1b54d612d15c
+  QMUIKit: 765333b31bb25a973f2ea11e0a67fca727ef29a7
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -222,15 +237,15 @@ SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxMJ: c41277d217b151e18573c12f73612de3a4ce63a5
-  RxNetwork: 1a2cfb61ddc5aa5c85e3a2944523b56940641716
+  RxNetwork: b3bd1a6554cd3989945d57180b6ae2182d27e7e6
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
-  SwiftyThirdParty: d85f5462a201da40642ff41746cf8b4241c36bd7
+  SwiftyThirdParty: b822416143c8649cf5be195d7cea6a9f8dd1295e
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
   ZFPlayer: 0e68a0ac28dbd8587418cc573e826305e1f5bb38
 
-PODFILE CHECKSUM: a839d395bfdffa7c0ec2850a1a2657d4e25b50e1
+PODFILE CHECKSUM: d5fb2ba1c8cbd49e1658fb8a209c7233969cc9b2
 
 COCOAPODS: 1.6.1
