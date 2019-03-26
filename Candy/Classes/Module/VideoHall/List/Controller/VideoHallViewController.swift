@@ -72,7 +72,8 @@ class VideoHallViewController: CollectionViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = VideoHallViewModel.Input(searchTap: titleView.beginEdit.asObserver(),
+        let input = VideoHallViewModel.Input(noConnectTap: noConnectionViewTap,
+                                             searchTap: titleView.beginEdit.asObserver(),
                                              footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver(),
                                              selection: collectionView.rx.modelSelected(VideoHallList.self))
         let output = viewModel.transform(input: input)
@@ -98,7 +99,12 @@ class VideoHallViewController: CollectionViewController {
         .drive(collectionView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
 
-        // 数据源
+        // 视频分类
+        output.categories
+        .drive(filterView.rx.categories)
+        .disposed(by: rx.disposeBag)
+
+        // 某个分类下的数据
         output.items.drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
             cell.item = item
         }.disposed(by: rx.disposeBag)
@@ -108,16 +114,14 @@ class VideoHallViewController: CollectionViewController {
         .bind(to: rx.filterTap)
         .disposed(by: rx.disposeBag)
 
-        collectionView.emptyDataSetSource = self
-        collectionView.emptyDataSetDelegate = self
+        setUpEmptyDataSet()
     }
 }
 
 // MARK: - FilterViewProtocol
 extension VideoHallViewController: FilterViewProtocol {
 
-    func filterView(_ filterView: FilterView, row: Int, item: Int) {
-
+    func filterView(_ filterView: FilterView, didSelectAt row: Int, item: Int) {
         if filterView == self.filterView {
             animateFilterView.selItem(row: row, item: item)
         } else {
@@ -125,7 +129,7 @@ extension VideoHallViewController: FilterViewProtocol {
         }
     }
 
-    func key(_ key: String) {
+    func searchKey(_ key: String) {
         viewModel.searchKey.onNext(key)
     }
 }

@@ -10,19 +10,31 @@ import UIKit
 import NVActivityIndicatorView
 import DZNEmptyDataSet
 import JXCategoryView
+import RxReachability
+import Reachability
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
 
     /// 是否正在加载
     let isLoading = BehaviorRelay(value: false)
-    /// 数据源 nil 时点击了 Button
-    let emptyDataSetButtonTap = PublishSubject<Void>()
+    /// 当前连接的网络类型
+    let reachabilityConnection = BehaviorRelay(value: Reachability.Connection.none)
+    /// 数据源 nil 时点击了 view
+    let emptyDataSetViewTap = PublishSubject<Void>()
     /// 数据源 nil 时显示的标题
     var emptyDataSetTitle: String = ""
     /// 数据源 nil 时显示的描述
     var emptyDataSetDescription: String = ""
     /// 数据源 nil 时显示的图片
     var emptyDataSetImage = R.image.hg_defaultError()
+    /// 没有网络时显示的图片
+    var noConnectionImage = R.image.hg_defaultNo_connection()
+    /// 没有网络时显示的标题
+    var noConnectionTitle: String = R.string.localizable.appNetNoConnectionTitle()
+    /// 没有网络时显示的描述
+    var noConnectionDescription: String = R.string.localizable.appNetNoConnectionDesc()
+    /// 没有网络时点击了 view
+    var noConnectionViewTap = PublishSubject<Void>()
     /// 数据源 nil 时是否可用滚动
     var emptyDataSetShouldAllowScroll: Bool = true
 
@@ -65,6 +77,10 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
     func bindViewModel() {
 
+        Reachability.rx.reachabilityChanged
+        .map { $0.connection }
+        .bind(to: reachabilityConnection)
+        .disposed(by: rx.disposeBag)
     }
 }
 
@@ -72,15 +88,43 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 extension ViewController: DZNEmptyDataSetSource {
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: emptyDataSetTitle)
+
+        var title = ""
+        switch reachabilityConnection.value {
+        case .none:
+            title = noConnectionTitle
+        case .cellular:
+            title = emptyDataSetTitle
+        case .wifi:
+            title = emptyDataSetTitle
+        }
+        return NSAttributedString(string: title)
     }
 
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: emptyDataSetDescription)
+
+        var description = ""
+        switch reachabilityConnection.value {
+        case .none:
+            description = noConnectionDescription
+        case .cellular:
+            description = emptyDataSetDescription
+        case .wifi:
+            description = emptyDataSetDescription
+        }
+        return NSAttributedString(string: description)
     }
 
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return emptyDataSetImage
+
+        switch reachabilityConnection.value {
+        case .none:
+            return noConnectionImage
+        case .cellular:
+            return emptyDataSetImage
+        case .wifi:
+            return emptyDataSetImage
+        }
     }
 
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
@@ -95,8 +139,16 @@ extension ViewController: DZNEmptyDataSetDelegate {
         return !isLoading.value
     }
 
-    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        emptyDataSetButtonTap.onNext(())
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
+
+        switch reachabilityConnection.value {
+        case .none:
+            noConnectionViewTap.onNext(())
+        case .cellular:
+            emptyDataSetViewTap.onNext(())
+        case .wifi:
+            emptyDataSetViewTap.onNext(())
+        }
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {

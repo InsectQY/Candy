@@ -84,7 +84,9 @@ extension VideoHallDetailViewModel: ViewModelable {
         .drive(videoPlayInfo)
         .disposed(by: disposeBag)
 
-        let output = Output(episodes: info.map { $0.block_list[1].cells }, items: elements.asDriver(), videoPlayInfo: videoPlayInfo.asDriver())
+        let output = Output(episodes: info.map { $0.block_list[1].cells },
+                            items: elements.asDriver(),
+                            videoPlayInfo: videoPlayInfo.asDriver())
         return output
     }
 }

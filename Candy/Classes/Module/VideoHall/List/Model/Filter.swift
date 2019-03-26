@@ -8,22 +8,22 @@
 
 import UIKit
 
-struct BaseCategory: Codable {
+public struct BaseCategory: Codable {
     let search_category_info: CategoryInfo
 }
 
-struct CategoryInfo: Codable {
+public struct CategoryInfo: Codable {
 
     let search_category_list: [CategoryList]
 }
 
-struct CategoryList: Codable {
+public struct CategoryList: Codable {
 
     let name: String
     let search_category_word_list: [Filter]
 }
 
-struct Filter: Codable {
+public struct Filter: Codable {
 
     let name: String
     let search_key: String

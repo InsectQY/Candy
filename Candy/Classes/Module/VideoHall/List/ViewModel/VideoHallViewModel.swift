@@ -13,6 +13,7 @@ final class VideoHallViewModel: ViewModel {
 
     struct Input {
 
+        let noConnectTap: Observable<Void>
         let searchTap: Observable<Void>
         let footerRefresh: Driver<Void>
         let selection: ControlEvent<VideoHallList>
@@ -22,6 +23,9 @@ final class VideoHallViewModel: ViewModel {
 
         /// 尾部刷新状态
         let endFooterRefresh: Driver<RxMJRefreshFooterState>
+        /// 视频分类
+        let categories: Driver<[CategoryList]>
+        /// 该分类下的视频
         let items: Driver<[VideoHallList]>
     }
 
@@ -32,31 +36,46 @@ extension VideoHallViewModel: ViewModelable {
 
     func transform(input: VideoHallViewModel.Input) -> VideoHallViewModel.Output {
 
-        let elements = BehaviorRelay<[VideoHallList]>(value: [])
-        // 头部刷新状态
-        let headerState = BehaviorRelay<Bool>(value: true)
+        /// 视频分类
+        let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
+        /// 某个分类下的所有视频
+        let videoElements = BehaviorRelay<[VideoHallList]>(value: [])
+
+        // 获取视频分类
+        requestCategory()
+        .drive(categoryElements)
+        .disposed(by: disposeBag)
+
+        // 没有网络点击
+        input.noConnectTap
+        .asDriverOnErrorJustComplete()
+        .flatMap { [unowned self] in
+            self.requestCategory()
+        }
+        .drive(categoryElements)
+        .disposed(by: disposeBag)
 
         let search = searchKey.asDriverOnErrorJustComplete()
         .distinctUntilChanged()
         .flatMapLatest { [unowned self] in
-            self.request(offset: 0, searchKey: $0)
+            self.requestVideo(offset: 0, searchKey: $0)
         }
 
-        let morePara = Driver.combineLatest(elements.asDriver(), searchKey.asDriverOnErrorJustComplete()) { (offset: $0.count, searchKey: $1) }
+        let moreParameters = Driver.combineLatest(videoElements.asDriver(), searchKey.asDriverOnErrorJustComplete()) { (offset: $0.count, searchKey: $1) }
 
         // 加载更多视频
-        let footer = input.footerRefresh.withLatestFrom(morePara)
+        let footer = input.footerRefresh.withLatestFrom(moreParameters)
         .flatMapLatest { [unowned self] in
-            self.request(offset: $0.offset, searchKey: $0.searchKey)
+            self.requestVideo(offset: $0.offset, searchKey: $0.searchKey)
         }
 
         // 绑定数据源
-        footer.map { elements.value + $0.cell_list }
-        .drive(elements)
+        footer.map { videoElements.value + $0.cell_list }
+        .drive(videoElements)
         .disposed(by: disposeBag)
 
         search.map { $0.cell_list }
-        .drive(elements)
+        .drive(videoElements)
         .disposed(by: disposeBag)
 
         // collectionView 点击
@@ -71,28 +90,32 @@ extension VideoHallViewModel: ViewModelable {
         .subscribe { _ in }
         .disposed(by: disposeBag)
 
-        // 有新的筛选值时头部变成刷新状态
-        search.map { _ in true }
-        .drive(headerState)
-        .disposed(by: disposeBag)
-
-        // 刷新结束
-        search.map { _ in false }
-        .drive(headerState)
-        .disposed(by: disposeBag)
-
         // 尾部刷新状态
         let endFooter = Driver.merge(search.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty) }).startWith(.hidden)
 
-        let output = Output(endFooterRefresh: endFooter, items: elements.asDriver())
+        let output = Output(endFooterRefresh: endFooter,
+                            categories: categoryElements.asDriver(),
+                            items: videoElements.asDriver())
         return output
     }
 }
 
 extension VideoHallViewModel {
 
-    /// 加载放映厅数据
-    func request(offset: Int, searchKey: String) -> Driver<VideoHallModel> {
+    /// 视频种类
+    func requestCategory() -> Driver<[CategoryList]> {
+
+        return VideoHallApi.category
+        .request()
+        .trackActivity(loading)
+        .trackError(error)
+        .mapObject(CategoryInfo.self, atKeyPath: "search_category_info")
+        .map { $0.search_category_list }
+        .asDriver(onErrorJustReturn: [])
+    }
+
+    /// 某个分类下的视频
+    func requestVideo(offset: Int, searchKey: String) -> Driver<VideoHallModel> {
 
         return VideoHallApi.list(offset, searchKey)
         .request()

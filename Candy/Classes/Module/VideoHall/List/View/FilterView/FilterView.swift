@@ -8,29 +8,29 @@
 
 import UIKit
 
-protocol FilterViewProtocol: class {
+public protocol FilterViewProtocol: class {
 
-    func key(_ key: String)
+    func searchKey(_ key: String)
 
-    func filterView(_ filterView: FilterView, row: Int, item: Int)
+    func filterView(_ filterView: FilterView, didSelectAt row: Int, item: Int)
 }
 
-class FilterView: UIView {
+public class FilterView: UIView {
 
     static let height: CGFloat = FilterCell.cellHeight * 3 + 20
 
-    weak var delegate: FilterViewProtocol?
+    public weak var delegate: FilterViewProtocol?
 
     /// 已经选择的筛选数据
     private var selItems: [Filter] = [] {
         didSet {
             let key = selItems.map { $0.search_key }.joined(separator: ",")
-            delegate?.key(key)
+            delegate?.searchKey(key)
         }
     }
 
     /// 所有筛选数据
-    fileprivate var filter: [CategoryList] = [] {
+    public var filter: [CategoryList] = [] {
         didSet {
             tableView.reloadData()
             // 默认选中每组第一个
@@ -60,63 +60,35 @@ class FilterView: UIView {
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         addSubview(tableView)
-        loadFilterData()
     }
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         tableView.frame = bounds
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension FilterView {
-
-    // MARK: - 加载数据
-    private func loadFilterData() {
-
-        VideoHallApi.category
-        .cache
-        .request()
-        .catchErrorJustComplete()
-        .mapObject(CategoryInfo.self, atKeyPath: "search_category_info")
-        .map { $0.search_category_list }
-        .bind(to: rx.categorys)
-        .disposed(by: rx.disposeBag)
+        super.init(coder: aDecoder)
+        addSubview(tableView)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension FilterView: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filter.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FilterCell.self)
         cell.filter = filter[indexPath.row].search_category_word_list
         cell.filterClick = { [unowned self] in
             self.selItems[indexPath.row] = self.filter[indexPath.row].search_category_word_list[$0]
-            self.delegate?.filterView(self, row: indexPath.row, item: $0)
+            self.delegate?.filterView(self, didSelectAt: indexPath.row, item: $0)
         }
         return cell
-    }
-}
-
-// MARK: - Reactive-extension
-extension Reactive where Base: FilterView {
-
-    var categorys: Binder<[CategoryList]> {
-
-        return Binder(base) { view, result in
-            view.filter = result
-        }
     }
 }

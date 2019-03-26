@@ -13,6 +13,7 @@
 		187677662229220F00A6D37A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187677652229220F00A6D37A /* ScrollView.swift */; };
 		1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876776722292EB200A6D37A /* CollectionReusableView.swift */; };
 		187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187833CD221D4B75006C9008 /* ParameterManger.swift */; };
+		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
 		A21FD6D8B5F4911E5D28EA6D /* Pods_Candy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D202C60E36130A02867CE8F1 /* Pods_Candy.framework */; };
 		E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */; };
@@ -233,6 +234,7 @@
 		187677652229220F00A6D37A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		1876776722292EB200A6D37A /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		187833CD221D4B75006C9008 /* ParameterManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterManger.swift; sourceTree = "<group>"; };
+		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		2AA2BC21875647FAD19C286F /* Pods-Candy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.debug.xcconfig"; sourceTree = "<group>"; };
 		3788FE6E54E0955E6A992E3F /* Pods-Candy.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 			children = (
 				E578100F21C8DE70005BFFAC /* FilterView.swift */,
 				E578100E21C8DE70005BFFAC /* FilterCell.swift */,
+				18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -2204,6 +2207,7 @@
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxActivityIndicator/RxActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
@@ -2212,6 +2216,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxMJ/RxMJ.framework",
 				"${BUILT_PRODUCTS_DIR}/RxNetwork/RxNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxReachability/RxReachability.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxURLNavigator/RxURLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyThirdParty/SwiftyThirdParty.framework",
@@ -2244,6 +2249,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
@@ -2252,6 +2258,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxMJ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxURLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyThirdParty.framework",
@@ -2386,6 +2393,7 @@
 				E5E5713221CB28A7005C2D6E /* VideoHallDetailViewModel.swift in Sources */,
 				E59112F721B655EA00436D08 /* VideoPageViewController.swift in Sources */,
 				E5E0202F21B4FE7B00A4CDF1 /* AppEnum.swift in Sources */,
+				18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */,
 				E5E1933121E88C25002CBAE8 /* HistoryManager.swift in Sources */,
 				E5E9B1EF21D4973F00B08281 /* TableView.swift in Sources */,
 				E5E3240621DC5312002DC676 /* RichLabel.swift in Sources */,

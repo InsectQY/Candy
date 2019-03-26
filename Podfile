@@ -37,6 +37,7 @@ pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
 pod 'RxOptional' # https://github.com/RxSwiftCommunity/RxOptional
 pod 'RxMJ' # https://github.com/srv7/RxMJ
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
+pod 'RxReachability'
 
 # Codable
 pod 'CleanJSON' # https://github.com/Pircate/CleanJSON

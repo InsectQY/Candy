@@ -19,8 +19,8 @@ struct ErrorPlugin: PluginType {
         var result = result
 
         // 判断是否成功
-        if (((try? result.value?.filterSuccessfulStatusCodes()) as Response??)) == nil {
-            return Result<Moya.Response, MoyaError>(error: MoyaError.statusCode(result.value!))
+        if (try? result.value?.filterSuccessfulStatusCodes()) == nil {
+            return Result<Moya.Response, MoyaError>(error: MoyaError.underlying(LightError(code: 0, reason: ""), result.value))
         }
 
         switch result {

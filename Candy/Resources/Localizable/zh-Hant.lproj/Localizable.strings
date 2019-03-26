@@ -6,8 +6,10 @@
   Copyright © 2019年 Insect. All rights reserved.
 */
 
-"VideoHall.Search.Placeholder" = "搜索妳想看的~";
-"VideoHall.Search.Result.Title" = "搜索结果";
-"VideoHall.Search.Result.Empty.Placeholder" = "什麽都沒找到啊/(ㄒoㄒ)/~~";
+"App.Net.NoConnection.Title" = "無可用網絡";
+"App.Net.NoConnection.Desc" = "請檢查網絡後點擊頁面刷新";
+"VideoHall.Search.Placeholder" = "搜索妳想看的";
+"VideoHall.Search.Result.Title" = "搜索結果";
+"VideoHall.Search.Result.Empty.Placeholder" = "什麽都沒找到啊/(ㄒoㄒ)/";
 "VideoHall.Filter.Result.Empty.Placeholder" = "該分類下暫時沒有視頻喲 T^T";
 "VideoHall.TopView.Title" = "篩選";

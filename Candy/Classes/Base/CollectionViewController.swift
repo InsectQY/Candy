@@ -54,24 +54,46 @@ class CollectionViewController: ViewController {
 
         isLoading.asDriver()
         .distinctUntilChanged()
+        .mapToVoid()
+        .drive(rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
+
+        reachabilityConnection.asDriver()
+        .distinctUntilChanged()
+        .mapToVoid()
         .drive(rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
     }
 
     // MARK: - 开始刷新
     func beginHeaderRefresh() {
-
         collectionView.refreshHeader.beginRefreshing { [weak self] in
-            self?.collectionView.emptyDataSetSource = self
-            self?.collectionView.emptyDataSetDelegate = self
+            self?.setUpEmptyDataSet()
         }
+    }
+
+    // MARK: - 设置 DZNEmptyDataSet
+    func setUpEmptyDataSet() {
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
+        initReachability()
+    }
+
+    // MARK: - 监听网络
+    func initReachability() {
+
+        reachabilityConnection.asDriver()
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
     }
 }
 
 // MARK: - Reactive-extension
 extension Reactive where Base: CollectionViewController {
 
-    var reloadEmptyDataSet: Binder<Bool> {
+    var reloadEmptyDataSet: Binder<Void> {
 
         return Binder(base) { vc, _ in
             vc.collectionView.reloadEmptyDataSet()

@@ -6,7 +6,9 @@
   Copyright © 2019年 Insect. All rights reserved.
 */
 
-"VideoHall.Search.Placeholder" = "Search what you want to see~";
+"App.Net.NoConnection.Title" = "Unavailable network";
+"App.Net.NoConnection.Desc" = "Please check the network then click page refresh";
+"VideoHall.Search.Placeholder" = "Search what you want to see";
 "VideoHall.Search.Result.Title" = "Search Results";
 "VideoHall.Search.Result.Empty.Placeholder" = "Nothing found/(ㄒoㄒ)/~~";
 "VideoHall.Filter.Result.Empty.Placeholder" = "There are no videos in this category T^T";
