@@ -67,7 +67,8 @@ extension UserVideoViewModel: ViewModelable {
         // 尾部刷新状态
         let endFooter = Driver.merge(new.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
 
-        let output = Output(items: elements.asDriver(), endFooterRefresh: endFooter)
+        let output = Output(items: elements.asDriver(),
+                            endFooterRefresh: endFooter)
         return output
     }
 }

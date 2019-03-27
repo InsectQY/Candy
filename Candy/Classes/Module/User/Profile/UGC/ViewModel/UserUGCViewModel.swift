@@ -69,7 +69,8 @@ extension UserUGCViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(), endFooterRefresh: endFooter)
+        let output = Output(items: elements.asDriver(),
+                            endFooterRefresh: endFooter)
         return output
     }
 }

@@ -68,7 +68,11 @@ extension UGCVideoListViewModel: ViewModelable {
         // 头部状态
         let endHeader = header.map { _ in false }
         // 尾部状态
-        let endFooter = Driver.merge(header.map { _ in RxMJRefreshFooterState.default }, footer.map { _ in RxMJRefreshFooterState.default }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            header.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
+            footer.map { _ in RxMJRefreshFooterState.default }
+            )
+            .startWith(.hidden)
 
         let output = Output(endHeaderRefresh: endHeader,
                             endFooterRefresh: endFooter,

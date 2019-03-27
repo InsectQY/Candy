@@ -54,7 +54,8 @@ extension UGCVideoDetailViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(), videoURLs: videoURLs)
+        let output = Output(items: elements.asDriver(),
+                            videoURLs: videoURLs)
         return output
     }
 }

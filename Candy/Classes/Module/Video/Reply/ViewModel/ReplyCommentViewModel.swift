@@ -60,7 +60,9 @@ extension ReplyCommentViewModel: ViewModelable {
         let endHeader = header.map { _ in false }
         // 尾部刷新状态
         let endFooter = Driver.merge(header.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
-        let output = Output(items: elements.asDriver(), endHeaderRefresh: endHeader, endFooterRefresh: endFooter)
+        let output = Output(items: elements.asDriver(),
+                            endHeaderRefresh: endHeader,
+                            endFooterRefresh: endFooter)
         return output
     }
 }

@@ -42,7 +42,8 @@ extension UserCenterViewModel: ViewModelable {
             self.request(token: $0.token, openid: $0.openID)
         }.asDriverOnErrorJustComplete()
 
-        let output = Output(dataSource: Driver.just(dataSource), loginResult: loginRes)
+        let output = Output(dataSource: Driver.just(dataSource),
+                            loginResult: loginRes)
         return output
     }
 }
