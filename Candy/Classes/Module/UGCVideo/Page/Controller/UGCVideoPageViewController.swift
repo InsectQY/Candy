@@ -39,8 +39,8 @@ class UGCVideoPageViewController: ViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
+
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         let customView = UIView(frame: CGRect(x: 0, y: 0, width: menuW, height: menuH))
         customView.addSubview(categoryView)
@@ -50,6 +50,7 @@ class UGCVideoPageViewController: ViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
         viewModel.transform(input: UGCVideoPageViewModel.Input())
 
         viewModel.category.asDriver()

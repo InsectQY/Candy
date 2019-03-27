@@ -11,7 +11,6 @@ import Foundation
 final class VideoListViewModel: ViewModel {
 
     struct Input {
-        
         /// 视频分类
         let category: String
         let headerRefresh: Driver<Void>

@@ -33,9 +33,10 @@ extension UGCVideoPageViewModel {
         .map { category -> [VideoCategory] in
 
             var category = category.data
-            category.removeFirst()
+            // 过滤这一组
+            category = category.filter { $0.name != "关注" }
             return category
-        }.asDriver(onErrorJustReturn: [])
+        }.asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
         .drive(category)
         .disposed(by: disposeBag)
 

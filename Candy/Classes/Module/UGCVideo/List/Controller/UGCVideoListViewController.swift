@@ -59,6 +59,11 @@ class UGCVideoListViewController: CollectionViewController {
             return cell
         }.disposed(by: rx.disposeBag)
 
+        // 没有网络时点击
+        noConnectionViewTap
+        .bind(to: rx.beginHeaderRefresh)
+        .disposed(by: rx.disposeBag)
+
         // 刷新状态
         output.endHeaderRefresh
         .drive(collectionView.refreshHeader.rx.isRefreshing)
