@@ -82,4 +82,11 @@ extension Reactive where Base: CollectionViewController {
             vc.collectionView.reloadEmptyDataSet()
         }
     }
+
+    var beginHeaderRefresh: Binder<Void> {
+
+        return Binder(base) { vc, _ in
+            vc.beginHeaderRefresh()
+        }
+    }
 }

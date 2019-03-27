@@ -71,6 +71,11 @@ class VideoListViewController: TableViewController {
                                              footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
         let output = viewModel.transform(input: input)
 
+        // 没有网络时点击
+        noConnectionViewTap
+        .bind(to: rx.beginHeaderRefresh)
+        .disposed(by: rx.disposeBag)
+
         // 视频 URL
         output.videoURLs
         .drive(rx.videoURLs)

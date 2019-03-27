@@ -39,6 +39,7 @@ extension VideoPageViewModel {
 
     func request() -> Driver<[VideoCategory]> {
 
+        let dafaultCategory = VideoCategory(category: "video", name: "推荐")
         return VideoApi.category
         .request()
         .trackActivity(loading)
@@ -49,9 +50,9 @@ extension VideoPageViewModel {
             var category = category
             // 过滤这三组
             category = category.filter { $0.name != "直播" && $0.name != "考得好" && $0.name != "关注" }
-            category.insert(VideoCategory(category: "video", name: "推荐"), at: 0)
+            category.insert(dafaultCategory, at: 0)
             return category
         }
-        .asDriver(onErrorJustReturn: [])
+        .asDriver(onErrorJustReturn: [dafaultCategory])
     }
 }
