@@ -175,6 +175,7 @@
 		E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A0621BA38560084F3C3 /* UGCVideoListFlowLayout.swift */; };
 		E5FA8A0921BA395A0084F3C3 /* UGCVideoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A0821BA395A0084F3C3 /* UGCVideoListModel.swift */; };
 		E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A1121BA54270084F3C3 /* VideoDetailViewController.swift */; };
+		E5FA8AD1224BBD7A009388CF /* UGCVideoListViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */; };
 		E5FAB70E21C09BB3002BF258 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB70D21C09BB3002BF258 /* DateExtensions.swift */; };
 		E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB70F21C09DD0002BF258 /* IntExtension.swift */; };
 		E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB71221C0B988002BF258 /* Emoji.swift */; };
@@ -410,6 +411,7 @@
 		E5FA8A0621BA38560084F3C3 /* UGCVideoListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoListFlowLayout.swift; sourceTree = "<group>"; };
 		E5FA8A0821BA395A0084F3C3 /* UGCVideoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoListModel.swift; sourceTree = "<group>"; };
 		E5FA8A1121BA54270084F3C3 /* VideoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
+		E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UGCVideoListViewController+Rx.swift"; sourceTree = "<group>"; };
 		E5FAB70D21C09BB3002BF258 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E5FAB70F21C09DD0002BF258 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		E5FAB71221C0B988002BF258 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
@@ -1798,6 +1800,7 @@
 			isa = PBXGroup;
 			children = (
 				E5FA89FD21BA37620084F3C3 /* UGCVideoListViewController.swift */,
+				E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2435,6 +2438,7 @@
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,
 				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */,
+				E5FA8AD1224BBD7A009388CF /* UGCVideoListViewController+Rx.swift in Sources */,
 				E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
 				E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */,
@@ -2655,7 +2659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 99T6PYBG3V;
+				DEVELOPMENT_TEAM = SLZQQC8NFR;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2663,7 +2667,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";
@@ -2816,7 +2820,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 99T6PYBG3V;
+				DEVELOPMENT_TEAM = SLZQQC8NFR;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2824,7 +2828,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";
@@ -2840,7 +2844,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 99T6PYBG3V;
+				DEVELOPMENT_TEAM = SLZQQC8NFR;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2848,7 +2852,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";

@@ -51,9 +51,12 @@ class UGCVideoPageViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        viewModel.transform(input: UGCVideoPageViewModel.Input())
+        viewModel.transform(input: UGCVideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
+            .notification(Notification.UGCVideoNoConnectClick)
+            .mapToVoid()))
 
-        viewModel.category.asDriver()
+        viewModel.category
+        .asDriver()
         .drive(rx.category)
         .disposed(by: rx.disposeBag)
     }

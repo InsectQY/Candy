@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
   - Cache (5.2.0)
-  - CleanJSON (0.7.0)
+  - CleanJSON (0.7.1)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - DZNEmptyDataSet (1.8.1)
@@ -218,7 +218,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: 620c72006fcecb1d19706b7b5aadfdf12bdb2fe3
+  CleanJSON: 1f794b6c209d53632eb85990a99e38fc75499f05
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7

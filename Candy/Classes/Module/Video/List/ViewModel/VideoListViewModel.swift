@@ -40,32 +40,34 @@ extension VideoListViewModel: ViewModelable {
         }.asDriverOnErrorJustComplete()
 
         // 加载最新视频
-        let header = input.headerRefresh
+        let loadNew = input.headerRefresh
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 加载更多视频
-        let footer = input.footerRefresh
+        let loadMore = input.footerRefresh
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 数据源
-        header.filterEmpty()
+        loadNew
+        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.filterEmpty()
+        loadMore
+        .filterEmpty()
         .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 
         // 刷新状态
-        let endHeader = header.map { _ in false }
+        let endHeader = loadNew.map { _ in false }
         let endFooter = Driver.merge(
-            header.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
-            footer.map { _ in RxMJRefreshFooterState.default }
+            loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
+            loadMore.map { _ in RxMJRefreshFooterState.default }
             )
             .startWith(.hidden)
 

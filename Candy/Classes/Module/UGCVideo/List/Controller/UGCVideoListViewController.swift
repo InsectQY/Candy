@@ -61,7 +61,7 @@ class UGCVideoListViewController: CollectionViewController {
 
         // 没有网络时点击
         noConnectionViewTap
-        .bind(to: rx.beginHeaderRefresh)
+        .bind(to: rx.postNotification)
         .disposed(by: rx.disposeBag)
 
         // 刷新状态

@@ -35,23 +35,25 @@ extension UGCVideoListViewModel: ViewModelable {
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
 
         // 上拉刷新
-        let header = input.headerRefresh
+        let loadNew = input.headerRefresh
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 下拉加载
-        let footer = input.footerRefresh
+        let loadMore = input.footerRefresh
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 绑定数据源
-        header.filter { $0.isEmpty && elements.value.isEmpty }
+        loadNew
+        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.filterEmpty()
+        loadMore
+        .filterEmpty()
         .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
@@ -68,11 +70,11 @@ extension UGCVideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部状态
-        let endHeader = header.map { _ in false }
+        let endHeader = loadNew.map { _ in false }
         // 尾部状态
         let endFooter = Driver.merge(
-            header.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
-            footer.map { _ in RxMJRefreshFooterState.default }
+            loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
+            loadMore.map { _ in RxMJRefreshFooterState.default }
             )
             .startWith(.hidden)
 

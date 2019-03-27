@@ -70,11 +70,13 @@ extension VideoHallViewModel: ViewModelable {
         }
 
         // 绑定数据源
-        footer.map { videoElements.value + $0.cell_list }
+        footer
+        .map { videoElements.value + $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
 
-        search.map { $0.cell_list }
+        search
+        .map { $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
 
@@ -86,12 +88,22 @@ extension VideoHallViewModel: ViewModelable {
 
         // 搜索点击
         input.searchTap
-        .flatMap { navigator.rx.present(VideoHallURL.search.path, context: R.string.localizable.videoHallSearchPlaceholder(), wrap: NavigationController.self) }
+        .flatMap { navigator.rx.present(VideoHallURL.search.path,
+                                        context: R.string.localizable.videoHallSearchPlaceholder(),
+                                        wrap: NavigationController.self) }
         .subscribe { _ in }
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(search.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            search.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+            },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+            }
+            )
+            .startWith(.hidden)
 
         let output = Output(endFooterRefresh: endFooter,
                             categories: categoryElements.asDriver(),

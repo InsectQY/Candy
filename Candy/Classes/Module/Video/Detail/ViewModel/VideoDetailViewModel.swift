@@ -110,7 +110,14 @@ extension VideoDetailViewModel: ViewModelable {
         }).disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(newComments.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            newComments.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
+            )
+            .startWith(.hidden)
 
         let output = Output(videoPlayInfo: realVideo,
                             endFooterRefresh: endFooter,
