@@ -57,12 +57,6 @@ class CollectionViewController: ViewController {
         .mapToVoid()
         .drive(rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
-
-        reachabilityConnection.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - 开始刷新
@@ -76,17 +70,6 @@ class CollectionViewController: ViewController {
     func setUpEmptyDataSet() {
         collectionView.emptyDataSetSource = self
         collectionView.emptyDataSetDelegate = self
-        initReachability()
-    }
-
-    // MARK: - 监听网络
-    func initReachability() {
-
-        reachabilityConnection.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
     }
 }
 

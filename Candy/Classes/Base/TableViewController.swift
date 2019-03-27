@@ -60,12 +60,6 @@ class TableViewController: ViewController {
         .mapToVoid()
         .drive(rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
-
-        reachabilityConnection.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - 开始刷新
@@ -79,17 +73,6 @@ class TableViewController: ViewController {
     func setUpEmptyDataSet() {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        initReachability()
-    }
-
-    // MARK: - 监听网络
-    func initReachability() {
-
-        reachabilityConnection.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
     }
 }
 

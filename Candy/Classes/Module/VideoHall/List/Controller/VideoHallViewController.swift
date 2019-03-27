@@ -104,6 +104,10 @@ class VideoHallViewController: CollectionViewController {
         .drive(filterView.rx.categories)
         .disposed(by: rx.disposeBag)
 
+        output.categories
+        .drive(animateFilterView.rx.categories)
+        .disposed(by: rx.disposeBag)
+
         // 某个分类下的数据
         output.items.drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
             cell.item = item
@@ -140,14 +144,14 @@ extension VideoHallViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let contentOffsetY = scrollView.contentOffset.y + FilterView.height + topH
-        filterView.frame = CGRect(x: 0, y: -FilterView.height + contentOffsetY - contentOffsetY * 0.3, width: ScreenWidth, height: FilterView.height)
+        filterView.y = -FilterView.height + contentOffsetY - contentOffsetY * 0.3
         topView.alpha = scrollView.contentOffset.y <= (-FilterView.height - topH) ? 0 : scrollView.contentOffset.y / contentOffsetY * 2
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 
         animateFilterView.isHidden = true
-        animateFilterView.frame = CGRect(x: 0, y: -FilterView.height, width: ScreenWidth, height: FilterView.height)
+        animateFilterView.y = -FilterView.height
     }
 }
 
@@ -162,7 +166,7 @@ extension Reactive where Base: VideoHallViewController {
             UIView.animate(withDuration: 0.35, animations: {
 
                 vc.topView.alpha = 0
-                vc.animateFilterView.frame = CGRect(x: 0, y: vc.topH, width: ScreenWidth, height: FilterView.height)
+                vc.animateFilterView.y = vc.topH
             })
         }
     }
