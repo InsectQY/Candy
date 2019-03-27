@@ -11,7 +11,7 @@ import Foundation
 final class VideoPageViewModel: ViewModel {
 
     struct Input {
-
+        let noConnectTap: Observable<Void>
     }
 
     struct Output {
@@ -27,6 +27,15 @@ extension VideoPageViewModel: ViewModelable {
     @discardableResult
     func transform(input: VideoPageViewModel.Input) -> VideoPageViewModel.Output {
 
+        input.noConnectTap
+        .asDriverOnErrorJustComplete()
+        .flatMap { [unowned self] in
+            self.request()
+        }
+        .drive(category)
+        .disposed(by: disposeBag)
+
+        // 获取视频分类
         request()
         .drive(category)
         .disposed(by: disposeBag)

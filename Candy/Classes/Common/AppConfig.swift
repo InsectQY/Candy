@@ -78,4 +78,14 @@ extension Notification {
     static var clickEpisode: Notification.Name {
         return Notification.Name("clickEpisode")
     }
+
+    /// 没有网络时, 点击了视频占位图
+    static var videoNoConnectClick: Notification.Name {
+        return Notification.Name("videoNoConnectClick")
+    }
+
+    /// 没有网络时, 点击了小视频占位图
+    static var UGCVideoNoConnectClick: Notification.Name {
+        return Notification.Name("videoUGCNoConnectClick")
+    }
 }

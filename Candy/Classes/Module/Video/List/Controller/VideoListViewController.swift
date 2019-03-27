@@ -73,7 +73,7 @@ class VideoListViewController: TableViewController {
 
         // 没有网络时点击
         noConnectionViewTap
-        .bind(to: rx.beginHeaderRefresh)
+        .bind(to: rx.postNotification)
         .disposed(by: rx.disposeBag)
 
         // 视频 URL
@@ -137,7 +137,7 @@ class VideoListViewController: TableViewController {
             ["news": $0,
             "seekTime": self.currentTime] }
         .flatMap { navigator.rx.push(VideoURL.detail.path, context: $0) }
-        .subscribe { [unowned self] _ in self.currentTime = 0 }
+        .subscribe { [weak self] _ in self?.currentTime = 0 }
         .disposed(by: rx.disposeBag)
     }
 }
@@ -206,6 +206,13 @@ extension Reactive where Base: VideoListViewController {
     var videoStop: Binder<Void> {
         return Binder(base) { vc, _ in
             vc.player.stop()
+        }
+    }
+
+    var postNotification: Binder<Void> {
+        return Binder(base) { _, _ in
+            NotificationCenter.default
+            .post(name: Notification.videoNoConnectClick, object: nil)
         }
     }
 }

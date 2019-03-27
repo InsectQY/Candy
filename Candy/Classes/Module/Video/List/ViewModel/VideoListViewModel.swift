@@ -52,10 +52,12 @@ extension VideoListViewModel: ViewModelable {
         }
 
         // 数据源
-        header.drive(elements)
+        header.filterEmpty()
+        .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0 }
+        footer.filterEmpty()
+        .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 

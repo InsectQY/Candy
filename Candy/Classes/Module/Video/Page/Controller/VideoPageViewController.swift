@@ -39,7 +39,9 @@ class VideoPageViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        viewModel.transform(input: VideoPageViewModel.Input())
+        viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
+            .notification(Notification.videoNoConnectClick)
+            .mapToVoid()))
 
         // 分类数据
         viewModel.category
@@ -63,6 +65,7 @@ class VideoPageViewController: ViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         categoryView.frame = CGRect(x: 0, y: 0, width: view.width, height: menuH)
         listContainerView.frame = CGRect(x: 0, y: menuH, width: view.width, height: view.height)
     }
