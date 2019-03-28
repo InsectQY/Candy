@@ -36,24 +36,27 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         let elements = BehaviorRelay<[VideoHallSearchResultList]>(value: [])
 
         // 加载最新视频
-        let header = input.headerRefresh
+        let laodNew = input.headerRefresh
         .flatMapLatest { [unowned self] in
             self.request(offset: 0, key: input.keyword)
         }
 
         // 加载更多视频
-        let footer = input.footerRefresh
+        let loadMore = input.footerRefresh
         .withLatestFrom(elements.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(offset: $0.count, key: input.keyword)
         }
 
         // 数据源
-        header.map { $0.data }
+        laodNew
+        .map { $0.data }
+        .filterEmpty()
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.data }
+        loadMore
+        .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -64,9 +67,17 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        let endHeader = header.map { _ in false }
+        let endHeader = laodNew.map { _ in false }
         // 尾部刷新状态
-        let endFooter = Driver.merge(header.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            laodNew.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            },
+            loadMore.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            }
+            )
+            .startWith(.hidden)
 
         let output = Output(items: elements.asDriver(),
                             endHeaderRefresh: endHeader,
@@ -85,6 +96,6 @@ extension VideoHallSearchResultViewModel {
         .trackActivity(loading)
         .trackError(error)
         .mapObject(VideoHallSearchResult.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        .asDriver(onErrorJustReturn: VideoHallSearchResult(data: [], has_more: false))
     }
 }

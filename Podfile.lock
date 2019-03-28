@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - Cache (5.2.0)
   - CleanJSON (0.7.1)
   - DefaultsKit (0.2.0)
@@ -7,7 +7,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
-  - IQKeyboardManagerSwift (6.2.0)
+  - IQKeyboardManagerSwift (6.2.1)
   - Jelly (1.2.5)
   - JXCategoryView (1.3.0)
   - Kingfisher (4.10.1)
@@ -216,7 +216,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   CleanJSON: 1f794b6c209d53632eb85990a99e38fc75499f05
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
@@ -224,7 +224,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
   JXCategoryView: b3bf1bedb51b5f98b63d51f0e31007a2ef80de14
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
