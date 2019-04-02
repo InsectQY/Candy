@@ -19,8 +19,6 @@ final class VideoListViewModel: ViewModel {
 
     struct Output {
 
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
         /// 数据源
         let items: Driver<[NewsListModel]>
         /// 所有需要播放的视频 URL
@@ -38,7 +36,8 @@ extension VideoListViewModel: ViewModelable {
         let videoURLs = elements.map {
             $0.map { URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
             }
-        }.asDriverOnErrorJustComplete()
+        }
+        .asDriverOnErrorJustComplete()
 
         // 加载最新视频
         let loadNew = input.headerRefresh
@@ -54,27 +53,35 @@ extension VideoListViewModel: ViewModelable {
 
         // 数据源
         loadNew
-        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .filterEmpty()
         .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        // 刷新状态
-        let endHeader = loadNew.map { _ in false }
-        let endFooter = Driver.merge(
-            loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
-            loadMore.map { _ in RxMJRefreshFooterState.default }
+        // success 下的刷新状态
+        loadNew.map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
+        Driver.merge(
+            loadNew.map { _ in
+                RxMJRefreshFooterState.default
+            },
+            loadMore.map { _ in
+                RxMJRefreshFooterState.default
+            }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(endHeaderRefresh: endHeader,
-                            endFooterRefresh: endFooter,
-                            items: elements.asDriver(),
+        // error 下的刷新状态
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
+        let output = Output(items: elements.asDriver(),
                             videoURLs: videoURLs)
         return output
     }
@@ -88,9 +95,9 @@ extension VideoListViewModel {
         return  VideoApi.list(category)
                 .request()
                 .trackActivity(loading)
-                .trackError(error)
+                .trackError(refreshError)
                 .mapObject([NewsListModel].self)
                 .map { $0.filter { !($0.news?.label ?? "").contains("广告") } }
-                .asDriver(onErrorJustReturn: [])
+                .asDriverOnErrorJustComplete()
     }
 }

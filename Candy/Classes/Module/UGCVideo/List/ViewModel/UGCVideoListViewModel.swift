@@ -48,7 +48,8 @@ extension UGCVideoListViewModel: ViewModelable {
 
         // 绑定数据源
         loadNew
-        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
+        .filterEmpty()
+//        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
         .drive(elements)
         .disposed(by: disposeBag)
 

@@ -56,7 +56,9 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { elements.value + $0.data }
+        .map { $0.data }
+        .filterEmpty()
+        .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 

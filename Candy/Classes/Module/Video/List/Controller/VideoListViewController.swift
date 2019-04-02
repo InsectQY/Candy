@@ -53,7 +53,6 @@ class VideoListViewController: TableViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
 
         tableView.register(cellType: VideoListCell.self)
@@ -88,20 +87,20 @@ class VideoListViewController: TableViewController {
         .bind(to: rx.videoStop)
         .disposed(by: rx.disposeBag)
 
-        output.endHeaderRefresh
+        viewModel.headerRefreshState
+        .asDriverOnErrorJustComplete()
         .mapToVoid()
         .drive(rx.videoStop)
         .disposed(by: rx.disposeBag)
 
-        output.endFooterRefresh
+        viewModel.footerRefreshState
+        .asDriverOnErrorJustComplete()
         .mapToVoid()
         .drive(rx.videoStop)
         .disposed(by: rx.disposeBag)
 
         // TableView 数据源
-        output.items.drive(tableView.rx.items) { [weak self] tableView, row, item in
-
-            guard let self = self else { return UITableViewCell() }
+        output.items.drive(tableView.rx.items) { [unowned self] tableView, row, item in
 
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoListCell.self)
@@ -118,15 +117,23 @@ class VideoListViewController: TableViewController {
             .disposed(by: cell.disposeBag)
 
             return cell
-        }.disposed(by: rx.disposeBag)
-
-        // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
+        }
         .disposed(by: rx.disposeBag)
 
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
+        // 加载状态
+        viewModel.loading
+        .drive(isLoading)
+        .disposed(by: rx.disposeBag)
+
+        // 刷新状态
+        viewModel.headerRefreshState
+        .asObservable()
+        .bind(to: tableView.refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+
+        viewModel.footerRefreshState
+        .asObservable()
+        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
 
         // tableView 点击事件

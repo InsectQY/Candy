@@ -55,7 +55,9 @@ extension VideoHallViewModel: ViewModelable {
         .drive(categoryElements)
         .disposed(by: disposeBag)
 
-        let search = searchKey.asDriverOnErrorJustComplete()
+        // 加载最新视频
+        let search = searchKey
+        .asDriverOnErrorJustComplete()
         .distinctUntilChanged()
         .flatMapLatest { [unowned self] in
             self.requestVideo(offset: 0, searchKey: $0)
@@ -67,7 +69,7 @@ extension VideoHallViewModel: ViewModelable {
         ) { (offset: $0.count, searchKey: $1) }
 
         // 加载更多视频
-        let footer = input.footerRefresh
+        let loadMore = input.footerRefresh
         .withLatestFrom(moreParameters)
         .flatMapLatest { [unowned self] in
             self.requestVideo(offset: $0.offset,
@@ -75,7 +77,7 @@ extension VideoHallViewModel: ViewModelable {
         }
 
         // 绑定数据源
-        footer
+        loadMore
         .map { videoElements.value + $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
@@ -105,7 +107,7 @@ extension VideoHallViewModel: ViewModelable {
             search.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
             },
-            footer.map { [unowned self] in
+            loadMore.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
             }
         )
@@ -141,6 +143,6 @@ extension VideoHallViewModel {
                 .trackActivity(loading)
                 .trackError(error)
                 .mapObject(VideoHallModel.self, atKeyPath: nil)
-                .asDriverOnErrorJustComplete()
+                .asDriver(onErrorJustReturn: VideoHallModel(has_more: false, cell_list: []))
     }
 }
