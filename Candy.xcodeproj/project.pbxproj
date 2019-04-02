@@ -110,7 +110,6 @@
 		E5E0207F21B5057600A4CDF1 /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */; };
 		E5E0208121B5057600A4CDF1 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205721B5057600A4CDF1 /* Then.swift */; };
 		E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */; };
-		E5E0208621B5057600A4CDF1 /* FitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205D21B5057600A4CDF1 /* FitExtension.swift */; };
 		E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */; };
 		E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */; };
 		E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206321B5057600A4CDF1 /* Single+Codable.swift */; };
@@ -341,7 +340,6 @@
 		E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		E5E0205721B5057600A4CDF1 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
-		E5E0205D21B5057600A4CDF1 /* FitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitExtension.swift; sourceTree = "<group>"; };
 		E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206321B5057600A4CDF1 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
@@ -1422,7 +1420,6 @@
 		E5E0205C21B5057600A4CDF1 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0205D21B5057600A4CDF1 /* FitExtension.swift */,
 				E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */,
 			);
 			path = UIKit;
@@ -2213,7 +2210,6 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxActivityIndicator/RxActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxMJ/RxMJ.framework",
@@ -2255,7 +2251,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxMJ.framework",
@@ -2447,7 +2442,6 @@
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
 				E5D9542421E74CD3007FC606 /* UGCVideoActivityListViewController.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
-				E5E0208621B5057600A4CDF1 /* FitExtension.swift in Sources */,
 				E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */,
 				E5FE0DCA21FB058000DE1DED /* TextField.swift in Sources */,
 				E5E5713C21CB670B005C2D6E /* VideoHallHeaderView.swift in Sources */,

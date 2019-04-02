@@ -83,7 +83,7 @@ extension VideoHallViewModel: ViewModelable {
         // collectionView 点击
         input.selection
         .flatMap { navigator.rx.push(VideoHallURL.detail.path, context: $0.album.album_id) }
-        .subscribe { _ in }
+        .subscribe()
         .disposed(by: disposeBag)
 
         // 搜索点击
@@ -91,7 +91,7 @@ extension VideoHallViewModel: ViewModelable {
         .flatMap { navigator.rx.present(VideoHallURL.search.path,
                                         context: R.string.localizable.videoHallSearchPlaceholder(),
                                         wrap: NavigationController.self) }
-        .subscribe { _ in }
+        .subscribe()
         .disposed(by: disposeBag)
 
         // 尾部刷新状态

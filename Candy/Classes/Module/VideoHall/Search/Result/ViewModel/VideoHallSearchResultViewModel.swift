@@ -63,7 +63,7 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         // 点击事件
         input.selection
         .flatMap { navigator.rx.push(VideoHallURL.detail.path, context: $0.display.album_content.first?.album_id ?? "") }
-        .subscribe { _ in }
+        .subscribe()
         .disposed(by: disposeBag)
 
         // 头部刷新状态

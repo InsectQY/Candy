@@ -74,13 +74,12 @@ PODS:
   - QMUIKit/QMUIWeakObjectContainer (3.1.2)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
-  - R.swift.Library (5.0.0)
-  - ReachabilitySwift (4.3.0)
+  - R.swift.Library (5.0.1)
+  - ReachabilitySwift (4.3.1)
   - Result (4.1.0)
   - RxActivityIndicator (0.1.1):
     - RxCocoa
     - RxSwift
-  - RxAtomic (4.4.2)
   - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
@@ -106,8 +105,7 @@ PODS:
     - ReachabilitySwift (~> 4.3.0)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxSwift (4.4.2):
-    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
   - RxURLNavigator (1.1.0):
     - RxCocoa
     - RxSwift
@@ -193,7 +191,6 @@ SPEC REPOS:
     - ReachabilitySwift
     - Result
     - RxActivityIndicator
-    - RxAtomic
     - RxCocoa
     - RxDataSources
     - RxMJ
@@ -238,18 +235,17 @@ SPEC CHECKSUMS:
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   QMUIKit: 765333b31bb25a973f2ea11e0a67fca727ef29a7
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
-  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
-  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
-  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxMJ: c41277d217b151e18573c12f73612de3a4ce63a5
   RxNetwork: b3bd1a6554cd3989945d57180b6ae2182d27e7e6
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
-  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyThirdParty: b822416143c8649cf5be195d7cea6a9f8dd1295e

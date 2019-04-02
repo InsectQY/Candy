@@ -31,11 +31,3 @@ class Label: UILabel {
         setNeedsDisplay()
     }
 }
-
-extension Label {
-
-    // MARK: - 自适应字体
-    private func fitFontSize() {
-        font = UIFont(name: font.fontName, size: KScaleH(font.pointSize))
-    }
-}

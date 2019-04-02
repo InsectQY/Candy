@@ -31,13 +31,3 @@ class Button: UIButton {
         setNeedsDisplay()
     }
 }
-
-// MARK: - 自适应字体
-extension Button {
-
-    private func fitFontSize() {
-
-        guard let font = titleLabel?.font else { return }
-        titleLabel?.font = UIFont(name: font.fontName, size: KScaleH(font.pointSize))
-    }
-}

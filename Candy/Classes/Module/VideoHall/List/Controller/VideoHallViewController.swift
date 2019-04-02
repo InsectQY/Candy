@@ -88,12 +88,6 @@ class VideoHallViewController: CollectionViewController {
         .drive(isLoading)
         .disposed(by: rx.disposeBag)
 
-        // 是否显示占位图
-        viewModel.loading
-        .drive(onNext: { [weak self] _ in
-            self?.collectionView.reloadEmptyDataSet()
-        }).disposed(by: rx.disposeBag)
-
         // 尾部刷新状态
         output.endFooterRefresh
         .drive(collectionView.refreshFooter.rx.refreshFooterState)
