@@ -36,7 +36,8 @@ extension VideoListViewModel: ViewModelable {
 
         // 所有需要播放的视频 URL
         let videoURLs = elements.map {
-            $0.map { URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "") }
+            $0.map { URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+            }
         }.asDriverOnErrorJustComplete()
 
         // 加载最新视频
@@ -68,8 +69,8 @@ extension VideoListViewModel: ViewModelable {
         let endFooter = Driver.merge(
             loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
             loadMore.map { _ in RxMJRefreshFooterState.default }
-            )
-            .startWith(.hidden)
+        )
+        .startWith(.hidden)
 
         let output = Output(endHeaderRefresh: endHeader,
                             endFooterRefresh: endFooter,
@@ -84,12 +85,12 @@ extension VideoListViewModel {
     /// 加载视频
     func request(category: String) -> Driver<[NewsListModel]> {
 
-        return VideoApi.list(category)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject([NewsListModel].self)
-        .map { $0.filter { !($0.news?.label ?? "").contains("广告") } }
-        .asDriver(onErrorJustReturn: [])
+        return  VideoApi.list(category)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject([NewsListModel].self)
+                .map { $0.filter { !($0.news?.label ?? "").contains("广告") } }
+                .asDriver(onErrorJustReturn: [])
     }
 }

@@ -56,8 +56,8 @@ class UGCVideoDetailViewController: CollectionViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
+        
         collectionView.delegate = self
         collectionView.register(cellType: UGCVideoDetailCell.self)
         collectionView.isPagingEnabled = true

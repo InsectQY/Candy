@@ -47,18 +47,28 @@ extension UGCVideoActivityViewModel: ViewModelable {
         }
 
         // 数据源
-        header.map { $0.album_list }
+        header
+        .map { $0.album_list }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.album_list }
+        footer
+        .map { elements.value + $0.album_list }
         .drive(elements)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
         let endHeader = header.map { _ in false }
         // 尾部刷新状态
-        let endFooter = Driver.merge(header.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            header.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty)
+            },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty)
+            }
+        )
+        .startWith(.hidden)
 
         let output = Output(items: elements.asDriver(),
                             endHeaderRefresh: endHeader,
@@ -72,10 +82,11 @@ extension UGCVideoActivityViewModel {
     /// 加载活动数据
     func request(offset: Int, userAction: TTFrom) -> Driver<UGCVideoActivityListModel> {
 
-        return VideoApi.ugcActivity(offset: offset, userAction: userAction.rawValue)
-        .request()
-        .trackError(error)
-        .mapObject(UGCVideoActivityListModel.self)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi.ugcActivity(offset: offset,
+                                     userAction: userAction.rawValue)
+                .request()
+                .trackError(error)
+                .mapObject(UGCVideoActivityListModel.self)
+                .asDriverOnErrorJustComplete()
     }
 }

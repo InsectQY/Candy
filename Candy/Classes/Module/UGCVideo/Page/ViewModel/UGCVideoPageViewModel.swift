@@ -49,15 +49,15 @@ extension UGCVideoPageViewModel {
     func request() -> Driver<[VideoCategory]> {
 
         return  VideoApi.ugcCategory.request()
-        .trackActivity(loading)
-        .mapObject(UGCVideoPageModel.self)
-        .map { category -> [VideoCategory] in
+                .trackActivity(loading)
+                .mapObject(UGCVideoPageModel.self)
+                .map { category -> [VideoCategory] in
 
-            var category = category.data
-            // 过滤这一组
-            category = category.filter { $0.name != "关注" }
-            return category
-        }
-        .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
+                    var category = category.data
+                    // 过滤这一组
+                    category = category.filter { $0.name != "关注" }
+                    return category
+                }
+                .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
     }
 }

@@ -38,9 +38,11 @@ extension UserCenterViewModel: ViewModelable {
         .flatMapLatest { _  in
             WeChatApi.login()
             .catchErrorJustComplete()
-        }.flatMapLatest { [unowned self] in
+        }
+        .flatMapLatest { [unowned self] in
             self.request(token: $0.token, openid: $0.openID)
-        }.asDriverOnErrorJustComplete()
+        }
+        .asDriverOnErrorJustComplete()
 
         let output = Output(dataSource: Driver.just(dataSource),
                             loginResult: loginRes)
@@ -52,11 +54,11 @@ extension UserCenterViewModel {
 
     func request(token: String, openid: String) -> Driver<UserInfoModel> {
 
-        return WeChatApi.userInfo(token: token, openid: openid)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject(UserInfoModel.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        return  WeChatApi.userInfo(token: token, openid: openid)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject(UserInfoModel.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 }

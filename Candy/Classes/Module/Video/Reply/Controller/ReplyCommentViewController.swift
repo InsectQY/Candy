@@ -83,7 +83,8 @@ extension ReplyCommentViewController {
         let headerView = ReplyCommentHeader.loadFromNib()
         headerView.item = comment
         let height = headerView
-        .systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        .systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        .height
         headerView.height = height
         tableView.tableHeaderView = headerView
     }

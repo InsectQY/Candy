@@ -71,8 +71,8 @@ extension UserQAViewModel: ViewModelable {
             footer.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             }
-            )
-            .startWith(.hidden)
+        )
+        .startWith(.hidden)
 
         let output = Output(items: elements.asDriver(),
                             endFooterRefresh: endFooter)
@@ -84,10 +84,13 @@ extension UserQAViewModel {
 
     func request(category: String, visitedID: String, offset: Int) -> Driver<Model<[QAModel]>> {
 
-        return VideoApi.profileType(category: category, visitedID: visitedID, offset: offset)
-        .request()
-        .asObservable()
-        .mapObject(Model<[QAModel]>.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi
+                .profileType(category: category,
+                             visitedID: visitedID,
+                             offset: offset)
+                .request()
+                .asObservable()
+                .mapObject(Model<[QAModel]>.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 }

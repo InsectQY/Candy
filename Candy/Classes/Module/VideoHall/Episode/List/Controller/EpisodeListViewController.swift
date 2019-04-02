@@ -28,8 +28,8 @@ class EpisodeListViewController: CollectionViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
+        
         collectionView.register(cellType: EpisodeCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -63,7 +63,8 @@ extension EpisodeListViewController: UICollectionViewDataSource {
     //  swiftlint:disable force_unwrapping
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: EpisodeCell.self)
+        let cell = collectionView.dequeueReusableCell(for: indexPath,
+                                                      cellType: EpisodeCell.self)
         cell.item = "\(item!.start + indexPath.item + 1)"
         cell.isSel = indexPath.item == item!.selIndex - item!.start
         return cell
@@ -76,7 +77,8 @@ extension EpisodeListViewController: UICollectionViewDelegate {
     //  swiftlint:disable force_unwrapping
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NotificationCenter.default
-        .post(name: Notification.clickEpisode, object: item!.start + indexPath.item)
+        .post(name: Notification.clickEpisode,
+              object: item!.start + indexPath.item)
     }
 }
 

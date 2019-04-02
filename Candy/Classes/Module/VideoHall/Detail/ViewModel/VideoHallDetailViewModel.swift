@@ -38,9 +38,13 @@ extension VideoHallDetailViewModel: ViewModelable {
         let elements = BehaviorRelay<[VideoHallCellType]>(value: [])
 
         // 单集的视频播放信息
-        input.episodeID.asDriverOnErrorJustComplete().flatMapLatest { [unowned self] in
-            self.requestVideoInfo(albumID: input.albumID, episodeID: $0)
-        }.flatMapLatest { [unowned self] in
+        input.episodeID
+        .asDriverOnErrorJustComplete()
+        .flatMapLatest { [unowned self] in
+            self.requestVideoInfo(albumID: input.albumID,
+                                  episodeID: $0)
+        }
+        .flatMapLatest { [unowned self] in
             self.requestVideoPlayInfo(vid: $0.episode.video_info.vid,
                                       ptoken: $0.episode.video_info.business_token,
                                       author: $0.episode.video_info.auth_token)
@@ -54,7 +58,8 @@ extension VideoHallDetailViewModel: ViewModelable {
         }
 
         // 视频详情信息
-        let info = requestVideoInfo(albumID: input.albumID, episodeID: episodeID)
+        let info = requestVideoInfo(albumID: input.albumID,
+                                    episodeID: episodeID)
 
         // tableView 数据源
         info.drive(onNext: {
@@ -73,7 +78,8 @@ extension VideoHallDetailViewModel: ViewModelable {
             }
 
             elements.accept(cellData)
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
 
         // 视频播放信息
         info.flatMapLatest { [unowned self] in
@@ -96,24 +102,27 @@ extension VideoHallDetailViewModel {
     // 获取视频详情信息
     func requestVideoInfo(albumID: String, episodeID: String) -> Driver<VideoHallDetailModel> {
 
-        return VideoHallApi.detail(albumID, episodeID)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject(VideoHallDetailModel.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        return  VideoHallApi.detail(albumID,
+                                   episodeID)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject(VideoHallDetailModel.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 
     // 获取视频播放信息
     func requestVideoPlayInfo(vid: String, ptoken: String, author: String) -> Driver<VideoPlayInfo> {
 
-        return VideoHallApi.parseVideoHall(vid: vid, ptoken: ptoken, author: author)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject(Model<VideoPlayInfo>.self, atKeyPath: "video_info")
-        .filter { $0.message == .success }
-        .map { $0.data }
-        .asDriverOnErrorJustComplete()
+        return  VideoHallApi.parseVideoHall(vid: vid,
+                                           ptoken: ptoken,
+                                           author: author)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject(Model<VideoPlayInfo>.self, atKeyPath: "video_info")
+                .filter { $0.message == .success }
+                .map { $0.data }
+                .asDriverOnErrorJustComplete()
     }
 }

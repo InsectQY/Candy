@@ -62,7 +62,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         // 点击事件
         input.selection
-        .flatMap { navigator.rx.push(VideoHallURL.detail.path, context: $0.display.album_content.first?.album_id ?? "") }
+        .flatMap { navigator.rx.push(VideoHallURL.detail.path,
+                                     context: $0.display.album_content.first?.album_id ?? "") }
         .subscribe()
         .disposed(by: disposeBag)
 
@@ -76,8 +77,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
             loadMore.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             }
-            )
-            .startWith(.hidden)
+        )
+        .startWith(.hidden)
 
         let output = Output(items: elements.asDriver(),
                             endHeaderRefresh: endHeader,
@@ -91,11 +92,12 @@ extension VideoHallSearchResultViewModel {
     /// 搜索
     func request(offset: Int, key: String) -> Driver<VideoHallSearchResult> {
 
-        return VideoHallApi.search(offset, key)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject(VideoHallSearchResult.self, atKeyPath: nil)
-        .asDriver(onErrorJustReturn: VideoHallSearchResult(data: [], has_more: false))
+        return  VideoHallApi
+                .search(offset, key)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject(VideoHallSearchResult.self, atKeyPath: nil)
+                .asDriver(onErrorJustReturn: VideoHallSearchResult(data: [], has_more: false))
     }
 }

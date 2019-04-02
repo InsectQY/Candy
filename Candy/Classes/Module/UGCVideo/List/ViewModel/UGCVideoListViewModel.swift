@@ -75,8 +75,8 @@ extension UGCVideoListViewModel: ViewModelable {
         let endFooter = Driver.merge(
             loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
             loadMore.map { _ in RxMJRefreshFooterState.default }
-            )
-            .startWith(.hidden)
+        )
+        .startWith(.hidden)
 
         let output = Output(endHeaderRefresh: endHeader,
                             endFooterRefresh: endFooter,
@@ -90,10 +90,11 @@ extension UGCVideoListViewModel {
     /// 加载小视频
     func request(category: String) -> Driver<[UGCVideoListModel]> {
 
-        return VideoApi.ugcList(category)
-        .request()
-        .trackError(error)
-        .mapObject([UGCVideoListModel].self)
-        .asDriver(onErrorJustReturn: [])
+        return  VideoApi
+                .ugcList(category)
+                .request()
+                .trackError(error)
+                .mapObject([UGCVideoListModel].self)
+                .asDriver(onErrorJustReturn: [])
     }
 }

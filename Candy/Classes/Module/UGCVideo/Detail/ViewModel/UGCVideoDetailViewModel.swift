@@ -41,16 +41,21 @@ extension UGCVideoDetailViewModel: ViewModelable {
         let videoURLs = elements
 //        .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
         .map {
-            $0.map { URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "") }
-        }.asDriverOnErrorJustComplete()
+            $0.map {
+                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+            }
+        }
+        .asDriverOnErrorJustComplete()
 
         // 加载更多视频
-        let more = input.loadMore.asDriverOnErrorJustComplete()
+        let more = input.loadMore
+        .asDriverOnErrorJustComplete()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
-        more.map { elements.value + $0 }
+        more
+        .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -64,10 +69,10 @@ extension UGCVideoDetailViewModel {
 
     func request(category: String) -> Driver<[UGCVideoListModel]> {
 
-        return VideoApi.list(category)
-        .request()
-        .trackActivity(loading)
-        .mapObject([UGCVideoListModel].self)
-        .asDriver(onErrorJustReturn: [])
+        return  VideoApi.list(category)
+                .request()
+                .trackActivity(loading)
+                .mapObject([UGCVideoListModel].self)
+                .asDriver(onErrorJustReturn: [])
     }
 }

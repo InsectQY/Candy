@@ -59,7 +59,13 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 头部刷新状态
         let endHeader = header.map { _ in false }
         // 尾部刷新状态
-        let endFooter = Driver.merge(header.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            header.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
+        )
+        .startWith(.hidden)
 
         let output = Output(items: elements.asDriver(),
                             endHeaderRefresh: endHeader,
@@ -72,10 +78,12 @@ extension UGCVideoCommentViewModel {
 
     func request(groupID: String, offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
-        return VideoApi.ugcComment(groupID: groupID, offset: offset)
-        .request()
-        .trackError(error)
-        .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi
+                .ugcComment(groupID: groupID,
+                        offset: offset)
+                .request()
+                .trackError(error)
+                .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 }

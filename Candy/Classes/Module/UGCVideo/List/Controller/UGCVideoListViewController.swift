@@ -57,7 +57,8 @@ class UGCVideoListViewController: CollectionViewController {
             cell.coverImage.hero.id = "image_\(row)"
             cell.item = item
             return cell
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 没有网络时点击
         noConnectionViewTap

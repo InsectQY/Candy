@@ -47,7 +47,8 @@ class UGCVideoActivityListViewController: TableViewController {
 
         output.items.drive(tableView.rx.items(cellIdentifier: UGCVideoActivityCell.ID, cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 刷新状态
         output.endHeaderRefresh

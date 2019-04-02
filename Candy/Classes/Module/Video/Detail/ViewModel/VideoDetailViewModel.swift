@@ -64,11 +64,13 @@ extension VideoDetailViewModel: ViewModelable {
                                 offset: $0)
         }
 
-        newComments.map { $0.data }
+        newComments
+        .map { $0.data }
         .drive(commentElements)
         .disposed(by: disposeBag)
 
-        footer.map { commentElements.value + $0.data }
+        footer
+        .map { commentElements.value + $0.data }
         .drive(commentElements)
         .disposed(by: disposeBag)
 
@@ -79,11 +81,15 @@ extension VideoDetailViewModel: ViewModelable {
 
         // 视频评论
         let commentSection = commentElements.asDriver()
-        .map { VideoDetailSection.comment($0.map { VideoDetailItem.comment($0) }) }
+        .map {
+            VideoDetailSection.comment($0.map { VideoDetailItem.comment($0) })
+        }
 
         // 相关视频
         let relatedSection = relatedInfo.asDriver()
-        .map { VideoDetailSection.related($0.map { VideoDetailItem.related($0) }) }
+        .map {
+            VideoDetailSection.related($0.map { VideoDetailItem.related($0) })
+        }
 
         // 数据源
         let sections = Driver.combineLatest(infoSection, commentSection, relatedSection) { (info: $0, comment: $1, related: $2) }
@@ -115,9 +121,10 @@ extension VideoDetailViewModel: ViewModelable {
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             },
             footer.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
-            )
-            .startWith(.hidden)
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            }
+        )
+        .startWith(.hidden)
 
         let output = Output(videoPlayInfo: realVideo,
                             endFooterRefresh: endFooter,
@@ -131,23 +138,23 @@ extension VideoDetailViewModel {
     /// 解析视频真实播放地址
     func parsePlayInfo(videoID: String) -> Driver<VideoPlayInfo> {
 
-        return VideoApi.parsePlayInfo(videoID)
-        .request()
-        .trackActivity(loading)
-        .trackError(error)
-        .mapObject(VideoPlayInfo.self)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi.parsePlayInfo(videoID)
+                .request()
+                .trackActivity(loading)
+                .trackError(error)
+                .mapObject(VideoPlayInfo.self)
+                .asDriverOnErrorJustComplete()
     }
 
     /// 加载评论
     func requestComment(itemID: String, groupID: String, offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
-        return VideoApi.comment(itemID: itemID,
+        return  VideoApi.comment(itemID: itemID,
                                 groupID: groupID,
                                 offset: offset)
-        .request()
-        .trackError(error)
-        .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+                .request()
+                .trackError(error)
+                .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 }

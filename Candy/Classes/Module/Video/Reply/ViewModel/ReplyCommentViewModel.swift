@@ -48,18 +48,29 @@ extension ReplyCommentViewModel: ViewModelable {
         }
 
         // 数据源绑定
-        header.map { $0.data }
+        header
+        .map { $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.data }
+        footer
+        .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
         let endHeader = header.map { _ in false }
         // 尾部刷新状态
-        let endFooter = Driver.merge(header.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            header.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            }
+        )
+        .startWith(.hidden)
+        
         let output = Output(items: elements.asDriver(),
                             endHeaderRefresh: endHeader,
                             endFooterRefresh: endFooter)
@@ -72,10 +83,10 @@ extension ReplyCommentViewModel {
     /// 加载某条评论的回复
     func request(id: String, offset: Int) -> Driver<ReplyCommentModel> {
 
-        return VideoApi.replyComment(id: id, offset: offset)
-        .request()
-        .trackError(error)
-        .mapObject(ReplyCommentModel.self)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi.replyComment(id: id, offset: offset)
+                .request()
+                .trackError(error)
+                .mapObject(ReplyCommentModel.self)
+                .asDriverOnErrorJustComplete()
     }
 }

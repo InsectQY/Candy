@@ -40,7 +40,8 @@ extension VideoHallSearchViewController: PYSearchViewControllerDelegate {
     }
 
     func searchViewController(_ searchViewController: PYSearchViewController!, didSelectSearchSuggestionAt indexPath: IndexPath!, searchBar: UISearchBar!) {
-        navigator.push(VideoHallURL.searchResult.path, context: searchSuggestions[indexPath.row])
+        navigator.push(VideoHallURL.searchResult.path,
+                       context: searchSuggestions[indexPath.row])
     }
 }
 

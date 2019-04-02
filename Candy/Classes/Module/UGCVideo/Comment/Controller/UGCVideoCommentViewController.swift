@@ -69,7 +69,8 @@ class UGCVideoCommentViewController: ViewController {
         output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in
             cell.isUGCVideo = true
             cell.item = item.comment
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 刷新状态
         output.endHeaderRefresh

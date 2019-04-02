@@ -49,23 +49,33 @@ extension UserUGCViewModel: ViewModelable {
         }
 
         // 获取数据时绑定最新的 offset
-        new.map { $0.offset }
+        new
+        .map { $0.offset }
         .drive(offset)
         .disposed(by: disposeBag)
 
-        footer.map { $0.offset }
+        footer
+        .map { $0.offset }
         .drive(offset)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(new.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }, footer.map { [unowned self] in self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }).startWith(.hidden)
+        let endFooter = Driver.merge(
+            new.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
+            footer.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            }
+        ).startWith(.hidden)
 
         // 绑定数据源
-        new.map { $0.data }
+        new
+        .map { $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.data }
+        footer
+        .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -79,12 +89,13 @@ extension UserUGCViewModel {
 
     func request(category: String, visitedID: String, offset: Int) -> Driver<Model<[UGCVideoListModel]>> {
 
-        return VideoApi.profileType(category: category,
-                                    visitedID: visitedID,
-                                    offset: offset)
-        .request()
-        .asObservable()
-        .mapObject(Model<[UGCVideoListModel]>.self, atKeyPath: nil)
-        .asDriverOnErrorJustComplete()
+        return  VideoApi
+                .profileType(category: category,
+                         visitedID: visitedID,
+                         offset: offset)
+                .request()
+                .asObservable()
+                .mapObject(Model<[UGCVideoListModel]>.self, atKeyPath: nil)
+                .asDriverOnErrorJustComplete()
     }
 }
