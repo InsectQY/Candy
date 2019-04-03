@@ -13,7 +13,7 @@ inhibit_all_warnings!
 pod 'SwiftyThirdParty', :git => 'https://github.com/InsectQY/SwiftyThirdParty.git' # https://github.com/InsectQY/SwiftyThirdParty
 
  # OC
- pod 'FDFullscreenPopGesture' # https://github.com/forkingdog/FDFullscreenPopGesture
+pod 'FDFullscreenPopGesture' # https://github.com/forkingdog/FDFullscreenPopGesture
 # page
 pod 'JXCategoryView' # https://github.com/pujiaxin33/JXCategoryView
 # Video Player

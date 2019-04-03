@@ -118,6 +118,8 @@ extension VideoHallViewModel: ViewModelable {
         .drive(footerRefreshState)
         .disposed(by: disposeBag)
 
+        bindErrorToRefreshFooterState(videoElements.value.isEmpty)
+
         return output
     }
 }
