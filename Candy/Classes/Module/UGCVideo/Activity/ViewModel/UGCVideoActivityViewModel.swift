@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UGCVideoActivityViewModel: ViewModel {
+final class UGCVideoActivityViewModel: RefreshViewModel {
 
     struct Input {
 

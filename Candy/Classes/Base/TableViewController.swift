@@ -62,6 +62,28 @@ class TableViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 
+    // MARK: - 设置 DZNEmptyDataSet
+    func setUpEmptyDataSet() {
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+    }
+}
+
+// MARK: - Refreshable
+extension TableViewController: Refreshable {
+
+    var header: ControlEvent<Void> {
+        return tableView.refreshHeader.rx.refreshing
+    }
+
+    var footer: ControlEvent<Void> {
+        return tableView.refreshFooter.rx.refreshing
+    }
+}
+
+// MARK: - Refresh
+extension TableViewController {
+
     // MARK: - 开始刷新
     func beginHeaderRefresh() {
         tableView.refreshHeader.beginRefreshing { [weak self] in
@@ -69,10 +91,18 @@ class TableViewController: ViewController {
         }
     }
 
-    // MARK: - 设置 DZNEmptyDataSet
-    func setUpEmptyDataSet() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+    func bindHeaderRefresh(with state: PublishSubject<Bool>) {
+        state
+        .asObservable()
+        .bind(to: tableView.refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+    }
+
+    func bindFooterRefresh(with state: PublishSubject<RxMJRefreshFooterState>) {
+        state
+        .asObservable()
+        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
     }
 }
 

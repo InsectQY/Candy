@@ -2,7 +2,7 @@
 //  CandyUITests.swift
 //  CandyUITests
 //
-//  Created by apple on 2019/2/14.
+//  Created by Insect on 2019/2/14.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 

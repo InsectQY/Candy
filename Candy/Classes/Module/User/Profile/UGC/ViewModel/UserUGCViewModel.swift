@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserUGCViewModel: ViewModel {
+final class UserUGCViewModel: RefreshViewModel {
 
     struct Input {
 

@@ -84,6 +84,15 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     }
 }
 
+extension ViewController {
+
+    func bindLoading(with loading: ActivityIndicator) {
+        loading
+        .drive(isLoading)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
  // MARK: - DZNEmptyDataSetSource
 extension ViewController: DZNEmptyDataSetSource {
 

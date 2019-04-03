@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ReplyCommentViewModel: ViewModel {
+final class ReplyCommentViewModel: RefreshViewModel {
 
     struct Input {
 

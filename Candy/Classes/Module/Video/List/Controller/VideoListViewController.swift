@@ -18,7 +18,7 @@ class VideoListViewController: TableViewController {
     private var currentTime: TimeInterval = 0
 
     // MARK: - Lazyload
-    private lazy var viewModel = VideoListViewModel()
+    private lazy var viewModel = VideoListViewModel(input: self)
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -65,9 +65,7 @@ class VideoListViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = VideoListViewModel.Input(category: category,
-                                             headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(),
-                                             footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+        let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
 
         // 没有网络时点击
@@ -88,15 +86,15 @@ class VideoListViewController: TableViewController {
         .disposed(by: rx.disposeBag)
 
         viewModel.headerRefreshState
-        .asDriverOnErrorJustComplete()
+        .asObservable()
         .mapToVoid()
-        .drive(rx.videoStop)
+        .bind(to: rx.videoStop)
         .disposed(by: rx.disposeBag)
 
         viewModel.footerRefreshState
-        .asDriverOnErrorJustComplete()
+        .asObservable()
         .mapToVoid()
-        .drive(rx.videoStop)
+        .bind(to: rx.videoStop)
         .disposed(by: rx.disposeBag)
 
         // TableView 数据源
@@ -121,20 +119,11 @@ class VideoListViewController: TableViewController {
         .disposed(by: rx.disposeBag)
 
         // 加载状态
-        viewModel.loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
+        bindLoading(with: viewModel.loading)
 
         // 刷新状态
-        viewModel.headerRefreshState
-        .asObservable()
-        .bind(to: tableView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
-
-        viewModel.footerRefreshState
-        .asObservable()
-        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)

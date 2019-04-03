@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
+		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
+		1849100B22545D74001D9974 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100A22545D74001D9974 /* Refreshable.swift */; };
 		18767764222920F900A6D37A /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18767763222920F900A6D37A /* BarButtonItem.swift */; };
 		187677662229220F00A6D37A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187677652229220F00A6D37A /* ScrollView.swift */; };
 		1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876776722292EB200A6D37A /* CollectionReusableView.swift */; };
@@ -230,6 +232,8 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
+		1849100A22545D74001D9974 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		18767763222920F900A6D37A /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		187677652229220F00A6D37A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		1876776722292EB200A6D37A /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
@@ -1326,6 +1330,7 @@
 				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
 				E5E0201721B4FE4A00A4CDF1 /* Model.swift */,
 				E5B4EC3821F59EA90065AB80 /* ViewModel.swift */,
+				18491006225453E2001D9974 /* RefreshViewModel.swift */,
 				E5E0201621B4FE4A00A4CDF1 /* Label.swift */,
 				E5FB73A621B79C290010D8A7 /* Button.swift */,
 				E5E9B1EE21D4973F00B08281 /* TableView.swift */,
@@ -1338,6 +1343,7 @@
 				18767763222920F900A6D37A /* BarButtonItem.swift */,
 				187677652229220F00A6D37A /* ScrollView.swift */,
 				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
+				1849100A22545D74001D9974 /* Refreshable.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2456,6 +2462,7 @@
 				E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */,
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
+				1849100B22545D74001D9974 /* Refreshable.swift in Sources */,
 				E534046921BF624B008807DA /* VideoDetailViewModel.swift in Sources */,
 				E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,
@@ -2493,6 +2500,7 @@
 				E59112F221B6557300436D08 /* VideoListViewController.swift in Sources */,
 				E578102221C8E3B9005BFFAC /* VideoHallListCell.swift in Sources */,
 				E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */,
+				18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */,
 				18767764222920F900A6D37A /* BarButtonItem.swift in Sources */,
 				E5FB739C21B76C250010D8A7 /* VideoPageViewModel.swift in Sources */,
 				E534046521BF5F92008807DA /* VideoDetailHeader.swift in Sources */,

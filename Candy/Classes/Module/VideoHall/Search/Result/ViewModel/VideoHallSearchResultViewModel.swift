@@ -9,7 +9,7 @@
 import Foundation
 import RxURLNavigator
 
-final class VideoHallSearchResultViewModel: ViewModel {
+final class VideoHallSearchResultViewModel: RefreshViewModel {
 
     struct Input {
 

@@ -2,7 +2,7 @@
 //  TopView.swift
 //  QYNews
 //
-//  Created by apple on 2019/2/25.
+//  Created by Insect on 2019/2/25.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 

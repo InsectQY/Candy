@@ -59,17 +59,46 @@ class CollectionViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 
-    // MARK: - 开始刷新
+    // MARK: - 设置 DZNEmptyDataSet
+    func setUpEmptyDataSet() {
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
+    }
+}
+
+// MARK: - Refreshable
+extension CollectionViewController: Refreshable {
+
+    var header: ControlEvent<Void> {
+        return collectionView.refreshHeader.rx.refreshing
+    }
+
+    var footer: ControlEvent<Void> {
+        return collectionView.refreshHeader.rx.refreshing
+    }
+}
+
+// MARK: - Refresh
+extension CollectionViewController {
+
     func beginHeaderRefresh() {
         collectionView.refreshHeader.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
         }
     }
 
-    // MARK: - 设置 DZNEmptyDataSet
-    func setUpEmptyDataSet() {
-        collectionView.emptyDataSetSource = self
-        collectionView.emptyDataSetDelegate = self
+    func bindHeaderRefresh(with state: PublishSubject<Bool>) {
+        state
+        .asObservable()
+        .bind(to: collectionView.refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+    }
+
+    func bindFooterRefresh(with state: PublishSubject<RxMJRefreshFooterState>) {
+        state
+        .asObservable()
+        .bind(to: collectionView.refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserQAViewModel: ViewModel {
+final class UserQAViewModel: RefreshViewModel {
 
     struct Input {
 

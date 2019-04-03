@@ -2,7 +2,7 @@
 //  FilterView+Rx.swift
 //  Candy
 //
-//  Created by apple on 2019/3/26.
+//  Created by Insect on 2019/3/26.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UGCVideoCommentViewModel: ViewModel {
+final class UGCVideoCommentViewModel: RefreshViewModel {
 
     struct Input {
 
@@ -80,7 +80,7 @@ extension UGCVideoCommentViewModel {
 
         return  VideoApi
                 .ugcComment(groupID: groupID,
-                        offset: offset)
+                            offset: offset)
                 .request()
                 .trackError(error)
                 .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)

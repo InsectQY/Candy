@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import RxOptional
 
-final class VideoListViewModel: ViewModel {
+final class VideoListViewModel: RefreshViewModel {
 
     struct Input {
         /// 视频分类
         let category: String
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
@@ -39,14 +38,20 @@ extension VideoListViewModel: ViewModelable {
         }
         .asDriverOnErrorJustComplete()
 
+        let output = Output(items: elements.asDriver(),
+                            videoURLs: videoURLs)
+
+        guard let refresh = refresh else { return output }
         // 加载最新视频
-        let loadNew = input.headerRefresh
+        let loadNew = refresh.header
+        .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 加载更多视频
-        let loadMore = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
@@ -80,9 +85,7 @@ extension VideoListViewModel: ViewModelable {
 
         // error 下的刷新状态
         bindErrorToRefreshFooterState(elements.value.isEmpty)
-
-        let output = Output(items: elements.asDriver(),
-                            videoURLs: videoURLs)
+        
         return output
     }
 }
