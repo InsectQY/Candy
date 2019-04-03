@@ -15,14 +15,11 @@ final class VideoHallViewModel: RefreshViewModel {
 
         let noConnectTap: Observable<Void>
         let searchTap: Observable<Void>
-        let footerRefresh: Driver<Void>
         let selection: ControlEvent<VideoHallList>
     }
 
     struct Output {
 
-        /// 尾部刷新状态
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
         /// 视频分类
         let categories: Driver<[CategoryList]>
         /// 该分类下的视频
@@ -55,8 +52,13 @@ extension VideoHallViewModel: ViewModelable {
         .drive(categoryElements)
         .disposed(by: disposeBag)
 
+        let output = Output(categories: categoryElements.asDriver(),
+                            items: videoElements.asDriver())
+
+        guard let refresh = refresh else { return output }
+
         // 加载最新视频
-        let search = searchKey
+        let laodNew = searchKey
         .asDriverOnErrorJustComplete()
         .distinctUntilChanged()
         .flatMapLatest { [unowned self] in
@@ -69,7 +71,8 @@ extension VideoHallViewModel: ViewModelable {
         ) { (offset: $0.count, searchKey: $1) }
 
         // 加载更多视频
-        let loadMore = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .withLatestFrom(moreParameters)
         .flatMapLatest { [unowned self] in
             self.requestVideo(offset: $0.offset,
@@ -77,13 +80,13 @@ extension VideoHallViewModel: ViewModelable {
         }
 
         // 绑定数据源
-        loadMore
-        .map { videoElements.value + $0.cell_list }
+        laodNew
+        .map { $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
 
-        search
-        .map { $0.cell_list }
+        loadMore
+        .map { videoElements.value + $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
 
@@ -103,8 +106,8 @@ extension VideoHallViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(
-            search.map { [unowned self] in
+        Driver.merge(
+            laodNew.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
             },
             loadMore.map { [unowned self] in
@@ -112,10 +115,9 @@ extension VideoHallViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(endFooterRefresh: endFooter,
-                            categories: categoryElements.asDriver(),
-                            items: videoElements.asDriver())
         return output
     }
 }
@@ -127,11 +129,11 @@ extension VideoHallViewModel {
 
         return  VideoHallApi.category
                 .request()
-                .trackActivity(loading)
-                .trackError(error)
                 .mapObject(CategoryInfo.self, atKeyPath: "search_category_info")
                 .map { $0.search_category_list }
-                .asDriver(onErrorJustReturn: [])
+                .trackActivity(loading)
+                .trackError(error)
+                .asDriverOnErrorJustComplete()
     }
 
     /// 某个分类下的视频
@@ -140,9 +142,9 @@ extension VideoHallViewModel {
         return  VideoHallApi
                 .list(offset, searchKey)
                 .request()
-                .trackActivity(loading)
-                .trackError(error)
                 .mapObject(VideoHallModel.self, atKeyPath: nil)
-                .asDriver(onErrorJustReturn: VideoHallModel(has_more: false, cell_list: []))
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }

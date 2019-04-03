@@ -15,17 +15,11 @@ final class VideoHallSearchResultViewModel: RefreshViewModel {
 
         let keyword: String
         let selection: ControlEvent<VideoHallSearchResultList>
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
-
         /// 数据源
         let items: Driver<[VideoHallSearchResultList]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
     }
 }
 
@@ -35,14 +29,19 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         let elements = BehaviorRelay<[VideoHallSearchResultList]>(value: [])
 
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
         // 加载最新视频
-        let laodNew = input.headerRefresh
+        let laodNew = refresh.header
+        .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(offset: 0, key: input.keyword)
         }
 
         // 加载更多视频
-        let loadMore = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .withLatestFrom(elements.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(offset: $0.count, key: input.keyword)
@@ -51,14 +50,11 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         // 数据源
         laodNew
         .map { $0.data }
-        .filterEmpty()
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .map { $0.data }
-        .filterEmpty()
-        .map { elements.value + $0 }
+        .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -70,9 +66,12 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        let endHeader = laodNew.map { _ in false }
+        laodNew.map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         // 尾部刷新状态
-        let endFooter = Driver.merge(
+        Driver.merge(
             laodNew.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             },
@@ -81,25 +80,25 @@ extension VideoHallSearchResultViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(),
-                            endHeaderRefresh: endHeader,
-                            endFooterRefresh: endFooter)
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
     }
 }
 
 extension VideoHallSearchResultViewModel {
 
-    /// 搜索
     func request(offset: Int, key: String) -> Driver<VideoHallSearchResult> {
 
         return  VideoHallApi
                 .search(offset, key)
                 .request()
-                .trackActivity(loading)
-                .trackError(error)
                 .mapObject(VideoHallSearchResult.self, atKeyPath: nil)
-                .asDriver(onErrorJustReturn: VideoHallSearchResult(data: [], has_more: false))
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }

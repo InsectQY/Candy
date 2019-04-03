@@ -74,7 +74,7 @@ extension CollectionViewController: Refreshable {
     }
 
     var footer: ControlEvent<Void> {
-        return collectionView.refreshHeader.rx.refreshing
+        return collectionView.refreshFooter.rx.refreshing
     }
 }
 
@@ -87,16 +87,14 @@ extension CollectionViewController {
         }
     }
 
-    func bindHeaderRefresh(with state: PublishSubject<Bool>) {
+    func bindHeaderRefresh(with state: Observable<Bool>) {
         state
-        .asObservable()
         .bind(to: collectionView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
-    func bindFooterRefresh(with state: PublishSubject<RxMJRefreshFooterState>) {
+    func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
         state
-        .asObservable()
         .bind(to: collectionView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }

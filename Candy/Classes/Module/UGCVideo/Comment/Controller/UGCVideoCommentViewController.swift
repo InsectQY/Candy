@@ -8,39 +8,34 @@
 
 import UIKit
 
-class UGCVideoCommentViewController: ViewController {
+class UGCVideoCommentViewController: TableViewController {
 
-    private var item: UGCVideoListModel?
-
-    // MARK: - IBOutlet
-    @IBOutlet private weak var tableView: TableView! {
+    private var item: UGCVideoListModel? {
         didSet {
-
-            tableView.register(cellType: CommentCell.self)
-            tableView.refreshHeader = RefreshHeader()
-            tableView.refreshFooter = RefreshFooter()
+            headerView.count = item?.video?.raw_data.action.comment_count
         }
     }
-    @IBOutlet private weak var closeBtn: Button!
-    @IBOutlet private weak var commentCountLabel: Label! {
-        didSet {
 
-            guard let count = item?.video?.raw_data.action.comment_count else { return }
-            commentCountLabel.text = "\(count)条评论"
-        }
-    }
+    private lazy var headerView = UGCVideoCommentHeaderView.loadFromNib()
 
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoCommentViewModel()
+    private lazy var viewModel = UGCVideoCommentViewModel(input: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: UGCVideoCommentHeaderView.height)
+        tableView.frame = CGRect(x: 0, y: UGCVideoCommentHeaderView.height, width: ScreenWidth, height: view.height - UGCVideoCommentHeaderView.height)
+    }
+
     // MARK: - init
     init(item: UGCVideoListModel?) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .plain)
         self.item = item
     }
 
@@ -49,22 +44,19 @@ class UGCVideoCommentViewController: ViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
-        tableView.refreshHeader.beginRefreshing()
+
+        tableView.register(cellType: CommentCell.self)
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
+        beginHeaderRefresh()
     }
 
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoCommentViewModel.Input(groupID: item?.video?.raw_data.group_id ?? "",
-                                                   headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(),
-                                                   footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+        let input = UGCVideoCommentViewModel.Input(groupID: item?.video?.raw_data.group_id ?? "")
         let output = viewModel.transform(input: input)
-
-        closeBtn.rx.tap
-        .bind(to: rx.dismiss())
-        .disposed(by: rx.disposeBag)
 
         output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in
             cell.isUGCVideo = true
@@ -73,12 +65,13 @@ class UGCVideoCommentViewController: ViewController {
         .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
+
+        // error toast
+        bindErrorToShowToast(viewModel.refreshError)
     }
 }

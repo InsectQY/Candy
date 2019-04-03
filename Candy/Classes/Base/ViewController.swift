@@ -35,8 +35,10 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     var noConnectionDescription: String = R.string.localizable.appNetNoConnectionDesc()
     /// 没有网络时点击了 view
     var noConnectionViewTap = PublishSubject<Void>()
-    /// 数据源 nil 时是否可用滚动
+    /// 数据源 nil 时是否可以滚动
     var emptyDataSetShouldAllowScroll: Bool = true
+    /// 没有网络时是否可以滚动
+    var noConnectionShouldAllowScroll: Bool = false
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -89,6 +91,12 @@ extension ViewController {
     func bindLoading(with loading: ActivityIndicator) {
         loading
         .drive(isLoading)
+        .disposed(by: rx.disposeBag)
+    }
+
+    func bindErrorToShowToast(_ error: ErrorTracker) {
+        error
+        .drive(rx.showError)
         .disposed(by: rx.disposeBag)
     }
 }
@@ -149,7 +157,6 @@ extension ViewController: DZNEmptyDataSetDelegate {
     }
 
     func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
-
         switch reachabilityConnection.value {
         case .none:
             noConnectionViewTap.onNext(())
@@ -161,7 +168,14 @@ extension ViewController: DZNEmptyDataSetDelegate {
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
-        return emptyDataSetShouldAllowScroll
+        switch reachabilityConnection.value {
+        case .none:
+            return noConnectionShouldAllowScroll
+        case .cellular:
+            return emptyDataSetShouldAllowScroll
+        case .wifi:
+            return emptyDataSetShouldAllowScroll
+        }
     }
 }
 

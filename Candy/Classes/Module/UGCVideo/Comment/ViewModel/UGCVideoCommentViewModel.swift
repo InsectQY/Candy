@@ -13,18 +13,12 @@ final class UGCVideoCommentViewModel: RefreshViewModel {
     struct Input {
 
         let groupID: String
-
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
 
         /// 数据源
         let items: Driver<[VideoCommentModel]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
     }
 }
 
@@ -35,41 +29,57 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 所有评论
         let elements = BehaviorRelay<[VideoCommentModel]>(value: [])
 
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
+
         // 加载最新评论
-        let header = input.headerRefresh.flatMapLatest { [unowned self] in
+        let loadNew = refresh.header
+        .asDriver()
+        .flatMapLatest { [unowned self] in
             self.request(groupID: input.groupID, offset: 0)
         }
 
         // 加载更多评论
-        let footer = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.request(groupID: input.groupID, offset: $0)
         }
 
         // 数据源绑定
-        header.map { $0.data }
+        loadNew
+        .map { $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.data }
+        loadMore
+        .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        let endHeader = header.map { _ in false }
+        loadNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         // 尾部刷新状态
-        let endFooter = Driver.merge(
-            header.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
-            footer.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
+        Driver.merge(
+            loadNew.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            },
+            loadMore.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+            }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(),
-                            endHeaderRefresh: endHeader,
-                            endFooterRefresh: endFooter)
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
     }
 }
@@ -82,8 +92,9 @@ extension UGCVideoCommentViewModel {
                 .ugcComment(groupID: groupID,
                             offset: offset)
                 .request()
-                .trackError(error)
                 .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }

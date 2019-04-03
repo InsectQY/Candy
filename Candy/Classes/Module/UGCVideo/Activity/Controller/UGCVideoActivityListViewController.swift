@@ -12,7 +12,7 @@ import JXCategoryView
 class UGCVideoActivityListViewController: TableViewController {
 
     // MARK: - Lazyload
-    private let viewModel = UGCVideoActivityViewModel()
+    private lazy var viewModel = UGCVideoActivityViewModel(input: self)
 
     // MARK: - Init
     override init(style: UITableView.Style) {
@@ -29,7 +29,6 @@ class UGCVideoActivityListViewController: TableViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
 
         tableView.register(cellType: UGCVideoActivityCell.self)
@@ -41,9 +40,7 @@ class UGCVideoActivityListViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoActivityViewModel.Input(headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(),
-                                                    footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
-        let output = viewModel.transform(input: input)
+        let output = viewModel.transform(input: UGCVideoActivityViewModel.Input())
 
         output.items.drive(tableView.rx.items(cellIdentifier: UGCVideoActivityCell.ID, cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in
             cell.item = item
@@ -51,12 +48,10 @@ class UGCVideoActivityListViewController: TableViewController {
         .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
     }
 }

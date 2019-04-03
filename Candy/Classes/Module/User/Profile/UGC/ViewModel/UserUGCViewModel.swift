@@ -91,8 +91,8 @@ extension UserUGCViewModel {
 
         return  VideoApi
                 .profileType(category: category,
-                         visitedID: visitedID,
-                         offset: offset)
+                             visitedID: visitedID,
+                             offset: offset)
                 .request()
                 .asObservable()
                 .mapObject(Model<[UGCVideoListModel]>.self, atKeyPath: nil)

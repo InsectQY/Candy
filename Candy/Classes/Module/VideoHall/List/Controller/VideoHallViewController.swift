@@ -37,7 +37,7 @@ class VideoHallViewController: CollectionViewController {
         return animateFilterView
     }()
 
-    private lazy var viewModel = VideoHallViewModel()
+    private lazy var viewModel = VideoHallViewModel(input: self)
 
     init() {
         super.init(collectionViewLayout: VideoHallFlowLayout())
@@ -53,7 +53,6 @@ class VideoHallViewController: CollectionViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
 
         navigationItem.titleView = titleView
@@ -74,24 +73,17 @@ class VideoHallViewController: CollectionViewController {
 
         let input = VideoHallViewModel.Input(noConnectTap: noConnectionViewTap,
                                              searchTap: titleView.beginEdit.asObserver(),
-                                             footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver(),
                                              selection: collectionView.rx.modelSelected(VideoHallList.self))
         let output = viewModel.transform(input: input)
 
         // 加载失败
-        viewModel.error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
+        bindErrorToShowToast(viewModel.error)
 
         // 是否正在加载
-        viewModel.loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
+        bindLoading(with: viewModel.loading)
 
         // 尾部刷新状态
-        output.endFooterRefresh
-        .drive(collectionView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
         // 视频分类
         output.categories
@@ -105,7 +97,8 @@ class VideoHallViewController: CollectionViewController {
         // 某个分类下的数据
         output.items.drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 点击了筛选
         topView.rx.tap

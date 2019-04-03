@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UGCVideoListViewModel: ViewModel {
+final class UGCVideoListViewModel: RefreshViewModel {
 
     struct Input {
 
@@ -16,14 +16,10 @@ final class UGCVideoListViewModel: ViewModel {
         let category: String
         /// 点击
         let selection: Driver<IndexPath>
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
 
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
         let items: Driver<[UGCVideoListModel]>
     }
 }
@@ -34,27 +30,29 @@ extension UGCVideoListViewModel: ViewModelable {
 
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
 
-        // 上拉刷新
-        let loadNew = input.headerRefresh
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
+        // 下拉刷新
+        let loadNew = refresh.header
+        .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
-        // 下拉加载
-        let loadMore = input.footerRefresh
+        // 上拉加载
+        let loadMore = refresh.footer
+        .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 绑定数据源
         loadNew
-        .filterEmpty()
-//        .filter { ($0.isEmpty && elements.value.isEmpty) || !$0.isEmpty }
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .filterEmpty()
         .map { elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
@@ -71,17 +69,22 @@ extension UGCVideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部状态
-        let endHeader = loadNew.map { _ in false }
+        loadNew.map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         // 尾部状态
-        let endFooter = Driver.merge(
+        Driver.merge(
             loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
             loadMore.map { _ in RxMJRefreshFooterState.default }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(endHeaderRefresh: endHeader,
-                            endFooterRefresh: endFooter,
-                            items: elements.asDriver())
+        // error 下的刷新状态
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
     }
 }
@@ -94,8 +97,9 @@ extension UGCVideoListViewModel {
         return  VideoApi
                 .ugcList(category)
                 .request()
-                .trackError(error)
                 .mapObject([UGCVideoListModel].self)
-                .asDriver(onErrorJustReturn: [])
+                .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
     }
 }

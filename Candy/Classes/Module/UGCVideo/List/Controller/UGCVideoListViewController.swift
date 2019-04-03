@@ -16,7 +16,7 @@ class UGCVideoListViewController: CollectionViewController {
     private var category: String = ""
 
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoListViewModel()
+    private lazy var viewModel = UGCVideoListViewModel(input: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -34,8 +34,8 @@ class UGCVideoListViewController: CollectionViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
+
         collectionView.register(cellType: UGCVideoListCell.self)
         collectionView.refreshHeader = RefreshHeader()
         collectionView.refreshFooter = RefreshFooter()
@@ -46,9 +46,7 @@ class UGCVideoListViewController: CollectionViewController {
         super.bindViewModel()
 
         let input = UGCVideoListViewModel.Input(category: category,
-                                                selection: collectionView.rx.itemSelected.asDriver(),
-                                                headerRefresh: collectionView.refreshHeader.rx.refreshing.asDriver(),
-                                                footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver())
+                                                selection: collectionView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
 
         output.items.drive(collectionView.rx.items) { collectionView, row, item in
@@ -65,13 +63,14 @@ class UGCVideoListViewController: CollectionViewController {
         .bind(to: rx.postNotification)
         .disposed(by: rx.disposeBag)
 
-        // 刷新状态
-        output.endHeaderRefresh
-        .drive(collectionView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
+        // 显示错误提示
+        bindErrorToShowToast(viewModel.refreshError)
 
-        output.endFooterRefresh
-        .drive(collectionView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
+
+        // 刷新状态
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
     }
 }

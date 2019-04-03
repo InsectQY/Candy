@@ -91,16 +91,14 @@ extension TableViewController {
         }
     }
 
-    func bindHeaderRefresh(with state: PublishSubject<Bool>) {
+    func bindHeaderRefresh(with state: Observable<Bool>) {
         state
-        .asObservable()
         .bind(to: tableView.refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
-    func bindFooterRefresh(with state: PublishSubject<RxMJRefreshFooterState>) {
+    func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
         state
-        .asObservable()
         .bind(to: tableView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }

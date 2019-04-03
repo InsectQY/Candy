@@ -13,7 +13,7 @@ class VideoHallSearchResultViewController: TableViewController {
     private var keyword: String = ""
 
     // MARK: - Lazyload
-    private lazy var viewModel = VideoHallSearchResultViewModel()
+    private lazy var viewModel = VideoHallSearchResultViewModel(input: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -47,9 +47,7 @@ class VideoHallSearchResultViewController: TableViewController {
         super.bindViewModel()
 
         let input = VideoHallSearchResultViewModel.Input(keyword: keyword,
-                                                         selection: tableView.rx.modelSelected(VideoHallSearchResultList.self),
-                                                         headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(),
-                                                         footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+                                                         selection: tableView.rx.modelSelected(VideoHallSearchResultList.self))
         let output = viewModel.transform(input: input)
 
         // TableView 数据源
@@ -58,20 +56,13 @@ class VideoHallSearchResultViewController: TableViewController {
         }.disposed(by: rx.disposeBag)
 
         // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
 
-        viewModel.loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
-
-        viewModel.error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
+        // 显示 error
+        bindErrorToShowToast(viewModel.error)
     }
 }

@@ -11,6 +11,8 @@
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
 		1849100B22545D74001D9974 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100A22545D74001D9974 /* Refreshable.swift */; };
+		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
+		184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */; };
 		18767764222920F900A6D37A /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18767763222920F900A6D37A /* BarButtonItem.swift */; };
 		187677662229220F00A6D37A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187677652229220F00A6D37A /* ScrollView.swift */; };
 		1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876776722292EB200A6D37A /* CollectionReusableView.swift */; };
@@ -148,7 +150,6 @@
 		E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */; };
 		E5E9B20C21D4B38C00B08281 /* EpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E9B20B21D4B38C00B08281 /* EpisodeViewController.xib */; };
 		E5E9B21621D4CC3500B08281 /* UGCVideoCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B21421D4CC3500B08281 /* UGCVideoCommentViewController.swift */; };
-		E5E9B21721D4CC3500B08281 /* UGCVideoCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E9B21521D4CC3500B08281 /* UGCVideoCommentViewController.xib */; };
 		E5E9F52621D5FEA00043ACED /* UGCVideoCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9F52521D5FEA00043ACED /* UGCVideoCommentViewModel.swift */; };
 		E5EC45F321EC8FC2000EEA16 /* DefaultsKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EC45F221EC8FC2000EEA16 /* DefaultsKeyExtension.swift */; };
 		E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED44C921BE319B00451010 /* VideoCommentModel.swift */; };
@@ -234,6 +235,8 @@
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
 		1849100A22545D74001D9974 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
+		1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoCommentHeaderView.xib; sourceTree = "<group>"; };
 		18767763222920F900A6D37A /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		187677652229220F00A6D37A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		1876776722292EB200A6D37A /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
@@ -385,7 +388,6 @@
 		E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		E5E9B20B21D4B38C00B08281 /* EpisodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeViewController.xib; sourceTree = "<group>"; };
 		E5E9B21421D4CC3500B08281 /* UGCVideoCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentViewController.swift; sourceTree = "<group>"; };
-		E5E9B21521D4CC3500B08281 /* UGCVideoCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoCommentViewController.xib; sourceTree = "<group>"; };
 		E5E9F52521D5FEA00043ACED /* UGCVideoCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentViewModel.swift; sourceTree = "<group>"; };
 		E5EC45F221EC8FC2000EEA16 /* DefaultsKeyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeyExtension.swift; sourceTree = "<group>"; };
 		E5ED44C921BE319B00451010 /* VideoCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCommentModel.swift; sourceTree = "<group>"; };
@@ -481,6 +483,15 @@
 				18095908221501DA00A0818D /* Info.plist */,
 			);
 			path = CandyUITests;
+			sourceTree = "<group>";
+		};
+		1849100C225494CB001D9974 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */,
+				1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		187833CC221D4AFD006C9008 /* Parameter */ = {
@@ -1665,6 +1676,7 @@
 		E5E9B20F21D4CBF500B08281 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				1849100C225494CB001D9974 /* View */,
 				E5E9B21121D4CC1C00B08281 /* Controller */,
 				E5E9B21021D4CC1C00B08281 /* ViewModel */,
 			);
@@ -1683,7 +1695,6 @@
 			isa = PBXGroup;
 			children = (
 				E5E9B21421D4CC3500B08281 /* UGCVideoCommentViewController.swift */,
-				E5E9B21521D4CC3500B08281 /* UGCVideoCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2149,6 +2160,7 @@
 				E534046721BF5FA2008807DA /* VideoDetailHeader.xib in Resources */,
 				E5ED9FC021DF55AF0088775F /* UserArticleMultiImageCell.xib in Resources */,
 				E5FC765921CCB96D00FB6FFD /* VideoHallTitleCell.xib in Resources */,
+				184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */,
 				E565356E21DDDD4A00091714 /* UserProfileHeaderView.xib in Resources */,
 				E5FC766821CCC43900FB6FFD /* RoleCell.xib in Resources */,
 				E5ED9FA721DF25540088775F /* ImageCell.xib in Resources */,
@@ -2167,7 +2179,6 @@
 				E51ED46D2210866F0075F32C /* Localizable.strings in Resources */,
 				E534047621BF7F0D008807DA /* VideoRelatedCell.xib in Resources */,
 				E5FC766421CCC3C700FB6FFD /* VideoHallRoleCell.xib in Resources */,
-				E5E9B21721D4CC3500B08281 /* UGCVideoCommentViewController.xib in Resources */,
 				E534047A21BF7FBD008807DA /* CommentCell.xib in Resources */,
 				E5FAB71621C0B9AF002BF258 /* emoji_sort.plist in Resources */,
 				E51E4DE321E59DD700E06AD7 /* VideoHallSearchResultCell.xib in Resources */,
@@ -2449,6 +2460,7 @@
 				E5D9542421E74CD3007FC606 /* UGCVideoActivityListViewController.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
 				E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */,
+				1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */,
 				E5FE0DCA21FB058000DE1DED /* TextField.swift in Sources */,
 				E5E5713C21CB670B005C2D6E /* VideoHallHeaderView.swift in Sources */,
 				E5FA89F121BA1CC80084F3C3 /* UGCVideoPageViewController.swift in Sources */,

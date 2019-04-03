@@ -137,17 +137,17 @@ class VideoHallDetailViewController: ViewController {
 
         // 保存播放的历史记录
         clickEpisode
-        .map { [unowned self] in PlayHistory(videoID: self.albumID,
-                                             episodeID: $0.episodes[$0.index].episode.episode_id,
-                                             episodeIndex: $0.index,
-                                             time: 0) }
+        .map { [unowned self] in
+            PlayHistory(videoID: self.albumID,
+                        episodeID: $0.episodes[$0.index].episode.episode_id,
+                        episodeIndex: $0.index,
+                        time: 0)
+        }
         .drive(historyManager.rx.save)
         .disposed(by: rx.disposeBag)
 
         // 指示器
-        viewModel.loading
-        .drive(rx.showIndicator)
-        .disposed(by: rx.disposeBag)
+        bindLoading(with: viewModel.loading)
     }
 }
 

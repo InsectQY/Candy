@@ -85,7 +85,6 @@ extension VideoListViewModel: ViewModelable {
 
         // error 下的刷新状态
         bindErrorToRefreshFooterState(elements.value.isEmpty)
-        
         return output
     }
 }
@@ -97,10 +96,10 @@ extension VideoListViewModel {
 
         return  VideoApi.list(category)
                 .request()
-                .trackActivity(loading)
-                .trackError(refreshError)
                 .mapObject([NewsListModel].self)
                 .map { $0.filter { !($0.news?.label ?? "").contains("广告") } }
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }
