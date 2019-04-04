@@ -94,6 +94,12 @@ extension ViewController {
         .disposed(by: rx.disposeBag)
     }
 
+    func bindShowIndicator(with loading: ActivityIndicator) {
+        loading
+        .drive(rx.showIndicator)
+        .disposed(by: rx.disposeBag)
+    }
+
     func bindErrorToShowToast(_ error: ErrorTracker) {
         error
         .drive(rx.showError)

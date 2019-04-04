@@ -13,18 +13,12 @@ final class ReplyCommentViewModel: RefreshViewModel {
     struct Input {
 
         let id: String
-
-        let headerRefresh: Driver<Void>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
 
         /// 数据源
         let items: Driver<[ReplyComment]>
-        /// 刷新状态
-        let endHeaderRefresh: Driver<Bool>
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
     }
 }
 
@@ -35,45 +29,57 @@ extension ReplyCommentViewModel: ViewModelable {
         // 所有评论
         let elements = BehaviorRelay<[ReplyComment]>(value: [])
 
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
+
         // 加载最新评论
-        let header = input.headerRefresh.flatMapLatest { [unowned self] in
+        let laodNew = refresh.header
+        .asDriver()
+        .flatMapLatest { [unowned self] in
             self.request(id: input.id, offset: 0)
         }
 
         // 加载更多评论
-        let footer = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.request(id: input.id, offset: $0)
         }
 
         // 数据源绑定
-        header
+        laodNew
         .map { $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer
+        loadMore
         .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        let endHeader = header.map { _ in false }
+        laodNew
+        .map { _ in false }
+        .drive(headerRefreshState)
+        .disposed(by: disposeBag)
+
         // 尾部刷新状态
-        let endFooter = Driver.merge(
-            header.map { [unowned self] in
+        Driver.merge(
+            laodNew.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             },
-            footer.map { [unowned self] in
+            loadMore.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
-        
-        let output = Output(items: elements.asDriver(),
-                            endHeaderRefresh: endHeader,
-                            endFooterRefresh: endFooter)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
+
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
     }
 }
@@ -83,10 +89,13 @@ extension ReplyCommentViewModel {
     /// 加载某条评论的回复
     func request(id: String, offset: Int) -> Driver<ReplyCommentModel> {
 
-        return  VideoApi.replyComment(id: id, offset: offset)
+        return  VideoApi
+                .replyComment(id: id,
+                              offset: offset)
                 .request()
-                .trackError(error)
                 .mapObject(ReplyCommentModel.self)
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }

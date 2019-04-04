@@ -14,15 +14,12 @@ final class VideoDetailViewModel: RefreshViewModel {
 
         let video: NewsModel?
         let selection: Driver<VideoDetailItem>
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
 
         /// 视频的真实播放地址
         let videoPlayInfo: Driver<VideoPlayInfo>
-        /// 尾部刷新状态
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
         /// 数据源
         let sections: Driver<[VideoDetailSection]>
     }
@@ -47,46 +44,29 @@ extension VideoDetailViewModel: ViewModelable {
         .request()
         .trackError(error)
         .mapObject(VideoDetailModel.self)
-        .map { $0.related_video_toutiao.filter { !$0.show_tag.contains("广告") } }
+        .map {
+            $0.related_video_toutiao.filter {
+                !$0.show_tag.contains("广告")
+            }
+        }
         .asDriver(onErrorJustReturn: [])
 
-        // 加载最新评论
-        let newComments = self.requestComment(itemID: itemID,
-                                              groupID: groupID,
-                                              offset: 0)
-
-        // 加载更多评论
-        let footer = input.footerRefresh
-        .withLatestFrom(commentElements.asDriver()) { $1.count }
-        .flatMapLatest { [unowned self] in
-            self.requestComment(itemID: itemID,
-                                groupID: groupID,
-                                offset: $0)
-        }
-
-        newComments
-        .map { $0.data }
-        .drive(commentElements)
-        .disposed(by: disposeBag)
-
-        footer
-        .map { commentElements.value + $0.data }
-        .drive(commentElements)
-        .disposed(by: disposeBag)
-
         // 视频信息
-        let infoSection = Driver.just(input.video)
+        let infoSection = Driver
+        .just(input.video)
         .filterNil()
         .map { VideoDetailSection.info([VideoDetailItem.info($0)]) }
 
         // 视频评论
-        let commentSection = commentElements.asDriver()
+        let commentSection = commentElements
+        .asDriver()
         .map {
             VideoDetailSection.comment($0.map { VideoDetailItem.comment($0) })
         }
 
         // 相关视频
-        let relatedSection = relatedInfo.asDriver()
+        let relatedSection = relatedInfo
+        .asDriver()
         .map {
             VideoDetailSection.related($0.map { VideoDetailItem.related($0) })
         }
@@ -102,6 +82,36 @@ extension VideoDetailViewModel: ViewModelable {
             return sections
         }
 
+        let output = Output(videoPlayInfo: realVideo,
+                            sections: sections)
+
+        guard let refresh = refresh else { return output }
+
+        // 加载最新评论
+        let newComments = self.requestComment(itemID: itemID,
+                                              groupID: groupID,
+                                              offset: 0)
+
+        // 加载更多评论
+        let loadMoreComments = refresh.footer
+        .asDriver()
+        .withLatestFrom(commentElements.asDriver()) { $1.count }
+        .flatMapLatest { [unowned self] in
+            self.requestComment(itemID: itemID,
+                                groupID: groupID,
+                                offset: $0)
+        }
+
+        newComments
+        .map { $0.data }
+        .drive(commentElements)
+        .disposed(by: disposeBag)
+
+        loadMoreComments
+        .map { commentElements.value + $0.data }
+        .drive(commentElements)
+        .disposed(by: disposeBag)
+
         // tableView 点击
         input.selection.drive(onNext: {
 
@@ -113,22 +123,24 @@ extension VideoDetailViewModel: ViewModelable {
             default:
                 break
             }
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(
+        Driver.merge(
             newComments.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             },
-            footer.map { [unowned self] in
+            loadMoreComments.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(videoPlayInfo: realVideo,
-                            endFooterRefresh: endFooter,
-                            sections: sections)
+        bindErrorToRefreshFooterState(commentElements.value.isEmpty)
+
         return output
     }
 }
@@ -140,21 +152,23 @@ extension VideoDetailViewModel {
 
         return  VideoApi.parsePlayInfo(videoID)
                 .request()
+                .mapObject(VideoPlayInfo.self)
                 .trackActivity(loading)
                 .trackError(error)
-                .mapObject(VideoPlayInfo.self)
                 .asDriverOnErrorJustComplete()
     }
 
     /// 加载评论
     func requestComment(itemID: String, groupID: String, offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
-        return  VideoApi.comment(itemID: itemID,
-                                groupID: groupID,
-                                offset: offset)
+        return  VideoApi
+                .comment(itemID: itemID,
+                         groupID: groupID,
+                         offset: offset)
                 .request()
-                .trackError(error)
                 .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }

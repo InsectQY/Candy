@@ -23,7 +23,7 @@ class VideoDetailViewController: TableViewController {
         return videoView
     }()
 
-    private lazy var viewModel = VideoDetailViewModel()
+    private lazy var viewModel = VideoDetailViewModel(input: self)
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -75,19 +75,18 @@ class VideoDetailViewController: TableViewController {
     override func makeUI() {
         super.makeUI()
 
+        view.addSubview(videoView)
         tableView.register(cellType: VideoDetailInfoCell.self)
         tableView.register(cellType: VideoRelatedCell.self)
         tableView.register(cellType: CommentCell.self)
         tableView.refreshFooter = RefreshFooter()
-        view.addSubview(videoView)
     }
 
     override func bindViewModel() {
         super.bindViewModel()
 
         let input = VideoDetailViewModel.Input(video: video,
-                                               selection: tableView.rx.modelSelected(VideoDetailItem.self).asDriver(),
-                                               footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+                                               selection: tableView.rx.modelSelected(VideoDetailItem.self).asDriver())
         let output = viewModel.transform(input: input)
 
         // 数据源
@@ -123,22 +122,18 @@ class VideoDetailViewController: TableViewController {
         .disposed(by: rx.disposeBag)
 
         // 尾部刷新状态
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
         // 指示器
         viewModel.loading
         .drive(rx.showIndicator)
         .disposed(by: rx.disposeBag)
 
-        viewModel.loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
 
-        viewModel.error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
+        // 显示 error
+        bindErrorToShowToast(viewModel.error)
     }
 }
 

@@ -19,6 +19,8 @@
 		187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187833CD221D4B75006C9008 /* ParameterManger.swift */; };
 		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
+		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
+		18FCD4842255CE60002EA93C /* ReplyCommentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */; };
 		A21FD6D8B5F4911E5D28EA6D /* Pods_Candy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D202C60E36130A02867CE8F1 /* Pods_Candy.framework */; };
 		E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */; };
 		E51E4DDD21E594EC00E06AD7 /* VideoHallSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */; };
@@ -27,7 +29,6 @@
 		E51E4DE321E59DD700E06AD7 /* VideoHallSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51E4DE121E59DD700E06AD7 /* VideoHallSearchResultCell.xib */; };
 		E51ED46D2210866F0075F32C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E51ED46F2210866F0075F32C /* Localizable.strings */; };
 		E520A48021D7154900CDDB04 /* ReplyCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E520A47E21D7154900CDDB04 /* ReplyCommentViewController.swift */; };
-		E520A48121D7154900CDDB04 /* ReplyCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E520A47F21D7154900CDDB04 /* ReplyCommentViewController.xib */; };
 		E520A48321D718B100CDDB04 /* ReplyCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E520A48221D718B100CDDB04 /* ReplyCommentViewModel.swift */; };
 		E520A48521D7216D00CDDB04 /* ReplyCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E520A48421D7216D00CDDB04 /* ReplyCommentModel.swift */; };
 		E520A48B21D755E800CDDB04 /* ReplyCommentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E520A48A21D755E800CDDB04 /* ReplyCommentHeader.swift */; };
@@ -243,6 +244,8 @@
 		187833CD221D4B75006C9008 /* ParameterManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterManger.swift; sourceTree = "<group>"; };
 		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentTopView.swift; sourceTree = "<group>"; };
+		18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCommentTopView.xib; sourceTree = "<group>"; };
 		2AA2BC21875647FAD19C286F /* Pods-Candy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.debug.xcconfig"; sourceTree = "<group>"; };
 		3788FE6E54E0955E6A992E3F /* Pods-Candy.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.adhoc.xcconfig"; sourceTree = "<group>"; };
 		BDAACEECCE95BE32AF7265AD /* Pods-Candy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.release.xcconfig"; sourceTree = "<group>"; };
@@ -256,7 +259,6 @@
 		E51ED470221086970075F32C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E51ED471221086B60075F32C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E520A47E21D7154900CDDB04 /* ReplyCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentViewController.swift; sourceTree = "<group>"; };
-		E520A47F21D7154900CDDB04 /* ReplyCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCommentViewController.xib; sourceTree = "<group>"; };
 		E520A48221D718B100CDDB04 /* ReplyCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentViewModel.swift; sourceTree = "<group>"; };
 		E520A48421D7216D00CDDB04 /* ReplyCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentModel.swift; sourceTree = "<group>"; };
 		E520A48A21D755E800CDDB04 /* ReplyCommentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentHeader.swift; sourceTree = "<group>"; };
@@ -603,7 +605,6 @@
 			isa = PBXGroup;
 			children = (
 				E520A47E21D7154900CDDB04 /* ReplyCommentViewController.swift */,
-				E520A47F21D7154900CDDB04 /* ReplyCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -629,6 +630,8 @@
 			children = (
 				E520A48A21D755E800CDDB04 /* ReplyCommentHeader.swift */,
 				E520A48C21D755F400CDDB04 /* ReplyCommentHeader.xib */,
+				18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */,
+				18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -2167,7 +2170,6 @@
 				E578102321C8E3B9005BFFAC /* VideoHallListCell.xib in Resources */,
 				E595D95F21DDE355005A6C00 /* UserUGCVideoCell.xib in Resources */,
 				E57DD44921E2E7A00089A2D2 /* UserCenterHeaderView.xib in Resources */,
-				E520A48121D7154900CDDB04 /* ReplyCommentViewController.xib in Resources */,
 				E5ED9FBC21DF51940088775F /* UserArticleCell.xib in Resources */,
 				E5FA8A0421BA37C70084F3C3 /* UGCVideoListCell.xib in Resources */,
 				E5FB739421B761740010D8A7 /* VideoListCell.xib in Resources */,
@@ -2188,6 +2190,7 @@
 				E534047121BF638F008807DA /* VideoDetailInfoCell.xib in Resources */,
 				E57DD45221E2F0D20089A2D2 /* user_center.plist in Resources */,
 				E520A48D21D755F400CDDB04 /* ReplyCommentHeader.xib in Resources */,
+				18FCD4842255CE60002EA93C /* ReplyCommentTopView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2491,6 +2494,7 @@
 				E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */,
 				E5ED9FBF21DF55AF0088775F /* UserArticleMultiImageCell.swift in Sources */,
 				E5D23CD921DDD6F9008714F6 /* UserVideoView.swift in Sources */,
+				18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */,
 				E5EC45F321EC8FC2000EEA16 /* DefaultsKeyExtension.swift in Sources */,
 				E5E0208121B5057600A4CDF1 /* Then.swift in Sources */,
 				E5E1930821E82F21002CBAE8 /* UGCVideoActivityListModel.swift in Sources */,

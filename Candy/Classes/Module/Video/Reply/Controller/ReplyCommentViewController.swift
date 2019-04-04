@@ -8,71 +8,68 @@
 
 import UIKit
 
-class ReplyCommentViewController: ViewController {
+class ReplyCommentViewController: TableViewController {
 
-    private var comment: Comment?
-
-    // MARK: - IBOutlet
-    @IBOutlet private weak var commentCountLabel: Label! {
+    private var comment: Comment? {
         didSet {
-            commentCountLabel.text = "\(comment?.reply_count ?? 0)条回复"
-        }
-    }
-    @IBOutlet private weak var closeBtn: Button!
-    @IBOutlet private weak var tableView: TableView! {
-        didSet {
-
-            tableView.register(cellType: CommentCell.self)
-            tableView.refreshHeader = RefreshHeader()
-            tableView.refreshFooter = RefreshFooter()
-            setUpTableHeader()
+            topView.count = comment?.reply_count
         }
     }
 
     // MARK: - Lazyload
-    private lazy var viewModel = ReplyCommentViewModel()
+    private lazy var viewModel = ReplyCommentViewModel(input: self)
+    private lazy var topView = ReplyCommentTopView.loadFromNib()
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        topView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ReplyCommentTopView.height)
+        tableView.frame = CGRect(x: 0, y: ReplyCommentTopView.height, width: ScreenWidth, height: view.height - ReplyCommentTopView.height)
+    }
+
     // MARK: - convenience
-    convenience init(comment: Comment?) {
-        self.init()
+    init(comment: Comment?) {
+        super.init(style: .plain)
         self.comment = comment
     }
 
-    override func makeUI() {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
+    override func makeUI() {
         super.makeUI()
+
+        view.addSubview(topView)
+        setUpTableHeader()
+        tableView.register(cellType: CommentCell.self)
+        tableView.refreshHeader = RefreshHeader()
+        tableView.refreshFooter = RefreshFooter()
         tableView.refreshHeader.beginRefreshing()
     }
 
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = ReplyCommentViewModel.Input(id: comment?.id ?? "",
-                                                headerRefresh: tableView.refreshHeader.rx.refreshing.asDriver(),
-                                                footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+        let input = ReplyCommentViewModel.Input(id: comment?.id ?? "")
         let output = viewModel.transform(input: input)
-
-        closeBtn.rx.tap
-        .bind(to: rx.dismiss())
-        .disposed(by: rx.disposeBag)
 
         output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in
             cell.reply = item
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        output.endHeaderRefresh
-        .drive(tableView.refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
+        bindHeaderRefresh(with: viewModel.headerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState)
 
-        output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+        // 加载状态
+        bindLoading(with: viewModel.loading)
     }
 }
 
