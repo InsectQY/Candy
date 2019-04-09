@@ -49,8 +49,6 @@ extension VideoPageViewModel {
         let dafaultCategory = VideoCategory(category: "video", name: "推荐")
         return  VideoApi.category
                 .request()
-                .trackActivity(loading)
-                .trackError(error)
                 .mapObject([VideoCategory].self)
                 .map { category -> [VideoCategory] in
 
@@ -60,6 +58,8 @@ extension VideoPageViewModel {
                     category.insert(dafaultCategory, at: 0)
                     return category
                 }
+                .trackActivity(loading)
+                .trackError(error)
                 .asDriver(onErrorJustReturn: [dafaultCategory])
     }
 }

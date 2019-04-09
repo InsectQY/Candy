@@ -54,11 +54,13 @@ extension UserCenterViewModel {
 
     func request(token: String, openid: String) -> Driver<UserInfoModel> {
 
-        return  WeChatApi.userInfo(token: token, openid: openid)
+        return  WeChatApi
+                .userInfo(token: token,
+                          openid: openid)
                 .request()
+                .mapObject(UserInfoModel.self, atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(error)
-                .mapObject(UserInfoModel.self, atKeyPath: nil)
                 .asDriverOnErrorJustComplete()
     }
 }

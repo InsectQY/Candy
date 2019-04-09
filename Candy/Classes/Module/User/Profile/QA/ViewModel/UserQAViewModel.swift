@@ -89,8 +89,9 @@ extension UserQAViewModel {
                              visitedID: visitedID,
                              offset: offset)
                 .request()
-                .asObservable()
                 .mapObject(Model<[QAModel]>.self, atKeyPath: nil)
+                .trackActivity(loading)
+                .trackError(error)
                 .asDriverOnErrorJustComplete()
     }
 }

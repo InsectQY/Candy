@@ -16,15 +16,11 @@ final class UserUGCViewModel: RefreshViewModel {
         let category: String
         /// 需要访问人的 ID
         let visitedID: String
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
-
         /// 数据源
         let items: Driver<[UGCVideoListModel]>
-        /// 刷新状态
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
     }
 }
 
@@ -35,12 +31,17 @@ extension UserUGCViewModel: ViewModelable {
         let offset = BehaviorRelay<Int>(value: 0)
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
 
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
+
         let new = request(category: input.category,
                           visitedID: input.visitedID,
                           offset: 0)
 
         // 下拉加载
-        let footer = input.footerRefresh
+        let loadMore = refresh.footer
+        .asDriver()
         .withLatestFrom(offset.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: input.category,
@@ -54,19 +55,24 @@ extension UserUGCViewModel: ViewModelable {
         .drive(offset)
         .disposed(by: disposeBag)
 
-        footer
+        loadMore
         .map { $0.offset }
         .drive(offset)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(
+        Driver.merge(
             new.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
-            footer.map { [unowned self] in
+            loadMore.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             }
-        ).startWith(.hidden)
+        )
+        .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
+
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
 
         // 绑定数据源
         new
@@ -74,13 +80,11 @@ extension UserUGCViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer
+        loadMore
         .map { elements.value + $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(),
-                            endFooterRefresh: endFooter)
         return output
     }
 }
@@ -94,8 +98,9 @@ extension UserUGCViewModel {
                              visitedID: visitedID,
                              offset: offset)
                 .request()
-                .asObservable()
                 .mapObject(Model<[UGCVideoListModel]>.self, atKeyPath: nil)
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }

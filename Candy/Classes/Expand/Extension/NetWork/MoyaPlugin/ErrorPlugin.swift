@@ -20,7 +20,9 @@ struct ErrorPlugin: PluginType {
 
         // 判断是否成功
         if (try? result.value?.filterSuccessfulStatusCodes()) == nil {
-            return Result<Moya.Response, MoyaError>(error: MoyaError.underlying(LightError(code: 0, reason: ""), result.value))
+
+            let error: MoyaError = result.error ?? .underlying(LightError(code: 0, message: "抱歉~好像出错了哟~"), result.value)
+            return Result<Moya.Response, MoyaError>(error: error)
         }
 
         switch result {
@@ -28,13 +30,13 @@ struct ErrorPlugin: PluginType {
         case let .success(response):
 
             /// 阳光宽频网/微信登录的数据结构不适用
-            if target.baseURL.absoluteString == YangGuangIP || target.path == "video/openapi/v1/" || target.baseURL.absoluteString == WeChatIP {break}
+            if target.baseURL.absoluteString == YangGuangIP || target.path == "video/openapi/v1/" || target.baseURL.absoluteString == WeChatIP { break }
 
-            let res = try? CleanJSONDecoder().decode(Model<String>.self, from: response.data)
-            let msg = res?.message == .success ? res?.message.rawValue : "抱歉~好像出错了哟~"
-            if res?.message != .success {
+            guard let res = try? CleanJSONDecoder().decode(Model<String>.self, from: response.data) else { return result }
 
-                result = Result<Moya.Response, MoyaError>(error: MoyaError.objectMapping(LightError(code: 0, reason: msg ?? ""), response))
+            if res.message != .success {
+
+                result = Result<Moya.Response, MoyaError>(error: MoyaError.objectMapping(LightError(code: 0, message: res.message.rawValue), response))
             }
         case let .failure(error):
             result = Result<Moya.Response, MoyaError>(error: error)

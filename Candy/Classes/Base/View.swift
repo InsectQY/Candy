@@ -13,11 +13,13 @@ class View: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()
+        bindViewModel()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         makeUI()
+        bindViewModel()
     }
 
     func makeUI() {
@@ -28,5 +30,9 @@ class View: UIView {
 
     func updateUI() {
         setNeedsDisplay()
+    }
+
+    func bindViewModel() {
+
     }
 }

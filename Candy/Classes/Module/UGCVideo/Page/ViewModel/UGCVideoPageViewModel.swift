@@ -48,8 +48,8 @@ extension UGCVideoPageViewModel {
 
     func request() -> Driver<[VideoCategory]> {
 
-        return  VideoApi.ugcCategory.request()
-                .trackActivity(loading)
+        return  VideoApi.ugcCategory
+                .request()
                 .mapObject(UGCVideoPageModel.self)
                 .map { category -> [VideoCategory] in
 
@@ -58,6 +58,7 @@ extension UGCVideoPageViewModel {
                     category = category.filter { $0.name != "关注" }
                     return category
                 }
+                .trackActivity(loading)
                 .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
     }
 }

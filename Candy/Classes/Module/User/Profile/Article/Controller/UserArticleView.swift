@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserArticleView: UIView {
+class UserArticleView: View {
 
     public var scrollCallback: ((UIScrollView?) -> Void)?
     /// 分类
@@ -39,31 +39,23 @@ class UserArticleView: UIView {
         self.init()
         self.category = category
         self.visitedID = visitedID
-        makeUI()
-        bindViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tableView.frame = bounds
-    }
-}
+    override func makeUI() {
+        super.makeUI()
 
-extension UserArticleView {
-
-    private func makeUI() {
         addSubview(tableView)
     }
 
-    private func bindViewModel() {
-
+    override func bindViewModel() {
+        super.bindViewModel()
+        
         let input = UserVideoViewModel.Input(category: category,
-                                             visitedID: visitedID,
-                                             footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+                                             visitedID: visitedID)
         let output = viewModel.transform(input: input)
 
         // TableView 数据源
@@ -79,12 +71,19 @@ extension UserArticleView {
                 cell.item = item
                 return cell
             }
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        output.endFooterRefresh
+        viewModel.footerRefreshState
+        .asDriverOnErrorJustComplete()
         .drive(tableView.refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tableView.frame = bounds
     }
 }
 

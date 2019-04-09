@@ -15,14 +15,11 @@ final class UserVideoViewModel: RefreshViewModel {
         let category: String
         /// 需要访问人的 ID
         let visitedID: String
-        let footerRefresh: Driver<Void>
     }
 
     struct Output {
         /// 数据源
         let items: Driver<[NewsListModel]>
-        /// 刷新状态
-        let endFooterRefresh: Driver<RxMJRefreshFooterState>
     }
 }
 
@@ -33,12 +30,17 @@ extension UserVideoViewModel: ViewModelable {
         let offset = BehaviorRelay<Int>(value: 0)
         let elements = BehaviorRelay<[NewsListModel]>(value: [])
 
+        let output = Output(items: elements.asDriver())
+
+        guard let refresh = refresh else { return output }
+
         let new = request(category: input.category,
                           visitedID: input.visitedID,
                           offset: 0)
 
         // 下拉加载
-        let footer = input.footerRefresh
+        let footer = refresh.footer
+        .asDriver()
         .withLatestFrom(offset.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: input.category,
@@ -69,16 +71,18 @@ extension UserVideoViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        let endFooter = Driver.merge(
+        Driver.merge(
             new.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
             footer.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
         )
         .startWith(.hidden)
+        .drive(footerRefreshState)
+        .disposed(by: disposeBag)
 
-        let output = Output(items: elements.asDriver(),
-                            endFooterRefresh: endFooter)
+        bindErrorToRefreshFooterState(elements.value.isEmpty)
+
         return output
     }
 }
@@ -89,11 +93,12 @@ extension UserVideoViewModel {
 
         return  VideoApi
                 .profileType(category: category,
-                                        visitedID: visitedID,
-                                        offset: offset)
+                             visitedID: visitedID,
+                             offset: offset)
                 .request()
-                .asObservable()
                 .mapObject(Model<[NewsListModel]>.self, atKeyPath: nil)
+                .trackActivity(loading)
+                .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
 }

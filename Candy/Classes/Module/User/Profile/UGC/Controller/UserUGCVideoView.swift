@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserUGCVideoView: UIView {
+class UserUGCVideoView: View {
 
     public var scrollCallback: ((UIScrollView?) -> Void)?
 
@@ -28,23 +28,46 @@ class UserUGCVideoView: UIView {
         return collectionView
     }()
 
-    private lazy var viewModel = UserUGCViewModel()
+    private lazy var viewModel = UserUGCViewModel(input: self)
 
     // MARK: - LifeCylce
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
+    override func makeUI() {
+        super.makeUI()
+
+        addSubview(collectionView)
+    }
+
+    override func bindViewModel() {
+        super.bindViewModel()
+
+        let input = UserUGCViewModel.Input(category: category,
+                                           visitedID: visitedID)
+        let output = viewModel.transform(input: input)
+
+        output.items.drive(collectionView.rx.items(cellIdentifier: UserUGCVideoCell.ID, cellType: UserUGCVideoCell.self)) { collectionView, item, cell in
+            cell.item = item
+        }
+        .disposed(by: rx.disposeBag)
+
+        // 刷新状态
+        viewModel.footerRefreshState
+        .asDriverOnErrorJustComplete()
+        .drive(collectionView.refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
+    }
+
     convenience init(category: String, visitedID: String) {
         self.init()
         self.category = category
         self.visitedID = visitedID
-        makeUI()
-        bindViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
     override func layoutSubviews() {
@@ -53,27 +76,13 @@ class UserUGCVideoView: UIView {
     }
 }
 
-extension UserUGCVideoView {
-
-    private func makeUI() {
-        addSubview(collectionView)
+extension UserUGCVideoView: Refreshable {
+    var header: ControlEvent<Void> {
+        return collectionView.refreshHeader.rx.refreshing
     }
 
-    private func bindViewModel() {
-
-        let input = UserUGCViewModel.Input(category: category,
-                                           visitedID: visitedID,
-                                           footerRefresh: collectionView.refreshFooter.rx.refreshing.asDriver())
-        let output = viewModel.transform(input: input)
-
-        output.items.drive(collectionView.rx.items(cellIdentifier: UserUGCVideoCell.ID, cellType: UserUGCVideoCell.self)) { collectionView, item, cell in
-            cell.item = item
-        }.disposed(by: rx.disposeBag)
-
-        // 刷新状态
-        output.endFooterRefresh
-        .drive(collectionView.refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
+    var footer: ControlEvent<Void> {
+        return collectionView.refreshFooter.rx.refreshing
     }
 }
 

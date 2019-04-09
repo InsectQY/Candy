@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserVideoView: UIView {
+class UserVideoView: View {
 
     public var scrollCallback: ((UIScrollView?) -> Void)?
     /// 分类
@@ -38,12 +38,29 @@ class UserVideoView: UIView {
         self.init()
         self.category = category
         self.visitedID = visitedID
-        makeUI()
-        bindViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+    }
+
+    override func makeUI() {
+        super.makeUI()
+
+        addSubview(tableView)
+    }
+
+    override func bindViewModel() {
+        super.bindViewModel()
+
+        let input = UserVideoViewModel.Input(category: category,
+                                             visitedID: visitedID)
+        let output = viewModel.transform(input: input)
+
+        output.items.drive(tableView.rx.items(cellIdentifier: UserVideoCell.ID, cellType: UserVideoCell.self)) { tableView, item, cell in
+            cell.item = item
+        }
+        .disposed(by: rx.disposeBag)
     }
 
     override func layoutSubviews() {
@@ -52,22 +69,14 @@ class UserVideoView: UIView {
     }
 }
 
-extension UserVideoView {
+extension UserVideoView: Refreshable {
 
-    private func makeUI() {
-        addSubview(tableView)
+    var header: ControlEvent<Void> {
+        return tableView.refreshHeader.rx.refreshing
     }
 
-    private func bindViewModel() {
-
-        let input = UserVideoViewModel.Input(category: category,
-                                             visitedID: visitedID,
-                                             footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
-        let output = viewModel.transform(input: input)
-
-        output.items.drive(tableView.rx.items(cellIdentifier: UserVideoCell.ID, cellType: UserVideoCell.self)) { tableView, item, cell in
-            cell.item = item
-        }.disposed(by: rx.disposeBag)
+    var footer: ControlEvent<Void> {
+        return tableView.refreshFooter.rx.refreshing
     }
 }
 

@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Cache (5.2.0)
-  - CleanJSON (0.7.1)
+  - CleanJSON (0.8.2)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - DZNEmptyDataSet (1.8.1)
@@ -39,7 +39,7 @@ PODS:
     - libwebp/core
   - libwebp/webp (1.0.2)
   - MJRefresh (3.1.15.7)
-  - MonkeyKing (1.13.0)
+  - MonkeyKing (1.15.0)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -48,30 +48,30 @@ PODS:
     - RxSwift (~> 4.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
-  - NVActivityIndicatorView (4.6.1):
-    - NVActivityIndicatorView/Presenter (= 4.6.1)
-  - NVActivityIndicatorView/Presenter (4.6.1)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
   - PYSearch (0.9.1)
-  - QMUIKit/QMUIComponents/QMUIButton (3.1.2):
+  - QMUIKit/QMUIComponents/QMUIButton (3.1.4):
     - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUIKeyboardManager (3.1.2):
+  - QMUIKit/QMUIComponents/QMUIKeyboardManager (3.1.4):
     - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUITips (3.1.2):
+  - QMUIKit/QMUIComponents/QMUITips (3.1.4):
     - QMUIKit/QMUIComponents/QMUIToastView
     - QMUIKit/QMUICore
     - QMUIKit/QMUIResources
-  - QMUIKit/QMUIComponents/QMUIToastView (3.1.2):
+  - QMUIKit/QMUIComponents/QMUIToastView (3.1.4):
     - QMUIKit/QMUIComponents/QMUIKeyboardManager
     - QMUIKit/QMUIComponents/QMUIVisualEffectView
     - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUIVisualEffectView (3.1.2):
+  - QMUIKit/QMUIComponents/QMUIVisualEffectView (3.1.4):
     - QMUIKit/QMUICore
-  - QMUIKit/QMUICore (3.1.2):
+  - QMUIKit/QMUICore (3.1.4):
     - QMUIKit/QMUILog
     - QMUIKit/QMUIWeakObjectContainer
-  - QMUIKit/QMUILog (3.1.2)
-  - QMUIKit/QMUIResources (3.1.2)
-  - QMUIKit/QMUIWeakObjectContainer (3.1.2)
+  - QMUIKit/QMUILog (3.1.4)
+  - QMUIKit/QMUIResources (3.1.4)
+  - QMUIKit/QMUIWeakObjectContainer (3.1.4)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
@@ -128,12 +128,12 @@ PODS:
     - MJRefresh
   - SwiftyThirdParty/Toast (0.1.0):
     - QMUIKit/QMUIComponents/QMUITips
-  - URLNavigator (2.1.0)
-  - ZFPlayer/AVPlayer (3.2.7):
+  - URLNavigator (2.2.0)
+  - ZFPlayer/AVPlayer (3.2.8):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.7):
+  - ZFPlayer/ControlView (3.2.8):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.7)
+  - ZFPlayer/Core (3.2.8)
 
 DEPENDENCIES:
   - CleanJSON
@@ -215,7 +215,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: 1f794b6c209d53632eb85990a99e38fc75499f05
+  CleanJSON: f7be273cc133747dfc638da4f2f9d552d05a4289
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -228,12 +228,12 @@ SPEC CHECKSUMS:
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  MonkeyKing: cdaa3e93d4802464eceea619aba87f70c31db2e1
+  MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
-  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  QMUIKit: 765333b31bb25a973f2ea11e0a67fca727ef29a7
+  QMUIKit: 1bc386f20c68cf285484c933cf3ef3fea2a052f4
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
@@ -249,9 +249,9 @@ SPEC CHECKSUMS:
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyThirdParty: b822416143c8649cf5be195d7cea6a9f8dd1295e
-  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
-  ZFPlayer: 0e68a0ac28dbd8587418cc573e826305e1f5bb38
+  URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
+  ZFPlayer: 768bb514447884e59fbbc96c8b206cdc70ab7009
 
-PODFILE CHECKSUM: e77c6dc8daa72c7fca98b015eb80d135c839a59a
+PODFILE CHECKSUM: ad274c1123322f991ee87bb893ae2f180d8700e0
 
 COCOAPODS: 1.6.1
