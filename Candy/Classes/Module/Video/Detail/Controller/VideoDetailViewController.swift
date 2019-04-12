@@ -121,17 +121,6 @@ class VideoDetailViewController: TableViewController {
         .drive(rx.videoPlayInfo)
         .disposed(by: rx.disposeBag)
 
-        // 尾部刷新状态
-        bindFooterRefresh(with: viewModel.footerRefreshState.asObservable())
-
-        // 指示器
-        viewModel.loading
-        .drive(rx.showIndicator)
-        .disposed(by: rx.disposeBag)
-
-        // 加载状态
-        bindLoading(with: viewModel.loading)
-
         // 显示 error
         bindErrorToShowToast(viewModel.error)
     }

@@ -10,8 +10,6 @@ import Foundation
 
 class RefreshViewModel: ViewModel {
 
-    weak var refresh: Refreshable?
-
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
     /// 头部刷新状态
@@ -19,21 +17,12 @@ class RefreshViewModel: ViewModel {
     /// 尾部刷新状态
     let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
 
-    override init() {
-        super.init()
-        bindState()
-    }
+    override func bindState() {
+        super.bindState()
 
-    init(input: Refreshable? = nil) {
-        super.init()
-        refresh = input
-        bindState()
-    }
-
-    func bindState() {
-
-        refresh?.bindHeaderRefresh(with: headerRefreshState)
-        refresh?.bindFooterRefresh(with: footerRefreshState)
+        unified?.bindHeaderRefresh(with: headerRefreshState)
+        unified?.bindFooterRefresh(with: footerRefreshState)
+        unified?.bindLoading(with: loading)
         bindErrorToRefreshHeaderState()
     }
 }

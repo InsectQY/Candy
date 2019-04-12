@@ -63,13 +63,6 @@ class ReplyCommentViewController: TableViewController {
             cell.reply = item
         }
         .disposed(by: rx.disposeBag)
-
-        // 刷新状态
-        bindHeaderRefresh(with: viewModel.headerRefreshState)
-        bindFooterRefresh(with: viewModel.footerRefreshState)
-
-        // 加载状态
-        bindLoading(with: viewModel.loading)
     }
 }
 

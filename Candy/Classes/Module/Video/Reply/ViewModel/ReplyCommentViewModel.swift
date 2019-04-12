@@ -29,7 +29,7 @@ extension ReplyCommentViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = refresh else { return output }
+        guard let refresh = unified else { return output }
 
         // 加载最新评论
         let laodNew = refresh.header

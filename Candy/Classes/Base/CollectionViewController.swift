@@ -73,7 +73,7 @@ class CollectionViewController: ViewController {
 }
 
 // MARK: - RefreshComponent
-extension CollectionViewController: RefreshComponent {
+extension CollectionViewController: RefreshComponentable {
     var header: ControlEvent<Void> {
 
         if let refreshHeader = collectionView.refreshHeader {
@@ -92,7 +92,7 @@ extension CollectionViewController: RefreshComponent {
 }
 
 // MARK: - BindRefreshState
-extension CollectionViewController: BindRefreshState {
+extension CollectionViewController: BindRefreshStateable {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
 

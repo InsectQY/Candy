@@ -65,9 +65,6 @@ class VideoListViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        // 加载状态
-        bindLoading(with: viewModel.loading)
-
         let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
 

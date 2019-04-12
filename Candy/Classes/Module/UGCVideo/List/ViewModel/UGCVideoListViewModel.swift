@@ -32,7 +32,7 @@ extension UGCVideoListViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = refresh else { return output }
+        guard let refresh = unified else { return output }
         // 下拉刷新
         let loadNew = refresh.header
         .asDriver()

@@ -53,14 +53,8 @@ class VideoHallSearchResultViewController: TableViewController {
         // TableView 数据源
         output.items.drive(tableView.rx.items(cellIdentifier: VideoHallSearchResultCell.ID, cellType: VideoHallSearchResultCell.self)) { tableView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
-
-        // 刷新状态
-        bindHeaderRefresh(with: viewModel.headerRefreshState)
-        bindFooterRefresh(with: viewModel.footerRefreshState)
-
-        // 加载状态
-        bindLoading(with: viewModel.loading)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 显示 error
         bindErrorToShowToast(viewModel.error)

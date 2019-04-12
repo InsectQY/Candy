@@ -10,11 +10,21 @@ import Foundation
 
 class ViewModel {
 
+    weak var unified: Unifiedable?
     /// 是否正在加载
     let loading = ActivityIndicator()
     /// track error
     let error = ErrorTracker()
 
+    init(input: Unifiedable? = nil) {
+        unified = input
+        bindState()
+    }
+
+    func bindState() {
+        unified?.bindErrorToShowToast(error)
+    }
+    
     deinit {
         print("\(type(of: self)): Deinited")
     }

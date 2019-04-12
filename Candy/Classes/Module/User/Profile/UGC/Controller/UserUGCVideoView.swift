@@ -76,15 +76,29 @@ class UserUGCVideoView: View {
     }
 }
 
-extension UserUGCVideoView: RefreshComponent {
+extension UserUGCVideoView: RefreshComponentable {
 
     var footer: ControlEvent<Void> {
         return collectionView.refreshFooter!.rx.refreshing
     }
 }
 
-extension UserUGCVideoView: BindRefreshState {
+extension UserUGCVideoView: BindRefreshStateable {
 
+}
+
+extension UserUGCVideoView: BindLoadStateable {
+
+    func bindLoading(with loading: ActivityIndicator) {
+        
+    }
+}
+
+extension UserUGCVideoView: BindErrorStateable {
+
+    func bindErrorToShowToast(_ error: ErrorTracker) {
+
+    }
 }
 
 // MARK: - UICollectionViewDelegate

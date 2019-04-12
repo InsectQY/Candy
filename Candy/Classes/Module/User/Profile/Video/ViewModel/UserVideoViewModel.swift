@@ -32,7 +32,7 @@ extension UserVideoViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = refresh else { return output }
+        guard let refresh = unified else { return output }
 
         let new = request(category: input.category,
                           visitedID: input.visitedID,

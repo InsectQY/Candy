@@ -27,7 +27,7 @@ extension UGCVideoActivityViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = refresh else { return output }
+        guard let refresh = unified else { return output }
         // 加载最新视频
         let loadNew = refresh.header
         .asDriver()

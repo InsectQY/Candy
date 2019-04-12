@@ -65,12 +65,5 @@ class UGCVideoListViewController: CollectionViewController {
 
         // 显示错误提示
         bindErrorToShowToast(viewModel.refreshError)
-
-        // 加载状态
-        bindLoading(with: viewModel.loading)
-
-        // 刷新状态
-        bindHeaderRefresh(with: viewModel.headerRefreshState)
-        bindFooterRefresh(with: viewModel.footerRefreshState)
     }
 }

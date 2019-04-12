@@ -86,7 +86,18 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     }
 }
 
-extension ViewController {
+// MARK: - BindErrorStateable
+extension ViewController: BindErrorStateable {
+
+    func bindErrorToShowToast(_ error: ErrorTracker) {
+        error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - BindLoadState
+extension ViewController: BindLoadStateable {
 
     func bindLoading(with loading: ActivityIndicator) {
         loading
@@ -97,12 +108,6 @@ extension ViewController {
     func bindShowIndicator(with loading: ActivityIndicator) {
         loading
         .drive(rx.showIndicator)
-        .disposed(by: rx.disposeBag)
-    }
-
-    func bindErrorToShowToast(_ error: ErrorTracker) {
-        error
-        .drive(rx.showError)
         .disposed(by: rx.disposeBag)
     }
 }

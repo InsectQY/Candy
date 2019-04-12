@@ -40,7 +40,7 @@ class VideoListCell: TableViewCell, NibReusable {
             timeLabel.text = item.videoDurationString
             playCountLabel.text = "\(item.video_detail_info.videoWatchCountString)次播放"
             largeImage
-            .qy_setImage(item.video_detail_info.detail_video_large_image.url, options: [KfOptions.fadeTransition(imageTransitionTime)])
+            .qy_setImage(item.video_detail_info.detail_video_large_image.url, placeholder: "placeholder", options: [KfOptions.fadeTransition(imageTransitionTime)])
         }
     }
 }

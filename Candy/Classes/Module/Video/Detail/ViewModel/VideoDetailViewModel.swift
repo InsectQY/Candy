@@ -23,6 +23,11 @@ final class VideoDetailViewModel: RefreshViewModel {
         /// 数据源
         let sections: Driver<[VideoDetailSection]>
     }
+
+    override func bindState() {
+        super.bindState()
+        unified?.bindShowIndicator(with: loading)
+    }
 }
 
 extension VideoDetailViewModel: ViewModelable {
@@ -85,7 +90,7 @@ extension VideoDetailViewModel: ViewModelable {
         let output = Output(videoPlayInfo: realVideo,
                             sections: sections)
 
-        guard let refresh = refresh else { return output }
+        guard let refresh = unified else { return output }
 
         // 加载最新评论
         let newComments = self.requestComment(itemID: itemID,

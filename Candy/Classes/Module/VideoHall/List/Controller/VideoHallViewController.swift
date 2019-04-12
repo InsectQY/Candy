@@ -79,9 +79,6 @@ class VideoHallViewController: CollectionViewController {
         // 加载失败
         bindErrorToShowToast(viewModel.error)
 
-        // 是否正在加载
-        bindLoading(with: viewModel.loading)
-
         // 视频分类
         output.categories
         .drive(filterView.rx.categories)

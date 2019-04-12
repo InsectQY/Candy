@@ -77,7 +77,7 @@ class TableViewController: ViewController {
 }
 
 // MARK: - RefreshComponent
-extension TableViewController: RefreshComponent {
+extension TableViewController: RefreshComponentable {
 
     var header: ControlEvent<Void> {
 
@@ -97,7 +97,7 @@ extension TableViewController: RefreshComponent {
 }
 
 // MARK: - BindRefreshState
-extension TableViewController: BindRefreshState {
+extension TableViewController: BindRefreshStateable {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
 
