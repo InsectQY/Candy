@@ -24,9 +24,9 @@ class FilterCell: UITableViewCell, Reusable {
         backgroundView.backgroundViewColor = RGBA(240, 240, 240)
         let categoryView = JXCategoryTitleView()
         categoryView.indicators = [backgroundView]
-        categoryView.titleColorGradientEnabled = false
-        categoryView.titleLabelMaskEnabled = true
-        categoryView.averageCellSpacingEnabled = false
+        categoryView.isTitleColorGradientEnabled = false
+        categoryView.isTitleLabelMaskEnabled = true
+        categoryView.isAverageCellSpacingEnabled = false
         categoryView.titleSelectedColor = .main
         categoryView.cellSpacing = 30
         categoryView.delegate = self

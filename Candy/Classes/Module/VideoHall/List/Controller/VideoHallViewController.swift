@@ -82,9 +82,6 @@ class VideoHallViewController: CollectionViewController {
         // 是否正在加载
         bindLoading(with: viewModel.loading)
 
-        // 尾部刷新状态
-        bindFooterRefresh(with: viewModel.footerRefreshState)
-
         // 视频分类
         output.categories
         .drive(filterView.rx.categories)

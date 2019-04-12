@@ -62,7 +62,7 @@ extension UserQAView {
 
         let input = UserQAViewModel.Input(category: category,
                                           visitedID: visitedID,
-                                          footerRefresh: tableView.refreshFooter.rx.refreshing.asDriver())
+                                          footerRefresh: tableView.refreshFooter!.rx.refreshing.asDriver())
         let output = viewModel.transform(input: input)
 
         // TableView 数据源
@@ -72,7 +72,7 @@ extension UserQAView {
 
         // 刷新状态
         output.endFooterRefresh
-        .drive(tableView.refreshFooter.rx.refreshFooterState)
+        .drive(tableView.refreshFooter!.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

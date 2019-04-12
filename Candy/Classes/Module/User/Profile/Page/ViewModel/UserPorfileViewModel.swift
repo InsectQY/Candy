@@ -24,7 +24,8 @@ extension UserPorfileViewModel: ViewModelable {
 
     func transform(input: UserPorfileViewModel.Input) -> UserPorfileViewModel.Output {
 
-        let userProfile = VideoApi.userProfile(input.userID)
+        let userProfile = VideoApi
+        .userProfile(input.userID)
         .request()
         .asObservable()
         .mapObject(UserProfileModel.self)

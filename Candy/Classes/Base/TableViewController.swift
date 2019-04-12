@@ -62,6 +62,13 @@ class TableViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 
+    // MARK: - 开始刷新
+    func beginHeaderRefresh() {
+        tableView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.setUpEmptyDataSet()
+        }
+    }
+
     // MARK: - 设置 DZNEmptyDataSet
     func setUpEmptyDataSet() {
         tableView.emptyDataSetSource = self
@@ -69,37 +76,44 @@ class TableViewController: ViewController {
     }
 }
 
-// MARK: - Refreshable
-extension TableViewController: Refreshable {
+// MARK: - RefreshComponent
+extension TableViewController: RefreshComponent {
 
     var header: ControlEvent<Void> {
-        return tableView.refreshHeader.rx.refreshing
+
+        if let refreshHeader = tableView.refreshHeader {
+            return refreshHeader.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 
     var footer: ControlEvent<Void> {
-        return tableView.refreshFooter.rx.refreshing
+
+        if let refreshFooter = tableView.refreshFooter {
+            return refreshFooter.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 }
 
-// MARK: - Refresh
-extension TableViewController {
-
-    // MARK: - 开始刷新
-    func beginHeaderRefresh() {
-        tableView.refreshHeader.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
-        }
-    }
+// MARK: - BindRefreshState
+extension TableViewController: BindRefreshState {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
+
+        guard let refreshHeader = tableView.refreshHeader else { return }
+
         state
-        .bind(to: tableView.refreshHeader.rx.isRefreshing)
+        .bind(to: refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
     func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
+
+        guard let refreshFooter = tableView.refreshFooter else { return }
+
         state
-        .bind(to: tableView.refreshFooter.rx.refreshFooterState)
+        .bind(to: refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

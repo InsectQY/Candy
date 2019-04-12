@@ -10,7 +10,7 @@
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
-		1849100B22545D74001D9974 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100A22545D74001D9974 /* Refreshable.swift */; };
+		1849100B22545D74001D9974 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100A22545D74001D9974 /* RefreshComponent.swift */; };
 		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
 		184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */; };
 		18767764222920F900A6D37A /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18767763222920F900A6D37A /* BarButtonItem.swift */; };
@@ -235,7 +235,7 @@
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
-		1849100A22545D74001D9974 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		1849100A22545D74001D9974 /* RefreshComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
 		1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoCommentHeaderView.xib; sourceTree = "<group>"; };
 		18767763222920F900A6D37A /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
@@ -485,6 +485,14 @@
 				18095908221501DA00A0818D /* Info.plist */,
 			);
 			path = CandyUITests;
+			sourceTree = "<group>";
+		};
+		182CDA32226057D900A17581 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				1849100A22545D74001D9974 /* RefreshComponent.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		1849100C225494CB001D9974 /* View */ = {
@@ -1357,7 +1365,6 @@
 				18767763222920F900A6D37A /* BarButtonItem.swift */,
 				187677652229220F00A6D37A /* ScrollView.swift */,
 				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
-				1849100A22545D74001D9974 /* Refreshable.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1389,6 +1396,7 @@
 		E5E0203621B4FF5100A4CDF1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				182CDA32226057D900A17581 /* Refresh */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
 				E5E0203F21B4FF5100A4CDF1 /* Reusable */,
 			);
@@ -2343,7 +2351,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/Candy/Resources/R.generated.swift,
+				"$SRCROOT/Candy/Resources/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2477,7 +2485,7 @@
 				E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */,
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
-				1849100B22545D74001D9974 /* Refreshable.swift in Sources */,
+				1849100B22545D74001D9974 /* RefreshComponent.swift in Sources */,
 				E534046921BF624B008807DA /* VideoDetailViewModel.swift in Sources */,
 				E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,

@@ -69,14 +69,14 @@ class UserVideoView: View {
     }
 }
 
-extension UserVideoView: Refreshable {
-
+extension UserVideoView: RefreshComponent {
+    
     var header: ControlEvent<Void> {
-        return tableView.refreshHeader.rx.refreshing
+        return tableView.refreshHeader!.rx.refreshing
     }
 
     var footer: ControlEvent<Void> {
-        return tableView.refreshFooter.rx.refreshing
+        return tableView.refreshFooter!.rx.refreshing
     }
 }
 

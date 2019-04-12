@@ -69,10 +69,12 @@ extension UGCVideoDetailViewModel {
 
     func request(category: String) -> Driver<[UGCVideoListModel]> {
 
-        return  VideoApi.list(category)
+        return  VideoApi
+                .list(category)
                 .request()
-                .trackActivity(loading)
                 .mapObject([UGCVideoListModel].self)
+                .trackActivity(loading)
+                .trackError(error)
                 .asDriver(onErrorJustReturn: [])
     }
 }

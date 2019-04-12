@@ -59,6 +59,12 @@ class CollectionViewController: ViewController {
         .disposed(by: rx.disposeBag)
     }
 
+    func beginHeaderRefresh() {
+        collectionView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.setUpEmptyDataSet()
+        }
+    }
+
     // MARK: - 设置 DZNEmptyDataSet
     func setUpEmptyDataSet() {
         collectionView.emptyDataSetSource = self
@@ -66,36 +72,41 @@ class CollectionViewController: ViewController {
     }
 }
 
-// MARK: - Refreshable
-extension CollectionViewController: Refreshable {
-
+// MARK: - RefreshComponent
+extension CollectionViewController: RefreshComponent {
     var header: ControlEvent<Void> {
-        return collectionView.refreshHeader.rx.refreshing
+
+        if let refreshHeader = collectionView.refreshHeader {
+            return refreshHeader.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 
     var footer: ControlEvent<Void> {
-        return collectionView.refreshFooter.rx.refreshing
+
+        if let refreshFooter = collectionView.refreshFooter {
+            return refreshFooter.rx.refreshing
+        }
+        return ControlEvent(events: Observable.empty())
     }
 }
 
-// MARK: - Refresh
-extension CollectionViewController {
-
-    func beginHeaderRefresh() {
-        collectionView.refreshHeader.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
-        }
-    }
+// MARK: - BindRefreshState
+extension CollectionViewController: BindRefreshState {
 
     func bindHeaderRefresh(with state: Observable<Bool>) {
+
+        guard let refreshHeader = collectionView.refreshHeader else { return }
         state
-        .bind(to: collectionView.refreshHeader.rx.isRefreshing)
+        .bind(to: refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
 
     func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
+
+        guard let refreshFooter = collectionView.refreshFooter else { return }
         state
-        .bind(to: collectionView.refreshFooter.rx.refreshFooterState)
+        .bind(to: refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 }

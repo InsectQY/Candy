@@ -11,12 +11,10 @@ import Foundation
 final class ReplyCommentViewModel: RefreshViewModel {
 
     struct Input {
-
         let id: String
     }
 
     struct Output {
-
         /// 数据源
         let items: Driver<[ReplyComment]>
     }

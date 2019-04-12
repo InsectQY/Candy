@@ -56,7 +56,7 @@ class UserUGCVideoView: View {
         // 刷新状态
         viewModel.footerRefreshState
         .asDriverOnErrorJustComplete()
-        .drive(collectionView.refreshFooter.rx.refreshFooterState)
+        .drive(collectionView.refreshFooter!.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
 
@@ -76,14 +76,15 @@ class UserUGCVideoView: View {
     }
 }
 
-extension UserUGCVideoView: Refreshable {
-    var header: ControlEvent<Void> {
-        return collectionView.refreshHeader.rx.refreshing
-    }
+extension UserUGCVideoView: RefreshComponent {
 
     var footer: ControlEvent<Void> {
-        return collectionView.refreshFooter.rx.refreshing
+        return collectionView.refreshFooter!.rx.refreshing
     }
+}
+
+extension UserUGCVideoView: BindRefreshState {
+
 }
 
 // MARK: - UICollectionViewDelegate

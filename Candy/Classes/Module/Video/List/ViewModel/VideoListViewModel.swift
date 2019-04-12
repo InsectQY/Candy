@@ -43,14 +43,16 @@ extension VideoListViewModel: ViewModelable {
 
         guard let refresh = refresh else { return output }
         // 加载最新视频
-        let loadNew = refresh.header
+        let loadNew = refresh
+        .header
         .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 加载更多视频
-        let loadMore = refresh.footer
+        let loadMore = refresh
+        .footer
         .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
@@ -67,7 +69,8 @@ extension VideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // success 下的刷新状态
-        loadNew.map { _ in false }
+        loadNew
+        .map { _ in false }
         .drive(headerRefreshState)
         .disposed(by: disposeBag)
 

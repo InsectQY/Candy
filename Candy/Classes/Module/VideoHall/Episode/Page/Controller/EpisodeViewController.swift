@@ -37,7 +37,7 @@ class EpisodeViewController: ViewController {
         categoryView.delegate = self
         categoryView.titleSelectedColor = .main
         categoryView.indicators = [lineView]
-        categoryView.averageCellSpacingEnabled = false
+        categoryView.isAverageCellSpacingEnabled = false
         return categoryView
     }()
 
@@ -51,7 +51,6 @@ class EpisodeViewController: ViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         categoryView.frame = categoryContentView.bounds
         listContainerView.frame = pageContentView.bounds
     }

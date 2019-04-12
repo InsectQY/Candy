@@ -65,6 +65,9 @@ class VideoListViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        // 加载状态
+        bindLoading(with: viewModel.loading)
+
         let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
 
@@ -78,7 +81,7 @@ class VideoListViewController: TableViewController {
         .drive(rx.videoURLs)
         .disposed(by: rx.disposeBag)
 
-        // 界面左右滚动/上拉刷新/下拉加载都停止播放视频
+        // 界面左右滚动/下拉刷新/上拉加载都停止播放视频
         NotificationCenter.default.rx
         .notification(Notification.pageDidScroll)
         .mapToVoid()
@@ -117,13 +120,6 @@ class VideoListViewController: TableViewController {
             return cell
         }
         .disposed(by: rx.disposeBag)
-
-        // 加载状态
-        bindLoading(with: viewModel.loading)
-
-        // 刷新状态
-        bindHeaderRefresh(with: viewModel.headerRefreshState)
-        bindFooterRefresh(with: viewModel.footerRefreshState)
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)

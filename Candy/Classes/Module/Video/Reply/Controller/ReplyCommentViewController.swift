@@ -50,7 +50,7 @@ class ReplyCommentViewController: TableViewController {
         tableView.register(cellType: CommentCell.self)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
-        tableView.refreshHeader.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing()
     }
 
     override func bindViewModel() {

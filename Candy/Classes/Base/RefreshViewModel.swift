@@ -11,6 +11,7 @@ import Foundation
 class RefreshViewModel: ViewModel {
 
     weak var refresh: Refreshable?
+
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
     /// 头部刷新状态
@@ -20,12 +21,19 @@ class RefreshViewModel: ViewModel {
 
     override init() {
         super.init()
-        bindErrorToRefreshHeaderState()
+        bindState()
     }
 
     init(input: Refreshable? = nil) {
         super.init()
-        self.refresh = input
+        refresh = input
+        bindState()
+    }
+
+    func bindState() {
+
+        refresh?.bindHeaderRefresh(with: headerRefreshState)
+        refresh?.bindFooterRefresh(with: footerRefreshState)
         bindErrorToRefreshHeaderState()
     }
 }

@@ -122,7 +122,7 @@ class VideoDetailViewController: TableViewController {
         .disposed(by: rx.disposeBag)
 
         // 尾部刷新状态
-        bindFooterRefresh(with: viewModel.footerRefreshState)
+        bindFooterRefresh(with: viewModel.footerRefreshState.asObservable())
 
         // 指示器
         viewModel.loading
