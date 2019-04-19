@@ -34,7 +34,9 @@ extension UserQAViewModel: ViewModelable {
         let offset = BehaviorRelay<Int>(value: 0)
         let elements = BehaviorRelay<[QAModel]>(value: [])
 
-        let new = self.request(category: input.category, visitedID: input.visitedID, offset: 0)
+        let new = self.request(category: input.category,
+                               visitedID: input.visitedID,
+                               offset: 0)
 
         // 下拉加载
         let footer = input.footerRefresh

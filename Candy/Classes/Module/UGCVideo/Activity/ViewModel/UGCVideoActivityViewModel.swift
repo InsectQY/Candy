@@ -55,7 +55,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        loadNew.map { _ in false }
+        loadNew
+        .map { _ in false }
         .drive(headerRefreshState)
         .disposed(by: disposeBag)
 

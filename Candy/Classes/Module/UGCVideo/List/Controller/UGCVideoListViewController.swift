@@ -62,8 +62,5 @@ class UGCVideoListViewController: CollectionViewController {
         noConnectionViewTap
         .bind(to: rx.postNotification)
         .disposed(by: rx.disposeBag)
-
-        // 显示错误提示
-        bindErrorToShowToast(viewModel.refreshError)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// 专用于处理刷新状态的 VM, 如不需要可继承更轻量的 ViewModel
 class RefreshViewModel: ViewModel {
 
     /// 刷新过程中产生的 error

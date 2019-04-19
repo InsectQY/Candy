@@ -19,7 +19,6 @@ final class UGCVideoListViewModel: RefreshViewModel {
     }
 
     struct Output {
-
         let items: Driver<[UGCVideoListModel]>
     }
 }

@@ -17,21 +17,11 @@ class UGCVideoDetailCell: CollectionViewCell, NibReusable {
     /// 是否触发了下滑手势
     public var isPanned: Bool = false {
         didSet {
-            if isPanned {
-
-                abstractLabel.isHidden = true
-                userNameLabel.isHidden = true
-                avatarImage.isHidden = true
-                commentBtn.isHidden = true
-                closeBtn.isHidden = true
-            } else {
-
-                abstractLabel.isHidden = false
-                userNameLabel.isHidden = false
-                avatarImage.isHidden = false
-                commentBtn.isHidden = false
-                closeBtn.isHidden = false
-            }
+            abstractLabel.isHidden = isPanned
+            userNameLabel.isHidden = isPanned
+            avatarImage.isHidden = isPanned
+            commentBtn.isHidden = isPanned
+            closeBtn.isHidden = isPanned
         }
     }
 
