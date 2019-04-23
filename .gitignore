@@ -35,3 +35,6 @@ Package.pins
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# node
+node_modules/
