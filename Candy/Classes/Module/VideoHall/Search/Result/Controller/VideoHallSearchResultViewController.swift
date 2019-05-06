@@ -39,7 +39,6 @@ class VideoHallSearchResultViewController: TableViewController {
         tableView.rowHeight = VideoHallSearchResultCell.height
         tableView.register(cellType: VideoHallSearchResultCell.self)
         tableView.refreshHeader = RefreshHeader()
-//        tableView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
     }
 

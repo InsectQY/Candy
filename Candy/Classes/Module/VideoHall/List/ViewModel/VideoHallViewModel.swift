@@ -68,7 +68,9 @@ extension VideoHallViewModel: ViewModelable {
         let moreParameters = Driver.combineLatest(
             videoElements.asDriver(),
             searchKey.asDriverOnErrorJustComplete()
-        ) { (offset: $0.count, searchKey: $1) }
+        ) {
+            (offset: $0.count, searchKey: $1)
+        }
 
         // 加载更多视频
         let loadMore = refresh.footer

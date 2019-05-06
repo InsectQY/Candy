@@ -54,7 +54,11 @@ extension VideoPageViewModel {
 
                     var category = category
                     // 过滤这三组
-                    category = category.filter { $0.name != "直播" && $0.name != "考得好" && $0.name != "关注" }
+                    category = category.filter {
+                        $0.name != "直播" &&
+                        $0.name != "考得好" &&
+                        $0.name != "关注"
+                    }
                     category.insert(dafaultCategory, at: 0)
                     return category
                 }

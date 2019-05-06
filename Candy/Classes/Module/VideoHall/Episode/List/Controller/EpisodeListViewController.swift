@@ -29,7 +29,6 @@ class EpisodeListViewController: CollectionViewController {
 
     override func makeUI() {
         super.makeUI()
-        
         collectionView.register(cellType: EpisodeCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self

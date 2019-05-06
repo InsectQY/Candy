@@ -125,7 +125,10 @@ class VideoListViewController: TableViewController {
         .map { [unowned self] in
             ["news": $0,
             "seekTime": self.currentTime] }
-        .flatMap { navigator.rx.push(VideoURL.detail.path, context: $0) }
+        .flatMap {
+            navigator.rx.push(VideoURL.detail.path,
+                              context: $0)
+        }
         .subscribe { [weak self] _ in self?.currentTime = 0 }
         .disposed(by: rx.disposeBag)
     }

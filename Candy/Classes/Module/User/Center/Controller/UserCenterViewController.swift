@@ -36,6 +36,7 @@ class UserCenterViewController: TableViewController {
 
     override func makeUI() {
         super.makeUI()
+
         navigationItem.title = "我的"
         tableView.tableHeaderView = headerView
         tableView.rowHeight = UserCenterCell.height
@@ -49,7 +50,8 @@ class UserCenterViewController: TableViewController {
 
         output.dataSource.drive(tableView.rx.items(cellIdentifier: UserCenterCell.ID, cellType: UserCenterCell.self)) { tableView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         tableView.rx.modelSelected(UserCenterModel.self)
         .subscribe(onNext: {
@@ -62,7 +64,8 @@ class UserCenterViewController: TableViewController {
             case .statement: // 免责声明
                 navigator.push(UserURL.statement.path)
             }
-        }).disposed(by: rx.disposeBag)
+        })
+        .disposed(by: rx.disposeBag)
 
         output.loginResult
         .drive(headerView.rx.userInfo)

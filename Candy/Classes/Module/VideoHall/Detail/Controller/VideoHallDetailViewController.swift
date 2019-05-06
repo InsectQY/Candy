@@ -66,7 +66,6 @@ class VideoHallDetailViewController: ViewController {
     }
 
     override func makeUI() {
-
         super.makeUI()
 
         fd_prefersNavigationBarHidden = true
@@ -113,7 +112,8 @@ class VideoHallDetailViewController: ViewController {
                 cell.selIndex = self.selIndex
                 return cell
             }
-            }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 点击了某一集
         let clickEpisode = NotificationCenter.default.rx

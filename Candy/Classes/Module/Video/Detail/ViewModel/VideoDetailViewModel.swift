@@ -45,7 +45,8 @@ extension VideoDetailViewModel: ViewModelable {
         let realVideo = parsePlayInfo(videoID: videoID)
 
         // 加载相关新闻
-        let relatedInfo = VideoApi.related(itemID: itemID, groupID: groupID)
+        let relatedInfo = VideoApi.related(itemID: itemID,
+                                           groupID: groupID)
         .request()
         .trackError(error)
         .mapObject(VideoDetailModel.self)
@@ -77,7 +78,11 @@ extension VideoDetailViewModel: ViewModelable {
         }
 
         // 数据源
-        let sections = Driver.combineLatest(infoSection, commentSection, relatedSection) { (info: $0, comment: $1, related: $2) }
+        let sections = Driver.combineLatest(infoSection,
+                                            commentSection,
+                                            relatedSection) {
+            (info: $0, comment: $1, related: $2)
+        }
         .map { all -> [VideoDetailSection] in
 
             var sections: [VideoDetailSection] = []

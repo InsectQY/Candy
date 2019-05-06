@@ -33,7 +33,8 @@ extension VideoListViewModel: ViewModelable {
 
         // 所有需要播放的视频 URL
         let videoURLs = elements.map {
-            $0.map { URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+            $0.map {
+                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
             }
         }
         .asDriverOnErrorJustComplete()

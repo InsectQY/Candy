@@ -57,7 +57,6 @@ class UGCVideoDetailViewController: CollectionViewController {
 
     override func makeUI() {
         super.makeUI()
-        
         collectionView.delegate = self
         collectionView.register(cellType: UGCVideoDetailCell.self)
         collectionView.isPagingEnabled = true
@@ -115,7 +114,9 @@ class UGCVideoDetailViewController: CollectionViewController {
             self?.player.currentPlayerManager.replay?()
         }
 
-        self.collectionView.scrollToItem(at: self.indexPath, at: .left, animated: false)
+        self.collectionView.scrollToItem(at: self.indexPath,
+                                         at: .left,
+                                         animated: false)
         self.collectionView.layoutIfNeeded()
         player.playTheIndexPath(indexPath, scrollToTop: false)
     }

@@ -44,7 +44,7 @@ class TabBarController: UITabBarController {
     }
 
     deinit {
-        print("销毁----\(self)")
+        print("deinit: \(self)")
     }
 }
 

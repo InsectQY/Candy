@@ -21,7 +21,8 @@ class VideoHallSearchViewController: PYSearchViewController {
         self.hotSearchStyle = .arcBorderTag
         self.searchHistoryStyle = .arcBorderTag
         self.didSearchBlock = { _, _, searchText in
-            navigator.push(VideoHallURL.searchResult.path, context: searchText ?? "")
+            navigator.push(VideoHallURL.searchResult.path,
+                           context: searchText ?? "")
         }
     }
 }

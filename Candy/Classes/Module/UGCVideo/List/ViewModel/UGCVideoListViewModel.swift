@@ -58,10 +58,14 @@ extension UGCVideoListViewModel: ViewModelable {
 
         // collectionView 点击事件
         input.selection
-        .withLatestFrom(elements.asDriver()) { (indexPath: $0, items: $1) }
-        .map { ["category": input.category,
+        .withLatestFrom(elements.asDriver()) {
+            (indexPath: $0, items: $1)
+        }
+        .map {
+            ["category": input.category,
                     "items": $0.items,
-                    "indexPath": $0.indexPath] }
+                    "indexPath": $0.indexPath]
+        }
         .drive(onNext: {
             navigator.present(UGCURL.detail.path, context: $0)
         })

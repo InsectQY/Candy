@@ -32,7 +32,7 @@ extension ReplyCommentViewModel: ViewModelable {
         guard let refresh = unified else { return output }
 
         // 加载最新评论
-        let laodNew = refresh.header
+        let loadNew = refresh.header
         .asDriver()
         .flatMapLatest { [unowned self] in
             self.request(id: input.id, offset: 0)
@@ -47,7 +47,7 @@ extension ReplyCommentViewModel: ViewModelable {
         }
 
         // 数据源绑定
-        laodNew
+        loadNew
         .map { $0.data }
         .drive(elements)
         .disposed(by: disposeBag)
@@ -58,14 +58,14 @@ extension ReplyCommentViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        laodNew
+        loadNew
         .map { _ in false }
         .drive(headerRefreshState)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
         Driver.merge(
-            laodNew.map { [unowned self] in
+            loadNew.map { [unowned self] in
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
             },
             loadMore.map { [unowned self] in
