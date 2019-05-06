@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Cache (5.2.0)
-  - CleanJSON (0.8.2)
+  - CleanJSON (0.8.3)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - DZNEmptyDataSet (1.8.1)
@@ -38,7 +38,7 @@ PODS:
   - libwebp/utils (1.0.2):
     - libwebp/core
   - libwebp/webp (1.0.2)
-  - MJRefresh (3.1.15.7)
+  - MJRefresh (3.1.16)
   - MonkeyKing (1.15.0)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
@@ -80,15 +80,15 @@ PODS:
   - RxActivityIndicator (0.1.1):
     - RxCocoa
     - RxSwift
-  - RxCocoa (4.3.1):
-    - RxSwift (~> 4.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxMJ (0.4.0):
-    - MJRefresh (~> 3.1.15.7)
-    - RxCocoa (~> 4.3.0)
+  - RxMJ (0.5.0):
+    - MJRefresh
+    - RxCocoa
   - RxNetwork (0.9.3):
     - RxNetwork/Core (= 0.9.3)
   - RxNetwork/Cache (0.9.3):
@@ -152,7 +152,7 @@ DEPENDENCIES:
   - R.swift
   - RxActivityIndicator
   - RxDataSources
-  - RxMJ
+  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`)
   - RxNetwork
   - RxNetwork/Cache
   - RxOptional
@@ -193,7 +193,6 @@ SPEC REPOS:
     - RxActivityIndicator
     - RxCocoa
     - RxDataSources
-    - RxMJ
     - RxNetwork
     - RxOptional
     - RxReachability
@@ -204,10 +203,15 @@ SPEC REPOS:
     - ZFPlayer
 
 EXTERNAL SOURCES:
+  RxMJ:
+    :git: https://github.com/InsectQY/RxMJ.git
   SwiftyThirdParty:
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 CHECKOUT OPTIONS:
+  RxMJ:
+    :commit: 0ebc2c84812573ebb8e9721b6219e6f8cba01894
+    :git: https://github.com/InsectQY/RxMJ.git
   SwiftyThirdParty:
     :commit: 080bb5189b101e6597f38bcdfa28ade455bac977
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
@@ -215,7 +219,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: f7be273cc133747dfc638da4f2f9d552d05a4289
+  CleanJSON: c7b921efa378c133e1b5325f8b06c957c8d73d14
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -227,7 +231,7 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
-  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
   MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -239,9 +243,9 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxMJ: c41277d217b151e18573c12f73612de3a4ce63a5
+  RxMJ: d30a3b53d2a247ced82dc56cb6cdfd83b1b31f8a
   RxNetwork: b3bd1a6554cd3989945d57180b6ae2182d27e7e6
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
@@ -252,6 +256,6 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: a51c6ffebaf06b91d373091bb4a62ee188cfc7de
 
-PODFILE CHECKSUM: ad274c1123322f991ee87bb893ae2f180d8700e0
+PODFILE CHECKSUM: 93c92232bae92b684ea260b0493e512e1031afb6
 
 COCOAPODS: 1.6.1

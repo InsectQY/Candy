@@ -46,7 +46,8 @@ extension VideoPageViewModel {
 
     func request() -> Driver<[VideoCategory]> {
 
-        let dafaultCategory = VideoCategory(category: "video", name: "推荐")
+        let dafaultCategory = VideoCategory(category: "video",
+                                            name: "推荐")
         return  VideoApi.category
                 .request()
                 .mapObject([VideoCategory].self)

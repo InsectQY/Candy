@@ -101,7 +101,11 @@ extension VideoListViewModel {
         return  VideoApi.list(category)
                 .request()
                 .mapObject([NewsListModel].self)
-                .map { $0.filter { !($0.news?.label ?? "").contains("广告") } }
+                .map {
+                    $0.filter {
+                        !($0.news?.label ?? "").contains("广告")
+                    }
+                }
                 .trackActivity(loading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()

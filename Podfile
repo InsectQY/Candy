@@ -35,9 +35,9 @@ pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
 pod 'RxOptional' # https://github.com/RxSwiftCommunity/RxOptional
-pod 'RxMJ' # https://github.com/srv7/RxMJ
+pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
-pod 'RxReachability'
+pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
 
 # Codable
 pod 'CleanJSON' # https://github.com/Pircate/CleanJSON

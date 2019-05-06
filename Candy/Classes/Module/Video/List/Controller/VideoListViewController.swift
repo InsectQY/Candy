@@ -59,6 +59,7 @@ class VideoListViewController: TableViewController {
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
+
         beginHeaderRefresh()
     }
 
