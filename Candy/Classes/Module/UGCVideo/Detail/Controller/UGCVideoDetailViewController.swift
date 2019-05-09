@@ -12,10 +12,6 @@ import Hero
 
 class UGCVideoDetailViewController: CollectionViewController {
 
-    fileprivate var indexPath: IndexPath = IndexPath(item: 0, section: 0)
-    private var category: String = ""
-    private var videoItems: [UGCVideoListModel] = []
-
     // MARK: - Lazyload
     fileprivate lazy var controlView = ZFDouYinControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -30,7 +26,7 @@ class UGCVideoDetailViewController: CollectionViewController {
         return player
     }()
 
-    private lazy var viewModel = UGCVideoDetailViewModel()
+    private var viewModel: UGCVideoListViewModel?
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,10 +36,9 @@ class UGCVideoDetailViewController: CollectionViewController {
     }
 
     // MARK: - convenience
-    init(category: String, videoItems: [UGCVideoListModel], indexPath: IndexPath) {
-        self.category = category
-        self.videoItems = videoItems
-        self.indexPath = indexPath
+    init(viewModel: UGCVideoListViewModel) {
+
+        self.viewModel = viewModel
         super.init(collectionViewLayout: UGCVideoDetailFlowLayout())
     }
 
@@ -71,11 +66,11 @@ class UGCVideoDetailViewController: CollectionViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoDetailViewModel.Input(category: category,
-                                                  videoDatas: videoItems)
-        let output = viewModel.transform(input: input)
+        guard let viewModel = viewModel else { return }
 
-        output.items.drive(collectionView.rx.items) { collectionView, row, item in
+        viewModel.output
+        .items
+        .drive(collectionView.rx.items) { collectionView, row, item in
 
             let cell = collectionView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UGCVideoDetailCell.self)
             cell.largeImage.hero.id = "image_\(row)"
@@ -84,8 +79,15 @@ class UGCVideoDetailViewController: CollectionViewController {
         }
         .disposed(by: rx.disposeBag)
 
-        output.videoURLs
+        viewModel.output
+        .videoURLs
         .drive(rx.videoURLs)
+        .disposed(by: rx.disposeBag)
+
+        // 滚动到指定位置
+        viewModel.output
+        .indexPath
+        .drive(rx.scrollToItem)
         .disposed(by: rx.disposeBag)
 
         // 滑动结束时加载更多视频
@@ -101,7 +103,6 @@ class UGCVideoDetailViewController: CollectionViewController {
         collectionView.zf_scrollViewDidStopScrollCallback = { [unowned self] indexPath in
 
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell else { return }
-            self.indexPath = indexPath
             self.player.playTheIndexPath(indexPath, scrollToTop: false)
             self.controlView.resetControlView()
 //            self.controlView.showCover(with: cell.largeImage.image)
@@ -111,12 +112,6 @@ class UGCVideoDetailViewController: CollectionViewController {
         player.playerDidToEnd = { [weak self] _ in
             self?.player.currentPlayerManager.replay?()
         }
-
-        self.collectionView.scrollToItem(at: self.indexPath,
-                                         at: .left,
-                                         animated: false)
-        self.collectionView.layoutIfNeeded()
-        player.playTheIndexPath(indexPath, scrollToTop: false)
     }
 }
 
@@ -190,6 +185,17 @@ extension Reactive where Base: UGCVideoDetailViewController {
     var videoURLs: Binder<[URL?]> {
         return Binder(base) { vc, result in
             vc.player.assetURLs = result.compactMap { $0 }
+        }
+    }
+
+    var scrollToItem: Binder<IndexPath> {
+        return Binder(base) { vc, result in
+
+            vc.collectionView.scrollToItem(at: result,
+                                           at: .left,
+                                           animated: false)
+            vc.collectionView.layoutIfNeeded()
+            vc.player.playTheIndexPath(result, scrollToTop: false)
         }
     }
 }

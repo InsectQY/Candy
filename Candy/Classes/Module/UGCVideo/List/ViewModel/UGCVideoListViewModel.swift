@@ -8,30 +8,39 @@
 
 import Foundation
 
-final class UGCVideoListViewModel: RefreshViewModel {
+final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
+
+    let input: Input
+    let output: Output
 
     struct Input {
 
         /// 视频分类
-        let category: String
+        let category: AnyObserver<String>
         /// 点击
-        let selection: Driver<IndexPath>
+        let selection: AnyObserver<IndexPath>
     }
 
     struct Output {
 
         /// 所有视频
         let items: Driver<[UGCVideoListModel]>
-        /// 所有需要播放的视频 URL
+        /// 所有需要播放视频的 URL
         let videoURLs: Driver<[URL?]>
+        /// 已经选中的视频
+        let indexPath: Driver<IndexPath>
     }
-}
 
-extension UGCVideoListViewModel: ViewModelable {
+    /// 视频分类
+    private let category = PublishSubject<String>()
+    /// 点击
+    private let selection = PublishSubject<IndexPath>()
 
-    func transform(input: UGCVideoListViewModel.Input) -> UGCVideoListViewModel.Output {
+    override init(unified: Unifiedable?) {
 
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
+        // 当前选中的
+        let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
 
         // 所有需要播放的视频 URL
         let videoURLs = elements
@@ -42,22 +51,30 @@ extension UGCVideoListViewModel: ViewModelable {
         }
         .asDriverOnErrorJustComplete()
 
-        let output = Output(items: elements.asDriver(),
-                            videoURLs: videoURLs)
+        input = Input(category: category.asObserver(),
+                      selection: selection.asObserver())
+        output = Output(items: elements.asDriver(),
+                        videoURLs: videoURLs.asDriver(),
+                        indexPath: indexPath.asDriver())
 
-        guard let refresh = unified else { return output }
+        super.init(unified: unified)
+
+        guard let refresh = unified else { return }
+
         // 下拉刷新
         let loadNew = refresh.header
         .asDriver()
+        .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(category: input.category)
+            self.request(category: $0)
         }
 
         // 上拉加载
         let loadMore = refresh.footer
         .asDriver()
+        .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(category: input.category)
+            self.request(category: $0)
         }
 
         // 绑定数据源
@@ -71,18 +88,16 @@ extension UGCVideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // collectionView 点击事件
-        input.selection
-        .withLatestFrom(elements.asDriver()) {
-            (indexPath: $0, items: $1)
-        }
-        .map {
-            ["category": input.category,
-                    "items": $0.items,
-                    "indexPath": $0.indexPath]
-        }
-        .drive(onNext: {
-            navigator.present(UGCURL.detail.path, context: $0)
+        selection
+        .asDriverOnErrorJustComplete()
+        .drive(onNext: { [weak self] ind in
+            navigator.present(UGCURL.detail.path, context: self)
         })
+        .disposed(by: disposeBag)
+
+        selection
+        .asDriverOnErrorJustComplete()
+        .drive(indexPath)
         .disposed(by: disposeBag)
 
         // 头部状态
@@ -92,8 +107,11 @@ extension UGCVideoListViewModel: ViewModelable {
 
         // 尾部状态
         Driver.merge(
-            loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default },
-            loadMore.map { _ in RxMJRefreshFooterState.default }
+            loadNew.map { $0.isEmpty && elements.value.isEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default
+            },
+            loadMore.map { _ in
+                RxMJRefreshFooterState.default
+            }
         )
         .startWith(.hidden)
         .drive(footerRefreshState)
@@ -101,8 +119,6 @@ extension UGCVideoListViewModel: ViewModelable {
 
         // error 下的刷新状态
         bindErrorToRefreshFooterState(elements.value.isEmpty)
-
-        return output
     }
 }
 

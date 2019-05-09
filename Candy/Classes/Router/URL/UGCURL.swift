@@ -28,11 +28,8 @@ extension UGCURL {
 
         navigator.register(UGCURL.detail.path) { url, values, context in
 
-            guard let context = context as? [String: Any],
-                let indexPath = context[indexPathTypedKey],
-                let items = context[UGCVideoListTypedKey],
-                let category = context[categoryTypedKey] else { return nil }
-            let vc = UGCVideoDetailViewController(category: category, videoItems: items, indexPath: indexPath)
+            guard let context = context as? UGCVideoListViewModel else { return nil }
+            let vc = UGCVideoDetailViewController(viewModel: context)
             return vc
         }
     }

@@ -78,7 +78,7 @@ class VideoHallViewController: CollectionViewController {
 
         titleView.beginEdit
         .asObservable()
-        .subscribe(viewModel.input.noConnectTap)
+        .subscribe(viewModel.input.searchTap)
         .disposed(by: rx.disposeBag)
 
         collectionView.rx.modelSelected(VideoHallList.self)

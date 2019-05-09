@@ -45,11 +45,16 @@ class UGCVideoListViewController: CollectionViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoListViewModel.Input(category: category,
-                                                selection: collectionView.rx.itemSelected.asDriver())
-        let output = viewModel.transform(input: input)
+        viewModel.input
+        .category.onNext(category)
+        
+        collectionView.rx.itemSelected
+        .asDriver()
+        .drive(viewModel.input.selection)
+        .disposed(by: rx.disposeBag)
 
-        output.items.drive(collectionView.rx.items) { collectionView, row, item in
+        viewModel.output.items
+        .drive(collectionView.rx.items) { collectionView, row, item in
 
             let cell = collectionView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UGCVideoListCell.self)
             cell.coverImage.hero.id = "image_\(row)"
