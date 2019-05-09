@@ -149,7 +149,6 @@
 		E5E5714C21CB708C005C2D6E /* VideoHallEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5714A21CB708C005C2D6E /* VideoHallEpisodeCell.xib */; };
 		E5E6800621E47E9400826132 /* VideoHallSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6800521E47E9400826132 /* VideoHallSearchViewController.swift */; };
 		E5E6800921E4818E00826132 /* SearchTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6800821E4818E00826132 /* SearchTitleView.swift */; };
-		E5E855BA21C7696A00B66548 /* UGCVideoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E855B921C7696A00B66548 /* UGCVideoDetailViewModel.swift */; };
 		E5E9B1E921D4762600B08281 /* VideoHallCellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B1E821D4762600B08281 /* VideoHallCellEnum.swift */; };
 		E5E9B1EF21D4973F00B08281 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B1EE21D4973F00B08281 /* TableView.swift */; };
 		E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */; };
@@ -392,7 +391,6 @@
 		E5E5714A21CB708C005C2D6E /* VideoHallEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoHallEpisodeCell.xib; sourceTree = "<group>"; };
 		E5E6800521E47E9400826132 /* VideoHallSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchViewController.swift; sourceTree = "<group>"; };
 		E5E6800821E4818E00826132 /* SearchTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleView.swift; sourceTree = "<group>"; };
-		E5E855B921C7696A00B66548 /* UGCVideoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoDetailViewModel.swift; sourceTree = "<group>"; };
 		E5E9B1E821D4762600B08281 /* VideoHallCellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallCellEnum.swift; sourceTree = "<group>"; };
 		E5E9B1EE21D4973F00B08281 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -1670,14 +1668,6 @@
 			path = TitleView;
 			sourceTree = "<group>";
 		};
-		E5E855B821C7553900B66548 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E5E855B921C7696A00B66548 /* UGCVideoDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		E5E9B20421D4B2FE00B08281 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1978,7 +1968,6 @@
 		E5FAB71F21C0FDB7002BF258 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				E5E855B821C7553900B66548 /* ViewModel */,
 				E5FAB72821C1011B002BF258 /* Flowlayout */,
 				E5FAB72321C0FE0F002BF258 /* View */,
 				E5FAB72021C0FDC0002BF258 /* Controller */,
@@ -2395,7 +2384,6 @@
 				E5E020CD21B50B4000A4CDF1 /* TabBarController.swift in Sources */,
 				E5FAB70E21C09BB3002BF258 /* DateExtensions.swift in Sources */,
 				E5E3242821DC819E002DC676 /* JXPagerMainTableView.m in Sources */,
-				E5E855BA21C7696A00B66548 /* UGCVideoDetailViewModel.swift in Sources */,
 				E51E4DDD21E594EC00E06AD7 /* VideoHallSearchResult.swift in Sources */,
 				E5E9B1E921D4762600B08281 /* VideoHallCellEnum.swift in Sources */,
 				E5E0203421B4FE7B00A4CDF1 /* AppMacro.swift in Sources */,

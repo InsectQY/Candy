@@ -38,18 +38,12 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
     override init(unified: Unifiedable?) {
 
+        // 所有视频
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
+        // 所有需要播放的视频 URL
+        let videoURLs = BehaviorRelay<[URL?]>(value: [])
         // 当前选中的
         let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
-
-        // 所有需要播放的视频 URL
-        let videoURLs = elements
-        .map {
-            $0.map {
-                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
-            }
-        }
-        .asDriverOnErrorJustComplete()
 
         input = Input(category: category.asObserver(),
                       selection: selection.asObserver())
@@ -82,9 +76,30 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
+        loadNew
+        .map {
+            $0.map {
+                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+            }
+        }
+        .drive(videoURLs)
+        .disposed(by: disposeBag)
+
         loadMore
         .map { elements.value + $0 }
         .drive(elements)
+        .disposed(by: disposeBag)
+
+        loadMore
+        .map {
+            $0.map {
+                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+            }
+        }
+        .map {
+            videoURLs.value + $0
+        }
+        .drive(videoURLs)
         .disposed(by: disposeBag)
 
         // collectionView 点击事件
