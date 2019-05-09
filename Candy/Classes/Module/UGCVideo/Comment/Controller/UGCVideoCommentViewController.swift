@@ -19,7 +19,7 @@ class UGCVideoCommentViewController: TableViewController {
     private lazy var headerView = UGCVideoCommentHeaderView.loadFromNib()
 
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoCommentViewModel(input: self)
+    private lazy var viewModel = UGCVideoCommentViewModel(unified: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {

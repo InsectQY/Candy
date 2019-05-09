@@ -57,6 +57,7 @@ class UGCVideoDetailViewController: CollectionViewController {
 
     override func makeUI() {
         super.makeUI()
+        
         collectionView.delegate = self
         collectionView.register(cellType: UGCVideoDetailCell.self)
         collectionView.isPagingEnabled = true
@@ -78,13 +79,10 @@ class UGCVideoDetailViewController: CollectionViewController {
 
             let cell = collectionView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UGCVideoDetailCell.self)
             cell.largeImage.hero.id = "image_\(row)"
-            cell.largeImage.hero.modifiers = [.position(CGPoint(x: collectionView.bounds.width / 2, y: collectionView.bounds.height + collectionView.bounds.width / 2)),
-                                              .scale(0.6),
-                                              .fade]
-            cell.largeImage.isOpaque = true
             cell.item = item
             return cell
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         output.videoURLs
         .drive(rx.videoURLs)

@@ -15,3 +15,12 @@ protocol ViewModelable {
 
     func transform(input: Input) -> Output
 }
+
+protocol NestedViewModelable {
+
+    associatedtype Input
+    associatedtype Output
+
+    var input: Input { get }
+    var output: Output { get }
+}

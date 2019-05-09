@@ -9,13 +9,17 @@
 import Foundation
 import RxURLNavigator
 
-final class VideoHallViewModel: RefreshViewModel {
+final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
+
+    let input: Input
+    let output: Output
 
     struct Input {
 
-        let noConnectTap: Observable<Void>
-        let searchTap: Observable<Void>
-        let selection: ControlEvent<VideoHallList>
+        let noConnectTap: AnyObserver<Void>
+        let searchTap: AnyObserver<Void>
+        let selection: AnyObserver<VideoHallList>
+        let searchKey: AnyObserver<String>
     }
 
     struct Output {
@@ -26,17 +30,30 @@ final class VideoHallViewModel: RefreshViewModel {
         let items: Driver<[VideoHallList]>
     }
 
-    let searchKey = PublishSubject<String>()
-}
+    /// 没有网络点击占位
+    private let noConnectTap = PublishSubject<Void>()
+    /// 搜索点击
+    private let searchTap = PublishSubject<Void>()
+    /// 点击了某个视频
+    private let selection = PublishSubject<VideoHallList>()
+    /// 选择了新的视频种类
+    private let searchKey = PublishSubject<String>()
 
-extension VideoHallViewModel: ViewModelable {
-
-    func transform(input: VideoHallViewModel.Input) -> VideoHallViewModel.Output {
+    override init(unified: Unifiedable?) {
 
         /// 视频分类
         let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
         /// 某个分类下的所有视频
         let videoElements = BehaviorRelay<[VideoHallList]>(value: [])
+
+        input = Input(noConnectTap: noConnectTap.asObserver(),
+                      searchTap: searchTap.asObserver(),
+                      selection: selection.asObserver(),
+                      searchKey: searchKey.asObserver())
+        output = Output(categories: categoryElements.asDriver(),
+                        items: videoElements.asDriver())
+
+        super.init(unified: unified)
 
         // 获取视频分类
         requestCategory()
@@ -44,7 +61,7 @@ extension VideoHallViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 没有网络点击
-        input.noConnectTap
+        noConnectTap
         .asDriverOnErrorJustComplete()
         .flatMap { [unowned self] in
             self.requestCategory()
@@ -52,10 +69,7 @@ extension VideoHallViewModel: ViewModelable {
         .drive(categoryElements)
         .disposed(by: disposeBag)
 
-        let output = Output(categories: categoryElements.asDriver(),
-                            items: videoElements.asDriver())
-
-        guard let refresh = unified else { return output }
+        guard let refresh = unified else { return }
 
         // 加载最新视频
         let laodNew = searchKey
@@ -93,14 +107,14 @@ extension VideoHallViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // collectionView 点击
-        input.selection
+        selection
         .flatMap { navigator.rx.push(VideoHallURL.detail.path,
                                      context: $0.album.album_id) }
         .subscribe()
         .disposed(by: disposeBag)
 
         // 搜索点击
-        input.searchTap
+        searchTap
         .flatMap { navigator.rx.present(VideoHallURL.search.path,
                                         context: R.string.localizable.videoHallSearchPlaceholder(),
                                         wrap: NavigationController.self) }
@@ -121,8 +135,6 @@ extension VideoHallViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(videoElements.value.isEmpty)
-
-        return output
     }
 }
 

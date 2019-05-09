@@ -28,7 +28,7 @@ class UserUGCVideoView: View {
         return collectionView
     }()
 
-    private lazy var viewModel = UserUGCViewModel(input: self)
+    private lazy var viewModel = UserUGCViewModel(unified: self)
 
     // MARK: - LifeCylce
     override init(frame: CGRect) {

@@ -12,7 +12,7 @@ import JXCategoryView
 class UGCVideoActivityListViewController: TableViewController {
 
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoActivityViewModel(input: self)
+    private lazy var viewModel = UGCVideoActivityViewModel(unified: self)
 
     // MARK: - Init
     override init(style: UITableView.Style) {

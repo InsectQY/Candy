@@ -18,7 +18,7 @@ class VideoListViewController: TableViewController {
     private var currentTime: TimeInterval = 0
 
     // MARK: - Lazyload
-    private lazy var viewModel = VideoListViewModel(input: self)
+    private lazy var viewModel = VideoListViewModel(unified: self)
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {

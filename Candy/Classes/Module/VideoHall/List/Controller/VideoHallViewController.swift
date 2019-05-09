@@ -37,7 +37,7 @@ class VideoHallViewController: CollectionViewController {
         return animateFilterView
     }()
 
-    private lazy var viewModel = VideoHallViewModel(input: self)
+    private lazy var viewModel = VideoHallViewModel(unified: self)
 
     init() {
         super.init(collectionViewLayout: VideoHallFlowLayout())
@@ -71,25 +71,39 @@ class VideoHallViewController: CollectionViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = VideoHallViewModel.Input(noConnectTap: noConnectionViewTap,
-                                             searchTap: titleView.beginEdit.asObserver(),
-                                             selection: collectionView.rx.modelSelected(VideoHallList.self))
-        let output = viewModel.transform(input: input)
+        noConnectionViewTap
+        .asObservable()
+        .subscribe(viewModel.input.noConnectTap)
+        .disposed(by: rx.disposeBag)
+
+        titleView.beginEdit
+        .asObservable()
+        .subscribe(viewModel.input.noConnectTap)
+        .disposed(by: rx.disposeBag)
+
+        collectionView.rx.modelSelected(VideoHallList.self)
+        .asObservable()
+        .subscribe(viewModel.input.selection)
+        .disposed(by: rx.disposeBag)
 
         // 加载失败
         bindErrorToShowToast(viewModel.error)
 
         // 视频分类
-        output.categories
+        viewModel.output
+        .categories
         .drive(filterView.rx.categories)
         .disposed(by: rx.disposeBag)
 
-        output.categories
+        viewModel.output
+        .categories
         .drive(animateFilterView.rx.categories)
         .disposed(by: rx.disposeBag)
 
         // 某个分类下的数据
-        output.items.drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
+        viewModel.output
+        .items
+        .drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
@@ -115,7 +129,7 @@ extension VideoHallViewController: FilterViewProtocol {
     }
 
     func searchKey(_ key: String) {
-        viewModel.searchKey.onNext(key)
+        viewModel.input.searchKey.onNext(key)
     }
 }
 

@@ -16,8 +16,8 @@ class ViewModel {
     /// track error
     let error = ErrorTracker()
 
-    init(input: Unifiedable? = nil) {
-        unified = input
+    init(unified: Unifiedable? = nil) {
+        self.unified = unified
         bindState()
     }
 

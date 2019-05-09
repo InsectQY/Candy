@@ -19,7 +19,11 @@ final class UGCVideoListViewModel: RefreshViewModel {
     }
 
     struct Output {
+
+        /// 所有视频
         let items: Driver<[UGCVideoListModel]>
+        /// 所有需要播放的视频 URL
+        let videoURLs: Driver<[URL?]>
     }
 }
 
@@ -29,7 +33,17 @@ extension UGCVideoListViewModel: ViewModelable {
 
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
 
-        let output = Output(items: elements.asDriver())
+        // 所有需要播放的视频 URL
+        let videoURLs = elements
+        .map {
+            $0.map {
+                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+            }
+        }
+        .asDriverOnErrorJustComplete()
+
+        let output = Output(items: elements.asDriver(),
+                            videoURLs: videoURLs)
 
         guard let refresh = unified else { return output }
         // 下拉刷新

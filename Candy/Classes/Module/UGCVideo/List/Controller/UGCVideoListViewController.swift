@@ -16,7 +16,7 @@ class UGCVideoListViewController: CollectionViewController {
     private var category: String = ""
 
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoListViewModel(input: self)
+    private lazy var viewModel = UGCVideoListViewModel(unified: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {

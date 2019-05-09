@@ -17,7 +17,7 @@ class ReplyCommentViewController: TableViewController {
     }
 
     // MARK: - Lazyload
-    private lazy var viewModel = ReplyCommentViewModel(input: self)
+    private lazy var viewModel = ReplyCommentViewModel(unified: self)
     private lazy var topView = ReplyCommentTopView.loadFromNib()
 
     // MARK: - LifeCycle

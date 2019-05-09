@@ -13,7 +13,7 @@ class VideoHallSearchResultViewController: TableViewController {
     private var keyword: String = ""
 
     // MARK: - Lazyload
-    private lazy var viewModel = VideoHallSearchResultViewModel(input: self)
+    private lazy var viewModel = VideoHallSearchResultViewModel(unified: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {

@@ -9,7 +9,7 @@ PODS:
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Jelly (1.2.5)
-  - JXCategoryView (1.3.3)
+  - JXCategoryView (1.3.4)
   - Kingfisher (4.10.1)
   - KingfisherWebP (0.4.2):
     - Kingfisher (~> 4.0)
@@ -38,7 +38,7 @@ PODS:
   - libwebp/utils (1.0.2):
     - libwebp/core
   - libwebp/webp (1.0.2)
-  - MJRefresh (3.1.16)
+  - MJRefresh (3.2.0)
   - MonkeyKing (1.15.0)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
@@ -129,11 +129,11 @@ PODS:
   - SwiftyThirdParty/Toast (0.1.0):
     - QMUIKit/QMUIComponents/QMUITips
   - URLNavigator (2.2.0)
-  - ZFPlayer/AVPlayer (3.2.10):
+  - ZFPlayer/AVPlayer (3.2.11):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.10):
+  - ZFPlayer/ControlView (3.2.11):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.10)
+  - ZFPlayer/Core (3.2.11)
 
 DEPENDENCIES:
   - CleanJSON
@@ -152,7 +152,7 @@ DEPENDENCIES:
   - R.swift
   - RxActivityIndicator
   - RxDataSources
-  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`)
+  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`, tag `0.5.0`)
   - RxNetwork
   - RxNetwork/Cache
   - RxOptional
@@ -205,13 +205,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
+    :tag: 0.5.0
   SwiftyThirdParty:
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 CHECKOUT OPTIONS:
   RxMJ:
-    :commit: 0ebc2c84812573ebb8e9721b6219e6f8cba01894
     :git: https://github.com/InsectQY/RxMJ.git
+    :tag: 0.5.0
   SwiftyThirdParty:
     :commit: 080bb5189b101e6597f38bcdfa28ade455bac977
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
@@ -227,11 +228,11 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
-  JXCategoryView: 25e379fa1e8f5577f878e2446207bb869ec97228
+  JXCategoryView: 72560616347270d34c2e717cc08030e6218d7eda
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
-  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -254,8 +255,8 @@ SPEC CHECKSUMS:
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
   SwiftyThirdParty: b822416143c8649cf5be195d7cea6a9f8dd1295e
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
-  ZFPlayer: a51c6ffebaf06b91d373091bb4a62ee188cfc7de
+  ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
 
-PODFILE CHECKSUM: 93c92232bae92b684ea260b0493e512e1031afb6
+PODFILE CHECKSUM: 2f4b3be8dd48da29a62c4dcf3187d5f9c07fa284
 
 COCOAPODS: 1.6.1

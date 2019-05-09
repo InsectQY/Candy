@@ -23,7 +23,7 @@ class VideoDetailViewController: TableViewController {
         return videoView
     }()
 
-    private lazy var viewModel = VideoDetailViewModel(input: self)
+    private lazy var viewModel = VideoDetailViewModel(unified: self)
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
