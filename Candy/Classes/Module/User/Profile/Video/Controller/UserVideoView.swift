@@ -70,7 +70,7 @@ class UserVideoView: View {
 }
 
 extension UserVideoView: RefreshComponentable {
-    
+
     var header: ControlEvent<Void> {
         return tableView.refreshHeader!.rx.refreshing
     }

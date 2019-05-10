@@ -53,7 +53,7 @@ class UserArticleView: View {
 
     override func bindViewModel() {
         super.bindViewModel()
-        
+
         let input = UserVideoViewModel.Input(category: category,
                                              visitedID: visitedID)
         let output = viewModel.transform(input: input)

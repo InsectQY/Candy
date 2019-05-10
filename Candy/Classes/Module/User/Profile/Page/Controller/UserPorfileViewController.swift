@@ -60,7 +60,7 @@ class UserPorfileViewController: ViewController {
     //  swiftlint:disable force_unwrapping
     override func makeUI() {
         super.makeUI()
-        
+
         navigationController?.navigationBar.isTranslucent = false
         view.addSubview(pagingView!)
     }

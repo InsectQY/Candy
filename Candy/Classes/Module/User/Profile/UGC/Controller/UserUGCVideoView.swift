@@ -90,7 +90,7 @@ extension UserUGCVideoView: BindRefreshStateable {
 extension UserUGCVideoView: BindLoadStateable {
 
     func bindLoading(with loading: ActivityIndicator) {
-        
+
     }
 }
 

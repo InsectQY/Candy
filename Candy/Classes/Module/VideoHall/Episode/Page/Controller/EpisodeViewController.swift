@@ -68,7 +68,7 @@ class EpisodeViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
-        
+
         categoryContentView.addSubview(categoryView)
         pageContentView.addSubview(listContainerView)
 

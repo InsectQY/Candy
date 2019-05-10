@@ -24,7 +24,7 @@ class VideoHallFlowLayout: UICollectionViewFlowLayout {
 
     override init() {
         super.init()
-        
+
         scrollDirection = .vertical
         itemSize = CGSize(width: kItemW, height: kItemH)
         minimumLineSpacing = 1

@@ -47,7 +47,7 @@ class UGCVideoListViewController: CollectionViewController {
 
         viewModel.input
         .category.onNext(category)
-        
+
         collectionView.rx.itemSelected
         .asDriver()
         .drive(viewModel.input.selection)

@@ -24,7 +24,7 @@ class ViewModel {
     func bindState() {
         unified?.bindErrorToShowToast(error)
     }
-    
+
     deinit {
         print("\(type(of: self)): Deinited")
     }
