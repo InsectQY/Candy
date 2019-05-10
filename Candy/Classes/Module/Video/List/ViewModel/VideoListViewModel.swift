@@ -43,7 +43,7 @@ extension VideoListViewModel: ViewModelable {
         .header
         .asDriver()
         .flatMapLatest { [unowned self] in
-            self.request(category: input.category)
+            self.requestHeader(category: input.category)
         }
 
         // 加载更多视频
@@ -86,8 +86,12 @@ extension VideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // success 下的刷新状态
-        loadNew
-        .map { _ in false }
+//        loadNew
+//        .map { _ in false }
+//        .drive(headerRefreshState)
+//        .disposed(by: disposeBag)
+        headerLoading
+        .filter { $0 == false }
         .drive(headerRefreshState)
         .disposed(by: disposeBag)
 
@@ -123,6 +127,22 @@ extension VideoListViewModel {
                     }
                 }
                 .trackActivity(loading)
+                .trackError(refreshError)
+                .asDriverOnErrorJustComplete()
+    }
+
+    /// 加载视频
+    func requestHeader(category: String) -> Driver<[NewsListModel]> {
+
+        return  VideoApi.list(category)
+                .request()
+                .mapObject([NewsListModel].self)
+                .map {
+                    $0.filter {
+                        !($0.news?.label ?? "").contains("广告")
+                    }
+                }
+                .trackActivity(headerLoading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
     }
