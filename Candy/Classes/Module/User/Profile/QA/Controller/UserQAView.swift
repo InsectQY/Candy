@@ -58,6 +58,7 @@ extension UserQAView {
         addSubview(tableView)
     }
 
+    //  swiftlint:disable force_unwrapping
     private func bindViewModel() {
 
         let input = UserQAViewModel.Input(category: category,

@@ -69,6 +69,7 @@ class UserVideoView: View {
     }
 }
 
+//  swiftlint:disable force_unwrapping
 extension UserVideoView: RefreshComponentable {
 
     var header: ControlEvent<Void> {

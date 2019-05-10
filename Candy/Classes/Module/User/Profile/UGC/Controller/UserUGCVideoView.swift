@@ -41,6 +41,7 @@ class UserUGCVideoView: View {
         addSubview(collectionView)
     }
 
+    //  swiftlint:disable force_unwrapping
     override func bindViewModel() {
         super.bindViewModel()
 
@@ -78,6 +79,7 @@ class UserUGCVideoView: View {
 
 extension UserUGCVideoView: RefreshComponentable {
 
+    //  swiftlint:disable force_unwrapping
     var footer: ControlEvent<Void> {
         return collectionView.refreshFooter!.rx.refreshing
     }

@@ -13,8 +13,6 @@ class ViewModel {
     weak var unified: Unifiedable?
     /// 是否正在加载
     let loading = ActivityIndicator()
-    /// 是否正在加载
-    let headerLoading = ActivityIndicator()
     /// track error
     let error = ErrorTracker()
 

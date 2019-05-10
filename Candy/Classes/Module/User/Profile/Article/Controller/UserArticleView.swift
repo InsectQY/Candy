@@ -51,6 +51,7 @@ class UserArticleView: View {
         addSubview(tableView)
     }
 
+    //  swiftlint:disable force_unwrapping
     override func bindViewModel() {
         super.bindViewModel()
 
