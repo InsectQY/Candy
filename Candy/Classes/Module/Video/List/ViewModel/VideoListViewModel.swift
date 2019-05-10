@@ -32,15 +32,10 @@ extension VideoListViewModel: ViewModelable {
         let elements = BehaviorRelay<[NewsListModel]>(value: [])
 
         // 所有需要播放的视频 URL
-        let videoURLs = elements.map {
-            $0.map {
-                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
-            }
-        }
-        .asDriverOnErrorJustComplete()
+        let videoURLs = BehaviorRelay<[URL?]>(value: [])
 
         let output = Output(items: elements.asDriver(),
-                            videoURLs: videoURLs)
+                            videoURLs: videoURLs.asDriver())
 
         guard let refresh = unified else { return output }
         // 加载最新视频
@@ -64,9 +59,30 @@ extension VideoListViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
+        loadNew
+        .map {
+            $0.map {
+                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+            }
+        }
+        .drive(videoURLs)
+        .disposed(by: disposeBag)
+
         loadMore
         .map { elements.value + $0 }
         .drive(elements)
+        .disposed(by: disposeBag)
+
+        loadMore
+        .map {
+            $0.map {
+                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+            }
+        }
+        .map {
+            videoURLs.value + $0
+        }
+        .drive(videoURLs)
         .disposed(by: disposeBag)
 
         // success 下的刷新状态
