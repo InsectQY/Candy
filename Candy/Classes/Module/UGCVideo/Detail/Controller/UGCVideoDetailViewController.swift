@@ -91,13 +91,16 @@ class UGCVideoDetailViewController: CollectionViewController {
         .disposed(by: rx.disposeBag)
 
         // 滑动结束时加载更多视频
-//        collectionView.rx.didEndDisplayingCell
-//        .withLatestFrom(output.items) { (willDisplay: $0, video: $1) }
-//        .map { $0.willDisplay.at.item == ( $0.video.count - 1) }
-//        .filter { $0 == true }
-//        .mapToVoid()
-//        .bind(to: input.loadMore)
-//        .disposed(by: rx.disposeBag)
+        collectionView.rx.willDisplayCell
+        .withLatestFrom(viewModel.output.items) {
+            (willDisplay: $0, video: $1)
+        }
+        .filter {
+            $0.willDisplay.at.item == ($0.video.count - 2)
+        }
+        .mapToVoid()
+        .bind(to: viewModel.input.loadMore)
+        .disposed(by: rx.disposeBag)
 
         // 滑动时自动播放视频
         collectionView.zf_scrollViewDidStopScrollCallback = { [unowned self] indexPath in
@@ -105,8 +108,8 @@ class UGCVideoDetailViewController: CollectionViewController {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell else { return }
             self.player.playTheIndexPath(indexPath, scrollToTop: false)
             self.controlView.resetControlView()
-//            self.controlView.showCover(with: cell.largeImage.image)
-            self.controlView.showCover(withUrl: cell.item?.video?.raw_data.video.origin_cover.url_list.first)
+            self.controlView.showCover(with: cell.largeImage.image)
+//            self.controlView.showCover(withUrl: cell.item?.video?.raw_data.video.origin_cover.url_list.first)
         }
 
         player.playerDidToEnd = { [weak self] _ in

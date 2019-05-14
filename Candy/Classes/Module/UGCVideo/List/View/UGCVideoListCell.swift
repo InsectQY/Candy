@@ -20,8 +20,9 @@ class UGCVideoListCell: CollectionViewCell, NibReusable {
         didSet {
 
             guard let item = item else { return }
-            coverImage
-            .qy_setImage(item.video?.raw_data.video.origin_cover.url_list.first, options: [KfOptions.fadeTransition(imageTransitionTime)])
+
+            let url = item.video?.raw_data.video.origin_cover.url_list.first
+            coverImage.qy_setImage(url, options: [KfOptions.fadeTransition(imageTransitionTime)])
             titleLabel.text = item.video?.raw_data.title
             playCountLabel.text = "\(item.video?.raw_data.action.playCountString ?? "")次播放"
             diggCountLabel.text = "\(item.video?.raw_data.action.diggCountString ?? "")赞"
