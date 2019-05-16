@@ -15,10 +15,16 @@ class RefreshViewModel: ViewModel {
     let refreshOutput: RefreshOutput
 
     struct RefreshInput {
+
         /// 开始头部刷新
         let beginHeaderRefresh: AnyObserver<Void>
         /// 开始尾部刷新
         let beginFooterRefresh: AnyObserver<Void>
+
+        /// 开始头部刷新
+        let headerRefreshState: AnyObserver<Bool>
+        /// 尾部刷新状态
+        let footerRefreshState: AnyObserver<RxMJRefreshFooterState>
     }
 
     struct RefreshOutput {
@@ -37,17 +43,19 @@ class RefreshViewModel: ViewModel {
     private let beginHeaderRefresh = PublishSubject<Void>()
 
     private let beginFooterRefresh = PublishSubject<Void>()
+    /// 头部刷新状态
+    private let headerRefreshState = PublishSubject<Bool>()
+    /// 尾部刷新状态
+    private let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
+
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
-    /// 头部刷新状态
-    let headerRefreshState = PublishSubject<Bool>()
-    /// 尾部刷新状态
-    let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
-
     override init() {
 
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
-                                    beginFooterRefresh: beginFooterRefresh.asObserver())
+                                    beginFooterRefresh: beginFooterRefresh.asObserver(),
+                                    headerRefreshState: headerRefreshState.asObserver(),
+                                    footerRefreshState: footerRefreshState.asObserver())
         refreshOutput = RefreshOutput(headerRefreshing: beginHeaderRefresh.asDriverOnErrorJustComplete(),
                                       footerRefreshing: beginFooterRefresh.asDriverOnErrorJustComplete(),
                                       headerRefreshState: headerRefreshState.asDriverOnErrorJustComplete(),
@@ -81,7 +89,9 @@ extension RefreshViewModel {
     public func bindErrorToRefreshFooterState(_ isItemsEmpty: Bool) {
 
         refreshError
-        .map { _ in isItemsEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default }
+        .map { _ in
+            isItemsEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default
+        }
         .drive(footerRefreshState)
         .disposed(by: disposeBag)
     }

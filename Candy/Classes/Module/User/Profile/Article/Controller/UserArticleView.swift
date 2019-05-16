@@ -76,8 +76,8 @@ class UserArticleView: View {
         .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        viewModel.footerRefreshState
-        .asDriverOnErrorJustComplete()
+        viewModel.refreshOutput
+        .footerRefreshState
         .drive(tableView.refreshFooter!.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }

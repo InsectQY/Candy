@@ -85,7 +85,7 @@ extension VideoListViewModel: ViewModelable {
         // success 下的刷新状态
         loadNew
         .map { _ in false }
-        .drive(headerRefreshState)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         Driver.merge(
@@ -97,7 +97,7 @@ extension VideoListViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         // error 下的刷新状态

@@ -136,7 +136,7 @@ extension VideoDetailViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(commentElements.value.isEmpty)

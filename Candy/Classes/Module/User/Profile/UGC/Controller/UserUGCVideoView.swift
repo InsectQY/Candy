@@ -55,8 +55,8 @@ class UserUGCVideoView: View {
         .disposed(by: rx.disposeBag)
 
         // 刷新状态
-        viewModel.footerRefreshState
-        .asDriverOnErrorJustComplete()
+        viewModel.refreshOutput
+        .footerRefreshState
         .drive(collectionView.refreshFooter!.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }

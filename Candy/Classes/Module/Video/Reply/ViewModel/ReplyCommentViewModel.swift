@@ -58,7 +58,7 @@ extension ReplyCommentViewModel: ViewModelable {
         // 头部刷新状态
         loadNew
         .map { _ in false }
-        .drive(headerRefreshState)
+        .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -71,7 +71,7 @@ extension ReplyCommentViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(elements.value.isEmpty)

@@ -21,7 +21,7 @@ class UserCenterViewController: TableViewController<UserCenterViewModel> {
     // MARK: - init
     init() {
         super.init(style: .plain)
-
+        viewModel = UserCenterViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

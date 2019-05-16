@@ -131,7 +131,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(videoElements.value.isEmpty)

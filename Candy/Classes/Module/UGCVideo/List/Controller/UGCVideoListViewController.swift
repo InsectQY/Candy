@@ -45,8 +45,10 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
 
         guard let viewModel = viewModel else { return }
 
-        viewModel.input
-        .category.onNext(category)
+        viewModel
+        .input
+        .category
+        .onNext(category)
 
         collectionView.rx.itemSelected
         .asDriver()

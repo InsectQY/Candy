@@ -74,7 +74,7 @@ extension UserVideoViewModel: ViewModelable {
                 self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(elements.value.isEmpty)

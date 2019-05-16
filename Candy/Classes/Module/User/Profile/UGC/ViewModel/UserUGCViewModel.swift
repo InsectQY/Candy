@@ -67,7 +67,7 @@ extension UserUGCViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(footerRefreshState)
+        .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(elements.value.isEmpty)
