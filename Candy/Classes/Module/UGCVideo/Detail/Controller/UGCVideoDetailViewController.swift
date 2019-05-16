@@ -10,7 +10,7 @@ import UIKit
 import ZFPlayer
 import Hero
 
-class UGCVideoDetailViewController: CollectionViewController {
+class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewModel> {
 
     // MARK: - Lazyload
     fileprivate lazy var controlView = ZFDouYinControlView()
@@ -26,8 +26,6 @@ class UGCVideoDetailViewController: CollectionViewController {
         return player
     }()
 
-    private var viewModel: UGCVideoListViewModel?
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +35,8 @@ class UGCVideoDetailViewController: CollectionViewController {
 
     // MARK: - convenience
     init(viewModel: UGCVideoListViewModel) {
-
-        self.viewModel = viewModel
         super.init(collectionViewLayout: UGCVideoDetailFlowLayout())
+        self.viewModel = viewModel
     }
 
     required init?(coder aDecoder: NSCoder) {

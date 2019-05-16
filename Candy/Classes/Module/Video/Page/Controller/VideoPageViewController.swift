@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class VideoPageViewController: ViewController {
+class VideoPageViewController: ViewController<VideoPageViewModel> {
 
     private let menuH: CGFloat = 44
 
@@ -29,15 +29,24 @@ class VideoPageViewController: ViewController {
     // swiftlint:disable force_unwrapping
     fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
 
-    private lazy var viewModel = VideoPageViewModel()
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        viewModel = VideoPageViewModel()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
             .notification(Notification.videoNoConnectClick)
@@ -47,11 +56,6 @@ class VideoPageViewController: ViewController {
         viewModel.category
         .asDriver()
         .drive(rx.category)
-        .disposed(by: rx.disposeBag)
-
-        // 指示器
-        viewModel.loading
-        .drive(rx.showIndicator)
         .disposed(by: rx.disposeBag)
     }
 
@@ -93,11 +97,11 @@ extension VideoPageViewController: JXCategoryViewDelegate {
 extension VideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
-        return viewModel.category.value.count
+        return viewModel?.category.value.count ?? 0
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        return VideoListViewController(category: viewModel.category.value[index].category)
+        return VideoListViewController(category: viewModel?.category.value[index].category ?? "")
     }
 }
 

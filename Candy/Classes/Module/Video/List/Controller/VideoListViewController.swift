@@ -10,7 +10,7 @@ import UIKit
 import ZFPlayer
 import JXCategoryView
 
-class VideoListViewController: TableViewController {
+class VideoListViewController: TableViewController<VideoListViewModel> {
 
     /// 视频类型
     private var category: String = ""
@@ -18,8 +18,6 @@ class VideoListViewController: TableViewController {
     private var currentTime: TimeInterval = 0
 
     // MARK: - Lazyload
-    private lazy var viewModel = VideoListViewModel(unified: self)
-
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
 
@@ -46,6 +44,7 @@ class VideoListViewController: TableViewController {
     init(category: String) {
         self.category = category
         super.init(style: .plain)
+        viewModel = VideoListViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +64,8 @@ class VideoListViewController: TableViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
@@ -86,16 +87,16 @@ class VideoListViewController: TableViewController {
         .bind(to: rx.videoStop)
         .disposed(by: rx.disposeBag)
 
-        viewModel.headerRefreshState
-        .asObservable()
-        .mapToVoid()
-        .bind(to: rx.videoStop)
+        viewModel
+        .refreshOutput
+        .headerRefreshing
+        .drive(rx.videoStop)
         .disposed(by: rx.disposeBag)
 
-        viewModel.footerRefreshState
-        .asObservable()
-        .mapToVoid()
-        .bind(to: rx.videoStop)
+        viewModel
+        .refreshOutput
+        .footerRefreshing
+        .drive(rx.videoStop)
         .disposed(by: rx.disposeBag)
 
         // TableView 数据源

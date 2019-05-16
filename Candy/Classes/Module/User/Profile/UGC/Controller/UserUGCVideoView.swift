@@ -28,7 +28,7 @@ class UserUGCVideoView: View {
         return collectionView
     }()
 
-    private lazy var viewModel = UserUGCViewModel(unified: self)
+    private lazy var viewModel = UserUGCViewModel()
 
     // MARK: - LifeCylce
     override init(frame: CGRect) {
@@ -74,32 +74,6 @@ class UserUGCVideoView: View {
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = bounds
-    }
-}
-
-extension UserUGCVideoView: RefreshComponentable {
-
-    //  swiftlint:disable force_unwrapping
-    var footer: ControlEvent<Void> {
-        return collectionView.refreshFooter!.rx.refreshing
-    }
-}
-
-extension UserUGCVideoView: BindRefreshStateable {
-
-}
-
-extension UserUGCVideoView: BindLoadStateable {
-
-    func bindLoading(with loading: ActivityIndicator) {
-
-    }
-}
-
-extension UserUGCVideoView: BindErrorStateable {
-
-    func bindErrorToShowToast(_ error: ErrorTracker) {
-
     }
 }
 

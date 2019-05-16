@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: ViewController {
+class WebViewController: ViewController<ViewModel> {
 
     private lazy var webView: WKWebView = {
 

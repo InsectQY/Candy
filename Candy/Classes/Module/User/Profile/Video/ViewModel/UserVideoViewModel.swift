@@ -30,17 +30,13 @@ extension UserVideoViewModel: ViewModelable {
         let offset = BehaviorRelay<Int>(value: 0)
         let elements = BehaviorRelay<[NewsListModel]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
-        guard let refresh = unified else { return output }
-
         let new = request(category: input.category,
                           visitedID: input.visitedID,
                           offset: 0)
 
-        // 下拉加载
-        let footer = refresh.footer
-        .asDriver()
+        // 上拉加载更多
+        let footer = refreshOutput
+        .footerRefreshing
         .withLatestFrom(offset.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: input.category,
@@ -82,6 +78,8 @@ extension UserVideoViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(elements.value.isEmpty)
+
+        let output = Output(items: elements.asDriver())
 
         return output
     }

@@ -23,11 +23,6 @@ final class VideoDetailViewModel: RefreshViewModel {
         /// 数据源
         let sections: Driver<[VideoDetailSection]>
     }
-
-    override func bindState() {
-        super.bindState()
-        unified?.bindShowIndicator(with: loading)
-    }
 }
 
 extension VideoDetailViewModel: ViewModelable {
@@ -92,19 +87,14 @@ extension VideoDetailViewModel: ViewModelable {
             return sections
         }
 
-        let output = Output(videoPlayInfo: realVideo,
-                            sections: sections)
-
-        guard let refresh = unified else { return output }
-
         // 加载最新评论
         let newComments = self.requestComment(itemID: itemID,
                                               groupID: groupID,
                                               offset: 0)
 
         // 加载更多评论
-        let loadMoreComments = refresh.footer
-        .asDriver()
+        let loadMoreComments = refreshOutput
+        .footerRefreshing
         .withLatestFrom(commentElements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.requestComment(itemID: itemID,
@@ -150,6 +140,9 @@ extension VideoDetailViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(commentElements.value.isEmpty)
+
+        let output = Output(videoPlayInfo: realVideo,
+                            sections: sections)
 
         return output
     }

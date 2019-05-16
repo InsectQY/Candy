@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UGCVideoCommentViewController: TableViewController {
+class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewModel> {
 
     private var item: UGCVideoListModel? {
         didSet {
@@ -16,10 +16,8 @@ class UGCVideoCommentViewController: TableViewController {
         }
     }
 
-    private lazy var headerView = UGCVideoCommentHeaderView.loadFromNib()
-
     // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoCommentViewModel(unified: self)
+    private lazy var headerView = UGCVideoCommentHeaderView.loadFromNib()
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -37,6 +35,7 @@ class UGCVideoCommentViewController: TableViewController {
     init(item: UGCVideoListModel?) {
         super.init(style: .plain)
         self.item = item
+        self.viewModel = UGCVideoCommentViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +54,8 @@ class UGCVideoCommentViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        guard let viewModel = viewModel else { return }
+
         let input = UGCVideoCommentViewModel.Input(groupID: item?.video?.raw_data.group_id ?? "")
         let output = viewModel.transform(input: input)
 
@@ -63,8 +64,5 @@ class UGCVideoCommentViewController: TableViewController {
             cell.item = item.comment
         }
         .disposed(by: rx.disposeBag)
-
-        // error toast
-        bindErrorToShowToast(viewModel.refreshError)
     }
 }

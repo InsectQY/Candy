@@ -29,18 +29,16 @@ extension ReplyCommentViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
-
         // 加载最新评论
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(id: input.id, offset: 0)
         }
 
         // 加载更多评论
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.request(id: input.id, offset: $0)

@@ -25,19 +25,16 @@ extension UGCVideoActivityViewModel: ViewModelable {
         /// 活动数据
         let elements = BehaviorRelay<[UGCVideoActivityAlbumList]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
-        guard let refresh = unified else { return output }
         // 加载最新视频
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(offset: 0, userAction: .refresh)
         }
 
         // 加载更多视频
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.request(offset: $0, userAction: .loadMore)
@@ -72,6 +69,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
         .startWith(.hidden)
         .drive(footerRefreshState)
         .disposed(by: disposeBag)
+
+        let output = Output(items: elements.asDriver())
 
         return output
     }

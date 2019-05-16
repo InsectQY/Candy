@@ -10,13 +10,10 @@ import UIKit
 import Hero
 import JXCategoryView
 
-class UGCVideoListViewController: CollectionViewController {
+class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel> {
 
     /// 视频类型
     private var category: String = ""
-
-    // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoListViewModel(unified: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -27,6 +24,7 @@ class UGCVideoListViewController: CollectionViewController {
     init(category: String) {
         self.category = category
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
+        self.viewModel = UGCVideoListViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -44,6 +42,8 @@ class UGCVideoListViewController: CollectionViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         viewModel.input
         .category.onNext(category)

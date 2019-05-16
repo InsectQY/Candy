@@ -69,18 +69,6 @@ class UserVideoView: View {
     }
 }
 
-//  swiftlint:disable force_unwrapping
-extension UserVideoView: RefreshComponentable {
-
-    var header: ControlEvent<Void> {
-        return tableView.refreshHeader!.rx.refreshing
-    }
-
-    var footer: ControlEvent<Void> {
-        return tableView.refreshFooter!.rx.refreshing
-    }
-}
-
 // MARK: - UITableViewDelegate
 extension UserVideoView: UITableViewDelegate {
 

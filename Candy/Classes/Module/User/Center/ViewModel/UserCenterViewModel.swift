@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserCenterViewModel: ViewModel {
+final class UserCenterViewModel: RefreshViewModel {
 
     struct Input {
         let loginTap: ControlEvent<Void>

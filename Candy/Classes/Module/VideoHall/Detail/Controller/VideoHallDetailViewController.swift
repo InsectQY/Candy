@@ -9,7 +9,7 @@
 import UIKit
 import ZFPlayer
 
-class VideoHallDetailViewController: ViewController {
+class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
 
     private var albumID: String = ""
 
@@ -26,8 +26,6 @@ class VideoHallDetailViewController: ViewController {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
-
-    private lazy var viewModel = VideoHallDetailViewModel()
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -54,6 +52,7 @@ class VideoHallDetailViewController: ViewController {
     init(albumID: String) {
         self.albumID = albumID
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = VideoHallDetailViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -76,6 +75,7 @@ class VideoHallDetailViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        guard let viewModel = viewModel else { return }
         let input = VideoHallDetailViewModel.Input(albumID: albumID)
         let output = viewModel.transform(input: input)
 
@@ -145,9 +145,6 @@ class VideoHallDetailViewController: ViewController {
         }
         .drive(historyManager.rx.save)
         .disposed(by: rx.disposeBag)
-
-        // 指示器
-        bindLoading(with: viewModel.loading)
     }
 }
 

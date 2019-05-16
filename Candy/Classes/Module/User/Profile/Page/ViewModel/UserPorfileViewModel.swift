@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserPorfileViewModel {
+final class UserPorfileViewModel: ViewModel {
 
     struct Input {
         let userID: String

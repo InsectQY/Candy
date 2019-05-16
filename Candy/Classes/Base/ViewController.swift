@@ -13,17 +13,18 @@ import JXCategoryView
 import RxReachability
 import Reachability
 
-class ViewController: UIViewController, NVActivityIndicatorViewable {
+class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewable, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, JXCategoryListContentViewDelegate {
 
+    var viewModel: VM?
     /// 是否正在加载
     let isLoading = BehaviorRelay(value: false)
     /// 当前连接的网络类型
     let reachabilityConnection = BehaviorRelay(value: Reachability.Connection.none)
     /// 数据源 nil 时点击了 view
     let emptyDataSetViewTap = PublishSubject<Void>()
-    /// 数据源 nil 时显示的标题
+    /// 数据源 nil 时显示的标题，默认 " "
     var emptyDataSetTitle: String = ""
-    /// 数据源 nil 时显示的描述
+    /// 数据源 nil 时显示的描述，默认 " "
     var emptyDataSetDescription: String = ""
     /// 数据源 nil 时显示的图片
     var emptyDataSetImage = R.image.hg_defaultError()
@@ -35,10 +36,18 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     var noConnectionDescription: String = R.string.localizable.appNetNoConnectionDesc()
     /// 没有网络时点击了 view
     var noConnectionViewTap = PublishSubject<Void>()
-    /// 数据源 nil 时是否可以滚动
+    /// 数据源 nil 时是否可以滚动，默认 true
     var emptyDataSetShouldAllowScroll: Bool = true
-    /// 没有网络时是否可以滚动
+    /// 没有网络时是否可以滚动， 默认 false
     var noConnectionShouldAllowScroll: Bool = false
+
+    /// 是否显示错误提示的 Toast，父类统一处理
+    /// 子类也可单独监听 vm 的 error 事件自己实现
+    var isShowError: Bool = false {
+        didSet {
+
+        }
+    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -83,38 +92,15 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         .map { $0.connection }
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
-    }
-}
 
-// MARK: - BindErrorStateable
-extension ViewController: BindErrorStateable {
-
-    func bindErrorToShowToast(_ error: ErrorTracker) {
-        error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - BindLoadState
-extension ViewController: BindLoadStateable {
-
-    func bindLoading(with loading: ActivityIndicator) {
-        loading
+        guard let viewModel = viewModel else { return }
+        viewModel
+        .loading
         .drive(isLoading)
         .disposed(by: rx.disposeBag)
     }
 
-    func bindShowIndicator(with loading: ActivityIndicator) {
-        loading
-        .drive(rx.showIndicator)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
- // MARK: - DZNEmptyDataSetSource
-extension ViewController: DZNEmptyDataSetSource {
-
+    // MARK: - DZNEmptyDataSetSource
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
 
         var title = ""
@@ -158,11 +144,8 @@ extension ViewController: DZNEmptyDataSetSource {
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
         return .clear
     }
-}
 
-// MARK: - DZNEmptyDataSetDelegate
-extension ViewController: DZNEmptyDataSetDelegate {
-
+    // MARK: - DZNEmptyDataSetDelegate
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return !isLoading.value
     }
@@ -188,18 +171,42 @@ extension ViewController: DZNEmptyDataSetDelegate {
             return emptyDataSetShouldAllowScroll
         }
     }
-}
 
-// MARK: - JXCategoryListContentViewDelegate
-extension ViewController: JXCategoryListContentViewDelegate {
-
+    // MARK: - JXCategoryListContentViewDelegate
     func listView() -> UIView! {
         return view
     }
 }
 
+// MARK: - BindErrorStateable
+extension ViewController where VM == ViewModel {
+
+    func bindErrorToShowToast() {
+
+        guard let viewModel = viewModel else { return }
+        viewModel
+        .error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - BindLoadState
+extension ViewController where VM == ViewModel {
+
+    func bindShowIndicator() {
+
+        guard let viewModel = viewModel else { return }
+
+        viewModel
+        .loading
+        .drive(rx.showIndicator)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
 // MARK: - Reactive-extension
-extension Reactive where Base: ViewController {
+extension Reactive where Base: ViewController<ViewModel> {
 
     var showIndicator: Binder<Bool> {
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeListViewController: CollectionViewController {
+class EpisodeListViewController: CollectionViewController<RefreshViewModel> {
 
     fileprivate var item: EpisodePage?
 
@@ -29,6 +29,7 @@ class EpisodeListViewController: CollectionViewController {
 
     override func makeUI() {
         super.makeUI()
+
         collectionView.register(cellType: EpisodeCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self

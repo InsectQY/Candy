@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UGCVideoPageViewController: ViewController {
+class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
 
     private let menuH: CGFloat = 44
     private let menuW: CGFloat = ScreenWidth * 0.8
@@ -26,11 +26,18 @@ class UGCVideoPageViewController: ViewController {
     // swiftlint:disable force_unwrapping
     fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
 
-    private lazy var viewModel = UGCVideoPageViewModel()
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        viewModel = UGCVideoPageViewModel()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLayoutSubviews() {
@@ -51,6 +58,7 @@ class UGCVideoPageViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        guard let viewModel = viewModel else { return }
         let input = UGCVideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
             .notification(Notification.UGCVideoNoConnectClick)
             .mapToVoid())
@@ -67,11 +75,11 @@ class UGCVideoPageViewController: ViewController {
 extension UGCVideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
-        return viewModel.category.value.count
+        return viewModel?.category.value.count ?? 0
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        let category = viewModel.category.value[index].category
+        let category = viewModel?.category.value[index].category ?? ""
         return category == "ugc_video_activity" ? UGCVideoActivityListViewController(style: .plain) : UGCVideoListViewController(category: category)
     }
 }

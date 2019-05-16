@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallViewController: CollectionViewController {
+class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
 
     fileprivate var topH: CGFloat {
         return UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.height ?? 0)
@@ -37,10 +37,9 @@ class VideoHallViewController: CollectionViewController {
         return animateFilterView
     }()
 
-    private lazy var viewModel = VideoHallViewModel(unified: self)
-
     init() {
         super.init(collectionViewLayout: VideoHallFlowLayout())
+        self.viewModel = VideoHallViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +70,8 @@ class VideoHallViewController: CollectionViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        guard let viewModel = viewModel else { return }
+
         noConnectionViewTap
         .asObservable()
         .subscribe(viewModel.input.noConnectTap)
@@ -85,9 +86,6 @@ class VideoHallViewController: CollectionViewController {
         .asObservable()
         .subscribe(viewModel.input.selection)
         .disposed(by: rx.disposeBag)
-
-        // 加载失败
-        bindErrorToShowToast(viewModel.error)
 
         // 视频分类
         viewModel.output
@@ -129,7 +127,7 @@ extension VideoHallViewController: FilterViewProtocol {
     }
 
     func searchKey(_ key: String) {
-        viewModel.input.searchKey.onNext(key)
+        viewModel?.input.searchKey.onNext(key)
     }
 }
 

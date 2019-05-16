@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewController: ViewController {
+class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
     private var layout: UICollectionViewLayout = UICollectionViewLayout()
     // MARK: - Lazyload
@@ -52,11 +52,35 @@ class CollectionViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+//        isLoading.asDriver()
+//        .distinctUntilChanged()
+//        .mapToVoid()
+//        .drive(rx.reloadEmptyDataSet)
+//        .disposed(by: rx.disposeBag)
+
+        guard let viewModel = viewModel else { return }
+
+        if let refreshHeader = collectionView.refreshHeader {
+
+            refreshHeader.rx.refreshing
+            .bind(to: viewModel.refreshInput.beginHeaderRefresh)
+            .disposed(by: rx.disposeBag)
+
+            viewModel.refreshOutput.headerRefreshState
+            .drive(refreshHeader.rx.isRefreshing)
+            .disposed(by: rx.disposeBag)
+        }
+
+        if let refreshFooter = collectionView.refreshFooter {
+
+            refreshFooter.rx.refreshing
+            .bind(to: viewModel.refreshInput.beginFooterRefresh)
+            .disposed(by: rx.disposeBag)
+
+            viewModel.refreshOutput.footerRefreshState
+            .drive(refreshFooter.rx.refreshFooterState)
+            .disposed(by: rx.disposeBag)
+        }
     }
 
     func beginHeaderRefresh() {
@@ -72,47 +96,8 @@ class CollectionViewController: ViewController {
     }
 }
 
-// MARK: - RefreshComponent
-extension CollectionViewController: RefreshComponentable {
-    var header: ControlEvent<Void> {
-
-        if let refreshHeader = collectionView.refreshHeader {
-            return refreshHeader.rx.refreshing
-        }
-        return ControlEvent(events: Observable.empty())
-    }
-
-    var footer: ControlEvent<Void> {
-
-        if let refreshFooter = collectionView.refreshFooter {
-            return refreshFooter.rx.refreshing
-        }
-        return ControlEvent(events: Observable.empty())
-    }
-}
-
-// MARK: - BindRefreshState
-extension CollectionViewController: BindRefreshStateable {
-
-    func bindHeaderRefresh(with state: Observable<Bool>) {
-
-        guard let refreshHeader = collectionView.refreshHeader else { return }
-        state
-        .bind(to: refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
-    }
-
-    func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
-
-        guard let refreshFooter = collectionView.refreshFooter else { return }
-        state
-        .bind(to: refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
 // MARK: - Reactive-extension
-extension Reactive where Base: CollectionViewController {
+extension Reactive where Base: CollectionViewController<RefreshViewModel> {
 
     var reloadEmptyDataSet: Binder<Void> {
 

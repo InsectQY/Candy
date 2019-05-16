@@ -39,7 +39,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
     /// 选择了新的视频种类
     private let searchKey = PublishSubject<String>()
 
-    override init(unified: Unifiedable?) {
+    override init() {
 
         /// 视频分类
         let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
@@ -53,7 +53,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         output = Output(categories: categoryElements.asDriver(),
                         items: videoElements.asDriver())
 
-        super.init(unified: unified)
+        super.init()
 
         // 获取视频分类
         requestCategory()
@@ -68,8 +68,6 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         }
         .drive(categoryElements)
         .disposed(by: disposeBag)
-
-        guard let refresh = unified else { return }
 
         // 加载最新视频
         let laodNew = searchKey
@@ -87,8 +85,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         }
 
         // 加载更多视频
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(moreParameters)
         .flatMapLatest { [unowned self] in
             self.requestVideo(offset: $0.offset,
@@ -115,9 +113,11 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
         // 搜索点击
         searchTap
-        .flatMap { navigator.rx.present(VideoHallURL.search.path,
-                                        context: R.string.localizable.videoHallSearchPlaceholder(),
-                                        wrap: NavigationController.self) }
+        .flatMap {
+            navigator.rx.present(VideoHallURL.search.path,
+                                 context: R.string.localizable.videoHallSearchPlaceholder(),
+                                 wrap: NavigationController.self)
+        }
         .subscribe()
         .disposed(by: disposeBag)
 

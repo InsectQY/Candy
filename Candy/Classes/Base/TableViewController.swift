@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import RxReachability
-import Reachability
 
-class TableViewController: ViewController {
+class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
     private var style: UITableView.Style = .plain
 
@@ -55,11 +53,35 @@ class TableViewController: ViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+//        isLoading.asDriver()
+//        .distinctUntilChanged()
+//        .mapToVoid()
+//        .drive(rx.reloadEmptyDataSet)
+//        .disposed(by: rx.disposeBag)
+
+        guard let viewModel = viewModel else { return }
+
+        if let refreshHeader = tableView.refreshHeader {
+
+            refreshHeader.rx.refreshing
+            .bind(to: viewModel.refreshInput.beginHeaderRefresh)
+            .disposed(by: rx.disposeBag)
+
+            viewModel.refreshOutput.headerRefreshState
+            .drive(refreshHeader.rx.isRefreshing)
+            .disposed(by: rx.disposeBag)
+        }
+
+        if let refreshFooter = tableView.refreshFooter {
+
+            refreshFooter.rx.refreshing
+            .bind(to: viewModel.refreshInput.beginFooterRefresh)
+            .disposed(by: rx.disposeBag)
+
+            viewModel.refreshOutput.footerRefreshState
+            .drive(refreshFooter.rx.refreshFooterState)
+            .disposed(by: rx.disposeBag)
+        }
     }
 
     // MARK: - 开始刷新
@@ -76,50 +98,8 @@ class TableViewController: ViewController {
     }
 }
 
-// MARK: - RefreshComponent
-extension TableViewController: RefreshComponentable {
-
-    var header: ControlEvent<Void> {
-
-        if let refreshHeader = tableView.refreshHeader {
-            return refreshHeader.rx.refreshing
-        }
-        return ControlEvent(events: Observable.empty())
-    }
-
-    var footer: ControlEvent<Void> {
-
-        if let refreshFooter = tableView.refreshFooter {
-            return refreshFooter.rx.refreshing
-        }
-        return ControlEvent(events: Observable.empty())
-    }
-}
-
-// MARK: - BindRefreshState
-extension TableViewController: BindRefreshStateable {
-
-    func bindHeaderRefresh(with state: Observable<Bool>) {
-
-        guard let refreshHeader = tableView.refreshHeader else { return }
-
-        state
-        .bind(to: refreshHeader.rx.isRefreshing)
-        .disposed(by: rx.disposeBag)
-    }
-
-    func bindFooterRefresh(with state: Observable<RxMJRefreshFooterState>) {
-
-        guard let refreshFooter = tableView.refreshFooter else { return }
-
-        state
-        .bind(to: refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
 // MARK: - Reactive-extension
-extension Reactive where Base: TableViewController {
+extension Reactive where Base: TableViewController<RefreshViewModel> {
 
     var reloadEmptyDataSet: Binder<Void> {
 

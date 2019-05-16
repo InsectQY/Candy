@@ -10,7 +10,7 @@ import UIKit
 import ZFPlayer
 import RxDataSources
 
-class VideoDetailViewController: TableViewController {
+class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
 
     private var video: NewsModel?
     fileprivate var seekTime: TimeInterval = 0
@@ -22,8 +22,6 @@ class VideoDetailViewController: TableViewController {
         videoView.video = video
         return videoView
     }()
-
-    private lazy var viewModel = VideoDetailViewModel(unified: self)
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -61,6 +59,7 @@ class VideoDetailViewController: TableViewController {
         self.video = video
         self.seekTime = seekTime
         super.init(style: .plain)
+        self.viewModel = VideoDetailViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -84,6 +83,8 @@ class VideoDetailViewController: TableViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         let input = VideoDetailViewModel.Input(video: video,
                                                selection: tableView.rx.modelSelected(VideoDetailItem.self).asDriver())
@@ -120,9 +121,6 @@ class VideoDetailViewController: TableViewController {
         output.videoPlayInfo
         .drive(rx.videoPlayInfo)
         .disposed(by: rx.disposeBag)
-
-        // 显示 error
-        bindErrorToShowToast(viewModel.error)
     }
 }
 

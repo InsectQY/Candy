@@ -9,14 +9,12 @@
 import UIKit
 import JXCategoryView
 
-class UGCVideoActivityListViewController: TableViewController {
-
-    // MARK: - Lazyload
-    private lazy var viewModel = UGCVideoActivityViewModel(unified: self)
+class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityViewModel> {
 
     // MARK: - Init
     override init(style: UITableView.Style) {
         super.init(style: style)
+        self.viewModel = UGCVideoActivityViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +38,9 @@ class UGCVideoActivityListViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let output = viewModel.transform(input: UGCVideoActivityViewModel.Input())
+        guard let refreshVM = viewModel else { return }
+
+        let output = refreshVM.transform(input: UGCVideoActivityViewModel.Input())
 
         output.items.drive(tableView.rx.items(cellIdentifier: UGCVideoActivityCell.ID, cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in
             cell.item = item

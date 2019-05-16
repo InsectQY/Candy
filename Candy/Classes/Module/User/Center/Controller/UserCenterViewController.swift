@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCenterViewController: TableViewController {
+class UserCenterViewController: TableViewController<UserCenterViewModel> {
 
     // MARK: - Lazyload
     private lazy var headerView: UserCenterHeaderView = {
@@ -18,11 +18,10 @@ class UserCenterViewController: TableViewController {
         return headerView
     }()
 
-    private lazy var viewModel = UserCenterViewModel()
-
     // MARK: - init
     init() {
         super.init(style: .plain)
+
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +44,8 @@ class UserCenterViewController: TableViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         let output = viewModel.transform(input: UserCenterViewModel.Input(loginTap: headerView.nameBtn.rx.tap))
 
@@ -69,11 +70,6 @@ class UserCenterViewController: TableViewController {
 
         output.loginResult
         .drive(headerView.rx.userInfo)
-        .disposed(by: rx.disposeBag)
-
-        // 指示器
-        viewModel.loading
-        .drive(rx.showIndicator)
         .disposed(by: rx.disposeBag)
     }
 }

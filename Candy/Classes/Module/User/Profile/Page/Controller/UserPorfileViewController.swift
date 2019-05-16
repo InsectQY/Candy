@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserPorfileViewController: ViewController {
+class UserPorfileViewController: ViewController<UserPorfileViewModel> {
 
     private let menuH: CGFloat = 44
 
@@ -34,8 +34,6 @@ class UserPorfileViewController: ViewController {
 
     fileprivate lazy var pagingView = JXPagerView(delegate: self)
 
-    private lazy var viewModel = UserPorfileViewModel()
-
     // MARK: - LifeCylce
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +49,7 @@ class UserPorfileViewController: ViewController {
     init(userID: String) {
         self.userID = userID
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = UserPorfileViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -66,8 +65,9 @@ class UserPorfileViewController: ViewController {
     }
 
     override func bindViewModel() {
-
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
         let input = UserPorfileViewModel.Input(userID: userID)
         let output = viewModel.transform(input: input)
 

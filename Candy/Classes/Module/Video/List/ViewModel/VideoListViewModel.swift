@@ -37,19 +37,16 @@ extension VideoListViewModel: ViewModelable {
         let output = Output(items: elements.asDriver(),
                             videoURLs: videoURLs.asDriver())
 
-        guard let refresh = unified else { return output }
         // 加载最新视频
-        let loadNew = refresh
-        .header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }
 
         // 加载更多视频
-        let loadMore = refresh
-        .footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(category: input.category)
         }

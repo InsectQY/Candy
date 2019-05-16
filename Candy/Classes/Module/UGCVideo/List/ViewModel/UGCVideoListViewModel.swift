@@ -40,7 +40,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     /// 加载更多
     private let loadMore = PublishSubject<Void>()
 
-    override init(unified: Unifiedable?) {
+    override init() {
 
         // 所有视频
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
@@ -56,21 +56,20 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
                         videoURLs: videoURLs.asDriver(),
                         indexPath: indexPath.asDriver())
 
-        super.init(unified: unified)
-
-        guard let refresh = unified else { return }
+        super.init()
 
         // 下拉刷新
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: $0)
         }
 
         // 上拉加载
-        refresh.footer
-        .bind(to: loadMore)
+        refreshOutput
+        .footerRefreshing
+        .drive(loadMore)
         .disposed(by: disposeBag)
 
         let loadMore = self.loadMore

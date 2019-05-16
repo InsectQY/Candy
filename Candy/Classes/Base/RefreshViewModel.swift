@@ -11,6 +11,32 @@ import Foundation
 /// 专用于处理刷新状态的 VM, 如不需要可继承更轻量的 ViewModel
 class RefreshViewModel: ViewModel {
 
+    let refreshInput: RefreshInput
+    let refreshOutput: RefreshOutput
+
+    struct RefreshInput {
+        /// 开始头部刷新
+        let beginHeaderRefresh: AnyObserver<Void>
+        /// 开始尾部刷新
+        let beginFooterRefresh: AnyObserver<Void>
+    }
+
+    struct RefreshOutput {
+
+        /// 头部刷新回调
+        let headerRefreshing: Driver<Void>
+        /// 尾部刷新回调
+        let footerRefreshing: Driver<Void>
+
+        /// 头部刷新状态
+        let headerRefreshState: Driver<Bool>
+        /// 尾部刷新状态
+        let footerRefreshState: Driver<RxMJRefreshFooterState>
+    }
+
+    private let beginHeaderRefresh = PublishSubject<Void>()
+
+    private let beginFooterRefresh = PublishSubject<Void>()
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
     /// 头部刷新状态
@@ -18,13 +44,25 @@ class RefreshViewModel: ViewModel {
     /// 尾部刷新状态
     let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
 
+    override init() {
+
+        refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
+                                    beginFooterRefresh: beginFooterRefresh.asObserver())
+        refreshOutput = RefreshOutput(headerRefreshing: beginHeaderRefresh.asDriverOnErrorJustComplete(),
+                                      footerRefreshing: beginFooterRefresh.asDriverOnErrorJustComplete(),
+                                      headerRefreshState: headerRefreshState.asDriverOnErrorJustComplete(),
+                                      footerRefreshState: footerRefreshState.asDriverOnErrorJustComplete())
+
+        super.init()
+    }
+
     override func bindState() {
         super.bindState()
 
-        unified?.bindHeaderRefresh(with: headerRefreshState)
-        unified?.bindFooterRefresh(with: footerRefreshState)
-        unified?.bindLoading(with: loading)
-        bindErrorToRefreshHeaderState()
+//        unified?.bindHeaderRefresh(with: headerRefreshState)
+//        unified?.bindFooterRefresh(with: footerRefreshState)
+//        unified?.bindLoading(with: loading)
+//        bindErrorToRefreshHeaderState()
     }
 }
 

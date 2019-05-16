@@ -11,12 +11,10 @@ import Foundation
 final class UGCVideoCommentViewModel: RefreshViewModel {
 
     struct Input {
-
         let groupID: String
     }
 
     struct Output {
-
         /// 数据源
         let items: Driver<[VideoCommentModel]>
     }
@@ -29,20 +27,16 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 所有评论
         let elements = BehaviorRelay<[VideoCommentModel]>(value: [])
 
-        let output = Output(items: elements.asDriver())
-
-        guard let refresh = unified else { return output }
-
         // 加载最新评论
-        let loadNew = refresh.header
-        .asDriver()
+        let loadNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(groupID: input.groupID, offset: 0)
         }
 
         // 加载更多评论
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.request(groupID: input.groupID, offset: $0)
@@ -79,6 +73,8 @@ extension UGCVideoCommentViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         bindErrorToRefreshFooterState(elements.value.isEmpty)
+
+        let output = Output(items: elements.asDriver())
 
         return output
     }

@@ -9,12 +9,7 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
-		182CDA3422607C5800A17581 /* RefreshComponentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CDA3322607C5800A17581 /* RefreshComponentable.swift */; };
-		182CDA3622607C7900A17581 /* BindRefreshStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CDA3522607C7900A17581 /* BindRefreshStateable.swift */; };
-		182CDA3822607C9F00A17581 /* BindLoadStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CDA3722607C9F00A17581 /* BindLoadStateable.swift */; };
-		182CDA3A2260834900A17581 /* BindErrorStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CDA392260834900A17581 /* BindErrorStateable.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
-		1849100B22545D74001D9974 /* UnifiedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100A22545D74001D9974 /* UnifiedProtocol.swift */; };
 		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
 		184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */; };
 		18767764222920F900A6D37A /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18767763222920F900A6D37A /* BarButtonItem.swift */; };
@@ -237,12 +232,7 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		182CDA3322607C5800A17581 /* RefreshComponentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshComponentable.swift; sourceTree = "<group>"; };
-		182CDA3522607C7900A17581 /* BindRefreshStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindRefreshStateable.swift; sourceTree = "<group>"; };
-		182CDA3722607C9F00A17581 /* BindLoadStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindLoadStateable.swift; sourceTree = "<group>"; };
-		182CDA392260834900A17581 /* BindErrorStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindErrorStateable.swift; sourceTree = "<group>"; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
-		1849100A22545D74001D9974 /* UnifiedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedProtocol.swift; sourceTree = "<group>"; };
 		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
 		1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoCommentHeaderView.xib; sourceTree = "<group>"; };
 		18767763222920F900A6D37A /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
@@ -491,18 +481,6 @@
 				18095908221501DA00A0818D /* Info.plist */,
 			);
 			path = CandyUITests;
-			sourceTree = "<group>";
-		};
-		182CDA32226057D900A17581 /* Unified */ = {
-			isa = PBXGroup;
-			children = (
-				1849100A22545D74001D9974 /* UnifiedProtocol.swift */,
-				182CDA3322607C5800A17581 /* RefreshComponentable.swift */,
-				182CDA3522607C7900A17581 /* BindRefreshStateable.swift */,
-				182CDA3722607C9F00A17581 /* BindLoadStateable.swift */,
-				182CDA392260834900A17581 /* BindErrorStateable.swift */,
-			);
-			path = Unified;
 			sourceTree = "<group>";
 		};
 		1849100C225494CB001D9974 /* View */ = {
@@ -1406,7 +1384,6 @@
 		E5E0203621B4FF5100A4CDF1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				182CDA32226057D900A17581 /* Unified */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
 				E5E0203F21B4FF5100A4CDF1 /* Reusable */,
 			);
@@ -2380,7 +2357,6 @@
 				E5ED9FA121DEF5F10088775F /* QAModel.swift in Sources */,
 				E5E3242921DC819E002DC676 /* JXPagerView.m in Sources */,
 				E5D23CD721DDD6F9008714F6 /* UserPorfileViewController.swift in Sources */,
-				182CDA3622607C7900A17581 /* BindRefreshStateable.swift in Sources */,
 				E5E020CD21B50B4000A4CDF1 /* TabBarController.swift in Sources */,
 				E5FAB70E21C09BB3002BF258 /* DateExtensions.swift in Sources */,
 				E5E3242821DC819E002DC676 /* JXPagerMainTableView.m in Sources */,
@@ -2397,7 +2373,6 @@
 				E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */,
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
-				182CDA3422607C5800A17581 /* RefreshComponentable.swift in Sources */,
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
 				E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */,
 				E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */,
@@ -2412,7 +2387,6 @@
 				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
 				E5E9B21621D4CC3500B08281 /* UGCVideoCommentViewController.swift in Sources */,
-				182CDA3A2260834900A17581 /* BindErrorStateable.swift in Sources */,
 				E5FB73A721B79C290010D8A7 /* Button.swift in Sources */,
 				E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */,
 				E5E5714B21CB708C005C2D6E /* VideoHallEpisodeCell.swift in Sources */,
@@ -2488,7 +2462,6 @@
 				E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */,
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
-				1849100B22545D74001D9974 /* UnifiedProtocol.swift in Sources */,
 				E534046921BF624B008807DA /* VideoDetailViewModel.swift in Sources */,
 				E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,
@@ -2545,7 +2518,6 @@
 				E5FA89F721BA1E530084F3C3 /* UGCVideoPageModel.swift in Sources */,
 				E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */,
 				E5D23CD821DDD6F9008714F6 /* UserProfileModel.swift in Sources */,
-				182CDA3822607C9F00A17581 /* BindLoadStateable.swift in Sources */,
 				E578101521C8DE70005BFFAC /* VideoHallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,12 +8,9 @@
 
 import UIKit
 
-class VideoHallSearchResultViewController: TableViewController {
+class VideoHallSearchResultViewController: TableViewController<VideoHallSearchResultViewModel> {
 
     private var keyword: String = ""
-
-    // MARK: - Lazyload
-    private lazy var viewModel = VideoHallSearchResultViewModel(unified: self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -24,6 +21,7 @@ class VideoHallSearchResultViewController: TableViewController {
     init(keyword: String) {
         self.keyword = keyword
         super.init(style: .plain)
+        viewModel = VideoHallSearchResultViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +43,7 @@ class VideoHallSearchResultViewController: TableViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
+        guard let viewModel = viewModel else { return }
         let input = VideoHallSearchResultViewModel.Input(keyword: keyword,
                                                          selection: tableView.rx.modelSelected(VideoHallSearchResultList.self))
         let output = viewModel.transform(input: input)
@@ -54,8 +53,5 @@ class VideoHallSearchResultViewController: TableViewController {
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
-
-        // 显示 error
-        bindErrorToShowToast(viewModel.error)
     }
 }

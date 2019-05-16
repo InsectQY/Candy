@@ -33,15 +33,13 @@ extension UserUGCViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
-
         let new = request(category: input.category,
                           visitedID: input.visitedID,
                           offset: 0)
 
-        // 下拉加载
-        let loadMore = refresh.footer
-        .asDriver()
+        // 上拉加载更多
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(offset.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: input.category,

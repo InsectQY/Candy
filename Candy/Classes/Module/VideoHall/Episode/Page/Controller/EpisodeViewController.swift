@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class EpisodeViewController: ViewController {
+class EpisodeViewController: ViewController<ViewModel> {
 
     /// 总共有多少集
     public var totalCount: Int = 0

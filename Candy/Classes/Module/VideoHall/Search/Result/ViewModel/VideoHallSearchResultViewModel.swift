@@ -31,17 +31,16 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        guard let refresh = unified else { return output }
         // 加载最新视频
-        let laodNew = refresh.header
-        .asDriver()
+        let laodNew = refreshOutput
+        .headerRefreshing
         .flatMapLatest { [unowned self] in
             self.request(offset: 0, key: input.keyword)
         }
 
         // 加载更多视频
-        let loadMore = refresh.footer
-        .asDriver()
+        let loadMore = refreshOutput
+        .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(offset: $0.count, key: input.keyword)

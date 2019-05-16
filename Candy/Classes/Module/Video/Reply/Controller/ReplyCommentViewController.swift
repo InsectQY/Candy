@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReplyCommentViewController: TableViewController {
+class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
 
     private var comment: Comment? {
         didSet {
@@ -17,7 +17,6 @@ class ReplyCommentViewController: TableViewController {
     }
 
     // MARK: - Lazyload
-    private lazy var viewModel = ReplyCommentViewModel(unified: self)
     private lazy var topView = ReplyCommentTopView.loadFromNib()
 
     // MARK: - LifeCycle
@@ -36,6 +35,7 @@ class ReplyCommentViewController: TableViewController {
     init(comment: Comment?) {
         super.init(style: .plain)
         self.comment = comment
+        self.viewModel = ReplyCommentViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +55,8 @@ class ReplyCommentViewController: TableViewController {
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        guard let viewModel = viewModel else { return }
 
         let input = ReplyCommentViewModel.Input(id: comment?.id ?? "")
         let output = viewModel.transform(input: input)
