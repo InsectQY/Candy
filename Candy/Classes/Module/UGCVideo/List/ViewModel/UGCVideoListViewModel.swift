@@ -19,8 +19,6 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         let category: AnyObserver<String>
         /// 点击
         let selection: AnyObserver<IndexPath>
-        /// 加载更多
-        let loadMore: AnyObserver<Void>
     }
 
     struct Output {
@@ -37,8 +35,6 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     private let category = PublishSubject<String>()
     /// 点击
     private let selection = PublishSubject<IndexPath>()
-    /// 加载更多
-    private let loadMore = PublishSubject<Void>()
 
     override init() {
 
@@ -50,8 +46,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
 
         input = Input(category: category.asObserver(),
-                      selection: selection.asObserver(),
-                      loadMore: loadMore.asObserver())
+                      selection: selection.asObserver())
         output = Output(items: elements.asDriver(),
                         videoURLs: videoURLs.asDriver(),
                         indexPath: indexPath.asDriver())
@@ -67,13 +62,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         }
 
         // 上拉加载
-        refreshOutput
+        let loadMore = refreshOutput
         .footerRefreshing
-        .drive(loadMore)
-        .disposed(by: disposeBag)
-
-        let loadMore = self.loadMore
-        .asDriverOnErrorJustComplete()
         .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
         .flatMapLatest { [unowned self] in
             self.request(category: $0)
@@ -139,6 +129,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
             }
         )
         .startWith(.hidden)
+        .debug()
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 

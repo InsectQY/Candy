@@ -106,8 +106,10 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
         // collectionView 点击
         selection
-        .flatMap { navigator.rx.push(VideoHallURL.detail.path,
-                                     context: $0.album.album_id) }
+        .flatMap {
+            navigator.rx.push(VideoHallURL.detail.path,
+                              context: $0.album.album_id)
+        }
         .subscribe()
         .disposed(by: disposeBag)
 
@@ -122,15 +124,10 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
-        Driver.merge(
-            laodNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
-            },
-            loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
-            }
-        )
-        .startWith(.hidden)
+        loadMore
+        .map { [unowned self] in
+            self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+        }
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 

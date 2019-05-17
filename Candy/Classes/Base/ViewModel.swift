@@ -15,14 +15,6 @@ class ViewModel {
     /// track error
     let error = ErrorTracker()
 
-    init() {
-        bindState()
-    }
-
-    func bindState() {
-
-    }
-
     deinit {
         print("\(type(of: self)): Deinited")
     }

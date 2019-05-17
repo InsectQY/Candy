@@ -21,7 +21,7 @@ class RefreshViewModel: ViewModel {
         /// 开始尾部刷新
         let beginFooterRefresh: AnyObserver<Void>
 
-        /// 开始头部刷新
+        /// 头部刷新状态
         let headerRefreshState: AnyObserver<Bool>
         /// 尾部刷新状态
         let footerRefreshState: AnyObserver<RxMJRefreshFooterState>
@@ -40,8 +40,9 @@ class RefreshViewModel: ViewModel {
         let footerRefreshState: Driver<RxMJRefreshFooterState>
     }
 
+    /// 开始头部刷新
     private let beginHeaderRefresh = PublishSubject<Void>()
-
+    /// 开始尾部刷新
     private let beginFooterRefresh = PublishSubject<Void>()
     /// 头部刷新状态
     private let headerRefreshState = PublishSubject<Bool>()
@@ -51,7 +52,6 @@ class RefreshViewModel: ViewModel {
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
     override init() {
-
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
                                     beginFooterRefresh: beginFooterRefresh.asObserver(),
                                     headerRefreshState: headerRefreshState.asObserver(),
@@ -64,8 +64,7 @@ class RefreshViewModel: ViewModel {
         super.init()
     }
 
-    override func bindState() {
-        super.bindState()
+    func bindState() {
 
 //        unified?.bindHeaderRefresh(with: headerRefreshState)
 //        unified?.bindFooterRefresh(with: footerRefreshState)

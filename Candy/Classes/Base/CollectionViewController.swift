@@ -66,7 +66,9 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .bind(to: viewModel.refreshInput.beginHeaderRefresh)
             .disposed(by: rx.disposeBag)
 
-            viewModel.refreshOutput.headerRefreshState
+            viewModel
+            .refreshOutput
+            .headerRefreshState
             .drive(refreshHeader.rx.isRefreshing)
             .disposed(by: rx.disposeBag)
         }
@@ -77,7 +79,10 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .bind(to: viewModel.refreshInput.beginFooterRefresh)
             .disposed(by: rx.disposeBag)
 
-            viewModel.refreshOutput.footerRefreshState
+            viewModel
+            .refreshOutput
+            .footerRefreshState
+            .debug()
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
         }

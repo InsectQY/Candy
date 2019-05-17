@@ -67,7 +67,9 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .bind(to: viewModel.refreshInput.beginHeaderRefresh)
             .disposed(by: rx.disposeBag)
 
-            viewModel.refreshOutput.headerRefreshState
+            viewModel
+            .refreshOutput
+            .headerRefreshState
             .drive(refreshHeader.rx.isRefreshing)
             .disposed(by: rx.disposeBag)
         }
@@ -78,9 +80,18 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .bind(to: viewModel.refreshInput.beginFooterRefresh)
             .disposed(by: rx.disposeBag)
 
-            viewModel.refreshOutput.footerRefreshState
+            viewModel
+            .refreshOutput
+            .footerRefreshState
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
+
+            viewModel
+                .refreshOutput
+                .footerRefreshState
+                .drive(onNext: {
+                    print($0)
+                }).disposed(by: rx.disposeBag)
         }
     }
 

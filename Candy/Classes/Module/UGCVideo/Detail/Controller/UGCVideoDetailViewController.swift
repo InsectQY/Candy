@@ -96,7 +96,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
             $0.willDisplay.at.item == ($0.video.count - 2)
         }
         .mapToVoid()
-        .bind(to: viewModel.input.loadMore)
+        .bind(to: viewModel.refreshInput.beginFooterRefresh)
         .disposed(by: rx.disposeBag)
 
         // 滑动时自动播放视频
