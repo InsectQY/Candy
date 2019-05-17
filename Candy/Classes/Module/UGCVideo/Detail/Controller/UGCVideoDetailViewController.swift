@@ -36,7 +36,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     // MARK: - convenience
     init(viewModel: UGCVideoListViewModel) {
         super.init(collectionViewLayout: UGCVideoDetailFlowLayout())
-        self.viewModel = viewModel
     }
 
     required init?(coder aDecoder: NSCoder) {

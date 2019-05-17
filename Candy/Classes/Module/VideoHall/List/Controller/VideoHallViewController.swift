@@ -39,7 +39,6 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
 
     init() {
         super.init(collectionViewLayout: VideoHallFlowLayout())
-        self.viewModel = VideoHallViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

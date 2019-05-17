@@ -35,7 +35,6 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
     init(comment: Comment?) {
         super.init(style: .plain)
         self.comment = comment
-        self.viewModel = ReplyCommentViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

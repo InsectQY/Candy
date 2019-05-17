@@ -14,7 +14,6 @@ class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityVi
     // MARK: - Init
     override init(style: UITableView.Style) {
         super.init(style: style)
-        self.viewModel = UGCVideoActivityViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

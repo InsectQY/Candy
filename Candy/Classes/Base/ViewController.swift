@@ -88,6 +88,12 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
 
     func bindViewModel() {
 
+        guard let classType = "\(VM.self)".classType(VM.self) else {
+            return
+        }
+
+        viewModel = classType.init()
+
         Reachability.rx.reachabilityChanged
         .map { $0.connection }
         .bind(to: reachabilityConnection)

@@ -24,7 +24,6 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
     init(category: String) {
         self.category = category
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
-        self.viewModel = UGCVideoListViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

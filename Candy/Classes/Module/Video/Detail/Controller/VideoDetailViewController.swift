@@ -59,7 +59,6 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
         self.video = video
         self.seekTime = seekTime
         super.init(style: .plain)
-        self.viewModel = VideoDetailViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

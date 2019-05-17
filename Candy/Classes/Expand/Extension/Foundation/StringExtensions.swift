@@ -27,4 +27,26 @@ extension String {
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStye, range: range)
         return attributedString
     }
+
+    public func classType<T>(_ type: T.Type) -> T.Type? {
+
+        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
+            return nil
+        }
+        guard let nameSpaceClass = NSClassFromString(nameSpace + "." + self) else {
+            return nil
+        }
+        guard let classType = nameSpaceClass as? T.Type else {
+            return nil
+        }
+        return classType
+    }
+
+    public func classObject<T: NSObject>(_ type: T.Type) -> T? {
+
+        guard let classType = classType(T.self) else {
+            return nil
+        }
+        return classType.init()
+    }
 }

@@ -21,7 +21,6 @@ class VideoHallSearchResultViewController: TableViewController<VideoHallSearchRe
     init(keyword: String) {
         self.keyword = keyword
         super.init(style: .plain)
-        viewModel = VideoHallSearchResultViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

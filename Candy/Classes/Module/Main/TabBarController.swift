@@ -75,19 +75,12 @@ extension TabBarController {
         addChild(childNav)
     }
 
-    //  swiftlint:disable force_unwrapping
     private func getVcFromString(_ vcName: String) -> UIViewController {
 
-        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
-            return UIViewController()
-        }
-        guard let childVcClass = NSClassFromString(nameSpace + "." + vcName) else {
-            return UIViewController()
-        }
-        guard let childVcType = childVcClass as? UIViewController.Type else {
+        guard let childVc = vcName.classObject(UIViewController.self) else {
             return UIViewController()
         }
 
-        return childVcType.init()
+        return childVc
     }
 }

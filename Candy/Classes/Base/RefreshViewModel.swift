@@ -51,7 +51,7 @@ class RefreshViewModel: ViewModel {
 
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
-    override init() {
+    required init() {
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
                                     beginFooterRefresh: beginFooterRefresh.asObserver(),
                                     headerRefreshState: headerRefreshState.asObserver(),

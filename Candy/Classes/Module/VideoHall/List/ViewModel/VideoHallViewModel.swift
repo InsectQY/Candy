@@ -39,7 +39,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
     /// 选择了新的视频种类
     private let searchKey = PublishSubject<String>()
 
-    override init() {
+    required init() {
 
         /// 视频分类
         let categoryElements = BehaviorRelay<[CategoryList]>(value: [])

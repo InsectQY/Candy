@@ -35,7 +35,6 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
     init(item: UGCVideoListModel?) {
         super.init(style: .plain)
         self.item = item
-        self.viewModel = UGCVideoCommentViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

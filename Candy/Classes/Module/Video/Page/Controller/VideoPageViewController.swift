@@ -36,7 +36,6 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        viewModel = VideoPageViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

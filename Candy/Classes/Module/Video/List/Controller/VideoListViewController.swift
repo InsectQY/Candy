@@ -44,7 +44,6 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
     init(category: String) {
         self.category = category
         super.init(style: .plain)
-        viewModel = VideoListViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -33,7 +33,6 @@ class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        viewModel = UGCVideoPageViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

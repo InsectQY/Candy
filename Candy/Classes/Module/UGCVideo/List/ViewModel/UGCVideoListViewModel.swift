@@ -36,7 +36,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     /// 点击
     private let selection = PublishSubject<IndexPath>()
 
-    override init() {
+    required init() {
 
         // 所有视频
         let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])

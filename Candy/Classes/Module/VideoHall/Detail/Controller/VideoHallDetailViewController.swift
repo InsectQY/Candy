@@ -52,7 +52,6 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
     init(albumID: String) {
         self.albumID = albumID
         super.init(nibName: nil, bundle: nil)
-        self.viewModel = VideoHallDetailViewModel()
     }
 
     required init?(coder aDecoder: NSCoder) {

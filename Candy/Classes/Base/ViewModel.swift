@@ -15,6 +15,10 @@ class ViewModel {
     /// track error
     let error = ErrorTracker()
 
+    required init() {
+        
+    }
+
     deinit {
         print("\(type(of: self)): Deinited")
     }
