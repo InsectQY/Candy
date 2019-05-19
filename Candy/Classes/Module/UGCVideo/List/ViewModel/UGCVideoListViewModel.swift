@@ -129,7 +129,6 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
             }
         )
         .startWith(.hidden)
-        .debug()
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 

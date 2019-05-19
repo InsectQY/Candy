@@ -61,6 +61,12 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
         guard let viewModel = viewModel else { return }
 
+        viewModel.loading
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(tableView.rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
+
         if let refreshHeader = tableView.refreshHeader {
 
             refreshHeader.rx.refreshing
@@ -85,13 +91,6 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .footerRefreshState
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
-
-            viewModel
-                .refreshOutput
-                .footerRefreshState
-                .drive(onNext: {
-                    print($0)
-                }).disposed(by: rx.disposeBag)
         }
     }
 
@@ -111,13 +110,6 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
 // MARK: - Reactive-extension
 extension Reactive where Base: TableViewController<RefreshViewModel> {
-
-    var reloadEmptyDataSet: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.tableView.reloadEmptyDataSet()
-        }
-    }
 
     var beginHeaderRefresh: Binder<Void> {
 

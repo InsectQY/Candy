@@ -52,13 +52,13 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     override func bindViewModel() {
         super.bindViewModel()
 
-//        isLoading.asDriver()
-//        .distinctUntilChanged()
-//        .mapToVoid()
-//        .drive(rx.reloadEmptyDataSet)
-//        .disposed(by: rx.disposeBag)
-
         guard let viewModel = viewModel else { return }
+
+        viewModel.loading
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(collectionView.rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
 
         if let refreshHeader = collectionView.refreshHeader {
 
@@ -82,7 +82,6 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             viewModel
             .refreshOutput
             .footerRefreshState
-            .debug()
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
         }
@@ -103,13 +102,6 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
 // MARK: - Reactive-extension
 extension Reactive where Base: CollectionViewController<RefreshViewModel> {
-
-    var reloadEmptyDataSet: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.collectionView.reloadEmptyDataSet()
-        }
-    }
 
     var beginHeaderRefresh: Binder<Void> {
 

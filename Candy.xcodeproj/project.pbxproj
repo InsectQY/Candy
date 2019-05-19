@@ -83,6 +83,8 @@
 		E595D96B21DE0343005A6C00 /* UserQACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D96921DE0343005A6C00 /* UserQACell.swift */; };
 		E595D96C21DE0343005A6C00 /* UserQACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E595D96A21DE0343005A6C00 /* UserQACell.xib */; };
 		E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2B1D8220EAC20008702F0 /* DictionaryExtension.swift */; };
+		E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */; };
+		E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */; };
 		E5B4EC3921F59EA90065AB80 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3821F59EA90065AB80 /* ViewModel.swift */; };
 		E5D23CD721DDD6F9008714F6 /* UserPorfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D23CC821DDD6F9008714F6 /* UserPorfileViewController.swift */; };
 		E5D23CD821DDD6F9008714F6 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D23CCA21DDD6F9008714F6 /* UserProfileModel.swift */; };
@@ -313,6 +315,8 @@
 		E595D96921DE0343005A6C00 /* UserQACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQACell.swift; sourceTree = "<group>"; };
 		E595D96A21DE0343005A6C00 /* UserQACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserQACell.xib; sourceTree = "<group>"; };
 		E5A2B1D8220EAC20008702F0 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
+		E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
 		E5B4EC3821F59EA90065AB80 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E5D23CC821DDD6F9008714F6 /* UserPorfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPorfileViewController.swift; sourceTree = "<group>"; };
 		E5D23CCA21DDD6F9008714F6 /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
@@ -1428,6 +1432,8 @@
 				E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */,
 				E5E0205721B5057600A4CDF1 /* Then.swift */,
 				E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */,
+				E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */,
+				E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -2413,9 +2419,11 @@
 				E57DD44D21E2EB170089A2D2 /* UserCenterCell.swift in Sources */,
 				E5E5713021CB2853005C2D6E /* VideoHallDetailViewController.swift in Sources */,
 				E520A49021D76F2700CDDB04 /* UGCVideoTitleView.swift in Sources */,
+				E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */,
 				E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */,
 				E534047921BF7FBD008807DA /* CommentCell.swift in Sources */,
 				E5D749F021FEE0B300BCE75F /* ErrorTracker.swift in Sources */,
+				E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */,
 				E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */,
 				E595D96B21DE0343005A6C00 /* UserQACell.swift in Sources */,
 				E5D9541A21E6DB23007FC606 /* EpisodeListFlowLayout.swift in Sources */,

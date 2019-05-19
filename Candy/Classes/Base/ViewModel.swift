@@ -16,7 +16,6 @@ class ViewModel {
     let error = ErrorTracker()
 
     required init() {
-        
     }
 
     deinit {

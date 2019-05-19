@@ -97,7 +97,6 @@ extension VideoListViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .debug()
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 

@@ -40,12 +40,16 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
     var emptyDataSetShouldAllowScroll: Bool = true
     /// 没有网络时是否可以滚动， 默认 false
     var noConnectionShouldAllowScroll: Bool = false
-
-    /// 是否显示错误提示的 Toast，父类统一处理
-    /// 子类也可单独监听 vm 的 error 事件自己实现
-    var isShowError: Bool = false {
+    /// 是否自动创建 viewModel，默认 true
+    var isAutoInitViewModel: Bool = true {
         didSet {
 
+            guard isAutoInitViewModel, let classType = "\(VM.self)".classType(VM.self) else {
+                viewModel = nil
+                return
+            }
+
+            viewModel = classType.init()
         }
     }
 
@@ -88,11 +92,7 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
 
     func bindViewModel() {
 
-        guard let classType = "\(VM.self)".classType(VM.self) else {
-            return
-        }
-
-        viewModel = classType.init()
+        isAutoInitViewModel = true
 
         Reachability.rx.reachabilityChanged
         .map { $0.connection }
@@ -190,6 +190,7 @@ extension ViewController where VM == ViewModel {
     func bindErrorToShowToast() {
 
         guard let viewModel = viewModel else { return }
+        
         viewModel
         .error
         .drive(rx.showError)
