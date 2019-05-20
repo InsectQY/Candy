@@ -124,12 +124,12 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
         // 尾部状态
         Driver.merge(
-        loadNew.map { _ in
-            RxMJRefreshFooterState.default
-        },
-        loadMore.map { _ in
-            RxMJRefreshFooterState.default
-        }
+            loadNew.map { _ in
+                RxMJRefreshFooterState.default
+            },
+            loadMore.map { _ in
+                RxMJRefreshFooterState.default
+            }
         )
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)

@@ -7,22 +7,10 @@
 //
 
 import Foundation
-import CleanJSON
 
 class QAModel: Codable {
 
-    let content: String
-
-    lazy var wenda: WenDa? = {
-
-        guard
-            let data = content.data(using: .utf8),
-            let model = try? CleanJSONDecoder().decode(WenDa.self, from: data)
-        else {
-            return nil
-        }
-        return model
-    }()
+    let content: WenDa
 }
 
 class WenDa: Codable {

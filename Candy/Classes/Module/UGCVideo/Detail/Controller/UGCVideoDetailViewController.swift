@@ -26,6 +26,8 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         return player
     }()
 
+    private var myViewModel: UGCVideoListViewModel?
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     // MARK: - convenience
     init(viewModel: UGCVideoListViewModel) {
         super.init(collectionViewLayout: UGCVideoDetailFlowLayout())
+        self.myViewModel = viewModel
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +64,8 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
 
     override func bindViewModel() {
         super.bindViewModel()
-
+        
+        guard let viewModel = myViewModel else { return }
         viewModel.output
         .items
         .drive(collectionView.rx.items) { collectionView, row, item in

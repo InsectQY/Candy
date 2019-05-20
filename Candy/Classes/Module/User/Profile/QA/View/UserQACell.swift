@@ -31,7 +31,7 @@ class UserQACell: TableViewCell, NibReusable {
 
         didSet {
 
-            guard let item = item?.wenda?.raw_data.content else { return }
+            guard let item = item?.content.raw_data.content else { return }
 
             collectionView.reloadData()
 
@@ -56,12 +56,12 @@ extension UserQACell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ImageCell.self)
-        cell.item = item?.wenda?.raw_data.content.answer.large_image_list[indexPath.item].url
+        cell.item = item?.content.raw_data.content.answer.large_image_list[indexPath.item].url
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return item?.wenda?.raw_data.content.answer.large_image_list.count ?? 0
+        return item?.content.raw_data.content.answer.large_image_list.count ?? 0
     }
 }
 
@@ -79,7 +79,7 @@ extension UserQACell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         guard
-            let count = item?.wenda?.raw_data.content.answer.large_image_list.count
+            let count = item?.content.raw_data.content.answer.large_image_list.count
         else {
             collectionViewHeightConstraint.constant = 0
             return .zero

@@ -74,7 +74,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         // 加载最新视频
-        let laodNew = searchKey
+        let loadNew = searchKey
         .asDriverOnErrorJustComplete()
         .distinctUntilChanged()
         .flatMapLatest { [unowned self] in
@@ -98,7 +98,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         }
 
         // 绑定数据源
-        laodNew
+        loadNew
         .map { $0.cell_list }
         .drive(videoElements)
         .disposed(by: disposeBag)
@@ -129,15 +129,18 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .subscribe()
         .disposed(by: disposeBag)
 
-        // 尾部刷新状态
-        loadMore
-        .map { [unowned self] in
-            self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
-        }
+        // 尾部状态
+        Driver.merge(
+            loadNew.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+            },
+            loadMore.map { [unowned self] in
+                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+            }
+        )
+        .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
-
-        bindErrorToRefreshFooterState(videoElements.value.isEmpty)
     }
 }
 

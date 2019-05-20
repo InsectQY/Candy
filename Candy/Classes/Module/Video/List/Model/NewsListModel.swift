@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanJSON
 
 class NewsListModel: Codable {
 

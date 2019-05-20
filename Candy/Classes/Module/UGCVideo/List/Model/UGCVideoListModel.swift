@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanJSON
 
 struct UGCVideoListModel: Codable {
 

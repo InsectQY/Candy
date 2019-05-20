@@ -93,15 +93,15 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
 
-        viewModel
-        .loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
-
-        viewModel
-        .error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
+//        viewModel
+//        .loading
+//        .drive(isLoading)
+//        .disposed(by: rx.disposeBag)
+//
+//        viewModel
+//        .error
+//        .drive(rx.showError)
+//        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - DZNEmptyDataSetSource
