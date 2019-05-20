@@ -52,41 +52,13 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        viewModel.loading
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(collectionView.rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
-
-        if let refreshHeader = collectionView.refreshHeader {
-
-            refreshHeader.rx.refreshing
-            .bind(to: viewModel.refreshInput.beginHeaderRefresh)
-            .disposed(by: rx.disposeBag)
-
-            viewModel
-            .refreshOutput
-            .headerRefreshState
-            .drive(refreshHeader.rx.isRefreshing)
-            .disposed(by: rx.disposeBag)
-        }
-
-        if let refreshFooter = collectionView.refreshFooter {
-
-            refreshFooter.rx.refreshing
-            .bind(to: viewModel.refreshInput.beginFooterRefresh)
-            .disposed(by: rx.disposeBag)
-
-            viewModel
-            .refreshOutput
-            .footerRefreshState
-            .drive(refreshFooter.rx.refreshFooterState)
-            .disposed(by: rx.disposeBag)
-        }
-
+        bindReloadEmpty()
+        bindHeader()
+        bindFooter()
         viewModel.bindState()
     }
 
+    // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
         collectionView.refreshHeader?.beginRefreshing { [weak self] in
             self?.setUpEmptyDataSet()
@@ -97,6 +69,56 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     func setUpEmptyDataSet() {
         collectionView.emptyDataSetSource = self
         collectionView.emptyDataSetDelegate = self
+    }
+
+    // MARK: - 绑定头部刷新回调和头部刷新状态
+    func bindHeader() {
+
+        guard
+            let refreshHeader = collectionView.refreshHeader
+        else {
+            return
+        }
+
+        refreshHeader.rx.refreshing
+        .bind(to: viewModel.refreshInput.beginHeaderRefresh)
+        .disposed(by: rx.disposeBag)
+
+        viewModel
+        .refreshOutput
+        .headerRefreshState
+        .drive(refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+    }
+
+    // MARK: - 绑定尾部刷新回调和尾部刷新状态
+    func bindFooter() {
+
+        guard
+            let refreshFooter = collectionView.refreshFooter
+        else {
+            return
+        }
+
+        refreshFooter.rx.refreshing
+        .bind(to: viewModel.refreshInput.beginFooterRefresh)
+        .disposed(by: rx.disposeBag)
+
+        viewModel
+        .refreshOutput
+        .footerRefreshState
+        .drive(refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
+    }
+
+    // MARK: - 绑定数据源 nil 的占位图
+    func bindReloadEmpty() {
+
+        viewModel.loading
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(collectionView.rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
     }
 }
 

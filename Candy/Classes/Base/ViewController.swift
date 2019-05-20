@@ -21,7 +21,17 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         else {
             return VM()
         }
-        return classType.init()
+        let viewModel = classType.init()
+        viewModel
+        .loading
+        .drive(isLoading)
+        .disposed(by: rx.disposeBag)
+
+        viewModel
+        .error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
+        return viewModel
     }()
 
     /// 是否正在加载
@@ -92,16 +102,6 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         .map { $0.connection }
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
-
-//        viewModel
-//        .loading
-//        .drive(isLoading)
-//        .disposed(by: rx.disposeBag)
-//
-//        viewModel
-//        .error
-//        .drive(rx.showError)
-//        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - DZNEmptyDataSetSource
