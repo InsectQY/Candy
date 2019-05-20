@@ -12,18 +12,31 @@ import CleanJSON
 
 public extension Response {
 
-    func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder(), failsOnEmptyData: Bool = true) throws -> T {
+    func mapObject<T: Codable>(_ type: T.Type,
+                               atKeyPath path: String? = nil,
+                               using decoder: JSONDecoder = CleanJSONDecoder(),
+                               failsOnEmptyData: Bool = true) throws -> T {
 
         do {
-            return try map(type, atKeyPath: path, using: decoder, failsOnEmptyData: failsOnEmptyData)
+            return try map(type,
+                           atKeyPath: path,
+                           using: decoder,
+                           failsOnEmptyData: failsOnEmptyData)
         } catch {
             throw MoyaError.objectMapping(error, self)
         }
     }
+}
 
-    func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) throws -> T {
+public extension Response {
 
-        let response = try mapObject(Model<T>.self, atKeyPath: nil, using: decoder)
+    func mapObject<T: Codable>(_ type: T.Type) throws -> T {
+
+        let decoder = CleanJSONDecoder()
+        decoder.jsonStringDecodingStrategy = .all
+        let response = try mapObject(Model<T>.self,
+                                     atKeyPath: nil,
+                                     using: decoder)
         return response.data
     }
 }

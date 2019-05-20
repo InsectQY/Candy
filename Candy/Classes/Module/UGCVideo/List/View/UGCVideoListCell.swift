@@ -21,11 +21,11 @@ class UGCVideoListCell: CollectionViewCell, NibReusable {
 
             guard let item = item else { return }
 
-            let url = item.video?.raw_data.video.origin_cover.url_list.first
+            let url = item.content.raw_data.video.origin_cover.url_list.first
             coverImage.qy_setImage(url, options: [KfOptions.fadeTransition(imageTransitionTime)])
-            titleLabel.text = item.video?.raw_data.title
-            playCountLabel.text = "\(item.video?.raw_data.action.playCountString ?? "")次播放"
-            diggCountLabel.text = "\(item.video?.raw_data.action.diggCountString ?? "")赞"
+            titleLabel.text = item.content.raw_data.title
+            playCountLabel.text = "\(item.content.raw_data.action.playCountString)次播放"
+            diggCountLabel.text = "\(item.content.raw_data.action.diggCountString)赞"
         }
     }
 }

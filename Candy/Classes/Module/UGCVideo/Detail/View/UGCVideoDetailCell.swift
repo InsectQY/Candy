@@ -51,7 +51,7 @@ class UGCVideoDetailCell: CollectionViewCell, NibReusable {
 
         didSet {
 
-            guard let item = item?.video else { return }
+            guard let item = item?.content else { return }
             largeImage
             .qy_setImage(item.raw_data.video.origin_cover.url_list.first)
             abstractLabel.text = item.raw_data.title
@@ -66,7 +66,7 @@ class UGCVideoDetailCell: CollectionViewCell, NibReusable {
     @objc private func avatarTap() {
 
         return
-        let vc = UserPorfileViewController(userID: item?.video?.raw_data.user.info.user_id ?? "")
+        let vc = UserPorfileViewController(userID: item?.content.raw_data.user.info.user_id ?? "")
         let nav = NavigationController(rootViewController: vc)
         parentVC?.present(nav, animated: true, completion: nil)
     }

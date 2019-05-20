@@ -9,24 +9,18 @@
 import Foundation
 import CleanJSON
 
-class UGCVideoListModel: Codable {
+struct UGCVideoListModel: Codable {
 
     /// 单条视频内容(返回数据为 JSON 字符串)
-    let content: String
-    /// 解析好的 Model
-    lazy var video: UGCVideoModel? = {
-
-        guard let data = content.data(using: .utf8), let model = try? CleanJSONDecoder().decode(UGCVideoModel.self, from: data) else { return nil }
-        return model
-    }()
+    let content: UGCVideoModel
 }
 
-class UGCVideoModel: Codable {
+struct UGCVideoModel: Codable {
 
     let raw_data: RawData
 }
 
-class RawData: Codable {
+struct RawData: Codable {
 
     /// ID
     let group_id: String
@@ -41,12 +35,12 @@ class RawData: Codable {
     let user: User
 }
 
-class User: Codable {
+struct User: Codable {
 
     let info: MediaInfo
 }
 
-class Action: Codable {
+struct Action: Codable {
 
     /// 评论数量
     let comment_count: Int
@@ -55,14 +49,20 @@ class Action: Codable {
     /// 点赞数量
     let digg_count: Int
 
-    lazy var playCountString = play_count.countString
+    var playCountString: String {
+        return play_count.countString
+    }
 
-    lazy var diggCountString = digg_count.countString
+    var diggCountString: String {
+        return digg_count.countString
+    }
 
-    lazy var commentCountString = comment_count.countString
+    var commentCountString: String {
+        return comment_count.countString
+    }
 }
 
-class UGCVideo: Codable {
+struct UGCVideo: Codable {
 
     /// 视频播放地址
     let play_addr: URLList
@@ -70,6 +70,6 @@ class UGCVideo: Codable {
     let origin_cover: URLList
 }
 
-class URLList: Codable {
+struct URLList: Codable {
     let url_list: [String]
 }

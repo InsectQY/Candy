@@ -103,7 +103,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
             self.player.playTheIndexPath(indexPath, scrollToTop: false)
             self.controlView.resetControlView()
 //            self.controlView.showCover(with: cell.largeImage.image)
-            self.controlView.showCover(withUrl: cell.item?.video?.raw_data.video.origin_cover.url_list.first)
+            self.controlView.showCover(withUrl: cell.item?.content.raw_data.video.origin_cover.url_list.first)
         }
 
         player.playerDidToEnd = { [weak self] _ in

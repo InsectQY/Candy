@@ -18,7 +18,7 @@ class UserUGCVideoCell: CollectionViewCell, NibReusable {
     public var item: UGCVideoListModel? {
         didSet {
 
-            guard let item = item?.video?.raw_data else { return }
+            guard let item = item?.content.raw_data else { return }
 
             largeImage.qy_setImage(item.video.origin_cover.url_list.first)
             diggCountLabel.text = "\(item.action.diggCountString)赞"

@@ -24,7 +24,7 @@ class UserArticleMultiImageCell: TableViewCell, NibReusable {
     public var item: NewsListModel? {
         didSet {
 
-            guard let item = item?.news else { return }
+            guard let item = item?.content else { return }
             titleLabel.text = item.title
 
             let kfOptions = [KfWebPOptions.webp(), KfWebPOptions.webpCache()]

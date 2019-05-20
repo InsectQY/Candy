@@ -12,21 +12,27 @@ import CleanJSON
 
 public extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
 
-    func mapObject<T: Codable>(_ type: T.Type, atKeyPath path: String? = nil, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
+    func mapObject<T: Codable>(_ type: T.Type,
+                               atKeyPath path: String? = nil,
+                               using decoder: JSONDecoder = CleanJSONDecoder(),
+                               failsOnEmptyData: Bool = true) -> Single<T> {
         return map {
 
-            guard let response = try? $0.mapObject(type, atKeyPath: path, using: decoder, failsOnEmptyData: true) else {
+            guard let response = try? $0.mapObject(type,
+                                                   atKeyPath: path,
+                                                   using: decoder,
+                                                   failsOnEmptyData: failsOnEmptyData) else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
         }
     }
 
-    func mapObject<T: Codable>(_ type: T.Type, using decoder: JSONDecoder = CleanJSONDecoder()) -> Single<T> {
+    func mapObject<T: Codable>(_ type: T.Type) -> Single<T> {
 
         return map {
 
-            guard let response = try? $0.mapObject(type, using: decoder) else {
+            guard let response = try? $0.mapObject(type) else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

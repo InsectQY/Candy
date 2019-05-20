@@ -12,7 +12,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
 
     private var item: UGCVideoListModel? {
         didSet {
-            headerView.count = item?.video?.raw_data.action.comment_count
+            headerView.count = item?.content.raw_data.action.comment_count
         }
     }
 
@@ -53,7 +53,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoCommentViewModel.Input(groupID: item?.video?.raw_data.group_id ?? "")
+        let input = UGCVideoCommentViewModel.Input(groupID: item?.content.raw_data.group_id ?? "")
         let output = viewModel.transform(input: input)
 
         output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in

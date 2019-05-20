@@ -62,7 +62,7 @@ class UserArticleView: View {
         // TableView 数据源
         output.items.drive(tableView.rx.items) { tableView, row, item in
 
-            if (item.news?.gallary_image_count ?? 0) > 0 {
+            if item.content.gallary_image_count > 0 {
 
                 let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UserArticleMultiImageCell.self)
                 cell.item = item

@@ -101,7 +101,7 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
 
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoListCell.self)
-            cell.item = item.news
+            cell.item = item.content
 
             // 视频播放点击
             cell.videoBtn.rx.tap.map { _ in indexPath }
@@ -109,7 +109,7 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
             .disposed(by: cell.disposeBag)
 
             // 视频信息
-            cell.videoBtn.rx.tap.map { _ in item.news }
+            cell.videoBtn.rx.tap.map { _ in item.content }
             .bind(to: self.rx.videoInfo)
             .disposed(by: cell.disposeBag)
 
@@ -119,8 +119,7 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)
-        .map { $0.news }
-        .filterNil()
+        .map { $0.content }
         .map { [unowned self] in
             ["news": $0,
             "seekTime": self.currentTime] }

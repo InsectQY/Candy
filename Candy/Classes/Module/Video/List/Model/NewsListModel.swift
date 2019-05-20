@@ -12,14 +12,7 @@ import CleanJSON
 class NewsListModel: Codable {
 
     /// 单条新闻内容(返回数据为 JSON 字符串)
-    let content: String
-
-    /// 解析好的 Model
-    lazy var news: NewsModel? = {
-
-        guard let data = content.data(using: .utf8), let model = try? CleanJSONDecoder().decode(NewsModel.self, from: data) else { return nil }
-        return model
-    }()
+    let content: NewsModel
 }
 
 class NewsModel: Codable {
@@ -53,18 +46,11 @@ class NewsModel: Codable {
     /// 视频详情
     let video_detail_info: VideoDetailInfo
     /// 视频播放信息(返回数据为 JSON 字符串)
-    let video_play_info: String
+    let video_play_info: VideoPlayInfo
     /// 视频 ID
     let video_id: String
     /// 图片列表
     let large_image_list: [LargeImage]
-
-    /// 解析好的视频播放信息 Model
-    lazy var videoPlayInfo: VideoPlayInfo? = {
-
-        guard let data = video_play_info.data(using: .utf8), let model = try? CleanJSONDecoder().decode(VideoPlayInfo.self, from: data) else { return nil }
-        return model
-    }()
 
     /// 视频时长
     lazy var videoDurationString = video_duration.timeDuration

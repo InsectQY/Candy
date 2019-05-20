@@ -86,7 +86,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         loadNew
         .map {
             $0.map {
-                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+                URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
             }
         }
         .drive(videoURLs)
@@ -95,7 +95,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         loadMore
         .map {
             $0.map {
-                URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
+                URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
             }
         }
         .map { [unowned self] in

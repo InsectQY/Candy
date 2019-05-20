@@ -59,7 +59,7 @@ extension VideoListViewModel: ViewModelable {
         loadNew
         .map {
             $0.map {
-                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
             }
         }
         .drive(videoURLs)
@@ -73,7 +73,7 @@ extension VideoListViewModel: ViewModelable {
         loadMore
         .map {
             $0.map {
-                URL(string: $0.news?.videoPlayInfo?.video_list.video_1.mainURL ?? "")
+                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
             }
         }
         .map {
@@ -116,7 +116,7 @@ extension VideoListViewModel {
                 .mapObject([NewsListModel].self)
                 .map {
                     $0.filter {
-                        !($0.news?.label ?? "").contains("广告")
+                        !($0.content.label).contains("广告")
                     }
                 }
                 .trackActivity(loading)
