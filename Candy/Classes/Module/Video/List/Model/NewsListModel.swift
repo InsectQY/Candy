@@ -135,7 +135,11 @@ class Video: Codable {
 
     /// 解析好的真实播放地址
     lazy var mainURL: String = {
-        guard let decodeData = Data(base64Encoded: main_url, options: Data.Base64DecodingOptions(rawValue: 0)) else { return "" }
+        guard
+            let decodeData = Data(base64Encoded: main_url, options: Data.Base64DecodingOptions(rawValue: 0))
+        else {
+            return ""
+        }
         return String(data: decodeData, encoding: .utf8) ?? ""
     }()
 }

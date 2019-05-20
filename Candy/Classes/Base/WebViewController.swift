@@ -31,7 +31,8 @@ class WebViewController: ViewController<ViewModel> {
 
         guard
             let urlString = urlString,
-            let url = URL(string: urlString) else { return }
+            let url = URL(string: urlString)
+        else { return }
         webView.load(URLRequest(url: url))
     }
 }

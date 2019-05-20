@@ -81,7 +81,11 @@ extension UIView {
 
     public func isShowingOnKeyWindow() -> Bool {
 
-        guard let keyWindow = UIApplication.shared.keyWindow else {return false}
+        guard
+            let keyWindow = UIApplication.shared.keyWindow
+        else {
+            return false
+        }
         let newFrame = keyWindow.convert(frame, to: superview)
         let intersects = newFrame.intersects(keyWindow.bounds)
         return !isHidden && alpha > 0 && window == keyWindow && intersects

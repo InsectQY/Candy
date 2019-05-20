@@ -52,7 +52,12 @@ public class FilterView: UIView {
 
     public func selItem(row: Int, item: Int) {
 
-        guard let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? FilterCell, item != cell.categoryView.selectedIndex else { return }
+        guard
+            let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? FilterCell,
+            item != cell.categoryView.selectedIndex
+        else {
+            return
+        }
         cell.categoryView.selectItem(at: item)
         cell.categoryView.reloadData()
     }

@@ -18,10 +18,12 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
                                failsOnEmptyData: Bool = true) -> Single<T> {
         return map {
 
-            guard let response = try? $0.mapObject(type,
-                                                   atKeyPath: path,
-                                                   using: decoder,
-                                                   failsOnEmptyData: failsOnEmptyData) else {
+            guard
+                let response = try? $0.mapObject(type,
+                                                atKeyPath: path,
+                                                using: decoder,
+                                                failsOnEmptyData: failsOnEmptyData)
+            else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -32,7 +34,9 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
 
         return map {
 
-            guard let response = try? $0.mapObject(type) else {
+            guard
+                let response = try? $0.mapObject(type)
+            else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

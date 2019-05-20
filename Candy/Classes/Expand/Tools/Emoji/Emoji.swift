@@ -78,7 +78,11 @@ struct EmojiManager {
                 let emojiName = (content as NSString).substring(with: result.range)
                 let attachment = NSTextAttachment()
                 // 取出对应的 emoji 模型
-                guard let emoji = emojis.filter({ $0.name == emojiName }).first else { return attributedString }
+                guard
+                    let emoji = emojis.filter({ $0.name == emojiName }).first
+                else {
+                    return attributedString
+                }
                 // 设置图片
                 attachment.image = UIImage(named: emoji.png)
                 attachment.bounds = CGRect(x: 0, y: -4, width: font.lineHeight, height: font.lineHeight)

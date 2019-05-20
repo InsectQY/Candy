@@ -10,7 +10,11 @@ extension Error {
 
     var errorMessage: String {
 
-        guard let error = self as? MoyaError else { return "未知错误" }
+        guard
+            let error = self as? MoyaError
+        else {
+            return "未知错误"
+        }
         switch error {
         case let .underlying(error, _):
             return error.localizedDescription

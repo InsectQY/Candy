@@ -99,7 +99,11 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         // 滑动时自动播放视频
         collectionView.zf_scrollViewDidStopScrollCallback = { [unowned self] indexPath in
 
-            guard let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell else { return }
+            guard
+                let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell
+            else {
+                return
+            }
             self.player.playTheIndexPath(indexPath, scrollToTop: false)
             self.controlView.resetControlView()
 //            self.controlView.showCover(with: cell.largeImage.image)
@@ -116,7 +120,11 @@ extension UGCVideoDetailViewController {
 
     @objc private func panned(_ recognizer: UIPanGestureRecognizer) {
 
-        guard let cell = collectionView.visibleCells.first as? UGCVideoDetailCell else { return }
+        guard
+            let cell = collectionView.visibleCells.first as? UGCVideoDetailCell
+        else {
+            return
+        }
         let translation = recognizer.translation(in: nil)
         let progress = translation.y / 2 / collectionView.bounds.height
         switch recognizer.state {
@@ -170,7 +178,11 @@ extension UGCVideoDetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 
          // 只响应下滑手势
-        guard let pan = gestureRecognizer as? UIPanGestureRecognizer else { return true }
+        guard
+            let pan = gestureRecognizer as? UIPanGestureRecognizer
+        else {
+            return true
+        }
         let v = pan.velocity(in: nil)
         return v.y > abs(v.x)
     }

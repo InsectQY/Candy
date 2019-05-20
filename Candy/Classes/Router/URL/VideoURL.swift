@@ -29,8 +29,10 @@ extension VideoURL {
 
         navigator.register(VideoURL.detail.path) { url, values, context in
 
-            guard let context = context as? [String: Any],
-                let video = context[newsTypedKey] else {
+            guard
+                let context = context as? [String: Any],
+                let video = context[newsTypedKey]
+            else {
                 return nil
             }
 

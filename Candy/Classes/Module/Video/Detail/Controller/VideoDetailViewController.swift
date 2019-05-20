@@ -127,7 +127,11 @@ extension Reactive where Base: VideoDetailViewController {
     var videoPlayInfo: Binder<VideoPlayInfo> {
         return Binder(base) { vc, result in
 
-            guard let assetURL = URL(string: result.video_list.video_1.mainURL) else { return }
+            guard
+                let assetURL = URL(string: result.video_list.video_1.mainURL)
+            else {
+                return
+            }
             vc.player.assetURL = assetURL
             vc.player.seek(toTime: vc.seekTime, completionHandler: nil)
         }

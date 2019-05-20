@@ -18,7 +18,12 @@ class VideoHallListCell: CollectionViewCell, NibReusable {
     public var item: VideoHallList? {
         didSet {
 
-            guard let item = item, let firstImage = item.album.cover_list.first else { return }
+            guard
+                let item = item,
+                let firstImage = item.album.cover_list.first
+            else {
+                return
+            }
             titleLabel.text = item.album.title
             let options = [KfWebPOptions.webp(), KfWebPOptions.webpCache(), KfOptions.fadeTransition(imageTransitionTime)]
             // 优先显示长图做封面

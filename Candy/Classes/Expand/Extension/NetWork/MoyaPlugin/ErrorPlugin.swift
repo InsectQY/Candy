@@ -32,7 +32,11 @@ struct ErrorPlugin: PluginType {
             /// 阳光宽频网/微信登录的数据结构不适用
             if target.baseURL.absoluteString == YangGuangIP || target.path == "video/openapi/v1/" || target.baseURL.absoluteString == WeChatIP { break }
 
-            guard let res = try? CleanJSONDecoder().decode(Model<String>.self, from: response.data) else { return result }
+            guard
+                let res = try? CleanJSONDecoder().decode(Model<String>.self, from: response.data)
+            else {
+                return result
+            }
 
             if res.message != .success {
 

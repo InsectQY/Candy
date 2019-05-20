@@ -54,7 +54,10 @@ extension WeChatApi {
 
             MonkeyKing.oauth(for: .weChat) { oauthInfo, response, error in
 
-                guard let token = oauthInfo?["access_token"] as? String, let openid = oauthInfo?["openid"] as? String else {
+                guard
+                    let token = oauthInfo?["access_token"] as? String,
+                    let openid = oauthInfo?["openid"] as? String
+                else {
                     observer.onError(error!)
                     return
                 }

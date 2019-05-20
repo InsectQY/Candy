@@ -16,7 +16,9 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
     // MARK: - Lazyload
     lazy var viewModel: VM = {
 
-        guard let classType = "\(VM.self)".classType(VM.self) else {
+        guard
+            let classType = "\(VM.self)".classType(VM.self)
+        else {
             return VM()
         }
         return classType.init()

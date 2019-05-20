@@ -77,7 +77,9 @@ extension TabBarController {
 
     private func getVcFromString(_ vcName: String) -> UIViewController {
 
-        guard let childVc = vcName.classObject(UIViewController.self) else {
+        guard
+            let childVc = vcName.classObject(UIViewController.self)
+        else {
             return UIViewController()
         }
 

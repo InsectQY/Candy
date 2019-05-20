@@ -78,7 +78,9 @@ extension UserQACell: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        guard let count = item?.wenda?.raw_data.content.answer.large_image_list.count else {
+        guard
+            let count = item?.wenda?.raw_data.content.answer.large_image_list.count
+        else {
             collectionViewHeightConstraint.constant = 0
             return .zero
         }

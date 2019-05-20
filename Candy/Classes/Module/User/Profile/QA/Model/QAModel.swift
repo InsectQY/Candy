@@ -15,7 +15,12 @@ class QAModel: Codable {
 
     lazy var wenda: WenDa? = {
 
-        guard let data = content.data(using: .utf8), let model = try? CleanJSONDecoder().decode(WenDa.self, from: data) else { return nil }
+        guard
+            let data = content.data(using: .utf8),
+            let model = try? CleanJSONDecoder().decode(WenDa.self, from: data)
+        else {
+            return nil
+        }
         return model
     }()
 }

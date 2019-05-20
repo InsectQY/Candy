@@ -37,7 +37,9 @@ extension VideoHallURL {
 
         navigator.register(VideoHallURL.detail.path) { url, values, context in
 
-            guard let context = context as? String else {
+            guard
+                let context = context as? String
+            else {
                 return nil
             }
             let vc = VideoHallDetailViewController(albumID: context)
@@ -46,7 +48,9 @@ extension VideoHallURL {
 
         navigator.register(VideoHallURL.search.path) { url, values, context in
 
-            guard let context = context as? String else {
+            guard
+                let context = context as? String
+            else {
                 return VideoHallSearchViewController()
             }
             let vc = VideoHallSearchViewController(context)
@@ -55,7 +59,9 @@ extension VideoHallURL {
 
         navigator.register(VideoHallURL.searchResult.path) { url, values, context in
 
-            guard let context = context as? String else {
+            guard
+                let context = context as? String
+            else {
                 return nil
             }
             let vc = VideoHallSearchResultViewController(keyword: context)
