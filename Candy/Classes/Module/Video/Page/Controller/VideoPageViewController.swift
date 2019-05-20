@@ -44,16 +44,19 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
 
     override func bindViewModel() {
         super.bindViewModel()
-        
-        viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
+
+        let noConnectTap = NotificationCenter.default.rx
             .notification(Notification.videoNoConnectClick)
-            .mapToVoid()))
+            .mapToVoid()
+        viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: noConnectTap))
 
         // 分类数据
         viewModel.category
         .asDriver()
         .drive(rx.category)
         .disposed(by: rx.disposeBag)
+
+        bindLoadingToIndicator()
     }
 
     override func makeUI() {

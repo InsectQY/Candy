@@ -11,9 +11,13 @@ import DZNEmptyDataSet
 import RxReachability
 import Reachability
 
+/// 继承时需指定 ViewModel 或其子类作为泛型。该类会自动懒加载指定类型的 VM 对象。
+/// 该类实现了 UITableView / UICollectionView 数据源 nil 时的占位视图逻辑。
 class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     // MARK: - Lazyload
+
+    /// 不使用该对象时，不会被初始化
     lazy var viewModel: VM = {
 
         guard

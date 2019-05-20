@@ -14,6 +14,9 @@ class RefreshViewModel: ViewModel {
     let refreshInput: RefreshInput
     let refreshOutput: RefreshOutput
 
+    /// 刷新过程中产生的 error
+    let refreshError = ErrorTracker()
+
     struct RefreshInput {
 
         /// 开始头部刷新
@@ -49,8 +52,6 @@ class RefreshViewModel: ViewModel {
     /// 尾部刷新状态
     private let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
 
-    /// 刷新过程中产生的 error
-    let refreshError = ErrorTracker()
     required init() {
 
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
@@ -65,10 +66,9 @@ class RefreshViewModel: ViewModel {
         super.init()
     }
 
-    /// 不希望在 init 时监听的事件，放到这个方法里
-    /// 如果在 init 时就发出了序列，可能外部还没有监听。等外部全部监听完成后，再手动调用该方法
+    /// 希望在 init 完成后才监听的事件，放到这个方法里。
+    /// 这个方法的目的：如果在 init 时就发出了序列，可能外部还没有监听。等外部全部监听完成后，再手动调用该方法
     func bindState() {
-
         bindErrorToRefreshHeaderState()
     }
 }

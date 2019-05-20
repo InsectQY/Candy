@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// 继承时需指定 RefreshViewModel 或其子类作为泛型。
+/// 该类实现 UICollectionView 的 header / footer 刷新逻辑。
 class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
 
     private var layout: UICollectionViewLayout = UICollectionViewLayout()
@@ -49,6 +51,8 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         view.addSubview(collectionView)
     }
 
+    /// 子类调用 super.bindViewModel 会自动创建 viewModel 对象。
+    /// 如果不需要自动创建 viewModel，不调用 super 即可。
     override func bindViewModel() {
         super.bindViewModel()
 
