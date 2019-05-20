@@ -29,7 +29,9 @@ class WebViewController: ViewController<ViewModel> {
 
     func loadURL(_ urlString: String?) {
 
-        guard let urlString = urlString, let url = URL(string: urlString) else { return }
+        guard
+            let urlString = urlString,
+            let url = URL(string: urlString) else { return }
         webView.load(URLRequest(url: url))
     }
 }

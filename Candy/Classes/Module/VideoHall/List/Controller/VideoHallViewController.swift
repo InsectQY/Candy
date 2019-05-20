@@ -69,6 +69,8 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
+        bindLoadingToIndicator()
+
         noConnectionViewTap
         .asObservable()
         .subscribe(viewModel.input.noConnectTap)

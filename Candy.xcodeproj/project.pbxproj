@@ -16,6 +16,8 @@
 		187677662229220F00A6D37A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187677652229220F00A6D37A /* ScrollView.swift */; };
 		1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876776722292EB200A6D37A /* CollectionReusableView.swift */; };
 		187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187833CD221D4B75006C9008 /* ParameterManger.swift */; };
+		187CFAF92292773800D8D387 /* NVActivityIndicatorView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */; };
+		187CFAFB22927B1E00D8D387 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */; };
 		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
@@ -241,6 +243,8 @@
 		187677652229220F00A6D37A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		1876776722292EB200A6D37A /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		187833CD221D4B75006C9008 /* ParameterManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterManger.swift; sourceTree = "<group>"; };
+		187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorView+Rx.swift"; sourceTree = "<group>"; };
+		187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentTopView.swift; sourceTree = "<group>"; };
@@ -1434,6 +1438,7 @@
 				E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */,
 				E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */,
 				E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */,
+				187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -1442,6 +1447,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */,
+				187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2385,6 +2391,7 @@
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
 				E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */,
 				E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */,
+				187CFAFB22927B1E00D8D387 /* UIViewControllerExtension.swift in Sources */,
 				E5FE0DC021FAF68F00DE1DED /* WebViewController.swift in Sources */,
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
 				E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */,
@@ -2407,6 +2414,7 @@
 				E5E9B1EF21D4973F00B08281 /* TableView.swift in Sources */,
 				E5E3240621DC5312002DC676 /* RichLabel.swift in Sources */,
 				E5FAB72221C0FDD8002BF258 /* UGCVideoDetailViewController.swift in Sources */,
+				187CFAF92292773800D8D387 /* NVActivityIndicatorView+Rx.swift in Sources */,
 				E5FA89FE21BA37620084F3C3 /* UGCVideoListViewController.swift in Sources */,
 				E5FA8A0921BA395A0084F3C3 /* UGCVideoListModel.swift in Sources */,
 				18DC116B222397DF004FB1F6 /* TopView.swift in Sources */,

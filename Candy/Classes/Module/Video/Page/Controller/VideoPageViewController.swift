@@ -44,7 +44,7 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
 
     override func bindViewModel() {
         super.bindViewModel()
-
+        
         viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
             .notification(Notification.videoNoConnectClick)
             .mapToVoid()))

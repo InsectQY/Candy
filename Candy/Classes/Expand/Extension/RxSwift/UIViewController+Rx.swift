@@ -45,4 +45,11 @@ public extension Reactive where Base: UIViewController {
             this.dismiss(animated: animated, completion: nil)
         }
     }
+
+    var showError: Binder<Error> {
+
+        return Binder(base) { vc, error in
+            Toast.showError(error.errorMessage, in: vc.view)
+        }
+    }
 }

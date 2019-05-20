@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 import DZNEmptyDataSet
-import JXCategoryView
 import RxReachability
 import Reachability
 
-class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewable, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, JXCategoryListContentViewDelegate {
+class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
+    // MARK: - Lazyload
     lazy var viewModel: VM = {
 
         guard let classType = "\(VM.self)".classType(VM.self) else {
@@ -96,6 +95,11 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
         .loading
         .drive(isLoading)
         .disposed(by: rx.disposeBag)
+
+        viewModel
+        .error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - DZNEmptyDataSetSource
@@ -170,55 +174,12 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
         }
     }
 
-    // MARK: - JXCategoryListContentViewDelegate
-    func listView() -> UIView! {
-        return view
-    }
-}
-
-// MARK: - BindErrorStateable
-extension ViewController where VM == ViewModel {
-
-    func bindErrorToShowToast() {
-
-        viewModel
-        .error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - BindLoadState
-extension ViewController where VM == ViewModel {
-
-    func bindShowIndicator() {
+    // MARK: - 绑定是否正在加载
+    func bindLoadingToIndicator() {
 
         viewModel
         .loading
-        .drive(rx.showIndicator)
+        .drive(rx.isAnimating)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - Reactive-extension
-extension Reactive where Base: ViewController<ViewModel> {
-
-    var showIndicator: Binder<Bool> {
-
-        return Binder(base) { vc, result in
-
-            if result {
-                vc.startAnimating()
-            } else {
-                vc.stopAnimating()
-            }
-        }
-    }
-
-    var showError: Binder<Error> {
-
-        return Binder(base) { vc, error in
-            Toast.showError(error.errorMessage, in: vc.view)
-        }
     }
 }
