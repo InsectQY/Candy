@@ -42,7 +42,6 @@ class VideoHallSearchResultViewController: TableViewController<VideoHallSearchRe
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
         let input = VideoHallSearchResultViewModel.Input(keyword: keyword,
                                                          selection: tableView.rx.modelSelected(VideoHallSearchResultList.self))
         let output = viewModel.transform(input: input)

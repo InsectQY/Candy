@@ -55,8 +55,6 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let input = ReplyCommentViewModel.Input(id: comment?.id ?? "")
         let output = viewModel.transform(input: input)
 

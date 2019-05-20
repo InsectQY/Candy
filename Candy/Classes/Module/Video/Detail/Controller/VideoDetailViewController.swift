@@ -83,8 +83,6 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let input = VideoDetailViewModel.Input(video: video,
                                                selection: tableView.rx.modelSelected(VideoDetailItem.self).asDriver())
         let output = viewModel.transform(input: input)

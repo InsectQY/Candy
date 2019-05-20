@@ -15,7 +15,14 @@ import Reachability
 
 class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewable, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, JXCategoryListContentViewDelegate {
 
-    var viewModel: VM?
+    lazy var viewModel: VM = {
+
+        guard let classType = "\(VM.self)".classType(VM.self) else {
+            return VM()
+        }
+        return classType.init()
+    }()
+
     /// 是否正在加载
     let isLoading = BehaviorRelay(value: false)
     /// 当前连接的网络类型
@@ -40,18 +47,6 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
     var emptyDataSetShouldAllowScroll: Bool = true
     /// 没有网络时是否可以滚动， 默认 false
     var noConnectionShouldAllowScroll: Bool = false
-    /// 是否自动创建 viewModel，默认 true
-    var isAutoInitViewModel: Bool = true {
-        didSet {
-
-            guard isAutoInitViewModel, let classType = "\(VM.self)".classType(VM.self) else {
-                viewModel = nil
-                return
-            }
-
-            viewModel = classType.init()
-        }
-    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -92,14 +87,11 @@ class ViewController<VM: ViewModel>: UIViewController, NVActivityIndicatorViewab
 
     func bindViewModel() {
 
-        isAutoInitViewModel = true
-
         Reachability.rx.reachabilityChanged
         .map { $0.connection }
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
 
-        guard let viewModel = viewModel else { return }
         viewModel
         .loading
         .drive(isLoading)
@@ -189,8 +181,6 @@ extension ViewController where VM == ViewModel {
 
     func bindErrorToShowToast() {
 
-        guard let viewModel = viewModel else { return }
-        
         viewModel
         .error
         .drive(rx.showError)
@@ -202,8 +192,6 @@ extension ViewController where VM == ViewModel {
 extension ViewController where VM == ViewModel {
 
     func bindShowIndicator() {
-
-        guard let viewModel = viewModel else { return }
 
         viewModel
         .loading

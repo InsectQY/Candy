@@ -62,8 +62,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         viewModel.output
         .items
         .drive(collectionView.rx.items) { collectionView, row, item in

@@ -39,12 +39,12 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
     /// 选择了新的视频种类
     private let searchKey = PublishSubject<String>()
 
-    required init() {
+    /// 视频分类
+    private let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
+    /// 某个分类下的所有视频
+    private let videoElements = BehaviorRelay<[VideoHallList]>(value: [])
 
-        /// 视频分类
-        let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
-        /// 某个分类下的所有视频
-        let videoElements = BehaviorRelay<[VideoHallList]>(value: [])
+    required init() {
 
         input = Input(noConnectTap: noConnectTap.asObserver(),
                       searchTap: searchTap.asObserver(),
@@ -54,6 +54,10 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
                         items: videoElements.asDriver())
 
         super.init()
+    }
+
+    override func bindState() {
+        super.bindState()
 
         // 获取视频分类
         requestCategory()
@@ -100,7 +104,9 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { videoElements.value + $0.cell_list }
+        .map { [unowned self] in
+            self.videoElements.value + $0.cell_list
+        }
         .drive(videoElements)
         .disposed(by: disposeBag)
 

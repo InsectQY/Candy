@@ -53,8 +53,6 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let input = UGCVideoCommentViewModel.Input(groupID: item?.video?.raw_data.group_id ?? "")
         let output = viewModel.transform(input: input)
 

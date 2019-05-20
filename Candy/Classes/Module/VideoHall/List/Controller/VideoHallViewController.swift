@@ -69,8 +69,6 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         noConnectionViewTap
         .asObservable()
         .subscribe(viewModel.input.noConnectTap)
@@ -126,7 +124,7 @@ extension VideoHallViewController: FilterViewProtocol {
     }
 
     func searchKey(_ key: String) {
-        viewModel?.input.searchKey.onNext(key)
+        viewModel.input.searchKey.onNext(key)
     }
 }
 

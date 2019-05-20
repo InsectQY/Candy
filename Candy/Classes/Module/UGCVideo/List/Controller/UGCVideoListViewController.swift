@@ -42,8 +42,6 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         viewModel
         .input
         .category

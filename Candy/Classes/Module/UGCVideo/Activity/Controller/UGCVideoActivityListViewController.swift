@@ -37,8 +37,6 @@ class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityVi
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let output = viewModel.transform(input: UGCVideoActivityViewModel.Input())
 
         output.items.drive(tableView.rx.items(cellIdentifier: UGCVideoActivityCell.ID, cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in

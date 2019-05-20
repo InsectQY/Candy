@@ -52,6 +52,7 @@ class RefreshViewModel: ViewModel {
     /// 刷新过程中产生的 error
     let refreshError = ErrorTracker()
     required init() {
+
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
                                     beginFooterRefresh: beginFooterRefresh.asObserver(),
                                     headerRefreshState: headerRefreshState.asObserver(),
@@ -64,12 +65,11 @@ class RefreshViewModel: ViewModel {
         super.init()
     }
 
+    /// 不希望在 init 时监听的事件，放到这个方法里
+    /// 如果在 init 时就发出了序列，可能外部还没有监听。等外部全部监听完成后，再手动调用该方法
     func bindState() {
 
-//        unified?.bindHeaderRefresh(with: headerRefreshState)
-//        unified?.bindFooterRefresh(with: footerRefreshState)
-//        unified?.bindLoading(with: loading)
-//        bindErrorToRefreshHeaderState()
+        bindErrorToRefreshHeaderState()
     }
 }
 

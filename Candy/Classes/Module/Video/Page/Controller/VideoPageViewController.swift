@@ -45,8 +45,6 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
             .notification(Notification.videoNoConnectClick)
             .mapToVoid()))
@@ -96,11 +94,11 @@ extension VideoPageViewController: JXCategoryViewDelegate {
 extension VideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
-        return viewModel?.category.value.count ?? 0
+        return viewModel.category.value.count
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        return VideoListViewController(category: viewModel?.category.value[index].category ?? "")
+        return VideoListViewController(category: viewModel.category.value[index].category)
     }
 }
 

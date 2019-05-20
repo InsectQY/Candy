@@ -44,8 +44,6 @@ class UserCenterViewController: TableViewController<UserCenterViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let output = viewModel.transform(input: UserCenterViewModel.Input(loginTap: headerView.nameBtn.rx.tap))
 
         output.dataSource.drive(tableView.rx.items(cellIdentifier: UserCenterCell.ID, cellType: UserCenterCell.self)) { tableView, item, cell in

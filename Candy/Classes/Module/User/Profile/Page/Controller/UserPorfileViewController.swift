@@ -67,7 +67,6 @@ class UserPorfileViewController: ViewController<UserPorfileViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
         let input = UserPorfileViewModel.Input(userID: userID)
         let output = viewModel.transform(input: input)
 

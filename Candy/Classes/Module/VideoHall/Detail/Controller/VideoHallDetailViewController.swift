@@ -74,7 +74,6 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
         let input = VideoHallDetailViewModel.Input(albumID: albumID)
         let output = viewModel.transform(input: input)
 

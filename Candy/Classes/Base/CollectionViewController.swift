@@ -52,8 +52,6 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         viewModel.loading
         .distinctUntilChanged()
         .mapToVoid()
@@ -85,6 +83,8 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
         }
+
+        viewModel.bindState()
     }
 
     func beginHeaderRefresh() {

@@ -36,22 +36,25 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     /// 点击
     private let selection = PublishSubject<IndexPath>()
 
-    required init() {
+    // 所有视频
+    private let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
+    // 所有需要播放的视频 URL
+    private let videoURLs = BehaviorRelay<[URL?]>(value: [])
+    // 当前选中的
+    private let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
 
-        // 所有视频
-        let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
-        // 所有需要播放的视频 URL
-        let videoURLs = BehaviorRelay<[URL?]>(value: [])
-        // 当前选中的
-        let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
+    required init() {
 
         input = Input(category: category.asObserver(),
                       selection: selection.asObserver())
         output = Output(items: elements.asDriver(),
                         videoURLs: videoURLs.asDriver(),
                         indexPath: indexPath.asDriver())
-
         super.init()
+    }
+
+    override func bindState() {
+        super.bindState()
 
         // 下拉刷新
         let loadNew = refreshOutput
@@ -75,7 +78,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { elements.value + $0 }
+        .map { [unowned self] in self.elements.value + $0 }
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -95,8 +98,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
                 URL(string: $0.video?.raw_data.video.play_addr.url_list.first ?? "")
             }
         }
-        .map {
-            videoURLs.value + $0
+        .map { [unowned self] in
+            self.videoURLs.value + $0
         }
         .drive(videoURLs)
         .disposed(by: disposeBag)
@@ -121,12 +124,12 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
         // 尾部状态
         Driver.merge(
-            loadNew.map { _ in
-                RxMJRefreshFooterState.default
-            },
-            loadMore.map { _ in
-                RxMJRefreshFooterState.default
-            }
+        loadNew.map { _ in
+            RxMJRefreshFooterState.default
+        },
+        loadMore.map { _ in
+            RxMJRefreshFooterState.default
+        }
         )
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)

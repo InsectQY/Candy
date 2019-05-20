@@ -64,8 +64,6 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        guard let viewModel = viewModel else { return }
-
         let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
 

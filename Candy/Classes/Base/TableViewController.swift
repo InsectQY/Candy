@@ -53,14 +53,6 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     override func bindViewModel() {
         super.bindViewModel()
 
-//        isLoading.asDriver()
-//        .distinctUntilChanged()
-//        .mapToVoid()
-//        .drive(rx.reloadEmptyDataSet)
-//        .disposed(by: rx.disposeBag)
-
-        guard let viewModel = viewModel else { return }
-
         viewModel.loading
         .distinctUntilChanged()
         .mapToVoid()
@@ -92,6 +84,8 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             .drive(refreshFooter.rx.refreshFooterState)
             .disposed(by: rx.disposeBag)
         }
+
+        viewModel.bindState()
     }
 
     // MARK: - 开始刷新
