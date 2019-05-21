@@ -13,6 +13,7 @@ import Kingfisher
 import RxNetwork
 import MonkeyKing
 import Moya
+import Toast_Swift
 
 class LibsManager: NSObject {
 
@@ -26,6 +27,7 @@ class LibsManager: NSObject {
         libsManager.setupMonkeyKing()
         libsManager.setupNetwork()
         libsManager.setupRouter()
+        libsManager.setupToast()
     }
 
     // MARK: - IQKeyboardManager
@@ -68,6 +70,11 @@ class LibsManager: NSObject {
 
     func setupRouter() {
         NavigationMap.initRouter()
+    }
+
+    func setupToast() {
+        ToastManager.shared.position = .center
+        ToastManager.shared.style.messageFont = .systemFont(ofSize: 18)
     }
 }
 

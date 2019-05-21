@@ -9,7 +9,7 @@ PODS:
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Jelly (1.2.5)
-  - JXCategoryView (1.3.5)
+  - JXCategoryView (1.3.6)
   - Kingfisher (4.10.1)
   - KingfisherWebP (0.4.2):
     - Kingfisher (~> 4.0)
@@ -52,26 +52,6 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - PYSearch (0.9.1)
-  - QMUIKit/QMUIComponents/QMUIButton (3.2.0):
-    - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUIKeyboardManager (3.2.0):
-    - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUITips (3.2.0):
-    - QMUIKit/QMUIComponents/QMUIToastView
-    - QMUIKit/QMUICore
-    - QMUIKit/QMUIResources
-  - QMUIKit/QMUIComponents/QMUIToastView (3.2.0):
-    - QMUIKit/QMUIComponents/QMUIKeyboardManager
-    - QMUIKit/QMUIComponents/QMUIVisualEffectView
-    - QMUIKit/QMUICore
-  - QMUIKit/QMUIComponents/QMUIVisualEffectView (3.2.0):
-    - QMUIKit/QMUICore
-  - QMUIKit/QMUICore (3.2.0):
-    - QMUIKit/QMUILog
-    - QMUIKit/QMUIWeakObjectContainer
-  - QMUIKit/QMUILog (3.2.0)
-  - QMUIKit/QMUIResources (3.2.0)
-  - QMUIKit/QMUIWeakObjectContainer (3.2.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
@@ -111,23 +91,24 @@ PODS:
     - RxSwift
     - URLNavigator
   - SwiftLint (0.32.0)
-  - SwiftyThirdParty (0.1.0):
-    - SwiftyThirdParty/Kingfisher (= 0.1.0)
-    - SwiftyThirdParty/MJRefresh (= 0.1.0)
-    - SwiftyThirdParty/Toast (= 0.1.0)
-  - SwiftyThirdParty/Kingfisher (0.1.0):
+  - SwiftyThirdParty (0.1.1):
+    - SwiftyThirdParty/Kingfisher (= 0.1.1)
+    - SwiftyThirdParty/MJRefresh (= 0.1.1)
+    - SwiftyThirdParty/Toast (= 0.1.1)
+  - SwiftyThirdParty/Kingfisher (0.1.1):
     - Kingfisher
-    - SwiftyThirdParty/Kingfisher/Core (= 0.1.0)
-    - SwiftyThirdParty/Kingfisher/WebP (= 0.1.0)
-  - SwiftyThirdParty/Kingfisher/Core (0.1.0):
+    - SwiftyThirdParty/Kingfisher/Core (= 0.1.1)
+    - SwiftyThirdParty/Kingfisher/WebP (= 0.1.1)
+  - SwiftyThirdParty/Kingfisher/Core (0.1.1):
     - Kingfisher
-  - SwiftyThirdParty/Kingfisher/WebP (0.1.0):
+  - SwiftyThirdParty/Kingfisher/WebP (0.1.1):
     - Kingfisher
     - KingfisherWebP
-  - SwiftyThirdParty/MJRefresh (0.1.0):
+  - SwiftyThirdParty/MJRefresh (0.1.1):
     - MJRefresh
-  - SwiftyThirdParty/Toast (0.1.0):
-    - QMUIKit/QMUIComponents/QMUITips
+  - SwiftyThirdParty/Toast (0.1.1):
+    - Toast-Swift
+  - Toast-Swift (5.0.0)
   - URLNavigator (2.2.0)
   - ZFPlayer/AVPlayer (3.2.11):
     - ZFPlayer/Core
@@ -148,7 +129,6 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - NVActivityIndicatorView
   - PYSearch
-  - QMUIKit/QMUIComponents/QMUIButton
   - R.swift
   - RxActivityIndicator
   - RxDataSources
@@ -160,6 +140,7 @@ DEPENDENCIES:
   - RxURLNavigator
   - SwiftLint
   - SwiftyThirdParty (from `https://github.com/InsectQY/SwiftyThirdParty.git`)
+  - Toast-Swift
   - ZFPlayer/AVPlayer
   - ZFPlayer/ControlView
 
@@ -185,7 +166,6 @@ SPEC REPOS:
     - "NSObject+Rx"
     - NVActivityIndicatorView
     - PYSearch
-    - QMUIKit
     - R.swift
     - R.swift.Library
     - ReachabilitySwift
@@ -199,6 +179,7 @@ SPEC REPOS:
     - RxSwift
     - RxURLNavigator
     - SwiftLint
+    - Toast-Swift
     - URLNavigator
     - ZFPlayer
 
@@ -214,7 +195,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
   SwiftyThirdParty:
-    :commit: e3d39d56684faa655fa27c0d8b5bfac45836980b
+    :commit: 7c55f4812a4e79aeea67af626b71c1460943ab59
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
@@ -228,7 +209,7 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
-  JXCategoryView: 0c74d0f534e4dba175f694a84ce32618b3943a86
+  JXCategoryView: 10c648b9e17a923fde04160d1c5e55929b279968
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
@@ -238,7 +219,6 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  QMUIKit: cd0757484a3a1bd3349a558a991c3df046a48c36
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
@@ -253,10 +233,11 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
-  SwiftyThirdParty: b822416143c8649cf5be195d7cea6a9f8dd1295e
+  SwiftyThirdParty: 526de8a5286efa1604487f41be09384bc1f81ebd
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
 
-PODFILE CHECKSUM: 2f4b3be8dd48da29a62c4dcf3187d5f9c07fa284
+PODFILE CHECKSUM: b382ea4a3c8967e99e5a6d766ef478a550b61ccd
 
 COCOAPODS: 1.6.1

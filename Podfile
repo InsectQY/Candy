@@ -23,8 +23,6 @@ pod 'ZFPlayer/ControlView'
 pod 'DZNEmptyDataSet' # https://github.com/dzenbot/DZNEmptyDataSet
 # Search
 pod 'PYSearch' # https://github.com/ko1o/PYSearch
-# QMUI
-pod 'QMUIKit/QMUIComponents/QMUIButton'
 
  # Swift
  
@@ -56,5 +54,7 @@ pod 'DefaultsKit' # https://github.com/nmdias/DefaultsKit
 pod 'SwiftLint' # https://github.com/realm/SwiftLint
 # Source
 pod 'R.swift' # https://github.com/mac-cain13/R.swift
+# Toast
+pod 'Toast-Swift'
 
 end

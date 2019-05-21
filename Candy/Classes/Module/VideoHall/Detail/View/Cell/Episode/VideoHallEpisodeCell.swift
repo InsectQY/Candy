@@ -8,16 +8,11 @@
 
 import UIKit
 import Jelly
-import QMUIKit
 
 class VideoHallEpisodeCell: TableViewCell, NibReusable {
 
     private var animator: JellyAnimator?
-    @IBOutlet private weak var moreBtn: QMUIButton! {
-        didSet {
-            moreBtn.imagePosition = .right
-        }
-    }
+    @IBOutlet private weak var moreBtn: Button!
 
     public var items: [CellList] = []
 
@@ -76,7 +71,6 @@ class VideoHallEpisodeCell: TableViewCell, NibReusable {
         .drive(rx.selIndex)
         .disposed(by: disposeBag)
     }
-
 }
 
 // MARK: - UICollectionViewDataSource

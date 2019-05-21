@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
+		1843B45422940161004F99AC /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843B45322940161004F99AC /* VerticalButton.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
 		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
 		184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */; };
@@ -238,6 +239,7 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		1843B45322940161004F99AC /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
 		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
 		1849100F2254950B001D9974 /* UGCVideoCommentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoCommentHeaderView.xib; sourceTree = "<group>"; };
@@ -493,6 +495,14 @@
 				18095908221501DA00A0818D /* Info.plist */,
 			);
 			path = CandyUITests;
+			sourceTree = "<group>";
+		};
+		1843B45222940146004F99AC /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				1843B45322940161004F99AC /* VerticalButton.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		1849100C225494CB001D9974 /* View */ = {
@@ -1510,6 +1520,7 @@
 		E5E020B521B5062B00A4CDF1 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				1843B45222940146004F99AC /* UIButton */,
 				E5E3240421DC52CE002DC676 /* UILabel */,
 			);
 			path = CustomView;
@@ -2229,7 +2240,6 @@
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
-				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -2243,6 +2253,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxURLNavigator/RxURLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyThirdParty/SwiftyThirdParty.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/ZFPlayer/ZFPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
@@ -2270,7 +2281,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -2284,6 +2294,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxURLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyThirdParty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZFPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
@@ -2347,7 +2358,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/Candy/Resources/R.generated.swift",
+				$SRCROOT/Candy/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2392,6 +2403,7 @@
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
+				1843B45422940161004F99AC /* VerticalButton.swift in Sources */,
 				E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */,
 				E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */,
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,

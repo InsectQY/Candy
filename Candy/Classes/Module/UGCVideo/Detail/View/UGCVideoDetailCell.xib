@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -61,11 +61,11 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-JQ-PAV" customClass="QMUIButton">
-                        <rect key="frame" x="331" y="477" width="40" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-JQ-PAV" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
+                        <rect key="frame" x="331" y="457" width="40" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="6Gk-fa-gvY"/>
-                            <constraint firstAttribute="height" constant="40" id="bcW-31-WKl"/>
+                            <constraint firstAttribute="height" constant="60" id="bcW-31-WKl"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                         <state key="normal" title="评论" image="tsv_comment_button_44_44x44_"/>
@@ -73,11 +73,11 @@
                             <action selector="commentBtnDidClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="aaD-W5-QqS"/>
                         </connections>
                     </button>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-az-CGQ" customClass="QMUIButton">
-                        <rect key="frame" x="331" y="407" width="40" height="40"/>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-az-CGQ" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
+                        <rect key="frame" x="331" y="367" width="40" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="V9b-O3-4tt"/>
-                            <constraint firstAttribute="height" constant="40" id="sEx-8z-iSW"/>
+                            <constraint firstAttribute="height" constant="60" id="sEx-8z-iSW"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                         <state key="normal" title="分享" image="tsv_share_button_44_44x44_"/>

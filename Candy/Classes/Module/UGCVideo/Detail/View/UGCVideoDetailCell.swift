@@ -8,7 +8,6 @@
 
 import UIKit
 import Jelly
-import QMUIKit
 
 class UGCVideoDetailCell: CollectionViewCell, NibReusable {
 
@@ -34,18 +33,8 @@ class UGCVideoDetailCell: CollectionViewCell, NibReusable {
         }
     }
     @IBOutlet private(set) weak var largeImage: ImageView!
-    @IBOutlet private weak var commentBtn: QMUIButton! {
-        didSet {
-            commentBtn.imagePosition = .top
-            commentBtn.spacingBetweenImageAndTitle = 15
-        }
-    }
-    @IBOutlet private weak var shareBtn: QMUIButton! {
-        didSet {
-            shareBtn.imagePosition = .top
-            shareBtn.spacingBetweenImageAndTitle = 15
-        }
-    }
+    @IBOutlet private weak var commentBtn: Button!
+    @IBOutlet private weak var shareBtn: Button!
 
     public var item: UGCVideoListModel? {
 
