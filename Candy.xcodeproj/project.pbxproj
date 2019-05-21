@@ -18,6 +18,9 @@
 		187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187833CD221D4B75006C9008 /* ParameterManger.swift */; };
 		187CFAF92292773800D8D387 /* NVActivityIndicatorView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */; };
 		187CFAFB22927B1E00D8D387 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */; };
+		18B7895922939AB60065E5D8 /* ZFPlayer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895822939AB60065E5D8 /* ZFPlayer+Rx.swift */; };
+		18B7895B2293A4C80065E5D8 /* PYSearchViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895A2293A4C80065E5D8 /* PYSearchViewController+Rx.swift */; };
+		18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */; };
 		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
@@ -180,7 +183,6 @@
 		E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A0621BA38560084F3C3 /* UGCVideoListFlowLayout.swift */; };
 		E5FA8A0921BA395A0084F3C3 /* UGCVideoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A0821BA395A0084F3C3 /* UGCVideoListModel.swift */; };
 		E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8A1121BA54270084F3C3 /* VideoDetailViewController.swift */; };
-		E5FA8AD1224BBD7A009388CF /* UGCVideoListViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */; };
 		E5FAB70E21C09BB3002BF258 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB70D21C09BB3002BF258 /* DateExtensions.swift */; };
 		E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB70F21C09DD0002BF258 /* IntExtension.swift */; };
 		E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FAB71221C0B988002BF258 /* Emoji.swift */; };
@@ -245,6 +247,9 @@
 		187833CD221D4B75006C9008 /* ParameterManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterManger.swift; sourceTree = "<group>"; };
 		187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorView+Rx.swift"; sourceTree = "<group>"; };
 		187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		18B7895822939AB60065E5D8 /* ZFPlayer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZFPlayer+Rx.swift"; sourceTree = "<group>"; };
+		18B7895A2293A4C80065E5D8 /* PYSearchViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PYSearchViewController+Rx.swift"; sourceTree = "<group>"; };
+		18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Rx.swift"; sourceTree = "<group>"; };
 		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentTopView.swift; sourceTree = "<group>"; };
@@ -421,7 +426,6 @@
 		E5FA8A0621BA38560084F3C3 /* UGCVideoListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoListFlowLayout.swift; sourceTree = "<group>"; };
 		E5FA8A0821BA395A0084F3C3 /* UGCVideoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoListModel.swift; sourceTree = "<group>"; };
 		E5FA8A1121BA54270084F3C3 /* VideoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
-		E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UGCVideoListViewController+Rx.swift"; sourceTree = "<group>"; };
 		E5FAB70D21C09BB3002BF258 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E5FAB70F21C09DD0002BF258 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		E5FAB71221C0B988002BF258 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
@@ -1439,6 +1443,9 @@
 				E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */,
 				E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */,
 				187CFAF82292773800D8D387 /* NVActivityIndicatorView+Rx.swift */,
+				18B7895822939AB60065E5D8 /* ZFPlayer+Rx.swift */,
+				18B7895A2293A4C80065E5D8 /* PYSearchViewController+Rx.swift */,
+				18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -1816,7 +1823,6 @@
 			isa = PBXGroup;
 			children = (
 				E5FA89FD21BA37620084F3C3 /* UGCVideoListViewController.swift */,
-				E5FA8AD0224BBD7A009388CF /* UGCVideoListViewController+Rx.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2429,6 +2435,7 @@
 				E520A49021D76F2700CDDB04 /* UGCVideoTitleView.swift in Sources */,
 				E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */,
 				E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */,
+				18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */,
 				E534047921BF7FBD008807DA /* CommentCell.swift in Sources */,
 				E5D749F021FEE0B300BCE75F /* ErrorTracker.swift in Sources */,
 				E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */,
@@ -2454,7 +2461,6 @@
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,
 				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */,
-				E5FA8AD1224BBD7A009388CF /* UGCVideoListViewController+Rx.swift in Sources */,
 				E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
 				E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */,
@@ -2471,8 +2477,10 @@
 				E565356C21DDDD3100091714 /* UserProfileHeaderView.swift in Sources */,
 				E5F86F9922042ABE008A0C26 /* UserURL.swift in Sources */,
 				E5FA8A0321BA37C70084F3C3 /* UGCVideoListCell.swift in Sources */,
+				18B7895922939AB60065E5D8 /* ZFPlayer+Rx.swift in Sources */,
 				E5F86F9B22042BFA008A0C26 /* UGCURL.swift in Sources */,
 				E595D96121DDE40B005A6C00 /* UserUGCViewModel.swift in Sources */,
+				18B7895B2293A4C80065E5D8 /* PYSearchViewController+Rx.swift in Sources */,
 				E5E0201C21B4FE4A00A4CDF1 /* ViewController.swift in Sources */,
 				E5E0208D21B5057600A4CDF1 /* LightError.swift in Sources */,
 				E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */,

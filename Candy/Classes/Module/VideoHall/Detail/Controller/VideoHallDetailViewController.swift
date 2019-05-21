@@ -79,7 +79,10 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
 
         // 视频真实播放地址
         output.videoPlayInfo
-        .drive(rx.videoPlayInfo)
+        .filterNil()
+        .map { URL(string: $0.video_list.video_1.mainURL) }
+        .filterNil()
+        .drive(player.rx.assetURL)
         .disposed(by: rx.disposeBag)
 
         // tableView
@@ -158,19 +161,6 @@ extension VideoHallDetailViewController {
 
 // MARK: - Reactive
 extension Reactive where Base: VideoHallDetailViewController {
-
-    var videoPlayInfo: Binder<VideoPlayInfo?> {
-        return Binder(base) { vc, result in
-
-            guard
-                let result = result,
-                let assetURL = URL(string: result.video_list.video_1.mainURL)
-            else {
-                return
-            }
-            vc.player.assetURL = assetURL
-        }
-    }
 
     var selIndex: Binder<Int> {
         return Binder(base) { vc, result in

@@ -69,31 +69,35 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
 
         // 没有网络时点击
         noConnectionViewTap
-        .bind(to: rx.postNotification)
+        .bind(to: rx.post(name: Notification.videoNoConnectClick))
         .disposed(by: rx.disposeBag)
 
         // 视频 URL
-        output.videoURLs
-        .drive(rx.videoURLs)
+        output
+        .videoURLs
+        .map {
+            $0.compactMap { $0 }
+        }
+        .drive(player.rx.assetURLs)
         .disposed(by: rx.disposeBag)
 
         // 界面左右滚动/下拉刷新/上拉加载都停止播放视频
         NotificationCenter.default.rx
         .notification(Notification.pageDidScroll)
         .mapToVoid()
-        .bind(to: rx.videoStop)
+        .bind(to: player.rx.stop)
         .disposed(by: rx.disposeBag)
 
         viewModel
         .refreshOutput
         .headerRefreshing
-        .drive(rx.videoStop)
+        .drive(player.rx.stop)
         .disposed(by: rx.disposeBag)
 
         viewModel
         .refreshOutput
         .footerRefreshing
-        .drive(rx.videoStop)
+        .drive(player.rx.stop)
         .disposed(by: rx.disposeBag)
 
         // TableView 数据源
@@ -104,13 +108,16 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
             cell.item = item.content
 
             // 视频播放点击
-            cell.videoBtn.rx.tap.map { _ in indexPath }
-            .bind(to: self.rx.videoTap)
+            cell.videoBtn.rx.tap
+            .bind(to: self.player.rx.playTheIndexPath(indexPath))
             .disposed(by: cell.disposeBag)
 
             // 视频信息
-            cell.videoBtn.rx.tap.map { _ in item.content }
-            .bind(to: self.rx.videoInfo)
+            cell.videoBtn
+            .rx.tap
+            .bind(to: self.controlView.rx.showTitle(item.content.title,
+                                                    coverURLString: item.content.video_detail_info.detail_video_large_image.url,
+                                                    fullScreenMode: .landscape))
             .disposed(by: cell.disposeBag)
 
             return cell
@@ -167,42 +174,5 @@ extension VideoListViewController: UITableViewDelegate {
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         scrollView.zf_scrollViewWillBeginDragging()
-    }
-}
-
-// MARK: - Reactive-Extension
-extension Reactive where Base: VideoListViewController {
-
-    var videoURLs: Binder<[URL?]> {
-        return Binder(base) { vc, result in
-            vc.player.assetURLs = result.compactMap { $0 }
-        }
-    }
-
-    var videoTap: Binder<IndexPath> {
-        return Binder(base) { vc, indexPath in
-            vc.player.playTheIndexPath(indexPath, scrollToTop: false)
-        }
-    }
-
-    var videoInfo: Binder<NewsModel?> {
-        return Binder(base) { vc, videoModel in
-
-            guard let videoModel = videoModel else { return }
-            vc.controlView.showTitle(videoModel.title, coverURLString: videoModel.video_detail_info.detail_video_large_image.url, fullScreenMode: .landscape)
-        }
-    }
-
-    var videoStop: Binder<Void> {
-        return Binder(base) { vc, _ in
-            vc.player.stop()
-        }
-    }
-
-    var postNotification: Binder<Void> {
-        return Binder(base) { _, _ in
-            NotificationCenter.default
-            .post(name: Notification.videoNoConnectClick, object: nil)
-        }
     }
 }

@@ -64,7 +64,7 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
 
         // 没有网络时点击
         noConnectionViewTap
-        .bind(to: rx.postNotification)
+        .bind(to: rx.post(name: Notification.UGCVideoNoConnectClick))
         .disposed(by: rx.disposeBag)
     }
 }

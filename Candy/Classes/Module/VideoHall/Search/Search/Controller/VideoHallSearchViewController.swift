@@ -45,14 +45,3 @@ extension VideoHallSearchViewController: PYSearchViewControllerDelegate {
                        context: searchSuggestions[indexPath.row])
     }
 }
-
-// MARK: - Reactive-extension
-extension Reactive where Base: VideoHallSearchViewController {
-
-    var searchSuggestions: Binder<[String]> {
-
-        return Binder(base) { vc, result in
-            vc.searchSuggestions = result
-        }
-    }
-}

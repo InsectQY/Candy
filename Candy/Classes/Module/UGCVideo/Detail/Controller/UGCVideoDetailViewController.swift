@@ -77,7 +77,10 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
 
         viewModel.output
         .videoURLs
-        .drive(rx.videoURLs)
+        .map {
+            $0.compactMap { $0 }
+        }
+        .drive(player.rx.assetURLs)
         .disposed(by: rx.disposeBag)
 
         // 滚动到指定位置
@@ -192,12 +195,6 @@ extension UGCVideoDetailViewController: UIGestureRecognizerDelegate {
 
 // MARK: - Reactive-Extension
 extension Reactive where Base: UGCVideoDetailViewController {
-
-    var videoURLs: Binder<[URL?]> {
-        return Binder(base) { vc, result in
-            vc.player.assetURLs = result.compactMap { $0 }
-        }
-    }
 
     var scrollToItem: Binder<IndexPath> {
         return Binder(base) { vc, result in

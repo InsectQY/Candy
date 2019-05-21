@@ -2,7 +2,7 @@
 //  UIViewControllerExtension.swift
 //  Candy
 //
-//  Created by apple on 2019/5/20.
+//  Created by Insect on 2019/5/20.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 

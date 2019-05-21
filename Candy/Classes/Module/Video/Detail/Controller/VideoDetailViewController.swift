@@ -116,24 +116,14 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
 
         // 视频真实播放地址
         output.videoPlayInfo
-        .drive(rx.videoPlayInfo)
+        .map { URL(string: $0.video_list.video_1.mainURL) }
+        .filterNil()
+        .drive(player.rx.assetURL)
         .disposed(by: rx.disposeBag)
-    }
-}
 
-// MARK: - Reactive
-extension Reactive where Base: VideoDetailViewController {
-
-    var videoPlayInfo: Binder<VideoPlayInfo> {
-        return Binder(base) { vc, result in
-
-            guard
-                let assetURL = URL(string: result.video_list.video_1.mainURL)
-            else {
-                return
-            }
-            vc.player.assetURL = assetURL
-            vc.player.seek(toTime: vc.seekTime, completionHandler: nil)
-        }
+        output.videoPlayInfo
+        .mapToVoid()
+        .drive(player.rx.seek(toTime: seekTime))
+        .disposed(by: rx.disposeBag)
     }
 }

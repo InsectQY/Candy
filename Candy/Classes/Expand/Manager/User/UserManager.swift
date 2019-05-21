@@ -52,3 +52,12 @@ extension UserManager {
         Defaults().clear(.userKey)
     }
 }
+
+extension Reactive where Base: UserManager {
+
+    var loginSuccess: Binder<UserInfoModel> {
+        return Binder(base) { this, result in
+            this.loginSuccess(userInfo: result)
+        }
+    }
+}
