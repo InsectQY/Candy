@@ -86,13 +86,22 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return
         }
 
+        // 将刷新事件传递给 refreshVM
         refreshHeader.rx.refreshing
         .bind(to: viewModel.refreshInput.beginHeaderRefresh)
         .disposed(by: rx.disposeBag)
 
+        // 成功时的头部状态
         viewModel
         .refreshOutput
         .headerRefreshState
+        .drive(refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+
+        // 失败时的头部状态
+        viewModel
+        .refreshError
+        .map { _ in false }
         .drive(refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }
@@ -106,13 +115,25 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return
         }
 
+        // 将刷新事件传递给 refreshVM
         refreshFooter.rx.refreshing
         .bind(to: viewModel.refreshInput.beginFooterRefresh)
         .disposed(by: rx.disposeBag)
 
+        // 成功时的尾部状态
         viewModel
         .refreshOutput
         .footerRefreshState
+        .drive(refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
+
+        // 失败时的尾部状态
+        viewModel
+        .refreshError
+        .map { [weak self] _ -> RxMJRefreshFooterState in
+            guard let self = self else { return .hidden }
+            return self.tableView.isTotalDataEmpty ? .hidden : .default
+        }
         .drive(refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
@@ -125,16 +146,5 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         .mapToVoid()
         .drive(tableView.rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - Reactive-extension
-extension Reactive where Base: TableViewController<RefreshViewModel> {
-
-    var beginHeaderRefresh: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.beginHeaderRefresh()
-        }
     }
 }

@@ -68,5 +68,9 @@ class UserCenterViewController: TableViewController<UserCenterViewModel> {
         output.loginResult
         .drive(headerView.rx.userInfo)
         .disposed(by: rx.disposeBag)
+
+        output.loginResult
+        .drive(userManager.rx.loginSuccess)
+        .disposed(by: rx.disposeBag)
     }
 }

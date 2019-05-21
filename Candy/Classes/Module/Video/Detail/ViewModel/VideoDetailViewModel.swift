@@ -139,8 +139,6 @@ extension VideoDetailViewModel: ViewModelable {
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
-        bindErrorToRefreshFooterState(commentElements.value.isEmpty)
-
         let output = Output(videoPlayInfo: realVideo,
                             sections: sections)
 

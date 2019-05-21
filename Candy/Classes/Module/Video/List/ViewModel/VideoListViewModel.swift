@@ -99,9 +99,6 @@ extension VideoListViewModel: ViewModelable {
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
-
-        // error 下的刷新状态
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
         return output
     }
 }

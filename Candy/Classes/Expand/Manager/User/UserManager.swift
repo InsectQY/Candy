@@ -53,6 +53,8 @@ extension UserManager {
     }
 }
 
+extension UserManager: ReactiveCompatible {}
+
 extension Reactive where Base: UserManager {
 
     var loginSuccess: Binder<UserInfoModel> {

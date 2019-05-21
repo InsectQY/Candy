@@ -77,8 +77,6 @@ extension UserVideoViewModel: ViewModelable {
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
-
         let output = Output(items: elements.asDriver())
 
         return output

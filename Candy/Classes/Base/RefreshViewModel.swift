@@ -69,36 +69,14 @@ class RefreshViewModel: ViewModel {
     /// 希望在 init 完成后才监听的事件，放到这个方法里。
     /// 这个方法的目的：如果在 init 时就发出了序列，可能外部还没有监听。等外部全部监听完成后，再手动调用该方法
     func bindState() {
-        bindErrorToRefreshHeaderState()
+
     }
 }
 
 extension RefreshViewModel {
 
-    /// 刷新控件发生 error 时的 header 状态
-    public func bindErrorToRefreshHeaderState() {
-
-        refreshError
-        .map { _ in false }
-        .drive(headerRefreshState)
-        .disposed(by: disposeBag)
-    }
-
-    /// 刷新控件发生 error 时的 footer 状态
-    public func bindErrorToRefreshFooterState(_ isItemsEmpty: Bool) {
-
-        refreshError
-        .map { _ in
-            isItemsEmpty ? RxMJRefreshFooterState.hidden : RxMJRefreshFooterState.default
-        }
-        .drive(footerRefreshState)
-        .disposed(by: disposeBag)
-    }
-}
-
-extension RefreshViewModel {
-
-    public func footerState(_ isHasMore: Bool, isEmpty: Bool) -> RxMJRefreshFooterState {
+    public func footerState(_ isHasMore: Bool,
+                            isEmpty: Bool) -> RxMJRefreshFooterState {
 
         if !isHasMore && !isEmpty {
             return .noMoreData

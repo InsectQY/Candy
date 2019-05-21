@@ -36,12 +36,9 @@ class UserCenterHeaderView: UIView, NibLoadable {
 // MARK: - Reactive
 extension Reactive where Base: UserCenterHeaderView {
 
-    var userInfo: Binder<UserInfoModel?> {
+    var userInfo: Binder<UserInfoModel> {
         return Binder(base) { view, result in
-
-            guard let item = result else { return }
-            view.item = item
-            userManager.loginSuccess(userInfo: item)
+            view.item = result
         }
     }
 }

@@ -214,7 +214,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
   SwiftyThirdParty:
-    :commit: 080bb5189b101e6597f38bcdfa28ade455bac977
+    :commit: e3d39d56684faa655fa27c0d8b5bfac45836980b
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:

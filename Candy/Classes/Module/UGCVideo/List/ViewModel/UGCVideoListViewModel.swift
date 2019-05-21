@@ -134,9 +134,6 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
-
-        // error 下的刷新状态
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
     }
 }
 

@@ -84,10 +84,12 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return
         }
 
+        // 成功时的头部状态
         refreshHeader.rx.refreshing
         .bind(to: viewModel.refreshInput.beginHeaderRefresh)
         .disposed(by: rx.disposeBag)
 
+        // 失败时的头部状态
         viewModel
         .refreshOutput
         .headerRefreshState
@@ -104,13 +106,25 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return
         }
 
+        // 将刷新事件传递给 refreshVM
         refreshFooter.rx.refreshing
         .bind(to: viewModel.refreshInput.beginFooterRefresh)
         .disposed(by: rx.disposeBag)
 
+        // 成功时的尾部状态
         viewModel
         .refreshOutput
         .footerRefreshState
+        .drive(refreshFooter.rx.refreshFooterState)
+        .disposed(by: rx.disposeBag)
+
+        // 失败时的尾部状态
+        viewModel
+        .refreshError
+        .map { [weak self] _ -> RxMJRefreshFooterState in
+            guard let self = self else { return .hidden }
+            return self.collectionView.isTotalDataEmpty ? .hidden : .default
+        }
         .drive(refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
@@ -123,16 +137,5 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         .mapToVoid()
         .drive(collectionView.rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - Reactive-extension
-extension Reactive where Base: CollectionViewController<RefreshViewModel> {
-
-    var beginHeaderRefresh: Binder<Void> {
-
-        return Binder(base) { vc, _ in
-            vc.beginHeaderRefresh()
-        }
     }
 }

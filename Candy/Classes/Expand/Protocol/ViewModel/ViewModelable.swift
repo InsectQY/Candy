@@ -43,7 +43,6 @@ extension HasViewModel {
         return classType.init()
     }
 
-
 //    var associateValue: ViewModel? {
 //        get {
 //            return objc_getAssociatedObject(self, &key) as? ViewModel

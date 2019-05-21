@@ -82,8 +82,6 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
-
         return output
     }
 }

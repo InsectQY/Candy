@@ -70,8 +70,6 @@ extension UserUGCViewModel: ViewModelable {
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
 
-        bindErrorToRefreshFooterState(elements.value.isEmpty)
-
         // 绑定数据源
         new
         .map { $0.data }
