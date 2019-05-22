@@ -44,6 +44,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
     override func makeUI() {
         super.makeUI()
 
+        view.addSubview(headerView)
         tableView.register(cellType: CommentCell.self)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()

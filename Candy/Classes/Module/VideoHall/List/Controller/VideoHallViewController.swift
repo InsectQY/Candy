@@ -10,10 +10,6 @@ import UIKit
 
 class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
 
-    fileprivate var topH: CGFloat {
-        return UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.height ?? 0)
-    }
-
     // MARK: - Lazyload
     fileprivate lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: ScreenWidth, height: 44))
 

@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import DZNEmptyDataSet
+import EmptyDataSet_Swift
 import RxReachability
 import Reachability
 
 /// 继承时需指定 ViewModel 或其子类作为泛型。该类会自动懒加载指定类型的 VM 对象。
 /// 该类实现了 UITableView / UICollectionView 数据源 nil 时的占位视图逻辑。
-class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class ViewController<VM: ViewModel>: UIViewController {
 
     // MARK: - Lazyload
 
@@ -38,6 +38,8 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         return viewModel
     }()
 
+    /// 监听网络状态改变
+    lazy var reachability: Reachability? = Reachability()
     /// 是否正在加载
     let isLoading = BehaviorRelay(value: false)
     /// 当前连接的网络类型
@@ -62,8 +64,15 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
     var emptyDataSetShouldAllowScroll: Bool = true
     /// 没有网络时是否可以滚动， 默认 false
     var noConnectionShouldAllowScroll: Bool = false
+    /// 状态栏 + 导航栏高度
+    lazy var topH: CGFloat = UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.height ?? 0)
 
     // MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        try? reachability?.startNotifier()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -73,6 +82,7 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true)
+        reachability?.stopNotifier()
     }
 
     // MARK: - override
@@ -102,14 +112,27 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
 
     func bindViewModel() {
 
-        Reachability.rx.reachabilityChanged
+        reachability?.rx.reachabilityChanged
         .map { $0.connection }
+        .debug()
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
     }
 
-    // MARK: - DZNEmptyDataSetSource
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    // MARK: - 绑定是否正在加载
+    func bindLoadingToIndicator() {
+
+        viewModel
+        .loading
+        .drive(rx.isAnimating)
+        .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - EmptyDataSetSource
+extension ViewController: EmptyDataSetSource {
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
 
         var title = ""
         switch reachabilityConnection.value {
@@ -123,7 +146,7 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         return NSAttributedString(string: title)
     }
 
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
 
         var description = ""
         switch reachabilityConnection.value {
@@ -137,7 +160,7 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         return NSAttributedString(string: description)
     }
 
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
 
         switch reachabilityConnection.value {
         case .none:
@@ -149,16 +172,24 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         }
     }
 
-    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
         return .clear
     }
 
-    // MARK: - DZNEmptyDataSetDelegate
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
+        return -topH
+    }
+}
+
+// MARK: - EmptyDataSetDelegate
+extension ViewController: EmptyDataSetDelegate {
+
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
         return !isLoading.value
     }
 
-    func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
+    func emptyDataSet(_ scrollView: UIScrollView, didTapView view: UIView) {
+
         switch reachabilityConnection.value {
         case .none:
             noConnectionViewTap.onNext(())
@@ -169,7 +200,8 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         }
     }
 
-    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+
         switch reachabilityConnection.value {
         case .none:
             return noConnectionShouldAllowScroll
@@ -178,14 +210,5 @@ class ViewController<VM: ViewModel>: UIViewController, DZNEmptyDataSetSource, DZ
         case .wifi:
             return emptyDataSetShouldAllowScroll
         }
-    }
-
-    // MARK: - 绑定是否正在加载
-    func bindLoadingToIndicator() {
-
-        viewModel
-        .loading
-        .drive(rx.isAnimating)
-        .disposed(by: rx.disposeBag)
     }
 }

@@ -4,12 +4,12 @@ PODS:
   - CleanJSON (0.8.5)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
-  - DZNEmptyDataSet (1.8.1)
+  - EmptyDataSet-Swift (4.2.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Jelly (1.2.5)
-  - JXCategoryView (1.3.6)
+  - JXCategoryView (1.3.7)
   - Kingfisher (4.10.1)
   - KingfisherWebP (0.4.2):
     - Kingfisher (~> 4.0)
@@ -119,7 +119,7 @@ PODS:
 DEPENDENCIES:
   - CleanJSON
   - DefaultsKit
-  - DZNEmptyDataSet
+  - EmptyDataSet-Swift
   - FDFullscreenPopGesture
   - Hero
   - IQKeyboardManagerSwift
@@ -151,7 +151,7 @@ SPEC REPOS:
     - CleanJSON
     - DefaultsKit
     - Differentiator
-    - DZNEmptyDataSet
+    - EmptyDataSet-Swift
     - FDFullscreenPopGesture
     - Hero
     - IQKeyboardManagerSwift
@@ -195,7 +195,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
   SwiftyThirdParty:
-    :commit: 7c55f4812a4e79aeea67af626b71c1460943ab59
+    :commit: 6b03cecb368b819864e2559de78696e9c1506c63
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
@@ -204,12 +204,12 @@ SPEC CHECKSUMS:
   CleanJSON: f5791e5fbedbabcae10b56a7a9e103273b18bb38
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
-  JXCategoryView: 10c648b9e17a923fde04160d1c5e55929b279968
+  JXCategoryView: db36864126f6431bed4613b185d1a334a5c683f2
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
@@ -238,6 +238,6 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
 
-PODFILE CHECKSUM: b382ea4a3c8967e99e5a6d766ef478a550b61ccd
+PODFILE CHECKSUM: 378b59428b8cfe6bb854dc7a9bb2075d97510e96
 
 COCOAPODS: 1.6.1

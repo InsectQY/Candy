@@ -19,8 +19,6 @@ pod 'JXCategoryView' # https://github.com/pujiaxin33/JXCategoryView
 # Video Player
 pod 'ZFPlayer/AVPlayer' # https://github.com/renzifeng/ZFPlayer
 pod 'ZFPlayer/ControlView'
-# Placeholder
-pod 'DZNEmptyDataSet' # https://github.com/dzenbot/DZNEmptyDataSet
 # Search
 pod 'PYSearch' # https://github.com/ko1o/PYSearch
 
@@ -56,5 +54,7 @@ pod 'SwiftLint' # https://github.com/realm/SwiftLint
 pod 'R.swift' # https://github.com/mac-cain13/R.swift
 # Toast
 pod 'Toast-Swift'
+# Placeholder
+pod 'EmptyDataSet-Swift'
 
 end

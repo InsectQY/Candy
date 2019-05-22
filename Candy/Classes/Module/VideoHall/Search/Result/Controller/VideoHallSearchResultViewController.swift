@@ -47,7 +47,9 @@ class VideoHallSearchResultViewController: TableViewController<VideoHallSearchRe
         let output = viewModel.transform(input: input)
 
         // TableView 数据源
-        output.items.drive(tableView.rx.items(cellIdentifier: VideoHallSearchResultCell.ID, cellType: VideoHallSearchResultCell.self)) { tableView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: VideoHallSearchResultCell.ID,
+                                  cellType: VideoHallSearchResultCell.self)) { tableView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
