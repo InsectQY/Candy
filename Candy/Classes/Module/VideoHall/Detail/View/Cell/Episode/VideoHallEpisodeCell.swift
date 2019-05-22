@@ -9,7 +9,7 @@
 import UIKit
 import Jelly
 
-class VideoHallEpisodeCell: TableViewCell, NibReusable {
+class VideoHallEpisodeCell: TableViewCell {
 
     private var animator: JellyAnimator?
     @IBOutlet private weak var moreBtn: Button!
@@ -56,7 +56,7 @@ class VideoHallEpisodeCell: TableViewCell, NibReusable {
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: VideoHallEpisodeCell.KInset, bottom: 0, right: VideoHallEpisodeCell.KInset)
-            collectionView.register(cellType: EpisodeCell.self)
+            collectionView.register(R.nib.episodeCell)
         }
     }
 
@@ -82,7 +82,9 @@ extension VideoHallEpisodeCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: EpisodeCell.self)
+        let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.episodeCell.identifier,
+                                                      for: indexPath,
+                                                      cellType: EpisodeCell.self)
         cell.item = "\(indexPath.item + 1)"
         cell.isSel = indexPath.item == selIndex
         return cell

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UGCVideoActivityCell: TableViewCell, NibReusable {
+class UGCVideoActivityCell: TableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint! {
@@ -25,7 +25,7 @@ class UGCVideoActivityCell: TableViewCell, NibReusable {
     }
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
-            collectionView.register(cellType: ImageCell.self)
+            collectionView.register(R.nib.imageCell)
         }
     }
     @IBOutlet private weak var participateBtn: Button!
@@ -56,7 +56,9 @@ extension UGCVideoActivityCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ImageCell.self)
+        let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.imageCell.identifier,
+                                                      for: indexPath,
+                                                      cellType: ImageCell.self)
         cell.item = item?.video_list[indexPath.row].raw_data.video.origin_cover.url_list.first
         return cell
     }

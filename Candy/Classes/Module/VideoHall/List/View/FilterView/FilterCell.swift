@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class FilterCell: UITableViewCell, Reusable {
+class FilterCell: TableViewCell {
 
     static let cellHeight: CGFloat = 40
 

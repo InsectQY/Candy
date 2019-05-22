@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallIntroCell: TableViewCell, NibReusable {
+class VideoHallIntroCell: TableViewCell {
 
     @IBOutlet private weak var introLabel: Label!
 

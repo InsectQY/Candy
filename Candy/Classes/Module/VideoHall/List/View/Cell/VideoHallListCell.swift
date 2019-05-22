@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallListCell: CollectionViewCell, NibReusable {
+class VideoHallListCell: CollectionViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var largeImage: ImageView!

@@ -9,7 +9,7 @@
 import UIKit
 import Jelly
 
-class CommentCell: TableViewCell, NibReusable {
+class CommentCell: TableViewCell {
 
     @IBOutlet private weak var replyBtn: Button!
     @IBOutlet private weak var timeLabel: Label!

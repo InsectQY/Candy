@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UGCVideoListCell: CollectionViewCell, NibReusable {
+class UGCVideoListCell: CollectionViewCell {
 
     @IBOutlet private weak var diggCountLabel: Label!
     @IBOutlet private weak var titleLabel: Label!

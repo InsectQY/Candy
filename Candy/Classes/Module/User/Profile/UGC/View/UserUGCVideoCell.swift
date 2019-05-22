@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserUGCVideoCell: CollectionViewCell, NibReusable {
+class UserUGCVideoCell: CollectionViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var diggCountLabel: Label!

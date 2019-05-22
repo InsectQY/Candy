@@ -28,7 +28,7 @@ class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityVi
     override func makeUI() {
         super.makeUI()
 
-        tableView.register(cellType: UGCVideoActivityCell.self)
+        tableView.register(R.nib.ugcVideoActivityCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
@@ -39,7 +39,9 @@ class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityVi
 
         let output = viewModel.transform(input: UGCVideoActivityViewModel.Input())
 
-        output.items.drive(tableView.rx.items(cellIdentifier: UGCVideoActivityCell.ID, cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoActivityCell.identifier,
+                                  cellType: UGCVideoActivityCell.self)) { collectionView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)

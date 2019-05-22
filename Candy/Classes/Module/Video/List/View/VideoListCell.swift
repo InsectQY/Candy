@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoListCell: TableViewCell, NibReusable {
+class VideoListCell: TableViewCell {
 
     @IBOutlet private weak var largeImage: ImageView!
     @IBOutlet private weak var commentBtn: Button!

@@ -53,7 +53,7 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
     override func makeUI() {
         super.makeUI()
 
-        tableView.register(cellType: VideoListCell.self)
+        tableView.register(R.nib.videoListCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
@@ -104,7 +104,9 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
         output.items.drive(tableView.rx.items) { [unowned self] tableView, row, item in
 
             let indexPath = IndexPath(row: row, section: 0)
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoListCell.self)
+            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoListCell.identifier,
+                                                     for: indexPath,
+                                                     cellType: VideoListCell.self)
             cell.item = item.content
 
             // 视频播放点击

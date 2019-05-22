@@ -17,7 +17,7 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
     }
 
     // MARK: - Lazyload
-    private lazy var topView = ReplyCommentTopView.loadFromNib()
+    private lazy var topView = R.nib.replyCommentTopView.firstView(owner: nil)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
 
         view.addSubview(topView)
         setUpTableHeader()
-        tableView.register(cellType: CommentCell.self)
+        tableView.register(R.nib.commentCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.refreshHeader?.beginRefreshing()
@@ -58,7 +58,9 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
         let input = ReplyCommentViewModel.Input(id: comment?.id ?? "")
         let output = viewModel.transform(input: input)
 
-        output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
+                                  cellType: CommentCell.self)) { tableView, item, cell in
             cell.reply = item
         }
         .disposed(by: rx.disposeBag)
@@ -69,7 +71,7 @@ extension ReplyCommentViewController {
 
     private func setUpTableHeader() {
 
-        let headerView = ReplyCommentHeader.loadFromNib()
+        let headerView = R.nib.replyCommentHeader.firstView(owner: nil)!
         headerView.item = comment
         let height = headerView
         .systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)

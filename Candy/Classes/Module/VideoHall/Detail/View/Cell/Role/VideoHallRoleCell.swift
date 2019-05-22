@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallRoleCell: TableViewCell, NibReusable {
+class VideoHallRoleCell: TableViewCell {
 
     public var items: [Role] = [] {
         didSet {
@@ -19,8 +19,9 @@ class VideoHallRoleCell: TableViewCell, NibReusable {
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
+
             collectionView.contentInset = UIEdgeInsets(top: 0, left: VideoHallRoleCell.KInset, bottom: 0, right: VideoHallRoleCell.KInset)
-            collectionView.register(cellType: RoleCell.self)
+            collectionView.register(R.nib.roleCell)
         }
     }
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout! {
@@ -42,7 +43,10 @@ extension VideoHallRoleCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: RoleCell.self)
+        let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.roleCell.identifier,
+                                                      for: indexPath,
+                                                      cellType: RoleCell.self)
+
         cell.item = items[indexPath.item]
         return cell
     }

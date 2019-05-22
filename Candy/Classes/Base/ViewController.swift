@@ -114,7 +114,6 @@ class ViewController<VM: ViewModel>: UIViewController {
 
         reachability?.rx.reachabilityChanged
         .map { $0.connection }
-        .debug()
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
     }

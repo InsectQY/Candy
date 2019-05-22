@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeCell: CollectionViewCell, NibReusable {
+class EpisodeCell: CollectionViewCell {
 
     @IBOutlet private weak var titleBtn: Button!
 

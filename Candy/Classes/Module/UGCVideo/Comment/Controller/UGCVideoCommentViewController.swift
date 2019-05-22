@@ -17,7 +17,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
     }
 
     // MARK: - Lazyload
-    private lazy var headerView = UGCVideoCommentHeaderView.loadFromNib()
+    private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(owner: nil)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
         super.makeUI()
 
         view.addSubview(headerView)
-        tableView.register(cellType: CommentCell.self)
+        tableView.register(R.nib.commentCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
@@ -57,7 +57,9 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
         let input = UGCVideoCommentViewModel.Input(groupID: item?.content.raw_data.group_id ?? "")
         let output = viewModel.transform(input: input)
 
-        output.items.drive(tableView.rx.items(cellIdentifier: CommentCell.ID, cellType: CommentCell.self)) { tableView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
+                                  cellType: CommentCell.self)) { tableView, item, cell in
             cell.isUGCVideo = true
             cell.item = item.comment
         }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-class UserQACell: TableViewCell, NibReusable {
+class UserQACell: TableViewCell {
 
     private let margin: CGFloat = 2
 
     @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
-            collectionView.register(cellType: ImageCell.self)
+            collectionView.register(R.nib.imageCell)
         }
     }
     @IBOutlet private weak var avatarImage: ImageView!
@@ -55,7 +55,9 @@ extension UserQACell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ImageCell.self)
+        let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.imageCell.identifier,
+                                                      for: indexPath,
+                                                      cellType: ImageCell.self)
         cell.item = item?.content.raw_data.content.answer.large_image_list[indexPath.item].url
         return cell
     }

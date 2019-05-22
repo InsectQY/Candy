@@ -18,7 +18,7 @@ class UserPorfileViewController: ViewController<UserPorfileViewModel> {
     fileprivate var dataSource: [JXPagerViewListViewDelegate] = []
 
     // MARK: - Lazyload
-    fileprivate lazy var headerView = UserProfileHeaderView.loadFromNib()
+    fileprivate lazy var headerView = R.nib.userProfileHeaderView.firstView(owner: nil)!
 
     fileprivate lazy var categoryView: JXCategoryTitleView = {
 

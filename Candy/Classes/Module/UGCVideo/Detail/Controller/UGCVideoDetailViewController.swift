@@ -53,7 +53,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         super.makeUI()
 
         collectionView.delegate = self
-        collectionView.register(cellType: UGCVideoDetailCell.self)
+        collectionView.register(R.nib.ugcVideoDetailCell)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.zf_scrollViewDirection = .horizontal
@@ -67,8 +67,10 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         viewModel.output
         .items
         .drive(collectionView.rx.items) { collectionView, row, item in
-
-            let cell = collectionView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UGCVideoDetailCell.self)
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ugcVideoDetailCell.identifier,
+                                                          for: indexPath,
+                                                          cellType: UGCVideoDetailCell.self)
             cell.largeImage.hero.id = "image_\(row)"
             cell.item = item
             return cell

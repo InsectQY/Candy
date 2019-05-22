@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallHeaderView: UIView, NibLoadable {
+class VideoHallHeaderView: UIView {
 
     static let height: CGFloat = ScreenHeight * 0.4
 

@@ -15,14 +15,14 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
 
     fileprivate var selIndex: Int = 0
     // MARK: - Lazyload
-    private lazy var videoView = VideoHallHeaderView.loadFromNib()
+    private lazy var videoView = R.nib.videoHallHeaderView.firstView(owner: nil)!
 
     fileprivate lazy var tableView: TableView = {
         let tableView = TableView(frame: CGRect())
-        tableView.register(cellType: VideoHallTitleCell.self)
-        tableView.register(cellType: VideoHallEpisodeCell.self)
-        tableView.register(cellType: VideoHallIntroCell.self)
-        tableView.register(cellType: VideoHallRoleCell.self)
+        tableView.register(R.nib.videoHallTitleCell)
+        tableView.register(R.nib.videoHallEpisodeCell)
+        tableView.register(R.nib.videoHallIntroCell)
+        tableView.register(R.nib.videoHallRoleCell)
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
@@ -31,7 +31,8 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
     fileprivate lazy var player: ZFPlayerController = {
 
         let playerManager = ZFAVPlayerManager()
-        let player = ZFPlayerController(playerManager: playerManager, containerView: videoView.videoContentView)
+        let player = ZFPlayerController(playerManager: playerManager,
+                                        containerView: videoView.videoContentView)
         player.controlView = controlView
         return player
     }()
@@ -93,22 +94,30 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
 
             case let .title(item):  // 标题
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoHallTitleCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallTitleCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoHallTitleCell.self)
                 cell.item = item
                 return cell
             case let .intro(item): // 简介
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoHallIntroCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallIntroCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoHallIntroCell.self)
                 cell.item = item
                 return cell
             case let .role(item): // 影人
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoHallRoleCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallRoleCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoHallRoleCell.self)
                 cell.items = item.album.actor_list
                 return cell
             case let .episode(item): // 集数
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoHallEpisodeCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallEpisodeCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoHallEpisodeCell.self)
                 cell.items = item.block_list[1].cells
                 cell.selIndex = self.selIndex
                 return cell

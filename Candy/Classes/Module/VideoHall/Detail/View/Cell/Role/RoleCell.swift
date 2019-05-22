@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoleCell: CollectionViewCell, NibReusable {
+class RoleCell: CollectionViewCell {
 
     @IBOutlet private weak var nameLabel: Label!
     @IBOutlet private weak var profileImage: ImageView!

@@ -33,7 +33,7 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
     override func makeUI() {
         super.makeUI()
 
-        collectionView.register(cellType: UGCVideoListCell.self)
+        collectionView.register(R.nib.ugcVideoListCell)
         collectionView.refreshHeader = RefreshHeader()
         collectionView.refreshFooter = RefreshFooter()
         beginHeaderRefresh()
@@ -55,7 +55,10 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
         viewModel.output.items
         .drive(collectionView.rx.items) { collectionView, row, item in
 
-            let cell = collectionView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UGCVideoListCell.self)
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
+                                                          for: indexPath,
+                                                          cellType: UGCVideoListCell.self)
             cell.coverImage.hero.id = "image_\(row)"
             cell.item = item
             return cell

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoDetailHeader: View, NibLoadable {
+class VideoDetailHeader: View {
 
     static let height: CGFloat = ScreenHeight * 0.4
     static let bottomHeight: CGFloat = 55

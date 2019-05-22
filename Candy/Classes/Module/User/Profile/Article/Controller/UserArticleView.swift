@@ -22,8 +22,8 @@ class UserArticleView: View {
 
         let tableView = TableView(frame: bounds)
         tableView.delegate = self
-        tableView.register(cellType: UserArticleCell.self)
-        tableView.register(cellType: UserArticleMultiImageCell.self)
+        tableView.register(R.nib.userArticleCell)
+        tableView.register(R.nib.userArticleMultiImageCell)
         tableView.refreshFooter = RefreshFooter()
         return tableView
     }()
@@ -64,11 +64,18 @@ class UserArticleView: View {
 
             if item.content.gallary_image_count > 0 {
 
-                let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UserArticleMultiImageCell.self)
+                let indexPath = IndexPath(row: row, section: 0)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.userArticleMultiImageCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: UserArticleMultiImageCell.self)
                 cell.item = item
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(for: IndexPath(row: row, section: 0), cellType: UserArticleCell.self)
+
+                let indexPath = IndexPath(row: row, section: 0)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.userArticleCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: UserArticleCell.self)
                 cell.item = item
                 return cell
             }

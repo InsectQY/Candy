@@ -21,6 +21,7 @@ public class FilterView: UIView {
 
     public weak var delegate: FilterViewProtocol?
 
+    private let cellID: String = "FilterCell"
     /// 已经选择的筛选数据
     private var selItems: [Filter] = [] {
         didSet {
@@ -41,7 +42,7 @@ public class FilterView: UIView {
     private lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: bounds)
-        tableView.register(cellType: FilterCell.self)
+        tableView.register(FilterCell.self, forCellReuseIdentifier: cellID)
         tableView.dataSource = self
         tableView.rowHeight = FilterCell.cellHeight
         tableView.separatorStyle = .none
@@ -88,7 +89,9 @@ extension FilterView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FilterCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID,
+                                                 for: indexPath,
+                                                 cellType: FilterCell.self)
         cell.filter = filter[indexPath.row].search_category_word_list
         cell.filterClick = { [unowned self] in
             self.selItems[indexPath.row] = self.filter[indexPath.row].search_category_word_list[$0]

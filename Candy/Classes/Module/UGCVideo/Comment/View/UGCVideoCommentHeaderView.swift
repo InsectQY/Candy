@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UGCVideoCommentHeaderView: View, NibLoadable {
+class UGCVideoCommentHeaderView: View {
 
     static let height: CGFloat = 55
 

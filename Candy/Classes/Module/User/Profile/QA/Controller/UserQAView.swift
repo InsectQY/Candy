@@ -22,7 +22,7 @@ class UserQAView: UIView {
 
         let tableView = TableView(frame: bounds)
         tableView.delegate = self
-        tableView.register(cellType: UserQACell.self)
+        tableView.register(R.nib.userQACell)
         tableView.refreshFooter = RefreshFooter()
         return tableView
     }()
@@ -67,9 +67,12 @@ extension UserQAView {
         let output = viewModel.transform(input: input)
 
         // TableView 数据源
-        output.items.drive(tableView.rx.items(cellIdentifier: UserQACell.ID, cellType: UserQACell.self)) { tableView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.userQACell.identifier,
+                                  cellType: UserQACell.self)) { tableView, item, cell in
             cell.item = item
-        }.disposed(by: rx.disposeBag)
+        }
+        .disposed(by: rx.disposeBag)
 
         // 刷新状态
         output.endFooterRefresh

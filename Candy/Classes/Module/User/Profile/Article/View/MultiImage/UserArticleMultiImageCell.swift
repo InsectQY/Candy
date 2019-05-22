@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserArticleMultiImageCell: TableViewCell, NibReusable {
+class UserArticleMultiImageCell: TableViewCell {
 
     @IBOutlet private weak var titleLabel: Label!
     @IBOutlet private weak var image3: ImageView!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReplyCommentTopView: UIView, NibLoadable {
+class ReplyCommentTopView: UIView {
 
     static let height: CGFloat = 55
 

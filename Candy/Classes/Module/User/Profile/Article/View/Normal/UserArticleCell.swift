@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserArticleCell: TableViewCell, NibReusable {
+class UserArticleCell: TableViewCell {
 
     @IBOutlet private weak var titleLabelTrallingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var titleLabel: Label!

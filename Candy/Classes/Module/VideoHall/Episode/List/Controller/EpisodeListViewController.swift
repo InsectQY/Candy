@@ -30,7 +30,7 @@ class EpisodeListViewController: CollectionViewController<RefreshViewModel> {
     override func makeUI() {
         super.makeUI()
 
-        collectionView.register(cellType: EpisodeCell.self)
+        collectionView.register(R.nib.episodeCell)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
@@ -63,7 +63,8 @@ extension EpisodeListViewController: UICollectionViewDataSource {
     //  swiftlint:disable force_unwrapping
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(for: indexPath,
+        let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.episodeCell.identifier,
+                                                      for: indexPath,
                                                       cellType: EpisodeCell.self)
         cell.item = "\(item!.start + indexPath.item + 1)"
         cell.isSel = indexPath.item == item!.selIndex - item!.start

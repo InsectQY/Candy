@@ -34,7 +34,7 @@ class VideoHallSearchResultViewController: TableViewController<VideoHallSearchRe
 
         emptyDataSetDescription = R.string.localizable.videoHallSearchResultEmptyPlaceholder()
         tableView.rowHeight = VideoHallSearchResultCell.height
-        tableView.register(cellType: VideoHallSearchResultCell.self)
+        tableView.register(R.nib.videoHallSearchResultCell)
         tableView.refreshHeader = RefreshHeader()
         beginHeaderRefresh()
     }
@@ -48,7 +48,7 @@ class VideoHallSearchResultViewController: TableViewController<VideoHallSearchRe
 
         // TableView 数据源
         output.items
-        .drive(tableView.rx.items(cellIdentifier: VideoHallSearchResultCell.ID,
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallSearchResultCell.identifier,
                                   cellType: VideoHallSearchResultCell.self)) { tableView, item, cell in
             cell.item = item
         }

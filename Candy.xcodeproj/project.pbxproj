@@ -116,9 +116,7 @@
 		E5E0203421B4FE7B00A4CDF1 /* AppMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0202B21B4FE7B00A4CDF1 /* AppMacro.swift */; };
 		E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */; };
 		E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */; };
-		E5E0204921B4FF5100A4CDF1 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204121B4FF5100A4CDF1 /* Reusable.swift */; };
 		E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */; };
-		E5E0204B21B4FF5100A4CDF1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204321B4FF5100A4CDF1 /* NibLoadable.swift */; };
 		E5E0207F21B5057600A4CDF1 /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */; };
 		E5E0208121B5057600A4CDF1 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205721B5057600A4CDF1 /* Then.swift */; };
 		E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */; };
@@ -355,9 +353,7 @@
 		E5E0202B21B4FE7B00A4CDF1 /* AppMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMacro.swift; sourceTree = "<group>"; };
 		E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
-		E5E0204121B4FF5100A4CDF1 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
-		E5E0204321B4FF5100A4CDF1 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		E5E0205721B5057600A4CDF1 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -1424,9 +1420,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */,
-				E5E0204121B4FF5100A4CDF1 /* Reusable.swift */,
 				E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */,
-				E5E0204321B4FF5100A4CDF1 /* NibLoadable.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -2358,7 +2352,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/Candy/Resources/R.generated.swift",
+				$SRCROOT/Candy/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2422,7 +2416,6 @@
 				E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */,
 				E5E5714B21CB708C005C2D6E /* VideoHallEpisodeCell.swift in Sources */,
 				E5E6800921E4818E00826132 /* SearchTitleView.swift in Sources */,
-				E5E0204B21B4FF5100A4CDF1 /* NibLoadable.swift in Sources */,
 				E5FAB72621C0FE28002BF258 /* UGCVideoDetailCell.swift in Sources */,
 				E5E5713221CB28A7005C2D6E /* VideoHallDetailViewModel.swift in Sources */,
 				E59112F721B655EA00436D08 /* VideoPageViewController.swift in Sources */,
@@ -2527,7 +2520,6 @@
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
 				E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */,
 				E578101621C8DE70005BFFAC /* Filter.swift in Sources */,
-				E5E0204921B4FF5100A4CDF1 /* Reusable.swift in Sources */,
 				E5FC765321CC8B0000FB6FFD /* EpisodeCell.swift in Sources */,
 				E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */,
 				E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */,

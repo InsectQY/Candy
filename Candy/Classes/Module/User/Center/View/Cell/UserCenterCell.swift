@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCenterCell: TableViewCell, NibReusable {
+class UserCenterCell: TableViewCell {
 
     public static let height: CGFloat = 55
 

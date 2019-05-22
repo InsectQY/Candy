@@ -9,7 +9,7 @@
 import UIKit
 import Jelly
 
-class UGCVideoDetailCell: CollectionViewCell, NibReusable {
+class UGCVideoDetailCell: CollectionViewCell {
 
     private var animator: JellyAnimator?
 

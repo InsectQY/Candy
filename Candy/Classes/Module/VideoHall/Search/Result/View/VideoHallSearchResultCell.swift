@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallSearchResultCell: TableViewCell, NibReusable {
+class VideoHallSearchResultCell: TableViewCell {
 
     public static let height: CGFloat = 190
 

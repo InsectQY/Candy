@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReplyCommentHeader: UIView, NibLoadable {
+class ReplyCommentHeader: UIView {
 
     @IBOutlet private weak var timeLabel: Label!
     @IBOutlet private weak var commentLabel: Label!

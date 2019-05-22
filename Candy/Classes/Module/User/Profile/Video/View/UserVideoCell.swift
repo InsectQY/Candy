@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserVideoCell: TableViewCell, NibReusable {
+class UserVideoCell: TableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var videoDurationLabel: Label!

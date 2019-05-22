@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoRelatedCell: TableViewCell, NibReusable {
+class VideoRelatedCell: TableViewCell {
 
     @IBOutlet private weak var durationLabel: Label!
     @IBOutlet private weak var titleLabel: Label!

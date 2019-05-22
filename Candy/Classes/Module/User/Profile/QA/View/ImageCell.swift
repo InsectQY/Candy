@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCell: UICollectionViewCell, NibReusable {
+class ImageCell: UICollectionViewCell {
 
     @IBOutlet private weak var largeImage: ImageView!
 

@@ -52,7 +52,7 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         navigationItem.titleView = titleView
         emptyDataSetDescription = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
 
-        collectionView.register(cellType: VideoHallListCell.self)
+        collectionView.register(R.nib.videoHallListCell)
         collectionView.refreshFooter = RefreshFooter()
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
@@ -96,7 +96,8 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         // 某个分类下的数据
         viewModel.output
         .items
-        .drive(collectionView.rx.items(cellIdentifier: VideoHallListCell.ID, cellType: VideoHallListCell.self)) { collectionView, item, cell in
+        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallListCell.identifier,
+                                       cellType: VideoHallListCell.self)) { collectionView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoDetailInfoCell: TableViewCell, NibReusable {
+class VideoDetailInfoCell: TableViewCell {
 
     @IBOutlet private weak var abstractLabel: Label!
     @IBOutlet private weak var publishTimeLabel: Label!

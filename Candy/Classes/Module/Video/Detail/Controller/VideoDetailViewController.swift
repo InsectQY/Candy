@@ -18,7 +18,7 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
     // MARK: - Lazyload
     private lazy var videoView: VideoDetailHeader = {
 
-        let videoView = VideoDetailHeader.loadFromNib()
+        let videoView = R.nib.videoDetailHeader.firstView(owner: nil)!
         videoView.video = video
         return videoView
     }()
@@ -74,9 +74,9 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
         super.makeUI()
 
         view.addSubview(videoView)
-        tableView.register(cellType: VideoDetailInfoCell.self)
-        tableView.register(cellType: VideoRelatedCell.self)
-        tableView.register(cellType: CommentCell.self)
+        tableView.register(R.nib.videoDetailInfoCell)
+        tableView.register(R.nib.videoRelatedCell)
+        tableView.register(R.nib.commentCell)
         tableView.refreshFooter = RefreshFooter()
     }
 
@@ -93,17 +93,22 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
             switch section {
             case let .info(item):
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoDetailInfoCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoDetailInfoCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoDetailInfoCell.self)
                 cell.item = item
                 return cell
             case let .related(item):
-
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: VideoRelatedCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoRelatedCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: VideoRelatedCell.self)
                 cell.item = item
                 return cell
             case let .comment(item):
 
-                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell.identifier,
+                                                         for: indexPath,
+                                                         cellType: CommentCell.self)
                 cell.item = item.comment
                 return cell
             }

@@ -9,7 +9,7 @@ opt_in_rules: # some rules are only opt-in
   - discouraged_optional_boolean # 不建议使用可选布尔值
   - empty_count # 建议使用isEmpty判断，而不是使用count==0判断
   # - no_extension_access_modifier # 在extension扩展前面,不建议使用(fileprivate, public)等修饰符
-  - force_unwrapping # 强制解包/拆包
+  # - force_unwrapping # 强制解包/拆包
   - generic_type_name # 泛型类型名称只能包含字母数字字符，以大写字母开头，长度介于1到20个字符之间
   - overridden_super_call # 重写父类方法
   - vertical_parameter_alignment_on_call # 当调用多个参数的函数时,如果参数多行显示,则应该垂直对齐

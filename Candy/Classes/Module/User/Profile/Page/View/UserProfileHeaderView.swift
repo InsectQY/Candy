@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileHeaderView: View, NibLoadable {
+class UserProfileHeaderView: View {
 
     @IBOutlet private weak var diggCountLabel: Label!
     @IBOutlet private weak var followersCountLabel: Label!

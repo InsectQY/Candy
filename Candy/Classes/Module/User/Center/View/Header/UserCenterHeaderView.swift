@@ -9,7 +9,7 @@
 import UIKit
 import MonkeyKing
 
-class UserCenterHeaderView: UIView, NibLoadable {
+class UserCenterHeaderView: UIView {
 
     public static let height: CGFloat = 150
 

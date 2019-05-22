@@ -22,7 +22,7 @@ class UserVideoView: View {
 
         let tableView = TableView(frame: bounds)
         tableView.delegate = self
-        tableView.register(cellType: UserVideoCell.self)
+        tableView.register(R.nib.userVideoCell)
         tableView.refreshFooter = RefreshFooter()
         return tableView
     }()
@@ -57,7 +57,9 @@ class UserVideoView: View {
                                              visitedID: visitedID)
         let output = viewModel.transform(input: input)
 
-        output.items.drive(tableView.rx.items(cellIdentifier: UserVideoCell.ID, cellType: UserVideoCell.self)) { tableView, item, cell in
+        output.items
+        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.userVideoCell.identifier,
+                                  cellType: UserVideoCell.self)) { tableView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)

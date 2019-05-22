@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallTitleCell: UITableViewCell, NibReusable {
+class VideoHallTitleCell: TableViewCell {
 
     @IBOutlet private weak var titleLabel: Label!
     @IBOutlet private weak var subTitleLabel: Label!

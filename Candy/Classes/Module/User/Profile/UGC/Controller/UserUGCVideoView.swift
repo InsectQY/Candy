@@ -23,7 +23,7 @@ class UserUGCVideoView: View {
 
         let collectionView = CollectionView(frame: bounds, collectionViewLayout: UserUGCFlowLayout())
         collectionView.delegate = self
-        collectionView.register(cellType: UserUGCVideoCell.self)
+        collectionView.register(R.nib.userUGCVideoCell)
         collectionView.refreshFooter = RefreshFooter()
         return collectionView
     }()
@@ -49,7 +49,9 @@ class UserUGCVideoView: View {
                                            visitedID: visitedID)
         let output = viewModel.transform(input: input)
 
-        output.items.drive(collectionView.rx.items(cellIdentifier: UserUGCVideoCell.ID, cellType: UserUGCVideoCell.self)) { collectionView, item, cell in
+        output.items
+        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.userUGCVideoCell.identifier,
+                                       cellType: UserUGCVideoCell.self)) { collectionView, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
