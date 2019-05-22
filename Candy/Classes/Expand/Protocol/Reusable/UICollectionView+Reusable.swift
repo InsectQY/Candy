@@ -21,22 +21,24 @@ extension UICollectionView {
         return cell
     }
 
-//    final func dequeueReusableSupplementaryView<T: UICollectionReusableView>
-//        (ofKind elementKind: String,
-//         for indexPath: IndexPath,
-//         viewType: T.Type = T.self) -> T
-//        where T: Reusable {
-//
-//            let view = dequeueReusableSupplementaryView(
-//                ofKind: elementKind,
-//                withReuseIdentifier: viewType.ID,
-//                for: indexPath
-//            )
-//            guard let typedView = view as? T else {
-//                fatalError(
-//                    "Failed to dequeue a supplementary view with identifier \(viewType.ID) "
-//                )
-//            }
-//            return typedView
-//    }
+    final func dequeueReusableSupplementaryView<T: UICollectionReusableView>
+        (withIdentifier identifier: String,
+         ofKind elementKind: String,
+         for indexPath: IndexPath,
+         viewType: T.Type = T.self) -> T {
+
+            let view = dequeueReusableSupplementaryView(
+                ofKind: elementKind,
+                withReuseIdentifier: identifier,
+                for: indexPath
+            )
+            guard
+                let typedView = view as? T
+            else {
+                fatalError(
+                    "Failed to dequeue a supplementary view with identifier \(identifier) "
+                )
+            }
+            return typedView
+    }
 }

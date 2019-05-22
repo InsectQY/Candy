@@ -21,16 +21,18 @@ extension UITableView {
             return cell
     }
 
-//    final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ viewType: T.Type = T.self) -> T
-//
-//        where T: Reusable {
-//
-//            guard let view = dequeueReusableHeaderFooterView(withIdentifier: viewType.ID) as? T else {
-//                fatalError(
-//                    "Failed to dequeue a header/footer with identifier \(viewType.ID) "
-//                        + "matching type \(viewType.self)"
-//                )
-//            }
-//            return view
-//    }
+    final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>
+        (withIdentifier identifier: String,
+         _ viewType: T.Type = T.self) -> T {
+
+            guard
+                let view = dequeueReusableHeaderFooterView(withIdentifier: identifier) as? T
+            else {
+                fatalError(
+                    "Failed to dequeue a header/footer with identifier \(identifier) "
+                        + "matching type \(viewType.self)"
+                )
+            }
+            return view
+    }
 }
