@@ -30,9 +30,9 @@ extension VideoHallApi: TargetType, Cacheable {
 
         switch self {
         case .parseVideoHall:
-            return URL(string: TouTiaoHostIP)!
+            return URL(string: Configs.Network.touTiaoBaseUrl)!
         default:
-            return URL(string: YangGuangIP)!
+            return URL(string: Configs.Network.yangGuangUrl)!
         }
     }
 

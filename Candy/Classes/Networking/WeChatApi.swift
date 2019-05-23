@@ -17,7 +17,7 @@ enum WeChatApi {
 extension WeChatApi: TargetType {
 
     var baseURL: URL {
-        return URL(string: WeChatIP)!
+        return URL(string: Configs.Network.weChatUrl)!
     }
 
     var path: String {

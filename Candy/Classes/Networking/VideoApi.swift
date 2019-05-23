@@ -42,9 +42,9 @@ extension VideoApi: TargetType, Cacheable {
 
         switch self {
         case .parsePlayInfo:
-            return URL(string: VideoParseIP)!
+            return URL(string: Configs.Network.videoParseUrl)!
         default:
-            return URL(string: TouTiaoHostIP)!
+            return URL(string: Configs.Network.touTiaoBaseUrl)!
         }
     }
 

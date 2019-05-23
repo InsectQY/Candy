@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum ServerCode: String, Codable {
+
+    /// 请求成功
+    case success
+}
+
 struct Model<T: Codable>: Codable {
 
     /// 返回 "success" 为成功

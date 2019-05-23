@@ -50,11 +50,13 @@ pod 'MonkeyKing' # https://github.com/nixzhu/MonkeyKing
 pod 'DefaultsKit' # https://github.com/nmdias/DefaultsKit
 # Code
 pod 'SwiftLint' # https://github.com/realm/SwiftLint
-# Source
+# Resources
 pod 'R.swift' # https://github.com/mac-cain13/R.swift
+# Font
+pod 'UIFontComplete' # https://github.com/Nirma/UIFontComplete
 # Toast
-pod 'Toast-Swift'
+pod 'Toast-Swift' # https://github.com/scalessec/Toast-Swift
 # Placeholder
-pod 'EmptyDataSet-Swift'
+pod 'EmptyDataSet-Swift' # https://github.com/Xiaoye220/EmptyDataSet-Swift
 
 end

@@ -31,12 +31,12 @@ extension VideoURL {
 
             guard
                 let context = context as? [String: Any],
-                let video = context[newsTypedKey]
+                let video = context[Configs.DictionaryKeys.newsModel]
             else {
                 return nil
             }
 
-            let seekTime = context[seekTimeTypedKey] ?? 0
+            let seekTime = context[Configs.DictionaryKeys.seekTime] ?? 0
             let vc = VideoDetailViewController(video: video, seekTime: seekTime)
             return vc
         }

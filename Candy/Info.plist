@@ -26,9 +26,7 @@
 			<key>CFBundleURLName</key>
 			<string>WeChat</string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>wxd2447c7ac0b7dde8</string>
-			</array>
+			<array/>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
