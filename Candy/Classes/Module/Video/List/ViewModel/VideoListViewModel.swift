@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxOptional
 
 final class VideoListViewModel: RefreshViewModel {
 

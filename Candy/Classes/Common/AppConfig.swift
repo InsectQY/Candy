@@ -29,12 +29,6 @@ let seekTimeTypedKey = TypedUserInfoKey(key: "seekTime", type: TimeInterval.self
 
 let newsTypedKey = TypedUserInfoKey(key: "news", type: NewsModel.self)
 
-let indexPathTypedKey = TypedUserInfoKey(key: "indexPath", type: IndexPath.self)
-
-let categoryTypedKey = TypedUserInfoKey(key: "category", type: String.self)
-
-let UGCVideoListTypedKey = TypedUserInfoKey(key: "items", type: [UGCVideoListModel].self)
-
 extension UIFont {
 
     // swiftlint:disable force_unwrapping

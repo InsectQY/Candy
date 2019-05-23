@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class VideoHallDetailViewModel: ViewModel {
+final class VideoHallDetailViewModel: RefreshViewModel {
 
     struct Input {
 

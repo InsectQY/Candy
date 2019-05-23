@@ -9,23 +9,13 @@
 import UIKit
 import ZFPlayer
 
-class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
+class VideoHallDetailViewController: TableViewController<VideoHallDetailViewModel> {
 
     private var albumID: String = ""
 
     fileprivate var selIndex: Int = 0
     // MARK: - Lazyload
     private lazy var videoView = R.nib.videoHallHeaderView.firstView(owner: nil)!
-
-    fileprivate lazy var tableView: TableView = {
-        let tableView = TableView(frame: CGRect())
-        tableView.register(R.nib.videoHallTitleCell)
-        tableView.register(R.nib.videoHallEpisodeCell)
-        tableView.register(R.nib.videoHallIntroCell)
-        tableView.register(R.nib.videoHallRoleCell)
-        tableView.showsVerticalScrollIndicator = false
-        return tableView
-    }()
 
     fileprivate lazy var controlView = ZFPlayerControlView()
     fileprivate lazy var player: ZFPlayerController = {
@@ -52,7 +42,7 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
     // MARK: - init
     init(albumID: String) {
         self.albumID = albumID
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .plain)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -68,8 +58,12 @@ class VideoHallDetailViewController: ViewController<VideoHallDetailViewModel> {
         super.makeUI()
 
         fd_prefersNavigationBarHidden = true
+        tableView.register(R.nib.videoHallTitleCell)
+        tableView.register(R.nib.videoHallEpisodeCell)
+        tableView.register(R.nib.videoHallIntroCell)
+        tableView.register(R.nib.videoHallRoleCell)
+        tableView.showsVerticalScrollIndicator = false
         view.addSubview(videoView)
-        view.addSubview(tableView)
     }
 
     override func bindViewModel() {
