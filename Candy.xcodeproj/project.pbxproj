@@ -1412,7 +1412,7 @@
 			children = (
 				E5E1932721E8848D002CBAE8 /* Managers */,
 				E5FAB71121C0B97D002BF258 /* Tools */,
-				E5E020B521B5062B00A4CDF1 /* CustomView */,
+				E5E020B521B5062B00A4CDF1 /* CustomViews */,
 				E5E0204C21B5057600A4CDF1 /* Extensions */,
 				E5E0206E21B5057600A4CDF1 /* Third Party */,
 				E5E0203621B4FF5100A4CDF1 /* Protocol */,
@@ -1535,13 +1535,13 @@
 			path = "Third Party";
 			sourceTree = "<group>";
 		};
-		E5E020B521B5062B00A4CDF1 /* CustomView */ = {
+		E5E020B521B5062B00A4CDF1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				1843B45222940146004F99AC /* UIButton */,
 				E5E3240421DC52CE002DC676 /* UILabel */,
 			);
-			path = CustomView;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		E5E020C921B50B4000A4CDF1 /* Main */ = {

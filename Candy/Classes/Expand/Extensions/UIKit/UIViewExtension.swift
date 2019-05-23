@@ -74,9 +74,7 @@ extension UIView {
     }
 
     public var bottom: CGFloat {
-        get {
-            return self.frame.origin.y + self.frame.size.height
-        }
+        return self.frame.origin.y + self.frame.size.height
     }
 
     public func isShowingOnKeyWindow() -> Bool {

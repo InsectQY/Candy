@@ -29,8 +29,8 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - Candy/Resources/R.generated.swift
   - Carthage
-  - Candy/Classes/Expand/ThirdParty
-  - Candy/Classes/Expand/Extension
+  - Candy/Classes/Expand/Third Party
+  - Candy/Classes/Expand/Extensions
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level

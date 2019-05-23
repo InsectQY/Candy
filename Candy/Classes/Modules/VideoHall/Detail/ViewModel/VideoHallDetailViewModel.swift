@@ -103,7 +103,7 @@ extension VideoHallDetailViewModel {
     func requestVideoInfo(albumID: String, episodeID: String) -> Driver<VideoHallDetailModel> {
 
         return  VideoHallApi
-                .detail(albumID, episodeID)
+                .detail(albumID: albumID, episodeID: episodeID)
                 .request()
                 .mapObject(VideoHallDetailModel.self, atKeyPath: nil)
                 .trackActivity(loading)

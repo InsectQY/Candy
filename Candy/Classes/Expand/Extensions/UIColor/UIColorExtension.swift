@@ -29,4 +29,8 @@ public extension UIColor {
     static var user: UIColor {
         return .RGBA(50, 79, 131)
     }
+
+    static var tabBarNormal: UIColor {
+        return .RGBA(138, 138, 138)
+    }
 }

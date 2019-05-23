@@ -20,9 +20,9 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
 
             guard
                 let response = try? $0.mapObject(type,
-                                                atKeyPath: path,
-                                                using: decoder,
-                                                failsOnEmptyData: failsOnEmptyData)
+                                                 atKeyPath: path,
+                                                 using: decoder,
+                                                 failsOnEmptyData: failsOnEmptyData)
             else {
                 throw MoyaError.jsonMapping($0)
             }

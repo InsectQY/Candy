@@ -53,11 +53,3 @@ enum Keys {
         }
     }
 }
-
-/// 从哪里进入头条
-enum TTFrom: String {
-
-    case refresh = "refresh"
-    case pull = "pull"
-    case loadMore = "loadmore"
-}

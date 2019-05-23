@@ -14,8 +14,8 @@ enum VideoHallApi {
     case category
     /// 视频列表(参数: 当前加载数量, 加载类别)
     case list(Int, String)
-    /// 视频详情(参数: albumID, episodeID)
-    case detail(String, String)
+    /// 视频详情
+    case detail(albumID: String, episodeID: String)
     /// 搜索建议
     case searchSug(String)
     /// 搜索结果(参数: 当前加载数量, 加载类别)

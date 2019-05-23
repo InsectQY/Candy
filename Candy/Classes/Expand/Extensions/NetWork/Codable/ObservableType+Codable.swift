@@ -21,9 +21,9 @@ public extension ObservableType where E == Response {
 
             guard
                 let response = try? $0.mapObject(type,
-                                                atKeyPath: path,
-                                                using: decoder,
-                                                failsOnEmptyData: failsOnEmptyData)
+                                                 atKeyPath: path,
+                                                 using: decoder,
+                                                 failsOnEmptyData: failsOnEmptyData)
             else {
                 throw MoyaError.jsonMapping($0)
             }

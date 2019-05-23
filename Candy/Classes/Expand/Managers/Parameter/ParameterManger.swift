@@ -8,7 +8,16 @@
 
 import Foundation
 
-/// 为了在您运行 App 时保护您的隐私信息，该类中大部分数据采用写死的方式。这些参数大部分不是必传的，实际项目中可自行更改。
+/// 为了在您运行 App 时保护您的隐私信息，该类中大部分数据采用写死的方式。
+/// 这些参数大部分不是必传的，实际项目中可自行更改。
+
+/// 从哪里进入头条
+enum TTFrom: String {
+
+    case refresh = "refresh"
+    case pull = "pull"
+    case loadMore = "loadmore"
+}
 
 class ParameterManger {
 
