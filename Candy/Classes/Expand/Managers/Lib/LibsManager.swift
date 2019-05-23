@@ -43,9 +43,9 @@ class LibsManager: NSObject {
         // 500 MB
         ImageCache.default.maxDiskCacheSize = UInt(500 * 1024 * 1024)
         // 1 week
-        ImageCache.default.maxCachePeriodInSecond = TimeInterval(60 * 60 * 24 * 7)
+        ImageCache.default.maxCachePeriodInSecond = Configs.Time.maxImageCache
         // 15 sec
-        ImageDownloader.default.downloadTimeout = 15.0
+        ImageDownloader.default.downloadTimeout = Configs.Time.imageDownloadTimeout
 //        ImageCache.default.maxMemoryCost = 1
     }
 
@@ -54,12 +54,13 @@ class LibsManager: NSObject {
 
         NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
         NVActivityIndicatorView.DEFAULT_COLOR = .main
+        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = .clear
     }
 
     // MARK: - RxNetwork
     func setupNetwork() {
 
-        Network.Configuration.default.timeoutInterval = 20
+        Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
         Network.Configuration.default.plugins = [ErrorPlugin()]
     }
 
@@ -76,7 +77,7 @@ class LibsManager: NSObject {
 
     func setupToast() {
         ToastManager.shared.position = .center
-        ToastManager.shared.style.messageFont = .systemFont(ofSize: 18)
+        ToastManager.shared.style.messageFont = .pingFangSCMedium(18)
     }
 }
 

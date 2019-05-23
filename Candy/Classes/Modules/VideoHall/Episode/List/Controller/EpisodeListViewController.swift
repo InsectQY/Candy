@@ -34,7 +34,7 @@ class EpisodeListViewController: CollectionViewController<RefreshViewModel> {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 8, bottom: 20, right: 8)
         collectionView.reloadData()
     }
 

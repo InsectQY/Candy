@@ -10,16 +10,11 @@ import UIKit
 
 class UGCVideoDetailFlowLayout: UICollectionViewFlowLayout {
 
-    override init() {
-        super.init()
-
+    override func prepare() {
+        super.prepare()
         minimumLineSpacing = 0
         minimumInteritemSpacing = 0
         scrollDirection = .horizontal
         itemSize = UIScreen.main.bounds.size
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -16,22 +16,18 @@ class VideoHallFlowLayout: UICollectionViewFlowLayout {
     private let kMaxCol: CGFloat = 3
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (Configs.Dimensions.screenWidth - (kMaxCol - 1) * kMargin) / kMaxCol
+        return ((collectionView?.width ?? 0) - (kMaxCol - 1) * kMargin) / kMaxCol
     }
     private var kItemH: CGFloat {
         return kItemW * 1.7
     }
 
-    override init() {
-        super.init()
+    override func prepare() {
+        super.prepare()
 
         scrollDirection = .vertical
         itemSize = CGSize(width: kItemW, height: kItemH)
         minimumLineSpacing = 1
         minimumInteritemSpacing = 1
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -72,6 +72,8 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
         let input = VideoHallDetailViewModel.Input(albumID: albumID)
         let output = viewModel.transform(input: input)
 
+        bindLoadingToIndicator()
+
         // 视频真实播放地址
         output.videoPlayInfo
         .filterNil()

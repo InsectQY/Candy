@@ -129,10 +129,12 @@ extension VideoDetailViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             newComments.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             },
             loadMoreComments.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)

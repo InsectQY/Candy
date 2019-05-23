@@ -57,6 +57,8 @@ class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
+        bindLoadingToIndicator()
+
         let input = UGCVideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
             .notification(Notification.UGCVideoNoConnectClick)
             .mapToVoid())

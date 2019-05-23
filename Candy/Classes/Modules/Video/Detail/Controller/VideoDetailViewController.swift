@@ -130,5 +130,7 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
         .mapToVoid()
         .drive(player.rx.seek(toTime: seekTime))
         .disposed(by: rx.disposeBag)
+
+        bindLoadingToIndicator()
     }
 }

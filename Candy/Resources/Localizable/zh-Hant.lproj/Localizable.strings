@@ -13,3 +13,4 @@
 "VideoHall.Search.Result.Empty.Placeholder" = "什麽都沒找到啊/(ㄒoㄒ)/";
 "VideoHall.Filter.Result.Empty.Placeholder" = "該分類下暫時沒有視頻喲 T^T";
 "VideoHall.TopView.Title" = "篩選";
+"App.Load.Message" = "正在拼命加載";

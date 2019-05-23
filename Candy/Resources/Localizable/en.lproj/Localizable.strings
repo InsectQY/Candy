@@ -13,3 +13,4 @@
 "VideoHall.Search.Result.Empty.Placeholder" = "Nothing found/(ㄒoㄒ)/~~";
 "VideoHall.Filter.Result.Empty.Placeholder" = "There are no videos in this category T^T";
 "VideoHall.TopView.Title" = "Filter";
+"App.Load.Message" = "Loading desperately";

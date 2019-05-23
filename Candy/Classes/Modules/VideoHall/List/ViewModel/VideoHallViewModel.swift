@@ -132,10 +132,12 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         // 尾部状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.cell_list.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.cell_list.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.cell_list.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -151,7 +153,8 @@ extension VideoHallViewModel {
 
         return  VideoHallApi.category
                 .request()
-                .mapObject(CategoryInfo.self, atKeyPath: "search_category_info")
+                .mapObject(CategoryInfo.self,
+                           atKeyPath: "search_category_info")
                 .map { $0.search_category_list }
                 .trackActivity(loading)
                 .trackError(error)
@@ -164,7 +167,8 @@ extension VideoHallViewModel {
         return  VideoHallApi
                 .list(offset, searchKey)
                 .request()
-                .mapObject(VideoHallModel.self, atKeyPath: nil)
+                .mapObject(VideoHallModel.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()

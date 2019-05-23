@@ -17,22 +17,18 @@ class UGCVideoListFlowLayout: UICollectionViewFlowLayout {
     private let interitemSpacing: CGFloat = 1
     /// cell 宽度
     private var kItemW: CGFloat {
-        return (Configs.Dimensions.screenWidth - (kMaxCol - 1) * lineSpacing) / kMaxCol
+        return ((collectionView?.width ?? 0) - (kMaxCol - 1) * lineSpacing) / kMaxCol
     }
     private var kItemH: CGFloat {
         return kItemW * 1.5
     }
 
-    override init() {
-        super.init()
+    override func prepare() {
+        super.prepare()
 
         scrollDirection = .vertical
         itemSize = CGSize(width: kItemW, height: kItemH)
         minimumLineSpacing = lineSpacing
         minimumInteritemSpacing = interitemSpacing
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
