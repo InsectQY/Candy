@@ -100,26 +100,32 @@ extension VideoHallDetailViewModel: ViewModelable {
 extension VideoHallDetailViewModel {
 
     // 获取视频详情信息
-    func requestVideoInfo(albumID: String, episodeID: String) -> Driver<VideoHallDetailModel> {
+    func requestVideoInfo(albumID: String,
+                          episodeID: String) -> Driver<VideoHallDetailModel> {
 
         return  VideoHallApi
-                .detail(albumID: albumID, episodeID: episodeID)
+                .detail(albumID: albumID,
+                        episodeID: episodeID)
                 .request()
-                .mapObject(VideoHallDetailModel.self, atKeyPath: nil)
+                .mapObject(VideoHallDetailModel.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(error)
                 .asDriverOnErrorJustComplete()
     }
 
     // 获取视频播放信息
-    func requestVideoPlayInfo(vid: String, ptoken: String, author: String) -> Driver<VideoPlayInfo> {
+    func requestVideoPlayInfo(vid: String,
+                              ptoken: String,
+                              author: String) -> Driver<VideoPlayInfo> {
 
         return  VideoHallApi
                 .parseVideoHall(vid: vid,
                                 ptoken: ptoken,
                                 author: author)
                 .request()
-                .mapObject(Model<VideoPlayInfo>.self, atKeyPath: "video_info")
+                .mapObject(Model<VideoPlayInfo>.self,
+                           atKeyPath: "video_info")
                 .filter { $0.message == .success }
                 .map { $0.data }
                 .trackActivity(loading)

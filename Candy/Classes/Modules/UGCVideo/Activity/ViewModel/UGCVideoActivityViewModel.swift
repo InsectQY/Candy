@@ -29,7 +29,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
         let loadNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(offset: 0, userAction: .refresh)
+            self.request(offset: 0,
+                         userAction: .refresh)
         }
 
         // 加载更多视频
@@ -37,7 +38,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
         .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
-            self.request(offset: $0, userAction: .loadMore)
+            self.request(offset: $0,
+                         userAction: .loadMore)
         }
 
         // 数据源
@@ -60,10 +62,12 @@ extension UGCVideoActivityViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.album_list.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.album_list.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.album_list.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -79,7 +83,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
 extension UGCVideoActivityViewModel {
 
     /// 加载活动数据
-    func request(offset: Int, userAction: TTFrom) -> Driver<UGCVideoActivityListModel> {
+    func request(offset: Int,
+                 userAction: TTFrom) -> Driver<UGCVideoActivityListModel> {
 
         return  VideoApi
                 .ugcActivity(offset: offset,

@@ -68,10 +68,12 @@ extension UserQAViewModel: ViewModelable {
         // 尾部刷新状态
         let endFooter = Driver.merge(
             new.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             },
             footer.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -84,7 +86,9 @@ extension UserQAViewModel: ViewModelable {
 
 extension UserQAViewModel {
 
-    func request(category: String, visitedID: String, offset: Int) -> Driver<Model<[QAModel]>> {
+    func request(category: String,
+                 visitedID: String,
+                 offset: Int) -> Driver<Model<[QAModel]>> {
 
         return  VideoApi
                 .profileType(category: category,

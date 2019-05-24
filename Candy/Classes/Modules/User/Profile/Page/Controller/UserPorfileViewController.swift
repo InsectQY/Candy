@@ -109,7 +109,10 @@ extension Reactive where Base: UserPorfileViewController {
 
             vc.navigationItem.title = result.name
             vc.categoryView.titles = result.top_tab.map { $0.show_name }
-            vc.dataSource = result.top_tab.map { $0.type.viewWith(category: $0.category, visitedID: result.user_id) }
+            vc.dataSource = result.top_tab.map {
+                $0.type.viewWith(category: $0.category,
+                                 visitedID: result.user_id)
+            }
             vc.categoryView.reloadData()
             vc.pagingView?.reloadData()
             vc.headerView.item = result

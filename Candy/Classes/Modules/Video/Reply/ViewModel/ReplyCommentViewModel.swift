@@ -64,10 +64,12 @@ extension ReplyCommentViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -81,7 +83,8 @@ extension ReplyCommentViewModel: ViewModelable {
 extension ReplyCommentViewModel {
 
     /// 加载某条评论的回复
-    func request(id: String, offset: Int) -> Driver<ReplyCommentModel> {
+    func request(id: String,
+                 offset: Int) -> Driver<ReplyCommentModel> {
 
         return  VideoApi
                 .replyComment(id: id,

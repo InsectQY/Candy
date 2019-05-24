@@ -89,7 +89,10 @@ class EpisodeViewController: ViewController<ViewModel> {
                 let start = i * maxPageCount
                 let end = (i + 1) * maxPageCount
                 titles.append("\(start + 1)-\(end)")
-                childVcs.append(EpisodeListViewController(page: EpisodePage(start: start, end: end, selIndex: selIndex)))
+                let page = EpisodePage(start: start,
+                                       end: end,
+                                       selIndex: selIndex)
+                childVcs.append(EpisodeListViewController(page: page))
             }
 
             // 大于最大集但是有余数

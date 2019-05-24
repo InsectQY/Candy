@@ -31,7 +31,8 @@ extension UGCVideoCommentViewModel: ViewModelable {
         let loadNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(groupID: input.groupID, offset: 0)
+            self.request(groupID: input.groupID,
+                         offset: 0)
         }
 
         // 加载更多评论
@@ -39,7 +40,8 @@ extension UGCVideoCommentViewModel: ViewModelable {
         .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
-            self.request(groupID: input.groupID, offset: $0)
+            self.request(groupID: input.groupID,
+                         offset: $0)
         }
 
         // 数据源绑定
@@ -62,10 +64,12 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -80,13 +84,15 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
 extension UGCVideoCommentViewModel {
 
-    func request(groupID: String, offset: Int) -> Driver<Model<[VideoCommentModel]>> {
+    func request(groupID: String,
+                 offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
         return  VideoApi
                 .ugcComment(groupID: groupID,
                             offset: offset)
                 .request()
-                .mapObject(Model<[VideoCommentModel]>.self, atKeyPath: nil)
+                .mapObject(Model<[VideoCommentModel]>.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()

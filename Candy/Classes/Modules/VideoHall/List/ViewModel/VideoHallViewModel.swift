@@ -78,7 +78,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .asDriverOnErrorJustComplete()
         .distinctUntilChanged()
         .flatMapLatest { [unowned self] in
-            self.requestVideo(offset: 0, searchKey: $0)
+            self.requestVideo(offset: 0,
+                              searchKey: $0)
         }
 
         let moreParameters = Driver.combineLatest(
@@ -165,7 +166,8 @@ extension VideoHallViewModel {
     func requestVideo(offset: Int, searchKey: String) -> Driver<VideoHallModel> {
 
         return  VideoHallApi
-                .list(offset, searchKey)
+                .list(offset,
+                      searchKey)
                 .request()
                 .mapObject(VideoHallModel.self,
                            atKeyPath: nil)

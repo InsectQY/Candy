@@ -107,7 +107,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         // collectionView 点击事件
         selection
         .flatMap { [weak self] _ in
-            navigator.rx.present(UGCURL.detail.path, context: self)
+            navigator.rx.present(UGCURL.detail.path,
+                                 context: self)
         }
         .subscribe()
         .disposed(by: disposeBag)

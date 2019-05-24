@@ -59,8 +59,10 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         // 点击事件
         input.selection
-        .flatMap { navigator.rx.push(VideoHallURL.detail.path,
-                                     context: $0.display.album_content.first?.album_id ?? "") }
+        .flatMap {
+            navigator.rx.push(VideoHallURL.detail.path,
+                              context: $0.display.album_content.first?.album_id ?? "")
+        }
         .subscribe()
         .disposed(by: disposeBag)
 
@@ -72,10 +74,12 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             laodNew.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -88,12 +92,14 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
 extension VideoHallSearchResultViewModel {
 
-    func request(offset: Int, key: String) -> Driver<VideoHallSearchResult> {
+    func request(offset: Int,
+                 key: String) -> Driver<VideoHallSearchResult> {
 
         return  VideoHallApi
                 .search(offset, key)
                 .request()
-                .mapObject(VideoHallSearchResult.self, atKeyPath: nil)
+                .mapObject(VideoHallSearchResult.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()

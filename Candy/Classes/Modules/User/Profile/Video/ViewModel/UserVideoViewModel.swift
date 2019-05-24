@@ -69,9 +69,11 @@ extension UserVideoViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             new.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty) },
             footer.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) }
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty) }
         )
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
@@ -85,7 +87,9 @@ extension UserVideoViewModel: ViewModelable {
 
 extension UserVideoViewModel {
 
-    func request(category: String, visitedID: String, offset: Int) -> Driver<Model<[NewsListModel]>> {
+    func request(category: String,
+                 visitedID: String,
+                 offset: Int) -> Driver<Model<[NewsListModel]>> {
 
         return  VideoApi
                 .profileType(category: category,

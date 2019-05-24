@@ -40,7 +40,8 @@ extension UserCenterViewModel: ViewModelable {
             .catchErrorJustComplete()
         }
         .flatMapLatest { [unowned self] in
-            self.request(token: $0.token, openid: $0.openID)
+            self.request(token: $0.token,
+                         openid: $0.openID)
         }
         .asDriverOnErrorJustComplete()
 
@@ -52,13 +53,15 @@ extension UserCenterViewModel: ViewModelable {
 
 extension UserCenterViewModel {
 
-    func request(token: String, openid: String) -> Driver<UserInfoModel> {
+    func request(token: String,
+                 openid: String) -> Driver<UserInfoModel> {
 
         return  WeChatApi
                 .userInfo(token: token,
                           openid: openid)
                 .request()
-                .mapObject(UserInfoModel.self, atKeyPath: nil)
+                .mapObject(UserInfoModel.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(error)
                 .asDriverOnErrorJustComplete()

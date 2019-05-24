@@ -61,9 +61,11 @@ extension UserUGCViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             new.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty) },
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty) },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more, isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more,
+                                 isEmpty: $0.data.isEmpty)
             }
         )
         .startWith(.hidden)
@@ -87,14 +89,17 @@ extension UserUGCViewModel: ViewModelable {
 
 extension UserUGCViewModel {
 
-    func request(category: String, visitedID: String, offset: Int) -> Driver<Model<[UGCVideoListModel]>> {
+    func request(category: String,
+                 visitedID: String,
+                 offset: Int) -> Driver<Model<[UGCVideoListModel]>> {
 
         return  VideoApi
                 .profileType(category: category,
                              visitedID: visitedID,
                              offset: offset)
                 .request()
-                .mapObject(Model<[UGCVideoListModel]>.self, atKeyPath: nil)
+                .mapObject(Model<[UGCVideoListModel]>.self,
+                           atKeyPath: nil)
                 .trackActivity(loading)
                 .trackError(refreshError)
                 .asDriverOnErrorJustComplete()
