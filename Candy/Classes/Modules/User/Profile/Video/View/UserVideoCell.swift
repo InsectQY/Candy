@@ -30,7 +30,8 @@ class UserVideoCell: TableViewCell {
             titleLabel.text = item.title
 
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
-            avatarImage.qy_setImage(item.user_info.avatar_url, options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarImage.qy_setImage(item.user_info.avatar_url,
+                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
             nameLabel.text = item.user_info.name
             videoDurationLabel.text = item.videoDurationString
             videoImage

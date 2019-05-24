@@ -27,7 +27,8 @@ class UserCenterHeaderView: UIView {
             guard let item = item else { return }
 
             let imageSize = CGSize(width: 80 * UIScreen.main.scale, height: 80 * UIScreen.main.scale)
-            avatarImage.qy_setImage(item.headimgurl, options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarImage.qy_setImage(item.headimgurl,
+                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
             nameBtn.setTitle(item.nickname, for: .normal)
         }
     }

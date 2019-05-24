@@ -40,7 +40,8 @@ class UGCVideoActivityCell: TableViewCell {
             nameLabel.text = item.album_info.album_name
             categoryLabel.text = item.album_info.album_label
             participateBtn
-            .setTitle(item.album_info.album_participate_info, for: .normal)
+            .setTitle(item.album_info.album_participate_info,
+                      for: .normal)
             collectionView.reloadData()
         }
     }

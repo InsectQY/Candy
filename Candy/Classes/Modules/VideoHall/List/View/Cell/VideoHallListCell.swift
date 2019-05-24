@@ -30,9 +30,11 @@ class VideoHallListCell: CollectionViewCell {
                            KfOptions.fadeTransition(Configs.Time.imageTransition)]
             // 优先显示长图做封面
             if firstImage.height > firstImage.width {
-                largeImage.qy_setImage(firstImage.url, options: options)
+                largeImage.qy_setImage(firstImage.url,
+                                       options: options)
             } else {
-                largeImage.qy_setImage(item.album.cover_list[1].url, options: options)
+                largeImage.qy_setImage(item.album.cover_list[1].url,
+                                       options: options)
             }
 
             if !item.album.bottom_label.isEmpty { // 优先显示多少集

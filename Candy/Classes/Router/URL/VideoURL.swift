@@ -37,7 +37,8 @@ extension VideoURL {
             }
 
             let seekTime = context[Configs.DictionaryKeys.seekTime] ?? 0
-            let vc = VideoDetailViewController(video: video, seekTime: seekTime)
+            let vc = VideoDetailViewController(video: video,
+                                               seekTime: seekTime)
             return vc
         }
     }

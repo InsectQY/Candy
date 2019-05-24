@@ -32,7 +32,8 @@ extension Reactive where Base: ZFPlayerController {
     public func playTheIndexPath(_ indexPath: IndexPath,
                                  scrollToTop: Bool = false) -> Binder<Void> {
         return Binder(base) { player, _ in
-            player.playTheIndexPath(indexPath, scrollToTop: scrollToTop)
+            player.playTheIndexPath(indexPath,
+                                    scrollToTop: scrollToTop)
         }
     }
 
@@ -47,7 +48,9 @@ extension Reactive where Base: ZFPlayerController {
 
 extension Reactive where Base: ZFPlayerControlView {
 
-    public func showTitle(_ title: String, coverURLString: String, fullScreenMode: ZFFullScreenMode) -> Binder<Void> {
+    public func showTitle(_ title: String,
+                          coverURLString: String,
+                          fullScreenMode: ZFFullScreenMode) -> Binder<Void> {
         return Binder(base) { controlView, _ in
             controlView.showTitle(title,
                                   coverURLString: coverURLString,

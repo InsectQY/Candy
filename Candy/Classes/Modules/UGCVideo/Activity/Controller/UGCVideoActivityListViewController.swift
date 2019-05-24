@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JXCategoryView
 
 class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityViewModel> {
 

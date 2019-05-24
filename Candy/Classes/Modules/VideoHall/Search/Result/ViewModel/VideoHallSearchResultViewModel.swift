@@ -35,7 +35,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         let laodNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(offset: 0, key: input.keyword)
+            self.request(offset: 0,
+                         key: input.keyword)
         }
 
         // 加载更多视频
@@ -43,7 +44,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .footerRefreshing
         .withLatestFrom(elements.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(offset: $0.count, key: input.keyword)
+            self.request(offset: $0.count,
+                         key: input.keyword)
         }
 
         // 数据源

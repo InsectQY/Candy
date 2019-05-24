@@ -14,7 +14,8 @@ extension Reactive where Base: NSObject {
               object anObject: Any? = nil) -> Binder<Void> {
         return Binder(base) { _, _ in
             NotificationCenter.default
-            .post(name: aName, object: anObject)
+            .post(name: aName,
+                  object: anObject)
         }
     }
 }

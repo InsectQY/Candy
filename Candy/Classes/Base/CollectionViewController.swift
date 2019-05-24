@@ -16,7 +16,8 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     // MARK: - Lazyload
     lazy var collectionView: CollectionView = {
 
-        let collectionView = CollectionView(frame: view.bounds, collectionViewLayout: layout)
+        let collectionView = CollectionView(frame: view.bounds,
+                                            collectionViewLayout: layout)
         return collectionView
     }()
 

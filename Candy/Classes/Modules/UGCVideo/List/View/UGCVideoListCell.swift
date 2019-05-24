@@ -22,7 +22,8 @@ class UGCVideoListCell: CollectionViewCell {
             guard let item = item else { return }
 
             let url = item.content.raw_data.video.origin_cover.url_list.first
-            coverImage.qy_setImage(url, options: [KfOptions.fadeTransition(Configs.Time.imageTransition)])
+            coverImage.qy_setImage(url,
+                                   options: [KfOptions.fadeTransition(Configs.Time.imageTransition)])
             titleLabel.text = item.content.raw_data.title
             playCountLabel.text = "\(item.content.raw_data.action.playCountString)次播放"
             diggCountLabel.text = "\(item.content.raw_data.action.diggCountString)赞"

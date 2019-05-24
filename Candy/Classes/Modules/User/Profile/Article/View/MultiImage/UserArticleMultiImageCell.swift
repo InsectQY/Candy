@@ -29,12 +29,16 @@ class UserArticleMultiImageCell: TableViewCell {
 
             let kfOptions = [KfWebPOptions.webp(),
                              KfWebPOptions.webpCache()]
-            image1.qy_setImage(item.large_image_list.first?.url, options: kfOptions)
-            image2.qy_setImage(item.large_image_list[1].url, options: kfOptions)
-            image3.qy_setImage(item.large_image_list[2].url, options: kfOptions)
+            image1.qy_setImage(item.large_image_list.first?.url,
+                               options: kfOptions)
+            image2.qy_setImage(item.large_image_list[1].url,
+                               options: kfOptions)
+            image3.qy_setImage(item.large_image_list[2].url,
+                               options: kfOptions)
 
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
-            avatarImage.qy_setImage(item.user_info.avatar_url, options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarImage.qy_setImage(item.user_info.avatar_url,
+                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
             nameLabel.text = item.user_info.name
 
             let sub = item.user_info.verified_content.isEmpty ? item.publish_time.timeFormat :  item.publish_time.timeFormat + "·" + item.user_info.verified_content

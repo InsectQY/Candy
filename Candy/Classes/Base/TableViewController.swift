@@ -17,7 +17,8 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     // MARK: - Lazyload
     lazy var tableView: TableView = {
 
-        let tableView = TableView(frame: view.bounds, style: style)
+        let tableView = TableView(frame: view.bounds,
+                                  style: style)
         return tableView
     }()
 

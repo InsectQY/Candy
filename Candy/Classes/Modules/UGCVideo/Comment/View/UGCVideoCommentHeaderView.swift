@@ -21,6 +21,7 @@ class UGCVideoCommentHeaderView: View {
     }
 
     @IBAction func closeBtnDidClick(_ sender: Any) {
-        viewContainingController()?.dismiss(animated: true, completion: nil)
+        viewContainingController()?.dismiss(animated: true,
+                                            completion: nil)
     }
 }
