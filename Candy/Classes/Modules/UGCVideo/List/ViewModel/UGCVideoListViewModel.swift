@@ -57,20 +57,10 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         super.bindState()
 
         // 下拉刷新
-        let loadNew = refreshOutput
-        .headerRefreshing
-        .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
-        .flatMapLatest { [unowned self] in
-            self.request(category: $0)
-        }
+        let loadNew = refresh(refreshOutput.headerRefreshing)
 
         // 上拉加载
-        let loadMore = refreshOutput
-        .footerRefreshing
-        .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
-        .flatMapLatest { [unowned self] in
-            self.request(category: $0)
-        }
+        let loadMore = refresh(refreshOutput.footerRefreshing)
 
         // 绑定数据源
         loadNew
@@ -82,25 +72,12 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         // 解析视频播放地址
-        loadNew
-        .map {
-            $0.map {
-                URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
-            }
-        }
+        getUrls(loadNew)
         .drive(videoURLs)
         .disposed(by: disposeBag)
 
-        loadMore
-        .map {
-            $0.map {
-                URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
-            }
-        }
-        .map { [unowned self] in
-            self.videoURLs.value + $0
-        }
-        .drive(videoURLs)
+        getUrls(loadMore)
+        .drive(videoURLs.append)
         .disposed(by: disposeBag)
 
         // collectionView 点击事件
@@ -135,6 +112,24 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
+    }
+
+    private func refresh(_ refreshing: Driver<Void>) -> Driver<[UGCVideoListModel]> {
+
+        return  refreshing
+                .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
+                .flatMapLatest { [unowned self] in
+                    self.request(category: $0)
+                }
+    }
+
+    private func getUrls(_ items: Driver<[UGCVideoListModel]>) -> Driver<[URL?]> {
+        return  items
+                .map {
+                    $0.map {
+                        URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
+                    }
+                }
     }
 }
 

@@ -52,6 +52,7 @@ extension VideoHallDetailViewModel: ViewModelable {
         .drive(videoPlayInfo)
         .disposed(by: disposeBag)
 
+        // 历史记录
         var episodeID = ""
         if let history = HistoryManager.getPlayHistory(videoID: input.albumID) {
             episodeID = history.episodeID
@@ -69,7 +70,9 @@ extension VideoHallDetailViewModel: ViewModelable {
             // 标题
             cellData.append(.title($0))
             // 影人
-            if !$0.album.actor_list.isEmpty { cellData.append(.role($0)) }
+            if !$0.album.actor_list.isEmpty {
+                cellData.append(.role($0))
+            }
             // 简介
             cellData.append(.intro($0))
             // 集数

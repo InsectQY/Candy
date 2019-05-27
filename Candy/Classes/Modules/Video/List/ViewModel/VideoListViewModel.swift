@@ -33,9 +33,6 @@ extension VideoListViewModel: ViewModelable {
         // 所有需要播放的视频 URL
         let videoURLs = BehaviorRelay<[URL?]>(value: [])
 
-        let output = Output(items: elements.asDriver(),
-                            videoURLs: videoURLs.asDriver())
-
         // 加载最新视频
         let loadNew = refreshOutput
         .headerRefreshing
@@ -55,12 +52,7 @@ extension VideoListViewModel: ViewModelable {
         .drive(elements)
         .disposed(by: disposeBag)
 
-        loadNew
-        .map {
-            $0.map {
-                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
-            }
-        }
+        getUrls(loadNew)
         .drive(videoURLs)
         .disposed(by: disposeBag)
 
@@ -68,16 +60,8 @@ extension VideoListViewModel: ViewModelable {
         .drive(elements.append)
         .disposed(by: disposeBag)
 
-        loadMore
-        .map {
-            $0.map {
-                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
-            }
-        }
-        .map {
-            videoURLs.value + $0
-        }
-        .drive(videoURLs)
+        getUrls(loadMore)
+        .drive(videoURLs.append)
         .disposed(by: disposeBag)
 
         // success 下的刷新状态
@@ -97,7 +81,19 @@ extension VideoListViewModel: ViewModelable {
         .startWith(.hidden)
         .drive(refreshInput.footerRefreshState)
         .disposed(by: disposeBag)
+
+        let output = Output(items: elements.asDriver(),
+                            videoURLs: videoURLs.asDriver())
         return output
+    }
+
+    private func getUrls(_ items: Driver<[NewsListModel]>) -> Driver<[URL?]> {
+        return  items
+                .map {
+                    $0.map {
+                        URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
+                }
+        }
     }
 }
 

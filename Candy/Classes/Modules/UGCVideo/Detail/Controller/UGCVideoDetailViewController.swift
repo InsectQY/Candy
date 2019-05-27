@@ -71,14 +71,9 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
 
         viewModel.output
         .items
-        .drive(collectionView.rx.items) { collectionView, row, item in
-            let indexPath = IndexPath(row: row, section: 0)
-            let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ugcVideoDetailCell.identifier,
-                                                          for: indexPath,
-                                                          cellType: UGCVideoDetailCell.self)
-            cell.largeImage.hero.id = "image_\(row)"
+        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoDetailCell.identifier,
+                                       cellType: UGCVideoDetailCell.self)) { collectionView, item, cell in
             cell.item = item
-            return cell
         }
         .disposed(by: rx.disposeBag)
 

@@ -48,6 +48,7 @@ class UGCVideoDetailCell: CollectionViewCell {
             avatarImage
             .qy_setImage(item.raw_data.user.info.avatar_url)
             commentBtn.setTitle(item.raw_data.action.commentCountString, for: .normal)
+            largeImage.hero.id = item.raw_data.item_id
         }
     }
 

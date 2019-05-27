@@ -52,16 +52,11 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
         .drive(viewModel.input.selection)
         .disposed(by: rx.disposeBag)
 
-        viewModel.output.items
-        .drive(collectionView.rx.items) { collectionView, row, item in
-
-            let indexPath = IndexPath(row: row, section: 0)
-            let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
-                                                          for: indexPath,
-                                                          cellType: UGCVideoListCell.self)
-            cell.coverImage.hero.id = "image_\(row)"
+        viewModel.output
+        .items
+        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
+                                       cellType: UGCVideoListCell.self)) { collectionView, item, cell in
             cell.item = item
-            return cell
         }
         .disposed(by: rx.disposeBag)
 
