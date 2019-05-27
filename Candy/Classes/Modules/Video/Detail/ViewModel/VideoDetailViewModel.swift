@@ -108,8 +108,8 @@ extension VideoDetailViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         loadMoreComments
-        .map { commentElements.value + $0.data }
-        .drive(commentElements)
+        .mapAt(\.data)
+        .drive(commentElements.append)
         .disposed(by: disposeBag)
 
         // tableView 点击

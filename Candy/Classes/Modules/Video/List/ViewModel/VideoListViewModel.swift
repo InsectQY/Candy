@@ -65,8 +65,7 @@ extension VideoListViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { elements.value + $0 }
-        .drive(elements)
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         loadMore

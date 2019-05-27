@@ -78,8 +78,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { [unowned self] in self.elements.value + $0 }
-        .drive(elements)
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 解析视频播放地址

@@ -51,12 +51,10 @@ extension UGCVideoPageViewModel {
         return  VideoApi.ugcCategory
                 .request()
                 .mapObject(UGCVideoPageModel.self)
-                .map { category -> [VideoCategory] in
-
-                    var category = category.data
+                .map { $0.data }
+                .map {
                     // 过滤这一组
-                    category = category.filter { $0.name != "关注" }
-                    return category
+                    $0.filter { $0.name != "关注" }
                 }
                 .trackActivity(loading)
                 .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])

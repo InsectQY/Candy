@@ -57,12 +57,14 @@ extension UserQAViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 绑定数据源
-        new.mapAt(\.data)
+        new
+        .mapAt(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
-        footer.map { elements.value + $0.data }
-        .drive(elements)
+        footer
+        .mapAt(\.data)
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态

@@ -105,10 +105,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { [unowned self] in
-            self.videoElements.value + $0.cell_list
-        }
-        .drive(videoElements)
+        .mapAt(\.cell_list)
+        .drive(videoElements.append)
         .disposed(by: disposeBag)
 
         // collectionView 点击

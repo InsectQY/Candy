@@ -55,8 +55,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         loadMore
-        .map { elements.value + $0.data }
-        .drive(elements)
+        .mapAt(\.data)
+        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 点击事件

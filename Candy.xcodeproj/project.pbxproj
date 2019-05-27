@@ -11,6 +11,9 @@
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E50229BBD2000A90B2C /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E4F229BBD2000A90B2C /* mapAt.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
+		18259E54229BC4FD00A90B2C /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E53229BC4FD00A90B2C /* not.swift */; };
+		18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */; };
+		18259E5E229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E5D229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift */; };
 		1843B45422940161004F99AC /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843B45322940161004F99AC /* VerticalButton.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
 		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
@@ -120,7 +123,6 @@
 		E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */; };
 		E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */; };
 		E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */; };
-		E5E0207F21B5057600A4CDF1 /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */; };
 		E5E0208121B5057600A4CDF1 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205721B5057600A4CDF1 /* Then.swift */; };
 		E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */; };
 		E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */; };
@@ -241,6 +243,9 @@
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		18259E4F229BBD2000A90B2C /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		18259E51229BC32F00A90B2C /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
+		18259E53229BC4FD00A90B2C /* not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = not.swift; sourceTree = "<group>"; };
+		18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = catchErrorJustComplete.swift; sourceTree = "<group>"; };
+		18259E5D229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+RangeReplaceableCollection.swift"; sourceTree = "<group>"; };
 		1843B45322940161004F99AC /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
 		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
@@ -359,7 +364,6 @@
 		E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
-		E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		E5E0205721B5057600A4CDF1 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -1469,9 +1473,11 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				18259E5D229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift */,
+				18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */,
+				18259E53229BC4FD00A90B2C /* not.swift */,
 				18259E51229BC32F00A90B2C /* mapTo.swift */,
 				18259E4F229BBD2000A90B2C /* mapAt.swift */,
-				E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */,
 				E5E0205721B5057600A4CDF1 /* Then.swift */,
 				E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */,
 				E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */,
@@ -2367,6 +2373,7 @@
 				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
 				18259E52229BC32F00A90B2C /* mapTo.swift in Sources */,
+				18259E5E229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift in Sources */,
 				E5E9B21621D4CC3500B08281 /* UGCVideoCommentViewController.swift in Sources */,
 				E5FB73A721B79C290010D8A7 /* Button.swift in Sources */,
 				E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */,
@@ -2426,7 +2433,6 @@
 				E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
 				E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */,
-				E5E0207F21B5057600A4CDF1 /* Observable+Ext.swift in Sources */,
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
 				E5D9542421E74CD3007FC606 /* UGCVideoActivityListViewController.swift in Sources */,
@@ -2475,9 +2481,11 @@
 				E57DD45021E2EC2D0089A2D2 /* UserCenterModel.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
+				18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */,
 				E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */,
 				E578101621C8DE70005BFFAC /* Filter.swift in Sources */,
 				E5FC765321CC8B0000FB6FFD /* EpisodeCell.swift in Sources */,
+				18259E54229BC4FD00A90B2C /* not.swift in Sources */,
 				E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */,
 				E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */,
 				E578101821C8DE70005BFFAC /* FilterView.swift in Sources */,
