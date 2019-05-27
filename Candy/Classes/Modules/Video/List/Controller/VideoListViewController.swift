@@ -111,7 +111,8 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
 
             // 视频播放点击
             cell.videoBtn.rx.tap
-            .bind(to: self.player.rx.playTheIndexPath(indexPath))
+            .mapTo(indexPath)
+            .bind(to: self.player.rx.playTheIndexPath())
             .disposed(by: cell.disposeBag)
 
             // 视频信息
@@ -128,10 +129,11 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)
-        .map { $0.content }
+        .mapAt(\.content)
         .map { [unowned self] in
             ["news": $0,
-            "seekTime": self.currentTime] }
+            "seekTime": self.currentTime]
+        }
         .flatMap {
             navigator.rx.push(VideoURL.detail.path,
                               context: $0)

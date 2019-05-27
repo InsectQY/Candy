@@ -57,6 +57,11 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.zf_scrollViewDirection = .horizontal
+        addPanGesture()
+    }
+
+    private func addPanGesture() {
+
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
         panGestureRecognizer.delegate = self
         collectionView.addGestureRecognizer(panGestureRecognizer)
@@ -88,7 +93,13 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         // 滚动到指定位置
         viewModel.output
         .indexPath
-        .drive(rx.scrollToItem)
+        .drive(collectionView.rx.scrollToItem(at: .left, animated: false))
+        .disposed(by: rx.disposeBag)
+
+        // 播放视频
+        viewModel.output
+        .indexPath
+        .drive(player.rx.playTheIndexPath())
         .disposed(by: rx.disposeBag)
 
         // 滑动结束时加载更多视频
@@ -97,7 +108,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
             (willDisplay: $0, video: $1)
         }
         .filter {
-            $0.willDisplay.at.item == ($0.video.count - 2)
+            $0.willDisplay.at.item == $0.video.count - 2
         }
         .mapToVoid()
         .bind(to: viewModel.refreshInput.beginFooterRefresh)
@@ -192,20 +203,5 @@ extension UGCVideoDetailViewController: UIGestureRecognizerDelegate {
         }
         let v = pan.velocity(in: nil)
         return v.y > abs(v.x)
-    }
-}
-
-// MARK: - Reactive-Extension
-extension Reactive where Base: UGCVideoDetailViewController {
-
-    var scrollToItem: Binder<IndexPath> {
-        return Binder(base) { vc, result in
-
-            vc.collectionView.scrollToItem(at: result,
-                                           at: .left,
-                                           animated: false)
-            vc.collectionView.layoutIfNeeded()
-            vc.player.playTheIndexPath(result, scrollToTop: false)
-        }
     }
 }

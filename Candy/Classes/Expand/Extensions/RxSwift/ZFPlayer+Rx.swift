@@ -29,9 +29,8 @@ extension Reactive where Base: ZFPlayerController {
         }
     }
 
-    public func playTheIndexPath(_ indexPath: IndexPath,
-                                 scrollToTop: Bool = false) -> Binder<Void> {
-        return Binder(base) { player, _ in
+    public func playTheIndexPath(scrollToTop: Bool = false) -> Binder<IndexPath> {
+        return Binder(base) { player, indexPath in
             player.playTheIndexPath(indexPath,
                                     scrollToTop: scrollToTop)
         }

@@ -50,7 +50,7 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         // 数据源
         laodNew
-        .map { $0.data }
+        .mapAt(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -69,7 +69,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         .disposed(by: disposeBag)
 
         // 头部刷新状态
-        laodNew.map { _ in false }
+        laodNew
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

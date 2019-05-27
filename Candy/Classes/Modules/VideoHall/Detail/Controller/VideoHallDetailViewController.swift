@@ -141,6 +141,11 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
         .drive(rx.selIndex)
         .disposed(by: rx.disposeBag)
 
+        clickEpisode
+        .mapToVoid()
+        .drive(tableView.rx.reloadData)
+        .disposed(by: rx.disposeBag)
+
         // 保存播放的历史记录
         clickEpisode
         .map { [unowned self] in
@@ -170,7 +175,6 @@ extension Reactive where Base: VideoHallDetailViewController {
     var selIndex: Binder<Int> {
         return Binder(base) { vc, result in
             vc.selIndex = result
-            vc.tableView.reloadData()
         }
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
+		18259E50229BBD2000A90B2C /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E4F229BBD2000A90B2C /* mapAt.swift */; };
+		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
 		1843B45422940161004F99AC /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843B45322940161004F99AC /* VerticalButton.swift */; };
 		18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18491006225453E2001D9974 /* RefreshViewModel.swift */; };
 		1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */; };
@@ -237,6 +239,8 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		18259E4F229BBD2000A90B2C /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
+		18259E51229BC32F00A90B2C /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
 		1843B45322940161004F99AC /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		18491006225453E2001D9974 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
 		1849100D225494E6001D9974 /* UGCVideoCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentHeaderView.swift; sourceTree = "<group>"; };
@@ -1465,6 +1469,8 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				18259E51229BC32F00A90B2C /* mapTo.swift */,
+				18259E4F229BBD2000A90B2C /* mapAt.swift */,
 				E5E0205521B5057600A4CDF1 /* Observable+Ext.swift */,
 				E5E0205721B5057600A4CDF1 /* Then.swift */,
 				E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */,
@@ -2356,9 +2362,11 @@
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
 				E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */,
 				187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */,
+				18259E50229BBD2000A90B2C /* mapAt.swift in Sources */,
 				E5FE0DC221FAFD4A00DE1DED /* CollectionViewCell.swift in Sources */,
 				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
+				18259E52229BC32F00A90B2C /* mapTo.swift in Sources */,
 				E5E9B21621D4CC3500B08281 /* UGCVideoCommentViewController.swift in Sources */,
 				E5FB73A721B79C290010D8A7 /* Button.swift in Sources */,
 				E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */,

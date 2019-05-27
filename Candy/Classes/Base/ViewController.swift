@@ -113,7 +113,7 @@ class ViewController<VM: ViewModel>: UIViewController {
     func bindViewModel() {
 
         reachability?.rx.reachabilityChanged
-        .map { $0.connection }
+        .mapAt(\.connection)
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
     }

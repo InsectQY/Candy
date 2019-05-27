@@ -102,7 +102,7 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         // 失败时的头部状态
         viewModel
         .refreshError
-        .map { _ in false }
+        .mapTo(false)
         .drive(refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }

@@ -83,7 +83,7 @@ extension VideoListViewModel: ViewModelable {
 
         // success 下的刷新状态
         loadNew
-        .map { _ in false }
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

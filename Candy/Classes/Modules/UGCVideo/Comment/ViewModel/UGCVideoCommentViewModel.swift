@@ -46,7 +46,7 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
         // 数据源绑定
         loadNew
-        .map { $0.data }
+        .mapAt(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -57,7 +57,7 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
         // 头部刷新状态
         loadNew
-        .map { _ in false }
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

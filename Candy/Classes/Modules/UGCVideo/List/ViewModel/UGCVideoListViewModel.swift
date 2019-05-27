@@ -119,7 +119,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         // 头部状态
-        loadNew.map { _ in false }
+        loadNew
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

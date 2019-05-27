@@ -44,7 +44,7 @@ extension UGCVideoActivityViewModel: ViewModelable {
 
         // 数据源
         loadNew
-        .map { $0.album_list }
+        .mapAt(\.album_list)
         .drive(elements)
         .disposed(by: disposeBag)
 
@@ -55,7 +55,7 @@ extension UGCVideoActivityViewModel: ViewModelable {
 
         // 头部刷新状态
         loadNew
-        .map { _ in false }
+        .mapTo(false)
         .drive(refreshInput.headerRefreshState)
         .disposed(by: disposeBag)
 

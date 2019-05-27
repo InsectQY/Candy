@@ -31,7 +31,9 @@ class CommentCell: TableViewCell {
 
             guard let item = item else { return }
             userNameLabel.text = item.user_name
-            avatarImage.qy_setImage(item.user_profile_image_url, placeholder: "avatar", options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarImage.qy_setImage(item.user_profile_image_url,
+                                    placeholder: "avatar",
+                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
             commentLabel.attributedText = item.attrText
             diggCountBtn.setTitle(" \(item.diggCountString)", for: .normal)
 

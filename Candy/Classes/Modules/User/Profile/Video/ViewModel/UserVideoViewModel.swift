@@ -46,18 +46,18 @@ extension UserVideoViewModel: ViewModelable {
 
         // 获取数据时绑定最新的 offset
         new
-        .map { $0.offset }
+        .mapAt(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
         footer
-        .map { $0.offset }
+        .mapAt(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
         // 绑定数据源
         new
-        .map { $0.data }
+        .mapAt(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 

@@ -103,7 +103,7 @@ extension VideoDetailViewModel: ViewModelable {
         }
 
         newComments
-        .map { $0.data }
+        .mapAt(\.data)
         .drive(commentElements)
         .disposed(by: disposeBag)
 
