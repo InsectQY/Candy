@@ -29,6 +29,7 @@
 		18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */; };
 		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
+		18EE6F2F229CE6AC007AF055 /* UGCVideoControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE6F2E229CE6AC007AF055 /* UGCVideoControlView.swift */; };
 		18F81D5B2296368D0028CA14 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D5A2296368D0028CA14 /* UIFontExtension.swift */; };
 		18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D5D229636B10028CA14 /* UIColorExtension.swift */; };
 		18F81D61229636E00028CA14 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D60229636E00028CA14 /* NotificationExtension.swift */; };
@@ -145,7 +146,6 @@
 		E5E3242921DC819E002DC676 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3242121DC819E002DC676 /* JXPagerView.m */; };
 		E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3242621DC819E002DC676 /* JXPagerListRefreshView.m */; };
 		E5E42A34220197E2003C46B9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E42A33220197E2003C46B9 /* R.generated.swift */; };
-		E5E4A8C621D20AD500637549 /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E4A8C421D20AD400637549 /* ZFDouYinControlView.m */; };
 		E5E5713021CB2853005C2D6E /* VideoHallDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5712F21CB2853005C2D6E /* VideoHallDetailViewController.swift */; };
 		E5E5713221CB28A7005C2D6E /* VideoHallDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5713121CB28A7005C2D6E /* VideoHallDetailViewModel.swift */; };
 		E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5713321CB42CF005C2D6E /* VideoHallDetailModel.swift */; };
@@ -261,6 +261,7 @@
 		18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Rx.swift"; sourceTree = "<group>"; };
 		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		18EE6F2E229CE6AC007AF055 /* UGCVideoControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoControlView.swift; sourceTree = "<group>"; };
 		18F81D5A2296368D0028CA14 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		18F81D5D229636B10028CA14 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		18F81D60229636E00028CA14 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
@@ -390,8 +391,6 @@
 		E5E3242521DC819E002DC676 /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
 		E5E3242621DC819E002DC676 /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
 		E5E42A33220197E2003C46B9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		E5E4A8C421D20AD400637549 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
-		E5E4A8C521D20AD400637549 /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		E5E5712F21CB2853005C2D6E /* VideoHallDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailViewController.swift; sourceTree = "<group>"; };
 		E5E5713121CB28A7005C2D6E /* VideoHallDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailViewModel.swift; sourceTree = "<group>"; };
 		E5E5713321CB42CF005C2D6E /* VideoHallDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailModel.swift; sourceTree = "<group>"; };
@@ -2022,10 +2021,9 @@
 		E5FAB72321C0FE0F002BF258 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E5E4A8C521D20AD400637549 /* ZFDouYinControlView.h */,
-				E5E4A8C421D20AD400637549 /* ZFDouYinControlView.m */,
 				E5FAB72421C0FE28002BF258 /* UGCVideoDetailCell.swift */,
 				E5FAB72521C0FE28002BF258 /* UGCVideoDetailCell.xib */,
+				18EE6F2E229CE6AC007AF055 /* UGCVideoControlView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2465,6 +2463,7 @@
 				E57DD44721E2E7960089A2D2 /* UserCenterHeaderView.swift in Sources */,
 				E59006452202E35500EE0838 /* VideoURL.swift in Sources */,
 				E578101721C8DE70005BFFAC /* FilterCell.swift in Sources */,
+				18EE6F2F229CE6AC007AF055 /* UGCVideoControlView.swift in Sources */,
 				E5FC766321CCC3C700FB6FFD /* VideoHallRoleCell.swift in Sources */,
 				E578101E21C8DF1D005BFFAC /* VideoHallModel.swift in Sources */,
 				E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */,
@@ -2506,7 +2505,6 @@
 				E5E0203321B4FE7B00A4CDF1 /* AppConfigs.swift in Sources */,
 				E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */,
 				E5FA8A0021BA37820084F3C3 /* UGCVideoListViewModel.swift in Sources */,
-				E5E4A8C621D20AD500637549 /* ZFDouYinControlView.m in Sources */,
 				E595D96821DE02FE005A6C00 /* UserQAView.swift in Sources */,
 				E5FA89F721BA1E530084F3C3 /* UGCVideoPageModel.swift in Sources */,
 				E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */,

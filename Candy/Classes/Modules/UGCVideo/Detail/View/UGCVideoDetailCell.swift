@@ -21,6 +21,7 @@ class UGCVideoDetailCell: CollectionViewCell {
             avatarImage.isHidden = isPanned
             commentBtn.isHidden = isPanned
             closeBtn.isHidden = isPanned
+            bgImage.isHidden = isPanned
         }
     }
 
@@ -32,23 +33,39 @@ class UGCVideoDetailCell: CollectionViewCell {
             avatarImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(avatarTap)))
         }
     }
-    @IBOutlet private(set) weak var largeImage: ImageView!
+    @IBOutlet private(set) weak var coverImage: ImageView!
+    @IBOutlet private(set) weak var bgImage: ImageView!
     @IBOutlet private weak var commentBtn: Button!
     @IBOutlet private weak var shareBtn: Button!
+
+    private lazy var effectView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        return effectView
+    }()
 
     public var item: UGCVideoListModel? {
 
         didSet {
 
             guard let item = item?.content else { return }
-            largeImage
+
+            if (item.raw_data.large_image_list.first?.width ?? 0) > (item.raw_data.large_image_list.first?.height ?? 0) {
+                coverImage.contentMode = .scaleAspectFit
+                coverImage.clipsToBounds = false
+            } else {
+                coverImage.contentMode = .scaleAspectFill
+                coverImage.clipsToBounds = true
+            }
+            coverImage
+            .qy_setImage(item.raw_data.video.origin_cover.url_list.first)
+            bgImage
             .qy_setImage(item.raw_data.video.origin_cover.url_list.first)
             abstractLabel.text = item.raw_data.title
             userNameLabel.text = item.raw_data.user.info.name
             avatarImage
             .qy_setImage(item.raw_data.user.info.avatar_url)
             commentBtn.setTitle(item.raw_data.action.commentCountString, for: .normal)
-            largeImage.hero.id = item.raw_data.item_id
+            hero.id = item.raw_data.item_id
         }
     }
 

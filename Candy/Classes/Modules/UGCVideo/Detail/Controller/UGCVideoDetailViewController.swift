@@ -13,11 +13,13 @@ import Hero
 class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewModel> {
 
     // MARK: - Lazyload
-    fileprivate lazy var controlView = ZFDouYinControlView()
-    fileprivate lazy var player: ZFPlayerController = {
+    private lazy var controlView = UGCVideoControlView(frame: UIScreen.main.bounds)
+    private lazy var player: ZFPlayerController = {
 
         let playerManager = ZFAVPlayerManager()
-        let player = ZFPlayerController(scrollView: collectionView, playerManager: playerManager, containerViewTag: 100)
+        let player = ZFPlayerController(scrollView: collectionView,
+                                        playerManager: playerManager,
+                                        containerViewTag: 100)
         player.controlView = controlView
         player.shouldAutoPlay = true
         player.playerDisapperaPercent = 1.0
@@ -118,9 +120,8 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
                 return
             }
             self.player.playTheIndexPath(indexPath, scrollToTop: false)
+            self.controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
             self.controlView.resetControlView()
-//            self.controlView.showCover(with: cell.largeImage.image)
-            self.controlView.showCover(withUrl: cell.item?.content.raw_data.video.origin_cover.url_list.first)
         }
 
         player.playerDidToEnd = { [weak self] _ in
@@ -148,7 +149,8 @@ extension UGCVideoDetailViewController {
             cell.isPanned = true
             Hero.shared.update(progress)
             let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
-            Hero.shared.apply(modifiers: [.position(currentPos)], to: cell.largeImage)
+            Hero.shared.apply(modifiers: [.position(currentPos)],
+                              to: cell)
         default:
 
             if progress + recognizer.velocity(in: nil).y / collectionView.bounds.height > 0.3 {

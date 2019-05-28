@@ -6,7 +6,6 @@
 #define Header_h
 
 #import "NSData+CRC32.h"
-#import "ZFDouYinControlView.h"
 #import "JXPagerView.h"
 
 #endif

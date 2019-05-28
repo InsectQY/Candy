@@ -32,6 +32,8 @@ struct RawData: Codable {
     let title: String
     /// 发布用户
     let user: User
+    /// 大图
+    let large_image_list: [UrlList]
 }
 
 struct User: Codable {
@@ -64,11 +66,16 @@ struct Action: Codable {
 struct UGCVideo: Codable {
 
     /// 视频播放地址
-    let play_addr: URLList
+    let play_addr: UrlList
     /// 视频图片
-    let origin_cover: URLList
+    let origin_cover: UrlList
 }
 
-struct URLList: Codable {
+struct UrlList: Codable {
+    /// 图片 URL
     let url_list: [String]
+    /// 图片宽度
+    let width: CGFloat
+    /// 图片高度
+    let height: CGFloat
 }
