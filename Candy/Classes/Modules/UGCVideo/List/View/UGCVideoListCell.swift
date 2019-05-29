@@ -27,7 +27,7 @@ class UGCVideoListCell: CollectionViewCell {
             titleLabel.text = item.content.raw_data.title
             playCountLabel.text = "\(item.content.raw_data.action.playCountString)次播放"
             diggCountLabel.text = "\(item.content.raw_data.action.diggCountString)赞"
-            coverImage.hero.id = item.content.raw_data.item_id
+            hero.id = item.content.raw_data.item_id
         }
     }
 }

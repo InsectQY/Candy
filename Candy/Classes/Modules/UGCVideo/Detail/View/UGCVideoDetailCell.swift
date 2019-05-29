@@ -38,11 +38,6 @@ class UGCVideoDetailCell: CollectionViewCell {
     @IBOutlet private weak var commentBtn: Button!
     @IBOutlet private weak var shareBtn: Button!
 
-    private lazy var effectView: UIVisualEffectView = {
-        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        return effectView
-    }()
-
     public var item: UGCVideoListModel? {
 
         didSet {

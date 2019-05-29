@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Cache (5.2.0)
-  - CleanJSON (0.8.5)
+  - CleanJSON (0.9.2)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - EmptyDataSet-Swift (4.2.0)
@@ -204,7 +204,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: f5791e5fbedbabcae10b56a7a9e103273b18bb38
+  CleanJSON: 83e37238a637dad0ada84561d0a7d44a638e4655
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
@@ -242,6 +242,6 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
 
-PODFILE CHECKSUM: 56c4ace8e9fb689d8c2ab40e6b54a39ed38d088b
+PODFILE CHECKSUM: eb39c286dabe754afb07e2c13550b87399702e2e
 
 COCOAPODS: 1.7.0
