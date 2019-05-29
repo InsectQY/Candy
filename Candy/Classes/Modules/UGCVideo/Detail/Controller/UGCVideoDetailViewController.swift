@@ -128,10 +128,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
             self?.player.currentPlayerManager.replay?()
         }
     }
-
-    deinit {
-        myViewModel = nil
-    }
 }
 
 extension UGCVideoDetailViewController {

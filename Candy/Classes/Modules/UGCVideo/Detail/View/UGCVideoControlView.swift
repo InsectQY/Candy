@@ -11,10 +11,12 @@ import ZFPlayer
 
 class UGCVideoControlView: View {
 
-    var player: ZFPlayerController? {
+    weak var player: ZFPlayerController? {
         didSet {
-            player?.currentPlayerManager.view.insertSubview(bgImageView, at: 0)
-            player?.currentPlayerManager.view.insertSubview(coverImageView, at: 1)
+            player?.currentPlayerManager.view.insertSubview(bgImageView,
+                                                            at: 0)
+            player?.currentPlayerManager.view.insertSubview(coverImageView,
+                                                            at: 1)
         }
     }
 

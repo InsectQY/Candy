@@ -82,16 +82,16 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
         // collectionView 点击事件
         selection
+        .asDriverOnErrorJustComplete()
+        .drive(indexPath)
+        .disposed(by: disposeBag)
+
+        selection
         .flatMap { [weak self] _ in
             navigator.rx.present(UGCURL.detail.path,
                                  context: self)
         }
         .subscribe()
-        .disposed(by: disposeBag)
-
-        selection
-        .asDriverOnErrorJustComplete()
-        .drive(indexPath)
         .disposed(by: disposeBag)
 
         // 头部状态
