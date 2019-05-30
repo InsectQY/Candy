@@ -42,9 +42,8 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         // 加载更多视频
         let loadMore = refreshOutput
         .footerRefreshing
-        .withLatestFrom(elements.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(offset: $0.count,
+            self.request(offset: elements.value.count,
                          key: input.keyword)
         }
 

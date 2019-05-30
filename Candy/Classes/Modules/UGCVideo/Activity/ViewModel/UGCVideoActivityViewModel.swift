@@ -36,9 +36,8 @@ extension UGCVideoActivityViewModel: ViewModelable {
         // 加载更多视频
         let loadMore = refreshOutput
         .footerRefreshing
-        .withLatestFrom(elements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
-            self.request(offset: $0,
+            self.request(offset: elements.value.count,
                          userAction: .loadMore)
         }
 

@@ -95,11 +95,10 @@ extension VideoDetailViewModel: ViewModelable {
         // 加载更多评论
         let loadMoreComments = refreshOutput
         .footerRefreshing
-        .withLatestFrom(commentElements.asDriver()) { $1.count }
         .flatMapLatest { [unowned self] in
             self.requestComment(itemID: itemID,
                                 groupID: groupID,
-                                offset: $0)
+                                offset: commentElements.value.count)
         }
 
         newComments
