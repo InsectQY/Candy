@@ -75,9 +75,6 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
         // 视频 URL
         output
         .videoURLs
-        .map {
-            $0.compactMap { $0 }
-        }
         .drive(player.rx.assetURLs)
         .disposed(by: rx.disposeBag)
 

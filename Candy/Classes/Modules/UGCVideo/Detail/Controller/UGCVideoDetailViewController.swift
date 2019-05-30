@@ -71,6 +71,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
 
     override func bindViewModel() {
 
+        // 数据源
         viewModel.output
         .items
         .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoDetailCell.identifier,
@@ -82,9 +83,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         // 视频 URL
         viewModel.output
         .videoURLs
-        .map {
-            $0.compactMap { $0 }
-        }
         .drive(player.rx.assetURLs)
         .disposed(by: rx.disposeBag)
 

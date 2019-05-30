@@ -20,7 +20,7 @@ final class VideoListViewModel: RefreshViewModel {
         /// 数据源
         let items: Driver<[NewsListModel]>
         /// 所有需要播放的视频 URL
-        let videoURLs: Driver<[URL?]>
+        let videoURLs: Driver<[URL]>
     }
 }
 
@@ -31,7 +31,7 @@ extension VideoListViewModel: ViewModelable {
         let elements = BehaviorRelay<[NewsListModel]>(value: [])
 
         // 所有需要播放的视频 URL
-        let videoURLs = BehaviorRelay<[URL?]>(value: [])
+        let videoURLs = BehaviorRelay<[URL]>(value: [])
 
         // 加载最新视频
         let loadNew = refreshOutput
@@ -87,12 +87,13 @@ extension VideoListViewModel: ViewModelable {
         return output
     }
 
-    private func getUrls(_ items: Driver<[NewsListModel]>) -> Driver<[URL?]> {
+    private func getUrls(_ items: Driver<[NewsListModel]>) -> Driver<[URL]> {
         return  items
                 .map {
                     $0.map {
                         URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
                 }
+                .compactMap { $0 }
         }
     }
 }

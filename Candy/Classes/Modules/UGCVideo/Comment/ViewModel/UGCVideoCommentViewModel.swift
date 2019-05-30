@@ -34,7 +34,6 @@ extension UGCVideoCommentViewModel: ViewModelable {
             self.request(groupID: input.groupID,
                          offset: 0)
         }
-
         // 加载更多评论
         let loadMore = refreshOutput
         .footerRefreshing

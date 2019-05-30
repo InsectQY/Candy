@@ -26,7 +26,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         /// 所有视频
         let items: Driver<[UGCVideoListModel]>
         /// 所有需要播放视频的 URL
-        let videoURLs: Driver<[URL?]>
+        let videoURLs: Driver<[URL]>
         /// 已经选中的视频
         let indexPath: Driver<IndexPath>
     }
@@ -39,7 +39,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     // 所有视频
     private let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
     // 所有需要播放的视频 URL
-    private let videoURLs = BehaviorRelay<[URL?]>(value: [])
+    private let videoURLs = BehaviorRelay<[URL]>(value: [])
     // 当前选中的
     private let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
 
@@ -86,6 +86,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .drive(indexPath)
         .disposed(by: disposeBag)
 
+        // 点击跳转
         selection
         .flatMap { [weak self] _ in
             navigator.rx.present(UGCURL.detail.path,
@@ -123,12 +124,13 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
                 }
     }
 
-    private func getUrls(_ items: Driver<[UGCVideoListModel]>) -> Driver<[URL?]> {
+    private func getUrls(_ items: Driver<[UGCVideoListModel]>) -> Driver<[URL]> {
         return  items
                 .map {
                     $0.map {
                         URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
                     }
+                    .compactMap { $0 }
                 }
     }
 }

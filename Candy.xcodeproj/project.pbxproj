@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
+		181473EB229F82870092F546 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181473EA229F82870092F546 /* count.swift */; };
 		18259E50229BBD2000A90B2C /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E4F229BBD2000A90B2C /* mapAt.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
 		18259E54229BC4FD00A90B2C /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E53229BC4FD00A90B2C /* not.swift */; };
@@ -241,6 +242,7 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		181473EA229F82870092F546 /* count.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		18259E4F229BBD2000A90B2C /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		18259E51229BC32F00A90B2C /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
 		18259E53229BC4FD00A90B2C /* not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = not.swift; sourceTree = "<group>"; };
@@ -1472,6 +1474,7 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				181473EA229F82870092F546 /* count.swift */,
 				18259E5D229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift */,
 				18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */,
 				18259E53229BC4FD00A90B2C /* not.swift */,
@@ -2392,6 +2395,7 @@
 				18DC116B222397DF004FB1F6 /* TopView.swift in Sources */,
 				E520A48321D718B100CDDB04 /* ReplyCommentViewModel.swift in Sources */,
 				E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */,
+				181473EB229F82870092F546 /* count.swift in Sources */,
 				E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */,
 				E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */,
 				E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */,
