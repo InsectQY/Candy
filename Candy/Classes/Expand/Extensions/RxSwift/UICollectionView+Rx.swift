@@ -29,10 +29,10 @@ extension Reactive where Base: UICollectionView {
     func scrollToItem(at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) -> Binder<IndexPath> {
 
         return Binder(base) { collectionView, indexPath in
+
             collectionView.scrollToItem(at: indexPath,
                                         at: scrollPosition,
                                         animated: animated)
-            collectionView.layoutIfNeeded()
         }
     }
 }

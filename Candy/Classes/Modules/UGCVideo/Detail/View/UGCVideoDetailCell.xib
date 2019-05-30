@@ -18,10 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mRj-cS-qHL" customClass="ImageView" customModule="Candy" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mRj-cS-qHL" customClass="ImageView" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-Xb-mG3" customClass="ImageView" customModule="Candy" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-Xb-mG3" customClass="ImageView" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPt-cw-One" customClass="Button" customModule="Candy" customModuleProvider="target">

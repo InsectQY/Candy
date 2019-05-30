@@ -79,6 +79,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         }
         .disposed(by: rx.disposeBag)
 
+        // 视频 URL
         viewModel.output
         .videoURLs
         .map {
@@ -90,13 +91,18 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         // 滚动到指定位置
         viewModel.output
         .indexPath
-        .drive(collectionView.rx.scrollToItem(at: .left, animated: false))
+        .drive(collectionView.rx.scrollToItem(at: .centeredHorizontally,
+                                              animated: false))
         .disposed(by: rx.disposeBag)
 
         // 播放视频
         viewModel.output
         .indexPath
-        .drive(player.rx.playTheIndexPath())
+        .drive(onNext: { [weak self] in
+
+            self?.collectionView.layoutIfNeeded()
+            self?.playAtTheIndexPath($0)
+        })
         .disposed(by: rx.disposeBag)
 
         // 滑动结束时加载更多视频
@@ -112,21 +118,27 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         .disposed(by: rx.disposeBag)
 
         // 滑动时自动播放视频
-        collectionView.zf_scrollViewDidStopScrollCallback = { [unowned self] indexPath in
-
-            guard
-                let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell
-            else {
-                return
-            }
-            self.player.playTheIndexPath(indexPath, scrollToTop: false)
-            self.controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
-            self.controlView.resetControlView()
+        collectionView.zf_scrollViewDidStopScrollCallback = { [weak self] in
+            self?.playAtTheIndexPath($0)
         }
 
+        // 播放结束时重新播放
         player.playerDidToEnd = { [weak self] _ in
             self?.player.currentPlayerManager.replay?()
         }
+    }
+
+    // 播放视频
+    private func playAtTheIndexPath(_ indexPath: IndexPath) {
+
+        guard
+            let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell
+            else {
+                return
+        }
+        self.player.playTheIndexPath(indexPath, scrollToTop: false)
+        self.controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
+        self.controlView.resetControlView()
     }
 }
 

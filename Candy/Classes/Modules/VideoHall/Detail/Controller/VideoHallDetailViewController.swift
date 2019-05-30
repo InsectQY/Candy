@@ -17,8 +17,8 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
     // MARK: - Lazyload
     private lazy var videoView = R.nib.videoHallHeaderView.firstView(owner: nil)!
 
-    fileprivate lazy var controlView = ZFPlayerControlView()
-    fileprivate lazy var player: ZFPlayerController = {
+    private lazy var controlView = ZFPlayerControlView()
+    private lazy var player: ZFPlayerController = {
 
         let playerManager = ZFAVPlayerManager()
         let player = ZFPlayerController(playerManager: playerManager,
