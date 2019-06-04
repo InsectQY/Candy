@@ -2,7 +2,7 @@
 //  UGCVideoControlView.swift
 //  Candy
 //
-//  Created by apple on 2019/5/28.
+//  Created by Insect on 2019/5/28.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 
@@ -40,14 +40,14 @@ class UGCVideoControlView: View {
 
     private lazy var coverImageView: ImageView = {
         let coverImageView = ImageView(frame: .zero)
-        coverImageView.contentMode = .scaleAspectFit
+        coverImageView.contentMode = .scaleAspectFill
         coverImageView.isUserInteractionEnabled = true
         return coverImageView
     }()
 
     private lazy var bgImageView: ImageView = {
         let bgImageView = ImageView(frame: .zero)
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         bgImageView.isUserInteractionEnabled = true
         return bgImageView
     }()
@@ -89,7 +89,7 @@ class UGCVideoControlView: View {
     func resetControlView() {
         sliderView.value = 0
         sliderView.bufferValue = 0
-        coverImageView.contentMode = .scaleAspectFit
+        coverImageView.contentMode = .scaleAspectFill
     }
 }
 

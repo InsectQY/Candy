@@ -90,7 +90,7 @@ PODS:
     - RxCocoa
     - RxSwift
     - URLNavigator
-  - SwiftLint (0.32.0)
+  - SwiftLint (0.33.0)
   - SwiftyThirdParty (0.1.1):
     - SwiftyThirdParty/Kingfisher (= 0.1.1)
     - SwiftyThirdParty/MJRefresh (= 0.1.1)
@@ -235,7 +235,7 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
-  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
+  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   SwiftyThirdParty: fa587219c4ae28fc1bf52959f271b22f3cd978d3
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d

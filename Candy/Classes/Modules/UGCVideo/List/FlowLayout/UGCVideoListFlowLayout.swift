@@ -20,7 +20,7 @@ class UGCVideoListFlowLayout: UICollectionViewFlowLayout {
         return ((collectionView?.width ?? 0) - (kMaxCol - 1) * lineSpacing) / kMaxCol
     }
     private var kItemH: CGFloat {
-        return kItemW * 1.5
+        return kItemW * 1.6
     }
 
     override func prepare() {

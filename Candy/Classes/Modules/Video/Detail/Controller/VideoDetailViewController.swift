@@ -36,17 +36,20 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fd_prefersNavigationBarHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.isViewControllerDisappear = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
     }
 
     override func viewDidLayoutSubviews() {

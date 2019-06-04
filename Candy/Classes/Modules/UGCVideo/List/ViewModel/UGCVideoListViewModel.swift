@@ -90,7 +90,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         selection
         .flatMap { [weak self] _ in
             navigator.rx.present(UGCURL.detail.path,
-                                 context: self)
+                                 context: self,
+                                 wrap: NavigationController.self)
         }
         .subscribe()
         .disposed(by: disposeBag)

@@ -16,7 +16,7 @@ class NavigationController: UINavigationController {
 
         // 全屏滑动返回
         fd_fullscreenPopGestureRecognizer.isEnabled = true
-
+        hero.isEnabled = true
         // 导航栏背景和文字设置
         let naviBar: UINavigationBar = UINavigationBar.appearance()
         naviBar.barTintColor = .main
@@ -32,7 +32,11 @@ class NavigationController: UINavigationController {
 
         if children.count >= 1 {
 
-            viewController.navigationItem.leftBarButtonItem = BarButtonItem(image: R.image.leftbackicon_white_titlebar_24x24_(), style: .plain, target: self, action: #selector(backBtnDidClick))
+            let backItem = BarButtonItem(image: R.image.leftbackicon_white_titlebar_24x24_(),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backBtnDidClick))
+            viewController.navigationItem.leftBarButtonItem = backItem
             // 隐藏要push的控制器的tabbar
             viewController.hidesBottomBarWhenPushed = true
         }

@@ -28,8 +28,4 @@ class VideoDetailHeader: View {
                                     options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
         }
     }
-
-    @IBAction private func backBtnDidClick(_ sender: Any) {
-        parentVC?.navigationController?.popViewController(animated: true)
-    }
 }

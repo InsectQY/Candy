@@ -2,7 +2,7 @@
 //  VerticalButton.swift
 //  Candy
 //
-//  Created by apple on 2019/5/21.
+//  Created by Insect on 2019/5/21.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 

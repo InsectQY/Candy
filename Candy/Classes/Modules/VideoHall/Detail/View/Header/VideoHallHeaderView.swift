@@ -13,8 +13,4 @@ class VideoHallHeaderView: UIView {
     static let height: CGFloat = Configs.Dimensions.screenHeight * 0.4
 
     @IBOutlet public weak var videoContentView: UIView!
-
-    @IBAction private func backBtnDidClick(_ sender: Any) {
-        parentVC?.navigationController?.popViewController(animated: true)
-    }
 }

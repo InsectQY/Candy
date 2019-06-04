@@ -28,9 +28,21 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
     }()
 
     // MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkHistory()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
     }
 
     override func viewDidLayoutSubviews() {
@@ -57,7 +69,6 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
     override func makeUI() {
         super.makeUI()
 
-        fd_prefersNavigationBarHidden = true
         tableView.register(R.nib.videoHallTitleCell)
         tableView.register(R.nib.videoHallEpisodeCell)
         tableView.register(R.nib.videoHallIntroCell)

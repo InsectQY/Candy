@@ -52,12 +52,15 @@ class TabBarController: UITabBarController {
 extension TabBarController {
 
     private func seUpTabBarAttr() {
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
+
+        UITabBarItem.appearance()
+        .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
+        UITabBarItem.appearance()
+        .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
 
         tabBar.hero.modifiers = [.useGlobalCoordinateSpace,
                                  .useNoSnapshot, .zPosition(10),
-                                 .translate(x: 0, y: 64, z: 0)]
+                                 .translate(x: 0, y: 100, z: 0)]
     }
 }
 

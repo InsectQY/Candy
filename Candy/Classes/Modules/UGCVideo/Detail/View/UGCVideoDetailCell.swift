@@ -20,12 +20,10 @@ class UGCVideoDetailCell: CollectionViewCell {
             userNameLabel.isHidden = isPanned
             avatarImage.isHidden = isPanned
             commentBtn.isHidden = isPanned
-            closeBtn.isHidden = isPanned
             bgImage.isHidden = isPanned
         }
     }
 
-    @IBOutlet private weak var closeBtn: Button!
     @IBOutlet private weak var abstractLabel: Label!
     @IBOutlet private weak var userNameLabel: Label!
     @IBOutlet private weak var avatarImage: ImageView! {
@@ -71,11 +69,6 @@ class UGCVideoDetailCell: CollectionViewCell {
         let vc = UserPorfileViewController(userID: item?.content.raw_data.user.info.user_id ?? "")
         let nav = NavigationController(rootViewController: vc)
         parentVC?.present(nav, animated: true, completion: nil)
-    }
-
-    // MARK: - 点击关闭
-    @IBAction private func closeBtnDidClick(_ sender: Any) {
-        parentVC?.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - 点击评论

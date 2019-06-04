@@ -2,7 +2,7 @@
 //  NotificationExtension.swift
 //  Candy
 //
-//  Created by apple on 2019/5/23.
+//  Created by Insect on 2019/5/23.
 //  Copyright © 2019 Insect. All rights reserved.
 //
 
