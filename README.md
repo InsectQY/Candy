@@ -12,11 +12,11 @@
 
 ## 预览
 
-[Screenshot1](https://ae01.alicdn.com/kf/HTB1cWjjbRKw3KVjSZTE5jcuRpXak.gif)
+![Screenshot1](https://ae01.alicdn.com/kf/HTB1cWjjbRKw3KVjSZTE5jcuRpXak.gif)
 
-[Screenshot2](https://ae01.alicdn.com/kf/HTB1p.fdbR1D3KVjSZFy5jbuFpXaN.gif)
+![Screenshot2](https://ae01.alicdn.com/kf/HTB1p.fdbR1D3KVjSZFy5jbuFpXaN.gif)
 
-[Screenshot3](https://ae01.alicdn.com/kf/HTB1.6_bbL1H3KVjSZFB5jbSMXXaR.gif)
+![Screenshot3](https://ae01.alicdn.com/kf/HTB1.6_bbL1H3KVjSZFB5jbSMXXaR.gif)
 
 ## 技术栈
 
