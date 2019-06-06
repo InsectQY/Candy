@@ -176,7 +176,6 @@ extension UGCVideoDetailViewController {
         case .began:
             hero.dismissViewController()
         case .changed:
-            
             navigationItem.leftBarButtonItem = nil
             cell.isPanned = true
             Hero.shared.update(progress)
