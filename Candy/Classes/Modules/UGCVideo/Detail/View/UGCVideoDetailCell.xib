@@ -18,16 +18,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mRj-cS-qHL" customClass="ImageView" customModule="Candy" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRj-cS-qHL" customClass="ImageView" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-Xb-mG3" customClass="ImageView" customModule="Candy" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-Xb-mG3" customClass="ImageView" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="562"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_paster_shadow_375x120_" translatesAutoresizingMaskIntoConstraints="NO" id="aZk-gz-GH3" userLabel="阴影">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="video_paster_shadow_375x120_" translatesAutoresizingMaskIntoConstraints="NO" id="aZk-gz-GH3" userLabel="阴影">
                         <rect key="frame" x="0.0" y="382" width="381" height="180"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X43-2c-Srt">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X43-2c-Srt">
                         <rect key="frame" x="20" y="459" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="dhB-4b-XC7"/>
@@ -45,19 +45,19 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4Y-X7-JYd" customClass="Label" customModule="Candy" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4Y-X7-JYd" customClass="Label" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="74" y="459" width="48" height="44"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdL-s5-2Ei" customClass="Label" customModule="Candy" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="简介" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdL-s5-2Ei" customClass="Label" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="20" y="429" width="271" height="20"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-JQ-PAV" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-JQ-PAV" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="331" y="408" width="40" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="6Gk-fa-gvY"/>
@@ -69,7 +69,7 @@
                             <action selector="commentBtnDidClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="aaD-W5-QqS"/>
                         </connections>
                     </button>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-az-CGQ" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-az-CGQ" customClass="VerticalButton" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="331" y="298" width="40" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="V9b-O3-4tt"/>

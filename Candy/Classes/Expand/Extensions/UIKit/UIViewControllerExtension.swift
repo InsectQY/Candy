@@ -15,4 +15,12 @@ extension UIViewController: JXCategoryListContentViewDelegate {
     public func listView() -> UIView! {
         return view
     }
+
+    public func disablesAdjustScrollViewInsets(_ scrollView: UIScrollView) {
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+    }
 }

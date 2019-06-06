@@ -32,21 +32,10 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     private var myViewModel: UGCVideoListViewModel?
 
     // MARK: - LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
+        fd_prefersNavigationBarHidden = true
+        disablesAdjustScrollViewInsets(collectionView)
     }
 
     // MARK: - convenience
@@ -59,10 +48,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         super.init(coder: aDecoder)
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
     override func makeUI() {
         super.makeUI()
 
@@ -72,7 +57,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.zf_scrollViewDirection = .horizontal
         addPanGesture()
-        setUpBarItem()
     }
 
     private func addPanGesture() {
@@ -80,18 +64,6 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
         panGestureRecognizer.delegate = self
         collectionView.addGestureRecognizer(panGestureRecognizer)
-    }
-
-    private func setUpBarItem() {
-        let backItem = BarButtonItem(image: R.image.imgPic_close_24x24_(),
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(backBtnDidClick))
-        navigationItem.leftBarButtonItem = backItem
-    }
-
-    @objc private func backBtnDidClick() {
-        navigationController?.dismiss(animated: true, completion: nil)
     }
 
     override func bindViewModel() {

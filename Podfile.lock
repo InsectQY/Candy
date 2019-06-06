@@ -111,11 +111,11 @@ PODS:
   - Toast-Swift (5.0.0)
   - UIFontComplete (4.0.0)
   - URLNavigator (2.2.0)
-  - ZFPlayer/AVPlayer (3.2.11):
+  - ZFPlayer/AVPlayer (3.2.12):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.11):
+  - ZFPlayer/ControlView (3.2.12):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.11)
+  - ZFPlayer/Core (3.2.12)
 
 DEPENDENCIES:
   - CleanJSON
@@ -240,7 +240,7 @@ SPEC CHECKSUMS:
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
-  ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
+  ZFPlayer: fdc92702cc611922182a951991dea78566da7605
 
 PODFILE CHECKSUM: eb39c286dabe754afb07e2c13550b87399702e2e
 
