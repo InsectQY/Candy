@@ -1,16 +1,18 @@
 # Candy
 
-![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg) [![中文文档](https://woolson.gitee.io/npmer-badge/-007ec6-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-007ec6-github-ffffff-square-gradient-shadow.svg)](https://github.com/InsectQY/Candy/master/README.zh-cn.md)
 
-一个视频类的客户端，接口抓取自今日头条和阳光宽屏网。
+[中文文档](https://github.com/InsectQY/Candy/master/README.zh-cn.md)
 
-## 要求
+Video iOS client written in RxSwift and MVVM
+
+## Requirements
 
 - Xcode 10 +
 - Swift 5.0
 - iOS 9.0 +
 
-## 预览
+## Screenshots
 
 ![Screenshot1](https://ae01.alicdn.com/kf/HTB1cWjjbRKw3KVjSZTE5jcuRpXak.gif)
 
@@ -18,41 +20,42 @@
 
 ![Screenshot3](https://ae01.alicdn.com/kf/HTB1.6_bbL1H3KVjSZFB5jbSMXXaR.gif)
 
-## 技术栈
+## Technologies
 
 - Clean architecture ([RxSwift](https://github.com/ReactiveX/RxSwift) + MVVM)
-- 网络请求与缓存: 基于 Moya/RxSwift 的 [RxNetwork](<https://github.com/Pircate/RxNetwork>)
-- 图片下载与缓存 ([Kingfisher](<https://github.com/onevcat/Kingfisher>)) 
-- 视频播放 ([ZFPlayer](<https://github.com/renzifeng/ZFPlayer>))
-- JSON 解析 ([CleanJSON](<https://github.com/Pircate/CleanJSON>))
-- 自定义转场动画 ([Hero](https://github.com/HeroTransitions/Hero), [Jelly](https://github.com/SebastianBoldt/Jelly))
-- 资源文件管理 ([R.Swift](https://github.com/mac-cain13/R.swift), [UIFontComplete](https://github.com/Nirma/UIFontComplete))
-- 代码风格 ([SwiftLint](https://github.com/realm/SwiftLint))
-- 路由 ([URLNavigator](<https://github.com/devxoul/URLNavigator>))
-- 网络状态监测 ([RxReachability](https://github.com/RxSwiftCommunity/RxReachability))
-- 第三方登录 ([MonkeyKing](https://github.com/nixzhu/MonkeyKing))
-- UITableView/UICollectionView 空数据占位图 ([EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift))
-- 指示器 ([Toast-Swift](https://github.com/scalessec/Toast-Swift), [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView))
-- 键盘管理 ([IQKeyboardManagerSwift](https://github.com/hackiftekhar/IQKeyboardManager))
-- 刷新控件 ([MJRefresh](<https://github.com/CoderMJLee/MJRefresh>))
-- 全屏滑动返回 ([FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture))
-- 搜索 ([PYSearch](https://github.com/ko1o/PYSearch))
-- 分页视图 ([JXCategoryView](https://github.com/pujiaxin33/JXCategoryView))
-## 编译和运行
+- Network request and cache: based on Moya/RxSwift [RxNetwork](<https://github.com/Pircate/RxNetwork>)
+- Download and cache images ([Kingfisher](<https://github.com/onevcat/Kingfisher>)) 
+- Video player ([ZFPlayer](<https://github.com/renzifeng/ZFPlayer>))
+- JSON decoder ([CleanJSON](<https://github.com/Pircate/CleanJSON>))
+- Custom transition animations ([Hero](https://github.com/HeroTransitions/Hero), [Jelly](https://github.com/SebastianBoldt/Jelly))
+- Resources manager ([R.Swift](https://github.com/mac-cain13/R.swift), [UIFontComplete](https://github.com/Nirma/UIFontComplete))
+- Code style ([SwiftLint](https://github.com/realm/SwiftLint))
+- Router ([URLNavigator](<https://github.com/devxoul/URLNavigator>))
+- Monitor network status ([RxReachability](https://github.com/RxSwiftCommunity/RxReachability))
+-  OAuth2 authentication ([MonkeyKing](https://github.com/nixzhu/MonkeyKing))
+-  Show empty datasets whenever the UITableView/UICollectionView has no content to display ([EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift))
+- HUD ([Toast-Swift](https://github.com/scalessec/Toast-Swift), [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView))
+- Keyboard manager ([IQKeyboardManagerSwift](https://github.com/hackiftekhar/IQKeyboardManager))
+- Refresh component ([MJRefresh](<https://github.com/CoderMJLee/MJRefresh>))
+- Fullscreen pop gesture ([FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture))
+- Search controller ([PYSearch](https://github.com/ko1o/PYSearch))
+- Category view ([JXCategoryView](https://github.com/pujiaxin33/JXCategoryView))
+## Building and Running
 
-  添加私有库
+ Add private spec
 
   ```ruby
   pod repo add QYSPecs 'https://github.com/InsectQY/QYSpecs.git'
   ```
 
-  安装依赖
+ Install dependencies
 
   ```ruby
   pod install
   ```
 
-在 Xcode 中打开 workspace
+Open the workspace in Xcode
+
   ```ruby
   open "Candy.xcworkspace"
   ```
