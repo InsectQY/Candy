@@ -32,10 +32,21 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     private var myViewModel: UGCVideoListViewModel?
 
     // MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        fd_prefersNavigationBarHidden = true
         disablesAdjustScrollViewInsets(collectionView)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
     }
 
     // MARK: - convenience
@@ -51,6 +62,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     override func makeUI() {
         super.makeUI()
 
+        setUpBarItem()
         collectionView.delegate = self
         collectionView.register(R.nib.ugcVideoDetailCell)
         collectionView.isPagingEnabled = true
@@ -64,6 +76,18 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
         panGestureRecognizer.delegate = self
         collectionView.addGestureRecognizer(panGestureRecognizer)
+    }
+
+    private func setUpBarItem() {
+        let backItem = BarButtonItem(image: R.image.imgPic_close_24x24_(),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(backBtnDidClick))
+        navigationItem.leftBarButtonItem = backItem
+    }
+
+    @objc private func backBtnDidClick() {
+        dismiss(animated: true, completion: nil)
     }
 
     override func bindViewModel() {
@@ -152,7 +176,8 @@ extension UGCVideoDetailViewController {
         case .began:
             hero.dismissViewController()
         case .changed:
-
+            
+            navigationItem.leftBarButtonItem = nil
             cell.isPanned = true
             Hero.shared.update(progress)
             let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
@@ -165,6 +190,7 @@ extension UGCVideoDetailViewController {
             } else {
                 Hero.shared.cancel()
                 cell.isPanned = false
+                setUpBarItem()
             }
         }
     }

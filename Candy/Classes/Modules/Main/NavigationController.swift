@@ -16,7 +16,8 @@ class NavigationController: UINavigationController {
 
         // 全屏滑动返回
         fd_fullscreenPopGestureRecognizer.isEnabled = true
-//        hero.isEnabled = true
+        // 转场动画
+        hero.isEnabled = true
         // 导航栏背景和文字设置
         let naviBar: UINavigationBar = UINavigationBar.appearance()
         naviBar.barTintColor = .main
