@@ -28,6 +28,9 @@ class RefreshViewModel: ViewModel {
         let headerRefreshState: AnyObserver<Bool>
         /// 尾部刷新状态
         let footerRefreshState: AnyObserver<RxMJRefreshFooterState>
+
+        /// 没有网络时的点击事件
+        let emptyDataSetViewTap: AnyObserver<Void>
     }
 
     struct RefreshOutput {
@@ -41,6 +44,9 @@ class RefreshViewModel: ViewModel {
         let headerRefreshState: Driver<Bool>
         /// 尾部刷新状态
         let footerRefreshState: Driver<RxMJRefreshFooterState>
+
+        /// 没有网络时点击事件g回调
+        let emptyDataSetViewTap: Driver<Void>
     }
 
     /// 开始头部刷新
@@ -52,16 +58,21 @@ class RefreshViewModel: ViewModel {
     /// 尾部刷新状态
     private let footerRefreshState = PublishSubject<RxMJRefreshFooterState>()
 
+    /// 没有网络点击占位
+    private let emptyDataSetViewTap = PublishSubject<Void>()
+
     required init() {
 
         refreshInput = RefreshInput(beginHeaderRefresh: beginHeaderRefresh.asObserver(),
                                     beginFooterRefresh: beginFooterRefresh.asObserver(),
                                     headerRefreshState: headerRefreshState.asObserver(),
-                                    footerRefreshState: footerRefreshState.asObserver())
+                                    footerRefreshState: footerRefreshState.asObserver(),
+                                    emptyDataSetViewTap: emptyDataSetViewTap.asObserver())
         refreshOutput = RefreshOutput(headerRefreshing: beginHeaderRefresh.asDriverOnErrorJustComplete(),
                                       footerRefreshing: beginFooterRefresh.asDriverOnErrorJustComplete(),
                                       headerRefreshState: headerRefreshState.asDriverOnErrorJustComplete(),
-                                      footerRefreshState: footerRefreshState.asDriverOnErrorJustComplete())
+                                      footerRefreshState: footerRefreshState.asDriverOnErrorJustComplete(),
+                                      emptyDataSetViewTap: emptyDataSetViewTap.asDriverOnErrorJustComplete())
 
         super.init()
     }

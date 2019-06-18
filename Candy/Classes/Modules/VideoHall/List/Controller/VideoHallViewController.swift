@@ -13,6 +13,8 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     // MARK: - Lazyload
     fileprivate lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: Configs.Dimensions.screenWidth, height: 44))
 
+    fileprivate lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
+
     /// 搜索框
     private lazy var titleView = SearchTitleView(frame: CGRect(x: SearchTitleView.x, y: SearchTitleView.y, width: SearchTitleView.width, height: SearchTitleView.height))
 
@@ -49,6 +51,7 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     override func makeUI() {
         super.makeUI()
 
+        verticalOffset = topH + 180
         navigationItem.titleView = titleView
         emptyDataSetDescription = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
 
@@ -66,11 +69,6 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         super.bindViewModel()
 
         bindLoadingToIndicator()
-
-        noConnectionViewTap
-        .asObservable()
-        .subscribe(viewModel.input.noConnectTap)
-        .disposed(by: rx.disposeBag)
 
         titleView.beginEdit
         .asObservable()

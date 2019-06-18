@@ -16,7 +16,6 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
     struct Input {
 
-        let noConnectTap: AnyObserver<Void>
         let searchTap: AnyObserver<Void>
         let selection: AnyObserver<VideoHallList>
         let searchKey: AnyObserver<String>
@@ -30,8 +29,6 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         let items: Driver<[VideoHallList]>
     }
 
-    /// 没有网络点击占位
-    private let noConnectTap = PublishSubject<Void>()
     /// 搜索点击
     private let searchTap = PublishSubject<Void>()
     /// 点击了某个视频
@@ -46,8 +43,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
     required init() {
 
-        input = Input(noConnectTap: noConnectTap.asObserver(),
-                      searchTap: searchTap.asObserver(),
+        input = Input(searchTap: searchTap.asObserver(),
                       selection: selection.asObserver(),
                       searchKey: searchKey.asObserver())
         output = Output(categories: categoryElements.asDriver(),
@@ -65,8 +61,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
 
         // 没有网络点击
-        noConnectTap
-        .asDriverOnErrorJustComplete()
+        refreshOutput.emptyDataSetViewTap
         .flatMap { [unowned self] in
             self.requestCategory()
         }

@@ -67,8 +67,8 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
         let input = VideoListViewModel.Input(category: category)
         let output = viewModel.transform(input: input)
 
-        // 没有网络时点击
-        noConnectionViewTap
+        // 数据源 nil 时点击
+        emptyDataSetViewTap
         .bind(to: rx.post(name: Notification.videoNoConnectClick))
         .disposed(by: rx.disposeBag)
 

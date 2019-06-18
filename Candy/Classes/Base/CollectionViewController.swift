@@ -60,6 +60,7 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         bindReloadEmpty()
         bindHeader()
         bindFooter()
+        bindEmptyDataSetViewTap()
         viewModel.bindState()
     }
 
@@ -76,6 +77,15 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         collectionView.emptyDataSetDelegate = self
     }
 
+    // MARK: - 绑定没有网络时的点击事件
+    func bindEmptyDataSetViewTap() {
+
+        emptyDataSetViewTap
+        .asObservable()
+        .subscribe(viewModel.refreshInput.emptyDataSetViewTap)
+        .disposed(by: rx.disposeBag)
+    }
+
     // MARK: - 绑定头部刷新回调和头部刷新状态
     func bindHeader() {
 
@@ -85,15 +95,22 @@ class CollectionViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return
         }
 
-        // 成功时的头部状态
+        // 将刷新事件传递给 refreshVM
         refreshHeader.rx.refreshing
         .bind(to: viewModel.refreshInput.beginHeaderRefresh)
         .disposed(by: rx.disposeBag)
 
-        // 失败时的头部状态
+        // 成功时的头部状态
         viewModel
         .refreshOutput
         .headerRefreshState
+        .drive(refreshHeader.rx.isRefreshing)
+        .disposed(by: rx.disposeBag)
+
+        // 失败时的头部状态
+        viewModel
+        .refreshError
+        .mapTo(false)
         .drive(refreshHeader.rx.isRefreshing)
         .disposed(by: rx.disposeBag)
     }

@@ -11,7 +11,7 @@ import Foundation
 final class UGCVideoPageViewModel: ViewModel {
 
     struct Input {
-        let noConnectTap: Observable<Void>
+        let emptyDataSetViewTap: Observable<Void>
     }
 
     struct Output {
@@ -27,7 +27,7 @@ extension UGCVideoPageViewModel {
     @discardableResult
     func transform(input: UGCVideoPageViewModel.Input) -> UGCVideoPageViewModel.Output {
 
-        input.noConnectTap
+        input.emptyDataSetViewTap
         .asDriverOnErrorJustComplete()
         .flatMap { [unowned self] in
             self.request()

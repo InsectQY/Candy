@@ -61,7 +61,7 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
         bindReloadEmpty()
         bindHeader()
         bindFooter()
-
+        bindEmptyDataSetViewTap()
         viewModel.bindState()
     }
 
@@ -76,6 +76,15 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     func setUpEmptyDataSet() {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+    }
+
+    // MARK: - 绑定没有网络时的点击事件
+    func bindEmptyDataSetViewTap() {
+
+        emptyDataSetViewTap
+        .asObservable()
+        .subscribe(viewModel.refreshInput.emptyDataSetViewTap)
+        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - 绑定头部刷新回调和头部刷新状态

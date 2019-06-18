@@ -58,14 +58,12 @@ class ViewController<VM: ViewModel>: UIViewController {
     var noConnectionTitle: String = R.string.localizable.appNetNoConnectionTitle()
     /// 没有网络时显示的描述
     var noConnectionDescription: String = R.string.localizable.appNetNoConnectionDesc()
-    /// 没有网络时点击了 view
-    var noConnectionViewTap = PublishSubject<Void>()
     /// 数据源 nil 时是否可以滚动，默认 true
     var emptyDataSetShouldAllowScroll: Bool = true
     /// 没有网络时是否可以滚动， 默认 false
     var noConnectionShouldAllowScroll: Bool = false
-    /// 状态栏 + 导航栏高度
-    lazy var topH: CGFloat = UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.height ?? 0)
+    /// 垂直方向偏移量
+    var verticalOffset: CGFloat = Configs.Dimensions.topH
 
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
@@ -176,7 +174,7 @@ extension ViewController: EmptyDataSetSource {
     }
 
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
-        return -topH
+        return -verticalOffset
     }
 }
 
@@ -188,15 +186,7 @@ extension ViewController: EmptyDataSetDelegate {
     }
 
     func emptyDataSet(_ scrollView: UIScrollView, didTapView view: UIView) {
-
-        switch reachabilityConnection.value {
-        case .none:
-            noConnectionViewTap.onNext(())
-        case .cellular:
-            emptyDataSetViewTap.onNext(())
-        case .wifi:
-            emptyDataSetViewTap.onNext(())
-        }
+        emptyDataSetViewTap.onNext(())
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {

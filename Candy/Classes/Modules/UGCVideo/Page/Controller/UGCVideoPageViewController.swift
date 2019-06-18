@@ -59,7 +59,7 @@ class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
 
         bindLoadingToIndicator()
 
-        let input = UGCVideoPageViewModel.Input(noConnectTap: NotificationCenter.default.rx
+        let input = UGCVideoPageViewModel.Input(emptyDataSetViewTap: NotificationCenter.default.rx
             .notification(Notification.UGCVideoNoConnectClick)
             .mapToVoid())
         viewModel.transform(input: input)

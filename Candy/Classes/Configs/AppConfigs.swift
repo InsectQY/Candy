@@ -22,6 +22,7 @@ struct Configs {
 
         static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
         static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
+        static let topH: CGFloat = UIApplication.shared.statusBarFrame.size.height + (UIApplication.shared.keyWindow?.rootViewController?.navigationController?.navigationBar.height ?? 0)
     }
 
     struct Time {

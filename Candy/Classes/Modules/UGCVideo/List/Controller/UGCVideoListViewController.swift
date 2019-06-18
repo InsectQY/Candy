@@ -60,8 +60,8 @@ class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel
         }
         .disposed(by: rx.disposeBag)
 
-        // 没有网络时点击
-        noConnectionViewTap
+        // 数据源 nil 时点击
+        emptyDataSetViewTap
         .bind(to: rx.post(name: Notification.UGCVideoNoConnectClick))
         .disposed(by: rx.disposeBag)
     }
