@@ -24,7 +24,7 @@ class VideoDetailHeader: View {
             nameLabel.text = video.user_info.name
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
             avatarImage.qy_setImage(video.user_info.avatar_url,
-                                    placeholder: "avatar",
+                                    placeholder: R.image.avatar(),
                                     options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
         }
     }

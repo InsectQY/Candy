@@ -40,12 +40,6 @@
 - 分页视图 ([JXCategoryView](https://github.com/pujiaxin33/JXCategoryView))
 ## 编译和运行
 
-  添加私有库
-
-  ```ruby
-  pod repo add QYSPecs 'https://github.com/InsectQY/QYSpecs.git'
-  ```
-
   安装依赖
 
   ```ruby

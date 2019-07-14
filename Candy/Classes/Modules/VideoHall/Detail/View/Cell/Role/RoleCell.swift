@@ -22,7 +22,7 @@ class RoleCell: CollectionViewCell {
                            KfOptions.fadeTransition(Configs.Time.imageTransition)]
             profileImage
             .qy_setImage(item?.profile_photo_list.first?.url,
-                         placeholder: "avatar",
+                         placeholder: R.image.avatar(),
                          options: options)
         }
     }

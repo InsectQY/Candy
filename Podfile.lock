@@ -1,15 +1,15 @@
 PODS:
   - Alamofire (4.8.2)
   - Cache (5.2.0)
-  - CleanJSON (0.9.2)
+  - CleanJSON (0.9.3)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
   - EmptyDataSet-Swift (4.2.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
-  - IQKeyboardManagerSwift (6.3.0)
+  - IQKeyboardManagerSwift (6.4.0)
   - Jelly (1.2.5)
-  - JXCategoryView (1.3.11)
+  - JXCategoryView (1.3.14)
   - Kingfisher (4.10.1)
   - KingfisherWebP (0.4.2):
     - Kingfisher (~> 4.0)
@@ -90,7 +90,7 @@ PODS:
     - RxCocoa
     - RxSwift
     - URLNavigator
-  - SwiftLint (0.33.0)
+  - SwiftLint (0.33.1)
   - SwiftyThirdParty (0.1.1):
     - SwiftyThirdParty/Kingfisher (= 0.1.1)
     - SwiftyThirdParty/MJRefresh (= 0.1.1)
@@ -198,21 +198,21 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
   SwiftyThirdParty:
-    :commit: 6b03cecb368b819864e2559de78696e9c1506c63
+    :commit: 30cec777d646fecf393f76c70339011e3dd4d2eb
     :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: 83e37238a637dad0ada84561d0a7d44a638e4655
+  CleanJSON: e7e3950845b522326790ae0b114bc98102a33456
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
-  JXCategoryView: b6ec5007394a9bfb61d54745e706d671ec61e4b9
+  JXCategoryView: 008a9d2eb3ba6035eb2df9a2b3e9a4806d6601a3
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
@@ -235,7 +235,7 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
-  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
+  SwiftLint: 9fc1143bbacec37f94994a7d0d2a85b2154b6294
   SwiftyThirdParty: fa587219c4ae28fc1bf52959f271b22f3cd978d3
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
@@ -244,4 +244,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: eb39c286dabe754afb07e2c13550b87399702e2e
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.4

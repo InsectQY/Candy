@@ -35,7 +35,7 @@ class VideoListCell: TableViewCell {
 
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
             avatarBtn.qy_setImage(item.user_info.avatar_url,
-                                  placeholder: "avatar",
+                                  placeholder: R.image.avatar(),
                                   options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize), KfOptions.fadeTransition(Configs.Time.imageTransition)])
             nameLabel.text = item.user_info.name
             commentBtn.setTitle(" \(item.commentCountString)", for: .normal)
@@ -43,7 +43,7 @@ class VideoListCell: TableViewCell {
             playCountLabel.text = "\(item.video_detail_info.videoWatchCountString)次播放"
             largeImage
             .qy_setImage(item.video_detail_info.detail_video_large_image.url,
-                         placeholder: "placeholder",
+                         placeholder: R.image.placeholder(),
                          options: [KfOptions.fadeTransition(Configs.Time.imageTransition)])
         }
     }

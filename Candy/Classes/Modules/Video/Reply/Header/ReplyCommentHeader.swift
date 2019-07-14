@@ -23,7 +23,7 @@ class ReplyCommentHeader: UIView {
             userNameLabel.text = item.user_name
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
             avatarImage.qy_setImage(item.user_profile_image_url,
-                                    placeholder: "avatar",
+                                    placeholder: R.image.avatar(),
                                     options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
             commentLabel.attributedText = item.attrText
             timeLabel.text = item.createTimeString
