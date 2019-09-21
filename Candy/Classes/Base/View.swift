@@ -23,8 +23,6 @@ class View: UIView {
     }
 
     func makeUI() {
-
-        layer.masksToBounds = true
         updateUI()
     }
 

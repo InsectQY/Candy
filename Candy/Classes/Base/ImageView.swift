@@ -31,8 +31,6 @@ class ImageView: UIImageView {
     }
 
     func makeUI() {
-
-        layer.masksToBounds = true
         updateUI()
     }
 

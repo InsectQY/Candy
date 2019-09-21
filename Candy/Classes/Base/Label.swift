@@ -23,7 +23,6 @@ class Label: UILabel {
     }
 
     func makeUI() {
-        layer.masksToBounds = true
         updateUI()
     }
 

@@ -24,7 +24,6 @@ class TableViewCell: UITableViewCell {
 
     func makeUI() {
 
-        layer.masksToBounds = true
         selectionStyle = .none
         backgroundColor = .clear
         updateUI()

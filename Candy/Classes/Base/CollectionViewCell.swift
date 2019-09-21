@@ -23,7 +23,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     func makeUI() {
-        layer.masksToBounds = true
         updateUI()
     }
 

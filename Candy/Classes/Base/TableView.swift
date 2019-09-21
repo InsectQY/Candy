@@ -25,12 +25,12 @@ class TableView: UITableView {
     }
 
     func makeUI() {
-
-        estimatedRowHeight = 50
         rowHeight = UITableView.automaticDimension
         backgroundColor = .clear
-        if #available(iOS 9.0, *) {
-            cellLayoutMarginsFollowReadableWidth = false
+        if #available(iOS 11.0, *) {
+            estimatedRowHeight = 50
+            estimatedSectionHeaderHeight = 0
+            estimatedSectionFooterHeight = 0
         }
         keyboardDismissMode = .onDrag
         separatorStyle = .none

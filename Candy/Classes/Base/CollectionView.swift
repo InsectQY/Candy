@@ -26,8 +26,6 @@ class CollectionView: UICollectionView {
     }
 
     func makeUI() {
-
-        layer.masksToBounds = true
         backgroundColor = .clear
         updateUI()
     }

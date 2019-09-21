@@ -53,6 +53,7 @@ class VideoListViewController: TableViewController<VideoListViewModel> {
     override func makeUI() {
         super.makeUI()
 
+        tableView.estimatedRowHeight = 50
         tableView.register(R.nib.videoListCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()

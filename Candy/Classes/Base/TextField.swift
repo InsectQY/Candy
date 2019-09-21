@@ -21,6 +21,5 @@ class TextField: UITextField {
     }
 
     func makeUI() {
-        layer.masksToBounds = true
     }
 }

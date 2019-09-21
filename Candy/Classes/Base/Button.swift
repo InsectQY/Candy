@@ -23,7 +23,6 @@ class Button: UIButton {
     }
 
     func makeUI() {
-        layer.masksToBounds = true
         updateUI()
     }
 
