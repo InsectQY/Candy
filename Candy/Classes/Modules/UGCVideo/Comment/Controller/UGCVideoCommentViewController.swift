@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UITableView_FDTemplateLayoutCell
 
 class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewModel> {
 
@@ -48,6 +49,7 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
         tableView.register(R.nib.commentCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
+        tableView.delegate = self
         beginHeaderRefresh()
     }
 
@@ -64,5 +66,15 @@ class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewMode
             cell.item = item.comment
         }
         .disposed(by: rx.disposeBag)
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension UGCVideoCommentViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.fd_heightForCell(withIdentifier: R.reuseIdentifier.commentCell.identifier,
+                                   cacheBy: indexPath,
+                                   configuration: nil)
     }
 }

@@ -78,6 +78,7 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
         super.makeUI()
 
         view.addSubview(videoView)
+        tableView.estimatedRowHeight = 100
         tableView.register(R.nib.videoDetailInfoCell)
         tableView.register(R.nib.videoRelatedCell)
         tableView.register(R.nib.commentCell)

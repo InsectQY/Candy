@@ -11,7 +11,11 @@ import UIKit
 class RoleCell: CollectionViewCell {
 
     @IBOutlet private weak var nameLabel: Label!
-    @IBOutlet private weak var profileImage: ImageView!
+    @IBOutlet private weak var profileImage: ImageView! {
+        didSet {
+            profileImage.layer.masksToBounds = true
+        }
+    }
 
     public var item: Role? {
         didSet {

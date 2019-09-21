@@ -79,6 +79,7 @@ PODS:
   - SwiftLint (0.35.0)
   - Toast-Swift (5.0.0)
   - UIFontComplete (4.0.0)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.2.0)
   - ZFPlayer/AVPlayer (3.2.13):
     - ZFPlayer/Core
@@ -114,6 +115,7 @@ DEPENDENCIES:
   - SwiftLint
   - Toast-Swift
   - UIFontComplete
+  - "UITableView+FDTemplateLayoutCell"
   - ZFPlayer/AVPlayer
   - ZFPlayer/ControlView
 
@@ -154,6 +156,7 @@ SPEC REPOS:
     - SwiftLint
     - Toast-Swift
     - UIFontComplete
+    - "UITableView+FDTemplateLayoutCell"
     - URLNavigator
     - ZFPlayer
 
@@ -209,9 +212,10 @@ SPEC CHECKSUMS:
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: b2ba40c924e1b9a7f0a670632c4235ffbe6ee055
 
-PODFILE CHECKSUM: 36dfbf11f6542ba0d804dc583d9818e50cbc85ea
+PODFILE CHECKSUM: ba3d7692ac78514e47fd3ccc433641f7fd013080
 
 COCOAPODS: 1.7.5

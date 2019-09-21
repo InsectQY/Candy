@@ -69,6 +69,7 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
     override func makeUI() {
         super.makeUI()
 
+        tableView.estimatedRowHeight = 50
         tableView.register(R.nib.videoHallTitleCell)
         tableView.register(R.nib.videoHallEpisodeCell)
         tableView.register(R.nib.videoHallIntroCell)

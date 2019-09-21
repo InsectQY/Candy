@@ -28,7 +28,7 @@ class TableView: UITableView {
         rowHeight = UITableView.automaticDimension
         backgroundColor = .clear
         if #available(iOS 11.0, *) {
-            estimatedRowHeight = 50
+            estimatedRowHeight = 0
             estimatedSectionHeaderHeight = 0
             estimatedSectionFooterHeight = 0
         }

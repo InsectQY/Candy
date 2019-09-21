@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UITableView_FDTemplateLayoutCell
 
 class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
 
@@ -46,6 +47,7 @@ class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
 
         view.addSubview(topView)
         setUpTableHeader()
+        tableView.delegate = self
         tableView.register(R.nib.commentCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
@@ -78,5 +80,14 @@ extension ReplyCommentViewController {
         .height
         headerView.height = height
         tableView.tableHeaderView = headerView
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ReplyCommentViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.fd_heightForCell(withIdentifier: R.reuseIdentifier.commentCell.identifier,
+                                   cacheBy: indexPath,
+                                   configuration: nil)
     }
 }

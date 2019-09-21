@@ -10,6 +10,9 @@ import UIKit
 
 class VideoListCell: TableViewCell {
 
+    static var height: CGFloat {
+        Configs.Dimensions.screenWidth * 0.63 + 55 + 5
+    }
     @IBOutlet private weak var largeImage: ImageView!
     @IBOutlet private weak var commentBtn: Button!
     @IBOutlet private weak var avatarBtn: Button!
