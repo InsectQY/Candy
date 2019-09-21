@@ -17,8 +17,7 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
     fileprivate lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .normal
         let categoryView = JXCategoryTitleView()
         categoryView.contentScrollView = listContainerView.scrollView
         categoryView.indicators = [lineView]
@@ -27,7 +26,7 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -113,7 +112,7 @@ extension Reactive where Base: VideoPageViewController {
 
             vc.categoryView.titles = result.map { $0.name }
             vc.categoryView.defaultSelectedIndex = 0
-            vc.listContainerView.defaultSelectedIndex = 0
+            vc.listContainerView.setDefaultSelectedIndex(0)
             vc.categoryView.reloadData()
             vc.listContainerView.reloadData()
         }

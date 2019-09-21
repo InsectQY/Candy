@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KingfisherWebP
 
 class UserArticleCell: TableViewCell {
 

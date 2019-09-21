@@ -23,8 +23,6 @@ class CommentCell: TableViewCell {
 
     private let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
 
-    private var animator: JellyAnimator?
-
     /// 单条评论详情
     public var item: Comment? {
         didSet {
@@ -69,23 +67,14 @@ class CommentCell: TableViewCell {
     @IBAction private func replyBtnDidClick(_ sender: Any) {
 
         let vc = ReplyCommentViewController(comment: item)
-        var presentation = JellySlideInPresentation()
+
+        var animator: Animator?
         if isUGCVideo {
-
-            presentation.heightForViewController = .custom(value: Configs.Dimensions.screenHeight * 0.7)
-            presentation.directionShow = .right
-            presentation.directionDismiss = .right
-            presentation.cornerRadius = 5
+            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
         } else {
-
-            presentation.heightForViewController = .custom(value: Configs.Dimensions.screenHeight - VideoDetailHeader.height + VideoDetailHeader.bottomHeight)
-            presentation.directionShow = .bottom
-            presentation.directionDismiss = .bottom
+            animator = JellyManager.videoReplyComment()
         }
-
-        presentation.verticalAlignemt = .bottom
-        animator = JellyAnimator(presentation: presentation)
-        animator?.prepare(viewController: vc)
+        animator?.prepare(presentedViewController: vc)
         parentVC?.present(vc, animated: true, completion: nil)
     }
 }

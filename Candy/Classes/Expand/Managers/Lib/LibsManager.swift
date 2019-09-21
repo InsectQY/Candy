@@ -40,10 +40,6 @@ class LibsManager: NSObject {
     // MARK: - Kingfisher
     func setupKingfisher() {
 
-        // 500 MB
-        ImageCache.default.maxDiskCacheSize = UInt(500 * 1024 * 1024)
-        // 1 week
-        ImageCache.default.maxCachePeriodInSecond = Configs.Time.maxImageCache
         // 15 sec
         ImageDownloader.default.downloadTimeout = Configs.Time.imageDownloadTimeout
 //        ImageCache.default.maxMemoryCost = 1

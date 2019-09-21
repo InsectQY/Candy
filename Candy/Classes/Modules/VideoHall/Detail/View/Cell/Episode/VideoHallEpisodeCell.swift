@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import Jelly
 
 class VideoHallEpisodeCell: TableViewCell {
 
-    private var animator: JellyAnimator?
     @IBOutlet private weak var moreBtn: Button!
 
     public var items: [CellList] = []
@@ -27,14 +25,10 @@ class VideoHallEpisodeCell: TableViewCell {
 
     @IBAction private func moreBtnDidClick(_ sender: Any) {
 
-        let vc = EpisodeViewController(totalCount: items.count, selIndex: selIndex)
-        var presentation = JellySlideInPresentation()
-        presentation.directionShow = .bottom
-        presentation.directionDismiss = .bottom
-        presentation.heightForViewController = .custom(value: Configs.Dimensions.screenHeight - VideoHallHeaderView.height)
-        presentation.verticalAlignemt = .bottom
-        animator = JellyAnimator(presentation: presentation)
-        animator?.prepare(viewController: vc)
+        let vc = EpisodeViewController(totalCount: items.count,
+                                       selIndex: selIndex)
+        let animator = JellyManager.episodeAnimator()
+        animator.prepare(presentedViewController: vc)
         parentVC?.present(vc, animated: true, completion: nil)
     }
 

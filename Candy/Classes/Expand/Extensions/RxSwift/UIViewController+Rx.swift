@@ -8,7 +8,6 @@
 
 import RxSwift
 import RxCocoa
-import SwiftyThirdParty
 
 public extension Reactive where Base: UIViewController {
 

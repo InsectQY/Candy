@@ -35,6 +35,7 @@ class VideoListCell: TableViewCell {
 
             let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
             avatarBtn.qy_setImage(item.user_info.avatar_url,
+                                  for: .normal,
                                   placeholder: R.image.avatar(),
                                   options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize), KfOptions.fadeTransition(Configs.Time.imageTransition)])
             nameLabel.text = item.user_info.name

@@ -19,9 +19,9 @@ class FilterCell: TableViewCell {
     public lazy var categoryView: JXCategoryTitleView = {
 
         let backgroundView = JXCategoryIndicatorBackgroundView()
-        backgroundView.backgroundViewWidthIncrement = 30
-        backgroundView.backgroundViewHeight = 28
-        backgroundView.backgroundViewColor = .RGBA(240, 240, 240)
+        backgroundView.indicatorWidthIncrement = 30
+        backgroundView.indicatorHeight = 28
+        backgroundView.indicatorColor = .RGBA(240, 240, 240)
         let categoryView = JXCategoryTitleView()
         categoryView.indicators = [backgroundView]
         categoryView.isTitleColorGradientEnabled = false

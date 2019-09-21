@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import Jelly
 
 class UGCVideoDetailCell: CollectionViewCell {
-
-    private var animator: JellyAnimator?
 
     /// 是否触发了下滑手势
     public var isPanned: Bool = false {
@@ -75,15 +72,8 @@ class UGCVideoDetailCell: CollectionViewCell {
     @IBAction private func commentBtnDidClick(_ sender: Any) {
 
         let vc = UGCVideoCommentViewController(item: item)
-        var presentation = JellySlideInPresentation()
-        presentation.directionShow = .bottom
-        presentation.directionDismiss = .bottom
-        presentation.heightForViewController = .custom(value: Configs.Dimensions.screenHeight * 0.7)
-        presentation.corners = [.topLeft, .topRight]
-        presentation.cornerRadius = 12
-        presentation.verticalAlignemt = .bottom
-        animator = JellyAnimator(presentation: presentation)
-        animator?.prepare(viewController: vc)
+        let animator = JellyManager.UGCVideoComment()
+        animator.prepare(presentedViewController: vc)
         parentVC?.present(vc, animated: true, completion: nil)
     }
 }

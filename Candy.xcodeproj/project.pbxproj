@@ -72,6 +72,12 @@
 		E578102221C8E3B9005BFFAC /* VideoHallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578102021C8E3B9005BFFAC /* VideoHallListCell.swift */; };
 		E578102321C8E3B9005BFFAC /* VideoHallListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E578102121C8E3B9005BFFAC /* VideoHallListCell.xib */; };
 		E578102621C8E7A8005BFFAC /* VideoHallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578102521C8E7A8005BFFAC /* VideoHallFlowLayout.swift */; };
+		E578C03123362753006C0CA1 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C02B23362753006C0CA1 /* Refresh.swift */; };
+		E578C03223362753006C0CA1 /* KfOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C02F23362753006C0CA1 /* KfOptions.swift */; };
+		E578C03323362753006C0CA1 /* KingfisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03023362753006C0CA1 /* KingfisherExtension.swift */; };
+		E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03623362E30006C0CA1 /* Toast+UIView.swift */; };
+		E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03A23362E3C006C0CA1 /* KfWebPOptions.swift */; };
+		E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03E23363683006C0CA1 /* JellyManager.swift */; };
 		E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44321E2E7100089A2D2 /* UserCenterViewController.swift */; };
 		E57DD44721E2E7960089A2D2 /* UserCenterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44621E2E7960089A2D2 /* UserCenterHeaderView.swift */; };
 		E57DD44921E2E7A00089A2D2 /* UserCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57DD44821E2E7A00089A2D2 /* UserCenterHeaderView.xib */; };
@@ -311,6 +317,12 @@
 		E578102021C8E3B9005BFFAC /* VideoHallListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallListCell.swift; sourceTree = "<group>"; };
 		E578102121C8E3B9005BFFAC /* VideoHallListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoHallListCell.xib; sourceTree = "<group>"; };
 		E578102521C8E7A8005BFFAC /* VideoHallFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallFlowLayout.swift; sourceTree = "<group>"; };
+		E578C02B23362753006C0CA1 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
+		E578C02F23362753006C0CA1 /* KfOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KfOptions.swift; sourceTree = "<group>"; };
+		E578C03023362753006C0CA1 /* KingfisherExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherExtension.swift; sourceTree = "<group>"; };
+		E578C03623362E30006C0CA1 /* Toast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Toast+UIView.swift"; sourceTree = "<group>"; };
+		E578C03A23362E3C006C0CA1 /* KfWebPOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KfWebPOptions.swift; sourceTree = "<group>"; };
+		E578C03E23363683006C0CA1 /* JellyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyManager.swift; sourceTree = "<group>"; };
 		E57DD44321E2E7100089A2D2 /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		E57DD44621E2E7960089A2D2 /* UserCenterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterHeaderView.swift; sourceTree = "<group>"; };
 		E57DD44821E2E7A00089A2D2 /* UserCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterHeaderView.xib; sourceTree = "<group>"; };
@@ -809,6 +821,88 @@
 				E578102521C8E7A8005BFFAC /* VideoHallFlowLayout.swift */,
 			);
 			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		E578C02923362753006C0CA1 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E578C02A23362753006C0CA1 /* Classes */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		E578C02A23362753006C0CA1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E578C02B23362753006C0CA1 /* Refresh.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E578C02C23362753006C0CA1 /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03823362E3C006C0CA1 /* WebP */,
+				E578C02D23362753006C0CA1 /* Core */,
+			);
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		E578C02D23362753006C0CA1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E578C02E23362753006C0CA1 /* Classes */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E578C02E23362753006C0CA1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E578C02F23362753006C0CA1 /* KfOptions.swift */,
+				E578C03023362753006C0CA1 /* KingfisherExtension.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E578C03423362E30006C0CA1 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03523362E30006C0CA1 /* Classes */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		E578C03523362E30006C0CA1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03623362E30006C0CA1 /* Toast+UIView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E578C03823362E3C006C0CA1 /* WebP */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03923362E3C006C0CA1 /* Classes */,
+			);
+			path = WebP;
+			sourceTree = "<group>";
+		};
+		E578C03923362E3C006C0CA1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03A23362E3C006C0CA1 /* KfWebPOptions.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E578C03D23363678006C0CA1 /* Jelly */ = {
+			isa = PBXGroup;
+			children = (
+				E578C03E23363683006C0CA1 /* JellyManager.swift */,
+			);
+			path = Jelly;
 			sourceTree = "<group>";
 		};
 		E57DD43E21E2E67B0089A2D2 /* Center */ = {
@@ -1540,6 +1634,9 @@
 		E5E0206E21B5057600A4CDF1 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				E578C03423362E30006C0CA1 /* Toast */,
+				E578C02C23362753006C0CA1 /* Kingfisher */,
+				E578C02923362753006C0CA1 /* MJRefresh */,
 				E5D749ED21FEE0B300BCE75F /* RxErrorTracker */,
 				E5E3241E21DC819E002DC676 /* JXPagerView */,
 			);
@@ -1575,6 +1672,7 @@
 		E5E1932721E8848D002CBAE8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E578C03D23363678006C0CA1 /* Jelly */,
 				187833CC221D4AFD006C9008 /* Parameter */,
 				E5D749F121FEE8A200BCE75F /* Lib */,
 				E5E1932C21E8884A002CBAE8 /* User */,
@@ -2412,6 +2510,7 @@
 				E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */,
 				E534047021BF638F008807DA /* VideoDetailInfoCell.swift in Sources */,
 				E5ED9FA921DF38B80088775F /* UserVideoViewModel.swift in Sources */,
+				E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */,
 				E5FA89F421BA1D280084F3C3 /* UGCVideoPageViewModel.swift in Sources */,
 				E520A48B21D755E800CDDB04 /* ReplyCommentHeader.swift in Sources */,
 				E520A48521D7216D00CDDB04 /* ReplyCommentModel.swift in Sources */,
@@ -2428,8 +2527,11 @@
 				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */,
 				E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */,
+				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
 				E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */,
+				E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
+				E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */,
 				E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */,
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
@@ -2499,9 +2601,11 @@
 				E5FAB71B21C0BC30002BF258 /* EmojiModel.swift in Sources */,
 				E5FE0DC421FAFD8B00DE1DED /* TableViewCell.swift in Sources */,
 				E51E4DE221E59DD700E06AD7 /* VideoHallSearchResultCell.swift in Sources */,
+				E578C03223362753006C0CA1 /* KfOptions.swift in Sources */,
 				E5E0201D21B4FE4A00A4CDF1 /* Label.swift in Sources */,
 				E5FE0DB921FAD69C00DE1DED /* CollectionViewController.swift in Sources */,
 				E5FB739F21B76CC10010D8A7 /* VideoCategory.swift in Sources */,
+				E578C03323362753006C0CA1 /* KingfisherExtension.swift in Sources */,
 				E5E0203321B4FE7B00A4CDF1 /* AppConfigs.swift in Sources */,
 				E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */,
 				E5FA8A0021BA37820084F3C3 /* UGCVideoListViewModel.swift in Sources */,
@@ -2654,7 +2758,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT42FT369N;
 				INFOPLIST_FILE = Candy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2815,7 +2919,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT42FT369N;
 				INFOPLIST_FILE = Candy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2839,7 +2943,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT42FT369N;
 				INFOPLIST_FILE = Candy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

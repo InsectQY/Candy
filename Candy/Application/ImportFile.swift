@@ -13,6 +13,5 @@ import Foundation
 @_exported import NSObject_Rx
 @_exported import RxNetwork
 @_exported import RxOptional
-@_exported import SwiftyThirdParty
 @_exported import RxMJ
 @_exported import RxActivityIndicator

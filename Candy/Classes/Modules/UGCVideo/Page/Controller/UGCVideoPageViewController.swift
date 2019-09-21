@@ -24,7 +24,7 @@ class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -111,7 +111,7 @@ extension Reactive where Base: UGCVideoPageViewController {
 
             vc.categoryView.titles = result.map { $0.name }
             vc.categoryView.defaultSelectedIndex = 0
-            vc.listContainerView.defaultSelectedIndex = 0
+            vc.listContainerView.setDefaultSelectedIndex(0)
             vc.categoryView.reloadData()
             vc.listContainerView.reloadData()
         }

@@ -23,7 +23,7 @@ class UserPorfileViewController: ViewController<UserPorfileViewModel> {
     fileprivate lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()
-        lineView.indicatorLineViewColor = .main
+        lineView.indicatorColor = .main
         let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuH))
         categoryView.titleColor = .black
         categoryView.titleSelectedColor = .main

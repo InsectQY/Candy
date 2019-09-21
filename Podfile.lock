@@ -1,43 +1,28 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
   - Cache (5.2.0)
-  - CleanJSON (0.9.3)
+  - CleanJSON (1.0.0)
   - DefaultsKit (0.2.0)
   - Differentiator (3.1.0)
-  - EmptyDataSet-Swift (4.2.0)
+  - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
-  - IQKeyboardManagerSwift (6.4.0)
-  - Jelly (1.2.5)
-  - JXCategoryView (1.3.14)
-  - Kingfisher (4.10.1)
-  - KingfisherWebP (0.4.2):
-    - Kingfisher (~> 4.0)
+  - IQKeyboardManagerSwift (6.4.2)
+  - Jelly (2.2.2)
+  - JXCategoryView (1.5.0)
+  - Kingfisher (5.7.1)
+  - KingfisherWebP (0.6.0):
+    - Kingfisher (~> 5.0)
     - libwebp (>= 0.5.0)
-  - libwebp (1.0.2):
-    - libwebp/core (= 1.0.2)
-    - libwebp/dec (= 1.0.2)
-    - libwebp/demux (= 1.0.2)
-    - libwebp/dsp (= 1.0.2)
-    - libwebp/enc (= 1.0.2)
-    - libwebp/mux (= 1.0.2)
-    - libwebp/utils (= 1.0.2)
-    - libwebp/webp (= 1.0.2)
-  - libwebp/core (1.0.2):
+  - libwebp (1.0.3):
+    - libwebp/demux (= 1.0.3)
+    - libwebp/mux (= 1.0.3)
+    - libwebp/webp (= 1.0.3)
+  - libwebp/demux (1.0.3):
     - libwebp/webp
-  - libwebp/dec (1.0.2):
-    - libwebp/core
-  - libwebp/demux (1.0.2):
-    - libwebp/core
-  - libwebp/dsp (1.0.2):
-    - libwebp/core
-  - libwebp/enc (1.0.2):
-    - libwebp/core
-  - libwebp/mux (1.0.2):
-    - libwebp/core
-  - libwebp/utils (1.0.2):
-    - libwebp/core
-  - libwebp/webp (1.0.2)
+  - libwebp/mux (1.0.3):
+    - libwebp/demux
+  - libwebp/webp (1.0.3)
   - MJRefresh (3.2.0)
   - MonkeyKing (1.15.0)
   - Moya/Core (13.0.1):
@@ -90,32 +75,15 @@ PODS:
     - RxCocoa
     - RxSwift
     - URLNavigator
-  - SwiftLint (0.33.1)
-  - SwiftyThirdParty (0.1.1):
-    - SwiftyThirdParty/Kingfisher (= 0.1.1)
-    - SwiftyThirdParty/MJRefresh (= 0.1.1)
-    - SwiftyThirdParty/Toast (= 0.1.1)
-  - SwiftyThirdParty/Kingfisher (0.1.1):
-    - Kingfisher
-    - SwiftyThirdParty/Kingfisher/Core (= 0.1.1)
-    - SwiftyThirdParty/Kingfisher/WebP (= 0.1.1)
-  - SwiftyThirdParty/Kingfisher/Core (0.1.1):
-    - Kingfisher
-  - SwiftyThirdParty/Kingfisher/WebP (0.1.1):
-    - Kingfisher
-    - KingfisherWebP
-  - SwiftyThirdParty/MJRefresh (0.1.1):
-    - MJRefresh
-  - SwiftyThirdParty/Toast (0.1.1):
-    - Toast-Swift
+  - SwiftLint (0.35.0)
   - Toast-Swift (5.0.0)
   - UIFontComplete (4.0.0)
   - URLNavigator (2.2.0)
-  - ZFPlayer/AVPlayer (3.2.12):
+  - ZFPlayer/AVPlayer (3.2.13):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.12):
+  - ZFPlayer/ControlView (3.2.13):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.12)
+  - ZFPlayer/Core (3.2.13)
 
 DEPENDENCIES:
   - CleanJSON
@@ -126,6 +94,9 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Jelly
   - JXCategoryView
+  - Kingfisher
+  - KingfisherWebP
+  - MJRefresh
   - MonkeyKing
   - "NSObject+Rx"
   - NVActivityIndicatorView
@@ -140,7 +111,6 @@ DEPENDENCIES:
   - RxReachability
   - RxURLNavigator
   - SwiftLint
-  - SwiftyThirdParty (from `https://github.com/InsectQY/SwiftyThirdParty.git`)
   - Toast-Swift
   - UIFontComplete
   - ZFPlayer/AVPlayer
@@ -190,32 +160,27 @@ EXTERNAL SOURCES:
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
-  SwiftyThirdParty:
-    :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 CHECKOUT OPTIONS:
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
     :tag: 0.5.0
-  SwiftyThirdParty:
-    :commit: 30cec777d646fecf393f76c70339011e3dd4d2eb
-    :git: https://github.com/InsectQY/SwiftyThirdParty.git
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  CleanJSON: e7e3950845b522326790ae0b114bc98102a33456
+  CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  EmptyDataSet-Swift: 1fa0b35f530a35f852ecb2b53564728b0c300aaf
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
-  Jelly: cc6b6a81ed3c476fe0126b10526ee9eb8c98bb45
-  JXCategoryView: 008a9d2eb3ba6035eb2df9a2b3e9a4806d6601a3
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  KingfisherWebP: 53632f3da248ccabd4999d775903d6ae0aaa7768
-  libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
+  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
+  Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
+  JXCategoryView: 9ea4bdf5cd63a6441701147da269446ed97d5dc9
+  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
+  KingfisherWebP: 53327b38511996ce093b50513abe46408a26de43
+  libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -235,13 +200,12 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
-  SwiftLint: 9fc1143bbacec37f94994a7d0d2a85b2154b6294
-  SwiftyThirdParty: fa587219c4ae28fc1bf52959f271b22f3cd978d3
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
-  ZFPlayer: fdc92702cc611922182a951991dea78566da7605
+  ZFPlayer: b2ba40c924e1b9a7f0a670632c4235ffbe6ee055
 
-PODFILE CHECKSUM: eb39c286dabe754afb07e2c13550b87399702e2e
+PODFILE CHECKSUM: 7e99c416cb936538589b8d5b053b0d117b9f3ef1
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5

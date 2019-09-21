@@ -1,16 +1,13 @@
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Candy' do
   
 # use_modular_headers!
 use_frameworks!
 inhibit_all_warnings!
-
-# Privacy
-pod 'SwiftyThirdParty', :git => 'https://github.com/InsectQY/SwiftyThirdParty.git' # https://github.com/InsectQY/SwiftyThirdParty
 
  # OC
 pod 'FDFullscreenPopGesture' # https://github.com/forkingdog/FDFullscreenPopGesture
@@ -21,6 +18,8 @@ pod 'ZFPlayer/AVPlayer' # https://github.com/renzifeng/ZFPlayer
 pod 'ZFPlayer/ControlView'
 # Search
 pod 'PYSearch' # https://github.com/ko1o/PYSearch
+# Refresh
+pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
 
  # Swift
  
@@ -35,6 +34,9 @@ pod 'RxMJ', :tag => '0.5.0', :git => 'https://github.com/InsectQY/RxMJ.git' # ht
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
 
+# UIImage Download
+pod 'Kingfisher' # https://github.com/onevcat/Kingfisher
+pod "KingfisherWebP" # https://github.com/Yeatse/KingfisherWebP
 # Codable
 pod 'CleanJSON' # https://github.com/Pircate/CleanJSON
 # Keyboard

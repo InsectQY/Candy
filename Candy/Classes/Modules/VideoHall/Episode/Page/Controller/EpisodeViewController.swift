@@ -30,9 +30,9 @@ class EpisodeViewController: ViewController<ViewModel> {
     private lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()
-        lineView.lineStyle = .JD
-        lineView.indicatorLineViewColor = .main
-        lineView.indicatorLineWidth = 10
+        lineView.lineStyle = .normal
+        lineView.indicatorWidth = 10
+        lineView.indicatorColor = .main
         let categoryView = JXCategoryTitleView(frame: .zero)
         categoryView.delegate = self
         categoryView.titleSelectedColor = .main
@@ -42,7 +42,7 @@ class EpisodeViewController: ViewController<ViewModel> {
     }()
 
     // swiftlint:disable force_unwrapping
-    private lazy var listContainerView = JXCategoryListContainerView(delegate: self)!
+    private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
