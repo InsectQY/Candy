@@ -140,10 +140,10 @@ extension EpisodeViewController: JXCategoryViewDelegate {
 extension EpisodeViewController: JXCategoryListContainerViewDelegate {
 
     func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
-        return childVcs.count
+        childVcs.count
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        return childVcs[index]
+        childVcs[index]
     }
 }

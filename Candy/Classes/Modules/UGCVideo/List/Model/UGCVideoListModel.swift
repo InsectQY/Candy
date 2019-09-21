@@ -51,15 +51,15 @@ struct Action: Codable {
     let digg_count: Int
 
     var playCountString: String {
-        return play_count.countString
+        play_count.countString
     }
 
     var diggCountString: String {
-        return digg_count.countString
+        digg_count.countString
     }
 
     var commentCountString: String {
-        return comment_count.countString
+        comment_count.countString
     }
 }
 

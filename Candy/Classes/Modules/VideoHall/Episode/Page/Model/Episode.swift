@@ -20,6 +20,6 @@ struct EpisodePage: Codable {
 
     /// 选中的集数是否在当前页面中
     var isInRange: Bool {
-        return (start...end).contains(selIndex)
+        (start...end).contains(selIndex)
     }
 }

@@ -88,12 +88,12 @@ extension VideoListViewModel: ViewModelable {
     }
 
     private func getUrls(_ items: Driver<[NewsListModel]>) -> Driver<[URL]> {
-        return  items
-                .map {
-                    $0.map {
-                        URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
-                }
-                .compactMap { $0 }
+        items
+        .map {
+            $0.map {
+                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
+            }
+            .compactMap { $0 }
         }
     }
 }
@@ -103,16 +103,16 @@ extension VideoListViewModel {
     /// 加载视频
     func request(category: String) -> Driver<[NewsListModel]> {
 
-        return  VideoApi.list(category)
-                .request()
-                .mapObject([NewsListModel].self)
-                .map {
-                    $0.filter {
-                        !($0.content.label).contains("广告")
-                    }
-                }
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi.list(category)
+        .request()
+        .mapObject([NewsListModel].self)
+        .map {
+            $0.filter {
+                !($0.content.label).contains("广告")
+            }
+        }
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

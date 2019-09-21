@@ -19,13 +19,13 @@ extension ObservableType {
      - returns: An observable squence containing the values pointed to by the key path
      */
     public func mapAt<Result>(_ keyPath: KeyPath<Element, Result>) -> Observable<Result> {
-        return self.map { $0[keyPath: keyPath] }
+        self.map { $0[keyPath: keyPath] }
     }
 }
 
 extension SharedSequenceConvertibleType {
 
     public func mapAt<Result>(_ keyPath: KeyPath<Element, Result>) -> SharedSequence<SharingStrategy, Result> {
-        return self.map { $0[keyPath: keyPath] }
+        self.map { $0[keyPath: keyPath] }
     }
 }

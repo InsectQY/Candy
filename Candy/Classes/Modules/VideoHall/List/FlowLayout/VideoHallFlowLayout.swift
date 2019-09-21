@@ -16,10 +16,10 @@ class VideoHallFlowLayout: UICollectionViewFlowLayout {
     private let kMaxCol: CGFloat = 3
     /// cell 宽度
     private var kItemW: CGFloat {
-        return ((collectionView?.width ?? 0) - (kMaxCol - 1) * kMargin) / kMaxCol
+        ((collectionView?.width ?? 0) - (kMaxCol - 1) * kMargin) / kMaxCol
     }
     private var kItemH: CGFloat {
-        return kItemW * 1.7
+        kItemW * 1.7
     }
 
     override func prepare() {

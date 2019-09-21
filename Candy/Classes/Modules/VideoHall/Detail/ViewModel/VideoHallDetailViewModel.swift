@@ -106,15 +106,15 @@ extension VideoHallDetailViewModel {
     func requestVideoInfo(albumID: String,
                           episodeID: String) -> Driver<VideoHallDetailModel> {
 
-        return  VideoHallApi
-                .detail(albumID: albumID,
-                        episodeID: episodeID)
-                .request()
-                .mapObject(VideoHallDetailModel.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriverOnErrorJustComplete()
+        VideoHallApi
+        .detail(albumID: albumID,
+                episodeID: episodeID)
+        .request()
+        .mapObject(VideoHallDetailModel.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriverOnErrorJustComplete()
     }
 
     // 获取视频播放信息
@@ -122,17 +122,17 @@ extension VideoHallDetailViewModel {
                               ptoken: String,
                               author: String) -> Driver<VideoPlayInfo> {
 
-        return  VideoHallApi
-                .parseVideoHall(vid: vid,
-                                ptoken: ptoken,
-                                author: author)
-                .request()
-                .mapObject(Model<VideoPlayInfo>.self,
-                           atKeyPath: "video_info")
-                .filter { $0.message == .success }
-                .map { $0.data }
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriverOnErrorJustComplete()
+        VideoHallApi
+        .parseVideoHall(vid: vid,
+                        ptoken: ptoken,
+                        author: author)
+        .request()
+        .mapObject(Model<VideoPlayInfo>.self,
+                   atKeyPath: "video_info")
+        .filter { $0.message == .success }
+        .map { $0.data }
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriverOnErrorJustComplete()
     }
 }

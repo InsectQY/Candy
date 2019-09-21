@@ -12,7 +12,7 @@ public extension BehaviorRelay where Element: RangeReplaceableCollection {
 
     var append: AnyObserver<Element> {
 
-        return AnyObserver { [weak self] event in
+        AnyObserver { [weak self] event in
 
             guard let self = self else { return }
             

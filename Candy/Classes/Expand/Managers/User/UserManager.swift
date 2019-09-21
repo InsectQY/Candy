@@ -16,12 +16,12 @@ final class UserManager {
     static let `default` = UserManager()
 
     public var userInfo: UserInfoModel? {
-        return getUserInfo()
+        getUserInfo()
     }
 
     // MARK: - 判断是否登录
     public func isLogin() -> Bool {
-        return Defaults().has(.userKey)
+        Defaults().has(.userKey)
     }
 
     // MARK: - 登录成功
@@ -39,7 +39,7 @@ extension UserManager {
 
     // MARK: - 从本地获取用户信息
     private func getUserInfo() -> UserInfoModel? {
-        return Defaults().get(for: .userKey)
+        Defaults().get(for: .userKey)
     }
 
     // MARK: - 保存用户信息
@@ -58,7 +58,7 @@ extension UserManager: ReactiveCompatible {}
 extension Reactive where Base: UserManager {
 
     var loginSuccess: Binder<UserInfoModel> {
-        return Binder(base) { this, result in
+        Binder(base) { this, result in
             this.loginSuccess(userInfo: result)
         }
     }

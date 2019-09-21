@@ -63,7 +63,7 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
 
     // MARK: - override
     override var prefersStatusBarHidden: Bool {
-        return true
+        true
     }
 
     override func makeUI() {

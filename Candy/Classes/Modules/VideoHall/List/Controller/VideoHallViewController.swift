@@ -147,7 +147,7 @@ extension Reactive where Base: VideoHallViewController {
 
     var filterTap: Binder<Void> {
 
-        return Binder(base) { vc, _ in
+        Binder(base) { vc, _ in
 
             vc.animateFilterView.isHidden = false
             UIView.animate(withDuration: 0.35, animations: {

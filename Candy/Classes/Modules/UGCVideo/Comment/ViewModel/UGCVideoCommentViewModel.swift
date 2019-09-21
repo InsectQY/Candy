@@ -85,14 +85,14 @@ extension UGCVideoCommentViewModel {
     func request(groupID: String,
                  offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
-        return  VideoApi
-                .ugcComment(groupID: groupID,
-                            offset: offset)
-                .request()
-                .mapObject(Model<[VideoCommentModel]>.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .ugcComment(groupID: groupID,
+                    offset: offset)
+        .request()
+        .mapObject(Model<[VideoCommentModel]>.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

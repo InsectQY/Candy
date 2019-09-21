@@ -14,21 +14,21 @@ extension Reactive where Base: UICollectionView {
 
     var reloadEmptyDataSet: Binder<Void> {
 
-        return Binder(base) { collectionView, _ in
+        Binder(base) { collectionView, _ in
             collectionView.reloadEmptyDataSet()
         }
     }
 
     var reloadData: Binder<Void> {
 
-        return Binder(base) { collectionView, _ in
+        Binder(base) { collectionView, _ in
             collectionView.reloadData()
         }
     }
 
     func scrollToItem(at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) -> Binder<IndexPath> {
 
-        return Binder(base) { collectionView, indexPath in
+        Binder(base) { collectionView, indexPath in
 
             collectionView.scrollToItem(at: indexPath,
                                         at: scrollPosition,

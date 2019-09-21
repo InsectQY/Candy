@@ -71,7 +71,7 @@ class VideoHallEpisodeCell: TableViewCell {
 extension VideoHallEpisodeCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,7 +99,7 @@ extension Reactive where Base: VideoHallEpisodeCell {
 
     var selIndex: Binder<Int> {
 
-        return Binder(base) { cell, result in
+        Binder(base) { cell, result in
             cell.selIndex = result
         }
     }
@@ -116,6 +116,6 @@ extension VideoHallEpisodeCell {
     private static let kMaxCol: CGFloat = 6
     /// cell 宽度
     public static var kItemW: CGFloat {
-        return (Configs.Dimensions.screenWidth - (VideoHallEpisodeCell.kMaxCol - 1) * VideoHallEpisodeCell.kMargin - VideoHallEpisodeCell.KInset * 2) / VideoHallEpisodeCell.kMaxCol
+        (Configs.Dimensions.screenWidth - (VideoHallEpisodeCell.kMaxCol - 1) * VideoHallEpisodeCell.kMargin - VideoHallEpisodeCell.KInset * 2) / VideoHallEpisodeCell.kMaxCol
     }
 }

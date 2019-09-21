@@ -91,14 +91,14 @@ extension UserVideoViewModel {
                  visitedID: String,
                  offset: Int) -> Driver<Model<[NewsListModel]>> {
 
-        return  VideoApi
-                .profileType(category: category,
-                             visitedID: visitedID,
-                             offset: offset)
-                .request()
-                .mapObject(Model<[NewsListModel]>.self, atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .profileType(category: category,
+                     visitedID: visitedID,
+                     offset: offset)
+        .request()
+        .mapObject(Model<[NewsListModel]>.self, atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

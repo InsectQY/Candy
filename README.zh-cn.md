@@ -1,14 +1,14 @@
 # Candy
 
-![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)
 
 一个视频类的客户端，接口抓取自今日头条和阳光宽屏网。
 
 ## 要求
 
-- Xcode 10 +
-- Swift 5.0
-- iOS 9.0 +
+- Xcode 11 +
+- Swift 5.1
+- iOS 10.0 +
 
 ## 预览
 

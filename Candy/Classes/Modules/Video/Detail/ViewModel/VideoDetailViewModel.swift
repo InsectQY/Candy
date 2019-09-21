@@ -152,12 +152,12 @@ extension VideoDetailViewModel {
     /// 解析视频真实播放地址
     func parsePlayInfo(videoID: String) -> Driver<VideoPlayInfo> {
 
-        return  VideoApi.parsePlayInfo(videoID)
-                .request()
-                .mapObject(VideoPlayInfo.self)
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriverOnErrorJustComplete()
+        VideoApi.parsePlayInfo(videoID)
+        .request()
+        .mapObject(VideoPlayInfo.self)
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriverOnErrorJustComplete()
     }
 
     /// 加载评论
@@ -165,15 +165,15 @@ extension VideoDetailViewModel {
                         groupID: String,
                         offset: Int) -> Driver<Model<[VideoCommentModel]>> {
 
-        return  VideoApi
-                .comment(itemID: itemID,
-                         groupID: groupID,
-                         offset: offset)
-                .request()
-                .mapObject(Model<[VideoCommentModel]>.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .comment(itemID: itemID,
+                 groupID: groupID,
+                 offset: offset)
+        .request()
+        .mapObject(Model<[VideoCommentModel]>.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

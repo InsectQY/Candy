@@ -14,21 +14,21 @@ extension Reactive where Base: UITableView {
 
     var reloadEmptyDataSet: Binder<Void> {
 
-        return Binder(base) { tableView, _ in
+        Binder(base) { tableView, _ in
             tableView.reloadEmptyDataSet()
         }
     }
 
     var reloadData: Binder<Void> {
 
-        return Binder(base) { tableView, _ in
+        Binder(base) { tableView, _ in
             tableView.reloadData()
         }
     }
 
     func scrollToRow(at scrollPosition: UITableView.ScrollPosition, animated: Bool) -> Binder<IndexPath> {
 
-        return Binder(base) { tableView, indexPath in
+        Binder(base) { tableView, indexPath in
             tableView.scrollToRow(at: indexPath,
                                   at: scrollPosition,
                                   animated: animated)

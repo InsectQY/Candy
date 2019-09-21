@@ -87,13 +87,13 @@ extension ReplyCommentViewModel {
     func request(id: String,
                  offset: Int) -> Driver<ReplyCommentModel> {
 
-        return  VideoApi
-                .replyComment(id: id,
-                              offset: offset)
-                .request()
-                .mapObject(ReplyCommentModel.self)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .replyComment(id: id,
+                      offset: offset)
+        .request()
+        .mapObject(ReplyCommentModel.self)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

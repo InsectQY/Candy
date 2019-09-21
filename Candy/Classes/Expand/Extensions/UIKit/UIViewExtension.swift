@@ -4,7 +4,7 @@ extension UIView {
 
     public var x: CGFloat {
         get {
-            return self.frame.origin.x
+            self.frame.origin.x
         }
         set {
             var frame = self.frame
@@ -15,7 +15,7 @@ extension UIView {
 
     public var y: CGFloat {
         get {
-            return self.frame.origin.y
+            self.frame.origin.y
         }
 
         set {
@@ -27,7 +27,7 @@ extension UIView {
 
     public var width: CGFloat {
         get {
-            return self.frame.size.width
+            self.frame.size.width
         }
 
         set {
@@ -39,7 +39,7 @@ extension UIView {
 
     public var height: CGFloat {
         get {
-            return self.frame.size.height
+            self.frame.size.height
         }
 
         set {
@@ -51,7 +51,7 @@ extension UIView {
 
     public var size: CGSize {
         get {
-            return self.frame.size
+            self.frame.size
         }
 
         set {
@@ -63,7 +63,7 @@ extension UIView {
 
     public var origin: CGPoint {
         get {
-            return self.frame.origin
+            self.frame.origin
         }
 
         set {
@@ -74,7 +74,7 @@ extension UIView {
     }
 
     public var bottom: CGFloat {
-        return self.frame.origin.y + self.frame.size.height
+        self.frame.origin.y + self.frame.size.height
     }
 
     public func isShowingOnKeyWindow() -> Bool {
@@ -123,7 +123,7 @@ extension UIView {
     /// SwifterSwift: Border width of view; also inspectable from Storyboard.
     @IBInspectable public var borderWidth: CGFloat {
         get {
-            return layer.borderWidth
+            layer.borderWidth
         }
         set {
             layer.borderWidth = newValue
@@ -133,7 +133,7 @@ extension UIView {
     /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
     @IBInspectable public var cornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
+            layer.cornerRadius
         }
         set {
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
@@ -153,7 +153,7 @@ extension UIView {
     /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
     @IBInspectable public var shadowOffset: CGSize {
         get {
-            return layer.shadowOffset
+            layer.shadowOffset
         }
         set {
             layer.shadowOffset = newValue
@@ -163,7 +163,7 @@ extension UIView {
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable public var shadowOpacity: Float {
         get {
-            return layer.shadowOpacity
+            layer.shadowOpacity
         }
         set {
             layer.shadowOpacity = newValue
@@ -173,7 +173,7 @@ extension UIView {
     /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
     @IBInspectable public var shadowRadius: CGFloat {
         get {
-            return layer.shadowRadius
+            layer.shadowRadius
         }
         set {
             layer.shadowRadius = newValue

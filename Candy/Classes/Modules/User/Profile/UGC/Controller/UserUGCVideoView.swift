@@ -91,11 +91,11 @@ extension UserUGCVideoView: UICollectionViewDelegate {
 extension UserUGCVideoView: JXPagerViewListViewDelegate {
 
     func listView() -> UIView! {
-        return self
+        self
     }
 
     func listScrollView() -> UIScrollView! {
-        return collectionView
+        collectionView
     }
 
     func listViewDidScrollCallback(_ callback: ((UIScrollView?) -> Void)!) {

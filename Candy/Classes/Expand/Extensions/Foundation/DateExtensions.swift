@@ -41,7 +41,7 @@ public extension Date {
 
 	/// SwifterSwift: User’s current calendar.
     var calendar: Calendar {
-		return Calendar.current
+        Calendar.current
 	}
 
 	/// SwifterSwift: Era.
@@ -49,7 +49,7 @@ public extension Date {
 	///		Date().era -> 1
 	///
     var era: Int {
-		return Calendar.current.component(.era, from: self)
+        Calendar.current.component(.era, from: self)
 	}
 
 	/// SwifterSwift: Quarter.
@@ -68,7 +68,7 @@ public extension Date {
 	///		Date().weekOfYear -> 2 // second week in the year.
 	///
     var weekOfYear: Int {
-		return Calendar.current.component(.weekOfYear, from: self)
+        Calendar.current.component(.weekOfYear, from: self)
 	}
 
 	/// SwifterSwift: Week of month.
@@ -76,7 +76,7 @@ public extension Date {
 	///		Date().weekOfMonth -> 3 // date is in third week of the month.
 	///
     var weekOfMonth: Int {
-		return Calendar.current.component(.weekOfMonth, from: self)
+        Calendar.current.component(.weekOfMonth, from: self)
 	}
 
 	/// SwifterSwift: Year.
@@ -151,7 +151,7 @@ public extension Date {
 	/// 	Date().weekday -> 5 // fifth day in the current week.
 	///
     var weekday: Int {
-		return Calendar.current.component(.weekday, from: self)
+        Calendar.current.component(.weekday, from: self)
 	}
 
 	/// SwifterSwift: Hour.
@@ -290,7 +290,7 @@ public extension Date {
 	/// 	Date().isInToday -> true
 	///
     var isInToday: Bool {
-		return Calendar.current.isDateInToday(self)
+        Calendar.current.isDateInToday(self)
 	}
 
 	/// SwifterSwift: Check if date is within yesterday.
@@ -298,7 +298,7 @@ public extension Date {
 	/// 	Date().isInYesterday -> false
 	///
     var isInYesterday: Bool {
-		return Calendar.current.isDateInYesterday(self)
+        Calendar.current.isDateInYesterday(self)
 	}
 
 	/// SwifterSwift: Check if date is within tomorrow.
@@ -306,32 +306,32 @@ public extension Date {
 	/// 	Date().isInTomorrow -> false
 	///
     var isInTomorrow: Bool {
-		return Calendar.current.isDateInTomorrow(self)
+        Calendar.current.isDateInTomorrow(self)
 	}
 
 	/// SwifterSwift: Check if date is within a weekend period.
     var isInWeekend: Bool {
-		return Calendar.current.isDateInWeekend(self)
+        Calendar.current.isDateInWeekend(self)
 	}
 
 	/// SwifterSwift: Check if date is within a weekday period.
     var isWorkday: Bool {
-		return !Calendar.current.isDateInWeekend(self)
+        !Calendar.current.isDateInWeekend(self)
 	}
 
 	/// SwifterSwift: Check if date is within the current week.
     var isInCurrentWeek: Bool {
-		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+        Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
 	}
 
 	/// SwifterSwift: Check if date is within the current month.
     var isInCurrentMonth: Bool {
-		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+        Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
 	}
 
 	/// SwifterSwift: Check if date is within the current year.
     var isInCurrentYear: Bool {
-		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+        Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
 	}
 
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
@@ -473,7 +473,7 @@ public extension Date {
 	///   - value: multiples of components to add.
 	/// - Returns: original date + multiples of component added.
     func adding(_ component: Calendar.Component, value: Int) -> Date {
-		return Calendar.current.date(byAdding: component, value: value, to: self)!
+        Calendar.current.date(byAdding: component, value: value, to: self)!
 	}
 
 	/// SwifterSwift: Add calendar component to date.

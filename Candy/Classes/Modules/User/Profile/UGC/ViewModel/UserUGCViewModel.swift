@@ -93,15 +93,15 @@ extension UserUGCViewModel {
                  visitedID: String,
                  offset: Int) -> Driver<Model<[UGCVideoListModel]>> {
 
-        return  VideoApi
-                .profileType(category: category,
-                             visitedID: visitedID,
-                             offset: offset)
-                .request()
-                .mapObject(Model<[UGCVideoListModel]>.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .profileType(category: category,
+                     visitedID: visitedID,
+                     offset: offset)
+        .request()
+        .mapObject(Model<[UGCVideoListModel]>.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

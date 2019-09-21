@@ -170,11 +170,11 @@ extension ViewController: EmptyDataSetSource {
     }
 
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
-        return .clear
+        .clear
     }
 
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
-        return -verticalOffset
+        -verticalOffset
     }
 }
 
@@ -182,7 +182,7 @@ extension ViewController: EmptyDataSetSource {
 extension ViewController: EmptyDataSetDelegate {
 
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
-        return !isLoading.value
+        !isLoading.value
     }
 
     func emptyDataSet(_ scrollView: UIScrollView, didTapView view: UIView) {

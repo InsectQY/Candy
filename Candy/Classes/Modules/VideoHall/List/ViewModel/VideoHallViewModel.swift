@@ -145,27 +145,27 @@ extension VideoHallViewModel {
     /// 视频种类
     func requestCategory() -> Driver<[CategoryList]> {
 
-        return  VideoHallApi.category
-                .request()
-                .mapObject(CategoryInfo.self,
-                           atKeyPath: "search_category_info")
-                .map { $0.search_category_list }
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriverOnErrorJustComplete()
+        VideoHallApi.category
+        .request()
+        .mapObject(CategoryInfo.self,
+                   atKeyPath: "search_category_info")
+        .map { $0.search_category_list }
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriverOnErrorJustComplete()
     }
 
     /// 某个分类下的视频
     func requestVideo(offset: Int, searchKey: String) -> Driver<VideoHallModel> {
 
-        return  VideoHallApi
-                .list(offset,
-                      searchKey)
-                .request()
-                .mapObject(VideoHallModel.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoHallApi
+        .list(offset,
+              searchKey)
+        .request()
+        .mapObject(VideoHallModel.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

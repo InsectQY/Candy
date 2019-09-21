@@ -43,7 +43,7 @@ class SearchTitleView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return UIView.layoutFittingExpandedSize
+        UIView.layoutFittingExpandedSize
     }
 }
 

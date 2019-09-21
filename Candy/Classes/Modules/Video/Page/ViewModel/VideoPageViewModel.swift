@@ -48,21 +48,21 @@ extension VideoPageViewModel {
 
         let dafaultCategory = VideoCategory(category: "video",
                                             name: "推荐")
-        return  VideoApi.category
-                .request()
-                .mapObject([VideoCategory].self)
-                .map { category -> [VideoCategory] in
+        return VideoApi.category
+        .request()
+        .mapObject([VideoCategory].self)
+        .map { category -> [VideoCategory] in
 
-                    var category = category
-                    // 过滤这三组
-                    category = category.filter {
-                        !(["直播", "考得好", "关注"].contains($0.name))
-                    }
-                    category.insert(dafaultCategory, at: 0)
-                    return category
-                }
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriver(onErrorJustReturn: [dafaultCategory])
+            var category = category
+            // 过滤这三组
+            category = category.filter {
+                !(["直播", "考得好", "关注"].contains($0.name))
+            }
+            category.insert(dafaultCategory, at: 0)
+            return category
+        }
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriver(onErrorJustReturn: [dafaultCategory])
     }
 }

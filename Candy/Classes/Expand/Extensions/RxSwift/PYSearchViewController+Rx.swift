@@ -13,7 +13,7 @@ extension Reactive where Base: PYSearchViewController {
 
     var searchSuggestions: Binder<[String]> {
 
-        return Binder(base) { vc, suggestions in
+        Binder(base) { vc, suggestions in
             vc.searchSuggestions = suggestions
         }
     }

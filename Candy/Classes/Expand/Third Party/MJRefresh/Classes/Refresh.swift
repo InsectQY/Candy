@@ -11,17 +11,17 @@ import MJRefresh
 extension UIScrollView {
 
     public var refreshHeader: MJRefreshHeader? {
-        get { return mj_header }
+        get { mj_header }
         set { mj_header = newValue }
     }
 
     public var refreshFooter: MJRefreshFooter? {
-        get { return mj_footer }
+        get { mj_footer }
         set { mj_footer = newValue }
     }
 
     public var isTotalDataEmpty: Bool {
-        return mj_totalDataCount() == 0
+        mj_totalDataCount() == 0
     }
 }
 

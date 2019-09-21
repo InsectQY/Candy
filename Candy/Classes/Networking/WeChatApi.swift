@@ -17,19 +17,19 @@ enum WeChatApi {
 extension WeChatApi: TargetType {
 
     var baseURL: URL {
-        return URL(string: Configs.Network.weChatUrl)!
+        URL(string: Configs.Network.weChatUrl)!
     }
 
     var path: String {
-        return "sns/userinfo"
+        "sns/userinfo"
     }
 
     var method: Moya.Method {
-        return .get
+        .get
     }
 
     var sampleData: Data {
-        return "".data(using: String.Encoding.utf8)!
+        "".data(using: String.Encoding.utf8)!
     }
 
     var task: Task {
@@ -42,7 +42,7 @@ extension WeChatApi: TargetType {
     }
 
     var headers: [String: String]? {
-        return nil
+        nil
     }
 }
 

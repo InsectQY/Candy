@@ -108,7 +108,7 @@ extension Reactive where Base: VideoPageViewController {
 
     var category: Binder<[VideoCategory]> {
 
-        return Binder(base) { vc, result in
+        Binder(base) { vc, result in
 
             vc.categoryView.titles = result.map { $0.name }
             vc.categoryView.defaultSelectedIndex = 0

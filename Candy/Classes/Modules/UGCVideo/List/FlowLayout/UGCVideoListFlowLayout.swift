@@ -17,10 +17,10 @@ class UGCVideoListFlowLayout: UICollectionViewFlowLayout {
     private let interitemSpacing: CGFloat = 1
     /// cell 宽度
     private var kItemW: CGFloat {
-        return ((collectionView?.width ?? 0) - (kMaxCol - 1) * lineSpacing) / kMaxCol
+        ((collectionView?.width ?? 0) - (kMaxCol - 1) * lineSpacing) / kMaxCol
     }
     private var kItemH: CGFloat {
-        return kItemW * 1.6
+        kItemW * 1.6
     }
 
     override func prepare() {

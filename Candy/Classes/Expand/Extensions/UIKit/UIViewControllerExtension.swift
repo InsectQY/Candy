@@ -13,7 +13,7 @@ extension UIViewController: JXCategoryListContentViewDelegate {
 
     // MARK: - JXCategoryListContentViewDelegate
     public func listView() -> UIView! {
-        return view
+        view
     }
 
     public func disablesAdjustScrollViewInsets(_ scrollView: UIScrollView) {

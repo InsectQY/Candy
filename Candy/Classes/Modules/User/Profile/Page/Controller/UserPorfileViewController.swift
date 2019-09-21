@@ -81,23 +81,23 @@ class UserPorfileViewController: ViewController<UserPorfileViewModel> {
 extension UserPorfileViewController: JXPagerViewDelegate {
 
     func tableHeaderViewHeight(in pagerView: JXPagerView!) -> UInt {
-        return 200
+        200
     }
 
     func tableHeaderView(in pagerView: JXPagerView!) -> UIView! {
-        return headerView
+        headerView
     }
 
     func heightForPinSectionHeader(in pagerView: JXPagerView!) -> UInt {
-        return UInt(menuH)
+        UInt(menuH)
     }
 
     func viewForPinSectionHeader(in pagerView: JXPagerView!) -> UIView! {
-        return categoryView
+        categoryView
     }
 
     func listViews(in pagerView: JXPagerView!) -> [JXPagerViewListViewDelegate]! {
-        return dataSource
+        dataSource
     }
 }
 
@@ -105,7 +105,7 @@ extension UserPorfileViewController: JXPagerViewDelegate {
 extension Reactive where Base: UserPorfileViewController {
 
     var userProfile: Binder<UserProfileModel> {
-        return Binder(base) { vc, result in
+        Binder(base) { vc, result in
 
             vc.navigationItem.title = result.name
             vc.categoryView.titles = result.top_tab.map { $0.show_name }

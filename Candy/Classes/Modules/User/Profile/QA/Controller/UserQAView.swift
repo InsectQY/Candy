@@ -93,11 +93,11 @@ extension UserQAView: UITableViewDelegate {
 extension UserQAView: JXPagerViewListViewDelegate {
 
     func listView() -> UIView! {
-        return self
+        self
     }
 
     func listScrollView() -> UIScrollView! {
-        return tableView
+        tableView
     }
 
     func listViewDidScrollCallback(_ callback: ((UIScrollView?) -> Void)!) {

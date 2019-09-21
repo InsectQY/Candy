@@ -97,13 +97,13 @@ extension VideoHallSearchResultViewModel {
     func request(offset: Int,
                  key: String) -> Driver<VideoHallSearchResult> {
 
-        return  VideoHallApi
-                .search(offset, key)
-                .request()
-                .mapObject(VideoHallSearchResult.self,
-                           atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoHallApi
+        .search(offset, key)
+        .request()
+        .mapObject(VideoHallSearchResult.self,
+                   atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

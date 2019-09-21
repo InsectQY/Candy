@@ -19,7 +19,7 @@ extension HistoryManager {
 
     // MARK: - 从本地获取用户播放历史
     public static func getPlayHistory(videoID: String) -> PlayHistory? {
-        return Defaults().get(for: .historyKey(videoID: videoID))
+        Defaults().get(for: .historyKey(videoID: videoID))
     }
 
     // MARK: - 保存用户播放历史
@@ -37,7 +37,7 @@ extension Reactive where Base: HistoryManager {
 
     var save: Binder<PlayHistory> {
 
-        return Binder(base) { _, result in
+        Binder(base) { _, result in
             HistoryManager.saveUserInfo(result)
         }
     }

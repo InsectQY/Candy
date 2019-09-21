@@ -85,13 +85,13 @@ extension UGCVideoActivityViewModel {
     func request(offset: Int,
                  userAction: TTFrom) -> Driver<UGCVideoActivityListModel> {
 
-        return  VideoApi
-                .ugcActivity(offset: offset,
-                             userAction: userAction.rawValue)
-                .request()
-                .mapObject(UGCVideoActivityListModel.self)
-                .trackActivity(loading)
-                .trackError(refreshError)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .ugcActivity(offset: offset,
+                     userAction: userAction.rawValue)
+        .request()
+        .mapObject(UGCVideoActivityListModel.self)
+        .trackActivity(loading)
+        .trackError(refreshError)
+        .asDriverOnErrorJustComplete()
     }
 }

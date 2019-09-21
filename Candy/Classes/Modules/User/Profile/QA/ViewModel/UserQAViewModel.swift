@@ -92,14 +92,14 @@ extension UserQAViewModel {
                  visitedID: String,
                  offset: Int) -> Driver<Model<[QAModel]>> {
 
-        return  VideoApi
-                .profileType(category: category,
-                             visitedID: visitedID,
-                             offset: offset)
-                .request()
-                .mapObject(Model<[QAModel]>.self, atKeyPath: nil)
-                .trackActivity(loading)
-                .trackError(error)
-                .asDriverOnErrorJustComplete()
+        VideoApi
+        .profileType(category: category,
+                     visitedID: visitedID,
+                     offset: offset)
+        .request()
+        .mapObject(Model<[QAModel]>.self, atKeyPath: nil)
+        .trackActivity(loading)
+        .trackError(error)
+        .asDriverOnErrorJustComplete()
     }
 }

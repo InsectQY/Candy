@@ -62,7 +62,7 @@ extension VideoHallApi: TargetType {
     }
 
     var sampleData: Data {
-        return "".data(using: String.Encoding.utf8)!
+        "".data(using: String.Encoding.utf8)!
     }
 
     var task: Task {

@@ -86,7 +86,7 @@ extension VideoApi: TargetType {
     }
 
     var sampleData: Data {
-        return "".data(using: String.Encoding.utf8)!
+        "".data(using: String.Encoding.utf8)!
     }
 
     var task: Task {
@@ -139,6 +139,6 @@ extension VideoApi: TargetType {
     }
 
     var headers: [String: String]? {
-        return nil
+        nil
     }
 }

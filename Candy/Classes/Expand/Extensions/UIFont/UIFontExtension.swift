@@ -13,11 +13,11 @@ public extension UIFont {
 
     // swiftlint:disable force_unwrapping
     static func pingFangSCMedium(_ size: CGFloat) -> UIFont {
-        return UIFont(font: .pingFangSCMedium, size: size)!
+        UIFont(font: .pingFangSCMedium, size: size)!
     }
 
     // swiftlint:disable force_unwrapping
     static func pingFangSCRegular(_ size: CGFloat) -> UIFont {
-        return UIFont(font: .pingFangSCRegular, size: size)!
+        UIFont(font: .pingFangSCRegular, size: size)!
     }
 }

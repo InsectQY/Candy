@@ -19,11 +19,11 @@ extension ObservableType {
 	- returns: An observable sequence containing the values `value` provided as a parameter
 	*/
 	public func mapTo<R>(_ value: R) -> Observable<R> {
-		return map { _ in value }
+        map { _ in value }
 	}
 
     public func mapToVoid() -> Observable<Void> {
-        return map { _ in }
+        map { _ in }
     }
 }
 
@@ -36,10 +36,10 @@ extension SharedSequenceConvertibleType {
      - returns: An unit containing the values `value` provided as a parameter
      */
     public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
-        return map { _ in value }
+        map { _ in value }
     }
 
     public func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
-        return map { _ in }
+        map { _ in }
     }
 }

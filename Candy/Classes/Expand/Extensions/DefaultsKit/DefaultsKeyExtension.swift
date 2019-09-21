@@ -13,6 +13,6 @@ extension DefaultsKey {
     static let userKey = Key<UserInfoModel>("QYUserInfo")
 
     static func historyKey(videoID: String) -> Key<PlayHistory> {
-        return Key<PlayHistory>(videoID)
+        Key<PlayHistory>(videoID)
     }
 }

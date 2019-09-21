@@ -74,10 +74,10 @@ extension UGCVideoActivityCell {
     private static let kMaxCol: CGFloat = 3
     /// cell 宽度
     private static var kItemW: CGFloat {
-        return (Configs.Dimensions.screenWidth - (UGCVideoActivityCell.kMaxCol - 1) * UGCVideoActivityCell.kMargin) / UGCVideoActivityCell.kMaxCol
+        (Configs.Dimensions.screenWidth - (UGCVideoActivityCell.kMaxCol - 1) * UGCVideoActivityCell.kMargin) / UGCVideoActivityCell.kMaxCol
     }
 
     private static var kItemH: CGFloat {
-        return UGCVideoActivityCell.kItemW * 1.5
+        UGCVideoActivityCell.kItemW * 1.5
     }
 }
