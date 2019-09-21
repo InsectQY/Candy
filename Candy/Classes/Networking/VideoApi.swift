@@ -36,7 +36,7 @@ enum VideoApi {
     case profileType(category: String, visitedID: String, offset: Int)
 }
 
-extension VideoApi: TargetType, Cacheable {
+extension VideoApi: TargetType {
 
     var baseURL: URL {
 

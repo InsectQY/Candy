@@ -10,7 +10,7 @@ import RxSwift
 import Moya
 import CleanJSON
 
-public extension ObservableType where E == Response {
+public extension ObservableType where Element == Response {
 
     func mapObject<T: Codable>(_ type: T.Type,
                                atKeyPath path: String? = nil,

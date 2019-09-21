@@ -1,9 +1,8 @@
 PODS:
   - Alamofire (4.9.0)
-  - Cache (5.2.0)
   - CleanJSON (1.0.0)
   - DefaultsKit (0.2.0)
-  - Differentiator (3.1.0)
+  - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
@@ -25,14 +24,14 @@ PODS:
   - libwebp/webp (1.0.3)
   - MJRefresh (3.2.0)
   - MonkeyKing (1.15.0)
-  - Moya/Core (13.0.1):
+  - Moya/Core (14.0.0-alpha.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - Moya/RxSwift (13.0.1):
+  - Moya/RxSwift (14.0.0-alpha.1):
     - Moya/Core
-    - RxSwift (~> 4.0)
-  - "NSObject+Rx (4.4.1)":
-    - RxSwift (~> 4.3)
+    - RxSwift (~> 5.0)
+  - "NSObject+Rx (5.0.2)":
+    - RxSwift (~> 5.0)
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
@@ -42,39 +41,41 @@ PODS:
   - R.swift.Library (5.0.1)
   - ReachabilitySwift (4.3.1)
   - Result (4.1.0)
-  - RxActivityIndicator (0.1.1):
-    - RxCocoa
-    - RxSwift
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxMJ (0.5.0):
+  - RxActivityIndicator (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxMJ (1.0.0):
     - MJRefresh
-    - RxCocoa
-  - RxNetwork (0.9.3):
-    - RxNetwork/Core (= 0.9.3)
-  - RxNetwork/Cache (0.9.3):
-    - Cache
-    - RxNetwork/Cacheable
-  - RxNetwork/Cacheable (0.9.3):
+    - RxCocoa (~> 5.0)
+  - RxNetwork (1.0.1-beta):
+    - RxNetwork/Core (= 1.0.1-beta)
+  - RxNetwork/Cacheable (1.0.1-beta):
     - RxNetwork/Core
-  - RxNetwork/Core (0.9.3):
-    - Moya/RxSwift
-  - RxOptional (3.6.2):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxReachability (0.1.8):
-    - ReachabilitySwift (~> 4.3.0)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxSwift (4.5.0)
-  - RxURLNavigator (1.1.0):
-    - RxCocoa
-    - RxSwift
+    - Storable
+  - RxNetwork/Core (1.0.1-beta):
+    - Moya/RxSwift (= 14.0.0-alpha.1)
+  - RxOptional (4.0.0):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxReachability (1.0.0):
+    - ReachabilitySwift (~> 4.3.1)
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - RxURLNavigator (2.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
     - URLNavigator
+  - Storable (0.1.1)
   - SwiftLint (0.35.0)
   - Toast-Swift (5.0.0)
   - UIFontComplete (4.0.0)
@@ -104,9 +105,9 @@ DEPENDENCIES:
   - R.swift
   - RxActivityIndicator
   - RxDataSources
-  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`, tag `0.5.0`)
-  - RxNetwork
-  - RxNetwork/Cache
+  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`)
+  - RxNetwork (from `https://github.com/InsectQY/RxNetwork`)
+  - RxNetwork/Cacheable (from `https://github.com/InsectQY/RxNetwork`)
   - RxOptional
   - RxReachability
   - RxURLNavigator
@@ -119,7 +120,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - Cache
     - CleanJSON
     - DefaultsKit
     - Differentiator
@@ -145,11 +145,12 @@ SPEC REPOS:
     - RxActivityIndicator
     - RxCocoa
     - RxDataSources
-    - RxNetwork
     - RxOptional
     - RxReachability
+    - RxRelay
     - RxSwift
     - RxURLNavigator
+    - Storable
     - SwiftLint
     - Toast-Swift
     - UIFontComplete
@@ -159,19 +160,22 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
-    :tag: 0.5.0
+  RxNetwork:
+    :git: https://github.com/InsectQY/RxNetwork
 
 CHECKOUT OPTIONS:
   RxMJ:
+    :commit: fd4bc05a2bd707e84a5fe5205a109a0aa7bed47d
     :git: https://github.com/InsectQY/RxMJ.git
-    :tag: 0.5.0
+  RxNetwork:
+    :commit: b3cbbd2ecc73c104981a241da9d15e0a4736c12b
+    :git: https://github.com/InsectQY/RxNetwork
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
-  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
@@ -183,29 +187,31 @@ SPEC CHECKSUMS:
   libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  Moya: 65485239114b3b327a17dc2e839f6c8b7143aae9
+  "NSObject+Rx": 2eb2cf51fd1c554118449a7fbc36e4cd620b9e94
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxActivityIndicator: 3ce24abf73d9608cad9925a3237397713d727bbe
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxMJ: 46f3a35f582856d3ed1030b16141363cb084d2b0
-  RxNetwork: b3bd1a6554cd3989945d57180b6ae2182d27e7e6
-  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  RxURLNavigator: e1af8d62c8f5b4853768e8f77f4b669d02016e43
+  RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
+  RxNetwork: 5271bb7ae4de93468a40372fde56eb7c3cc557bb
+  RxOptional: 9904e2219d59260c3c171273d475b2126de187e8
+  RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
+  Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   ZFPlayer: b2ba40c924e1b9a7f0a670632c4235ffbe6ee055
 
-PODFILE CHECKSUM: 7e99c416cb936538589b8d5b053b0d117b9f3ef1
+PODFILE CHECKSUM: 36dfbf11f6542ba0d804dc583d9818e50cbc85ea
 
 COCOAPODS: 1.7.5

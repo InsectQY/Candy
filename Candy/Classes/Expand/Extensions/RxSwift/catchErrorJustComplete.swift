@@ -14,13 +14,13 @@ extension ObservableType {
      
      - returns: An observable sequence that never errors and completes when an error occurs in the underlying sequence
      */
-    public func catchErrorJustComplete() -> Observable<E> {
+    public func catchErrorJustComplete() -> Observable<Element> {
         return catchError { _ in
             return Observable.empty()
         }
     }
 
-    public func asDriverOnErrorJustComplete() -> Driver<E> {
+    public func asDriverOnErrorJustComplete() -> Driver<Element> {
 
         return asDriver { error in
             return Driver.empty()

@@ -10,14 +10,14 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-extension ObservableType where E == Bool {
+extension ObservableType where Element == Bool {
     /// Boolean not operator
     public func not() -> Observable<Bool> {
         return self.map(!)
     }
 }
 
-extension SharedSequenceConvertibleType where E == Bool {
+extension SharedSequenceConvertibleType where Element == Bool {
     /// Boolean not operator.
     public func not() -> SharedSequence<SharingStrategy, Bool> {
         return map(!)

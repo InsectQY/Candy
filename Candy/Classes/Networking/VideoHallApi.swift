@@ -24,7 +24,7 @@ enum VideoHallApi {
     case parseVideoHall(vid: String, ptoken: String, author: String)
 }
 
-extension VideoHallApi: TargetType, Cacheable {
+extension VideoHallApi: TargetType {
 
     var baseURL: URL {
 

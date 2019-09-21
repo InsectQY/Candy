@@ -5,8 +5,8 @@ platform :ios, '10.0'
 
 target 'Candy' do
   
-# use_modular_headers!
-use_frameworks!
+ use_modular_headers!
+#use_frameworks!
 inhibit_all_warnings!
 
  # OC
@@ -24,13 +24,13 @@ pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
  # Swift
  
 # RxSwift
-pod 'RxNetwork' # https://github.com/Pircate/RxNetwork
-pod 'RxNetwork/Cache' # https://github.com/Pircate/RxNetwork
+pod 'RxNetwork', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
+pod 'RxNetwork/Cacheable', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
 pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
 pod 'RxOptional' # https://github.com/RxSwiftCommunity/RxOptional
-pod 'RxMJ', :tag => '0.5.0', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
+pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
 pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
 
@@ -61,4 +61,14 @@ pod 'Toast-Swift' # https://github.com/scalessec/Toast-Swift
 # Placeholder
 pod 'EmptyDataSet-Swift' # https://github.com/Xiaoye220/EmptyDataSet-Swift
 
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 8.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '8.0'
+      end
+    end
+    end
 end

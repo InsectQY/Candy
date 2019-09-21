@@ -35,7 +35,7 @@
 		18F81D61229636E00028CA14 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D60229636E00028CA14 /* NotificationExtension.swift */; };
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
 		18FCD4842255CE60002EA93C /* ReplyCommentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */; };
-		A21FD6D8B5F4911E5D28EA6D /* Pods_Candy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D202C60E36130A02867CE8F1 /* Pods_Candy.framework */; };
+		2E6F4A86E4B20236C00F743B /* libPods-Candy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 720256DF8580231CCC50F0AD /* libPods-Candy.a */; };
 		E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */; };
 		E51E4DDD21E594EC00E06AD7 /* VideoHallSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */; };
 		E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDE21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift */; };
@@ -275,8 +275,8 @@
 		18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCommentTopView.xib; sourceTree = "<group>"; };
 		2AA2BC21875647FAD19C286F /* Pods-Candy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.debug.xcconfig"; sourceTree = "<group>"; };
 		3788FE6E54E0955E6A992E3F /* Pods-Candy.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.adhoc.xcconfig"; sourceTree = "<group>"; };
+		720256DF8580231CCC50F0AD /* libPods-Candy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Candy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAACEECCE95BE32AF7265AD /* Pods-Candy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.release.xcconfig"; sourceTree = "<group>"; };
-		D202C60E36130A02867CE8F1 /* Pods_Candy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Candy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResultViewController.swift; sourceTree = "<group>"; };
 		E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResult.swift; sourceTree = "<group>"; };
 		E51E4DDE21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResultViewModel.swift; sourceTree = "<group>"; };
@@ -495,7 +495,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A21FD6D8B5F4911E5D28EA6D /* Pods_Candy.framework in Frameworks */,
+				2E6F4A86E4B20236C00F743B /* libPods-Candy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +572,7 @@
 		854E313C1179FEB946C1FF08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D202C60E36130A02867CE8F1 /* Pods_Candy.framework */,
+				720256DF8580231CCC50F0AD /* libPods-Candy.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2231,7 +2231,7 @@
 				E5E01FD321B4CCE600A4CDF1 /* Sources */,
 				E5E01FD421B4CCE600A4CDF1 /* Frameworks */,
 				E5E01FD521B4CCE600A4CDF1 /* Resources */,
-				1B2CCB3CBB5BB62AE2484012 /* [CP] Embed Pods Frameworks */,
+				18D12333236195B25D9A1232 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2338,21 +2338,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B2CCB3CBB5BB62AE2484012 /* [CP] Embed Pods Frameworks */ = {
+		18D12333236195B25D9A1232 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Candy/Pods-Candy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		88DB336C4CEFADB20D79F7E8 /* [CP] Check Pods Manifest.lock */ = {
@@ -2409,7 +2409,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/Candy/Resources/R.generated.swift,
+				"$SRCROOT/Candy/Resources/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

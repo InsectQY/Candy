@@ -11,7 +11,7 @@ import RxCocoa
 
 public extension ObservableType {
 
-    func then(_ closure: @escaping @autoclosure () throws -> Void) -> Observable<E> {
+    func then(_ closure: @escaping @autoclosure () throws -> Void) -> Observable<Element> {
         return map {
             try closure()
             return $0
@@ -21,7 +21,7 @@ public extension ObservableType {
 
 public extension Driver {
 
-    func then(_ closure: @escaping @autoclosure () -> Void) -> SharedSequence<S, E> {
+    func then(_ closure: @escaping @autoclosure () -> Void) -> SharedSequence<SharingStrategy, Element> {
         return map {
             closure()
             return $0
