@@ -6,12 +6,14 @@ PODS:
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
-  - IQKeyboardManagerSwift (6.4.2)
+  - IQKeyboardManagerSwift (6.5.1)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.0)
-  - Kingfisher (5.7.1)
-  - KingfisherWebP (0.6.0):
-    - Kingfisher (~> 5.0)
+  - JXCategoryView (1.5.2)
+  - Kingfisher (5.8.2):
+    - Kingfisher/Core (= 5.8.2)
+  - Kingfisher/Core (5.8.2)
+  - KingfisherWebP (0.7.0):
+    - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
   - libwebp (1.0.3):
     - libwebp/demux (= 1.0.3)
@@ -32,9 +34,9 @@ PODS:
     - RxSwift (~> 5.0)
   - "NSObject+Rx (5.0.2)":
     - RxSwift (~> 5.0)
-  - NVActivityIndicatorView (4.7.0):
-    - NVActivityIndicatorView/Presenter (= 4.7.0)
-  - NVActivityIndicatorView/Presenter (4.7.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - PYSearch (0.9.1)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
@@ -120,7 +122,7 @@ DEPENDENCIES:
   - ZFPlayer/ControlView
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - CleanJSON
     - DefaultsKit
@@ -182,17 +184,17 @@ SPEC CHECKSUMS:
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
+  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: 9ea4bdf5cd63a6441701147da269446ed97d5dc9
-  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
-  KingfisherWebP: 53327b38511996ce093b50513abe46408a26de43
+  JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
+  Kingfisher: 3adc15096595f5aed800bb0d5cb757fc58b2d2dd
+  KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MonkeyKing: 2bec76a578c8bd089703e70e20eb44e265bd2e67
   Moya: 65485239114b3b327a17dc2e839f6c8b7143aae9
   "NSObject+Rx": 2eb2cf51fd1c554118449a7fbc36e4cd620b9e94
-  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
@@ -218,4 +220,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ba3d7692ac78514e47fd3ccc433641f7fd013080
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
