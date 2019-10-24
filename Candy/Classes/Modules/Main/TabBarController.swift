@@ -53,10 +53,15 @@ extension TabBarController {
 
     private func seUpTabBarAttr() {
 
-        UITabBarItem.appearance()
-        .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
-        UITabBarItem.appearance()
-        .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
+        if #available(iOS 13.0, *) {
+            tabBar.tintColor = UIColor.main
+            tabBar.unselectedItemTintColor = UIColor.tabBarNormal
+        } else {
+            UITabBarItem.appearance()
+            .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
+            UITabBarItem.appearance()
+            .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
+        }
 
         tabBar.hero.modifiers = [.useGlobalCoordinateSpace,
                                  .useNoSnapshot, .zPosition(10),
