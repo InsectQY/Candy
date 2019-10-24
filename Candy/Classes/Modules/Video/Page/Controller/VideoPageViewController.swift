@@ -111,8 +111,8 @@ extension Reactive where Base: VideoPageViewController {
         Binder(base) { vc, result in
 
             vc.categoryView.titles = result.map { $0.name }
-            vc.categoryView.defaultSelectedIndex = 3
-            vc.listContainerView.setDefaultSelectedIndex(3)
+            vc.categoryView.defaultSelectedIndex = 0
+            vc.listContainerView.setDefaultSelectedIndex(0)
             vc.categoryView.reloadData()
             vc.listContainerView.reloadData()
         }
