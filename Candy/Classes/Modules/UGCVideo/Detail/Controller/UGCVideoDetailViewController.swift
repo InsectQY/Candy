@@ -151,13 +151,13 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
     private func playAtTheIndexPath(_ indexPath: IndexPath) {
 
         guard
-            let cell = self.collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell
-            else {
-                return
+            let cell = collectionView.cellForItem(at: indexPath) as? UGCVideoDetailCell
+        else {
+            return
         }
-        self.player.playTheIndexPath(indexPath, scrollToTop: false)
-        self.controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
-        self.controlView.resetControlView()
+        player.playTheIndexPath(indexPath, scrollToTop: false)
+        controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
+        controlView.resetControlView()
     }
 }
 

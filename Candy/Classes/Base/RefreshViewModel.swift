@@ -45,7 +45,7 @@ class RefreshViewModel: ViewModel {
         /// 尾部刷新状态
         let footerRefreshState: Driver<RxMJRefreshFooterState>
 
-        /// 没有网络时点击事件g回调
+        /// 没有网络时点击事件回调
         let emptyDataSetViewTap: Driver<Void>
     }
 

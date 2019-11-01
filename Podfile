@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 
 target 'Candy' do
-  
+
  use_modular_headers!
 #use_frameworks!
 inhibit_all_warnings!
@@ -23,7 +23,7 @@ pod 'PYSearch' # https://github.com/ko1o/PYSearch
 pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
 
  # Swift
- 
+
 # RxSwift
 pod 'RxNetwork', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
 pod 'RxNetwork/Cacheable', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
@@ -45,7 +45,7 @@ pod 'IQKeyboardManagerSwift' # https://github.com/hackiftekhar/IQKeyboardManager
 # HUD
 pod 'NVActivityIndicatorView' # https://github.com/ninjaprox/NVActivityIndicatorView
 # Transitions
-pod 'Hero' # https://github.com/HeroTransitions/Hero
+pod 'Hero', :git => 'https://github.com/HeroTransitions/Hero' # https://github.com/HeroTransitions/Hero
 pod 'Jelly' # https://github.com/SebastianBoldt/Jelly
 # Share
 pod 'MonkeyKing' # https://github.com/nixzhu/MonkeyKing
