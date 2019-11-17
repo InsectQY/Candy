@@ -24,4 +24,9 @@ struct Model<T: Codable>: Codable {
     let offset: Int
     /// 数据
     let data: T
+
+    /// 是否返回成功
+    var isSuccess: Bool {
+        message == .success
+    }
 }

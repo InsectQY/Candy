@@ -42,7 +42,7 @@ struct ErrorPlugin: PluginType {
                 return result
             }
 
-            if res.message != .success {
+            if !res.isSuccess {
 
                 result = Result<Moya.Response, MoyaError>(error: MoyaError.objectMapping(LightError(code: 0, message: res.message.rawValue), response))
             }
