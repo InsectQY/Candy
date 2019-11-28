@@ -9,9 +9,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.4)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.2)
-  - Kingfisher (5.10.0):
-    - Kingfisher/Core (= 5.10.0)
-  - Kingfisher/Core (5.10.0)
+  - Kingfisher (5.10.1):
+    - Kingfisher/Core (= 5.10.1)
+  - Kingfisher/Core (5.10.1)
   - KingfisherWebP (0.7.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -24,7 +24,7 @@ PODS:
   - libwebp/mux (1.0.3):
     - libwebp/demux
   - libwebp/webp (1.0.3)
-  - MJRefresh (3.2.2)
+  - MJRefresh (3.2.3)
   - MonkeyKing (1.16.0)
   - Moya/Core (14.0.0-alpha.1):
     - Alamofire (~> 4.1)
@@ -171,7 +171,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Hero:
-    :commit: b002ab17221ccce762d30a076e5c689c2e4fe995
+    :commit: 1ff6c32923e53e4394e76e49b4162618c005a690
     :git: https://github.com/HeroTransitions/Hero
   RxMJ:
     :commit: fd4bc05a2bd707e84a5fe5205a109a0aa7bed47d
@@ -191,10 +191,10 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
-  Kingfisher: 0bf6eae7c2193f15719915fecb7c2c1c03855f3d
+  Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
-  MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
+  MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
   MonkeyKing: dc5076dc206bf9e6eb427d618317eff1b44b0666
   Moya: 65485239114b3b327a17dc2e839f6c8b7143aae9
   "NSObject+Rx": 2eb2cf51fd1c554118449a7fbc36e4cd620b9e94
