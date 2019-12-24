@@ -34,6 +34,10 @@ class ParameterManger {
         "resolution": resolution,
         "aid": TTaid,
         "ab_feature": abFeature,
+        "ab_version": abVersion,
+        "ab_group": abGroup,
+        "openudid": openudid,
+        "cdid": cdid,
         "update_version_code": updateVersionCode,
         "idfv": idfv,
         "ac": ac,
@@ -45,7 +49,8 @@ class ParameterManger {
         "device_type": deviceType,
         "idfa": idfa,
         "city": city,
-        "openudid": openudid]
+        "LBS_status": LBSStatus,
+        "count": count]
     }
 
     /// 阳光宽屏网公共参数
@@ -55,16 +60,36 @@ class ParameterManger {
         "device_id": YGDeviceID]
     }
 
+    var count: Int {
+        20
+    }
+
+    var cdid: String {
+        "D2C0352E-C40C-450F-A1A6-CD22DDC2613A"
+    }
+
+    var abVersion: String {
+        "668779,1251924,662099,1352822,668774,1197637,1367345,765194,857804,1358435,660830,1374021,1054755,1230781,1362836,1243993,662176,801968,707372,668775,1370513,1375658,1190524,1157750,1377185"
+    }
+
+    var LBSStatus: String {
+        "authroize"
+    }
+
+    var abGroup: String {
+        "794526"
+    }
+
     var tmaJsSdkVersion: String {
-        "1.10.6.4"
+        "1.42.1.2"
     }
 
     var osVersion: String {
-        "12.1.5"
+        "13.2.3"
     }
 
     var versionCode: String {
-        "7.0.9"
+        "7.5.2"
     }
 
     var appName: String {
@@ -72,11 +97,11 @@ class ParameterManger {
     }
 
     var vid: String {
-        "6095FCC3-881F-4DB9-8135-88945F9D7E37"
+        "375B45B8-89BB-43F9-80B3-CA5E7FCE030F"
     }
 
     var TTDeviceID: String {
-        "40453770071"
+        "68072144174"
     }
 
     var channel: String {
@@ -88,7 +113,7 @@ class ParameterManger {
     }
 
     var abFeature: String {
-        "z1"
+        "794526"
     }
 
     var ac: String {
@@ -104,31 +129,31 @@ class ParameterManger {
     }
 
     var deviceType: String {
-        "iPhone 7 Plus"
+        "iPhone XS Max"
     }
 
     var idfa: String {
-        "96A533E2-6493-4977-A134-3BA8C268875F"
+        "00000000-0000-0000-0000-000000000000"
     }
 
     var openudid: String {
-        "1a42c25d877e65b14bd273324aa776e819d4659e"
+        "6f2330f741cbf07f42ca5bac8549d30f1292426a"
     }
 
     var resolution: String {
-        "1242*2208"
+        "1242*2688"
     }
 
     var updateVersionCode: String {
-        "70901"
+        "75213"
     }
 
     var idfv: String {
-        "6095FCC3-881F-4DB9-8135-88945F9D7E37"
+        "375B45B8-89BB-43F9-80B3-CA5E7FCE030F"
     }
 
     var iid: String {
-        "59995201761"
+        "95923105939"
     }
 
     var abClient: String {

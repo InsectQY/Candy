@@ -102,6 +102,7 @@ extension VideoApi: TargetType {
             parameters["article_page"] = 1
         case let .ugcList(category):
             parameters["category"] = category
+            parameters["list_count"] = 10
         case let .comment(itemID, groupID, offset):
             parameters["item_id"] = itemID
             parameters["group_id"] = groupID
