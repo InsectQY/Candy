@@ -44,7 +44,7 @@ extension VideoDetailViewModel: ViewModelable {
                                            groupID: groupID)
         .request()
         .trackError(error)
-        .mapObject(VideoDetailModel.self)
+        .mapModelData(VideoDetailModel.self)
         .map {
             $0.related_video_toutiao.filter {
                 !$0.show_tag.contains("广告")
@@ -154,7 +154,7 @@ extension VideoDetailViewModel {
 
         VideoApi.parsePlayInfo(videoID)
         .request()
-        .mapObject(VideoPlayInfo.self)
+        .mapModelData(VideoPlayInfo.self)
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()
@@ -170,8 +170,7 @@ extension VideoDetailViewModel {
                  groupID: groupID,
                  offset: offset)
         .request()
-        .mapObject(Model<[VideoCommentModel]>.self,
-                   atKeyPath: nil)
+        .mapObject(Model<[VideoCommentModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

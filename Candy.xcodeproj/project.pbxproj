@@ -59,6 +59,7 @@
 		E534047921BF7FBD008807DA /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534047721BF7FBD008807DA /* CommentCell.swift */; };
 		E534047A21BF7FBD008807DA /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534047821BF7FBD008807DA /* CommentCell.xib */; };
 		E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = E534048121BFB0EE008807DA /* NSData+CRC32.m */; };
+		E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */; };
 		E565356A21DDDCF700091714 /* UserPorfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565356921DDDCF700091714 /* UserPorfileViewModel.swift */; };
 		E565356C21DDDD3100091714 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565356B21DDDD3100091714 /* UserProfileHeaderView.swift */; };
 		E565356E21DDDD4A00091714 /* UserProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E565356D21DDDD4A00091714 /* UserProfileHeaderView.xib */; };
@@ -304,6 +305,7 @@
 		E534048021BFB0EE008807DA /* NSData+CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
 		E534048121BFB0EE008807DA /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		E534048421BFB15A008807DA /* Candy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Candy-Bridging-Header.h"; sourceTree = "<group>"; };
+		E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeExtension.swift; sourceTree = "<group>"; };
 		E565356921DDDCF700091714 /* UserPorfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPorfileViewModel.swift; sourceTree = "<group>"; };
 		E565356B21DDDD3100091714 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		E565356D21DDDD4A00091714 /* UserProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderView.xib; sourceTree = "<group>"; };
@@ -2137,6 +2139,7 @@
 		E5FB739521B767CC0010D8A7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
 				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
 				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
 				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
@@ -2580,6 +2583,7 @@
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
 				E57DD45021E2EC2D0089A2D2 /* UserCenterModel.swift in Sources */,
+				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
 				18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */,

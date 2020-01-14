@@ -50,7 +50,7 @@ extension VideoPageViewModel {
                                             name: "推荐")
         return VideoApi.category
         .request()
-        .mapObject([VideoCategory].self)
+        .mapModelData([VideoCategory].self)
         .map { category -> [VideoCategory] in
 
             var category = category

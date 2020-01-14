@@ -91,7 +91,7 @@ extension ReplyCommentViewModel {
         .replyComment(id: id,
                       offset: offset)
         .request()
-        .mapObject(ReplyCommentModel.self)
+        .mapModelData(ReplyCommentModel.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

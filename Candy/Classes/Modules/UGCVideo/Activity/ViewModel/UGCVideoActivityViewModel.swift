@@ -89,7 +89,7 @@ extension UGCVideoActivityViewModel {
         .ugcActivity(offset: offset,
                      userAction: userAction.rawValue)
         .request()
-        .mapObject(UGCVideoActivityListModel.self)
+        .mapModelData(UGCVideoActivityListModel.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

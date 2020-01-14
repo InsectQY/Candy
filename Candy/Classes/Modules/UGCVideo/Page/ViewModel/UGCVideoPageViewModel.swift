@@ -50,7 +50,7 @@ extension UGCVideoPageViewModel {
 
         VideoApi.ugcCategory
         .request()
-        .mapObject(UGCVideoPageModel.self)
+        .mapModelData(UGCVideoPageModel.self)
         .map { $0.data }
         .map {
             // 过滤这一组

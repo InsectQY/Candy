@@ -98,8 +98,7 @@ extension UserUGCViewModel {
                      visitedID: visitedID,
                      offset: offset)
         .request()
-        .mapObject(Model<[UGCVideoListModel]>.self,
-                   atKeyPath: nil)
+        .mapObject(Model<[UGCVideoListModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

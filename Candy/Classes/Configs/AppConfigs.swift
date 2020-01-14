@@ -14,7 +14,7 @@ struct Configs {
 
         static let touTiaoBaseUrl = "https://api3-normal-c-hl.snssdk.com"
         static let videoParseUrl = "https://i.snssdk.com"
-        static let yangGuangUrl = "http://365yg.com"
+        static let yangGuangUrl = "https://365yg.com"
         static let weChatUrl = "https://api.weixin.qq.com"
     }
 

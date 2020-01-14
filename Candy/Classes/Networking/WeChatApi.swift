@@ -24,10 +24,6 @@ extension WeChatApi: TargetType {
         "sns/userinfo"
     }
 
-    var method: Moya.Method {
-        .get
-    }
-
     var sampleData: Data {
         "".data(using: String.Encoding.utf8)!
     }
@@ -39,10 +35,6 @@ extension WeChatApi: TargetType {
             return .requestParameters(parameters: ["access_token": token,
                                                    "openid": openid], encoding: URLEncoding.default)
         }
-    }
-
-    var headers: [String: String]? {
-        nil
     }
 }
 

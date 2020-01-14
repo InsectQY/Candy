@@ -89,8 +89,7 @@ extension UGCVideoCommentViewModel {
         .ugcComment(groupID: groupID,
                     offset: offset)
         .request()
-        .mapObject(Model<[VideoCommentModel]>.self,
-                   atKeyPath: nil)
+        .mapObject(Model<[VideoCommentModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

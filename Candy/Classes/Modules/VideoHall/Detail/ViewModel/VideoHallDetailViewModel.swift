@@ -110,8 +110,7 @@ extension VideoHallDetailViewModel {
         .detail(albumID: albumID,
                 episodeID: episodeID)
         .request()
-        .mapObject(VideoHallDetailModel.self,
-                   atKeyPath: nil)
+        .mapObject(VideoHallDetailModel.self)
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()

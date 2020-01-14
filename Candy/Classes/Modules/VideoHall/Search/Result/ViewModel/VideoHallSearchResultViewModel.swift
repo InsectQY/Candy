@@ -100,8 +100,7 @@ extension VideoHallSearchResultViewModel {
         VideoHallApi
         .search(offset, key)
         .request()
-        .mapObject(VideoHallSearchResult.self,
-                   atKeyPath: nil)
+        .mapObject(VideoHallSearchResult.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

@@ -144,7 +144,7 @@ extension UGCVideoListViewModel {
         VideoApi
         .ugcList(category)
         .request()
-        .mapObject([UGCVideoListModel].self)
+        .mapModelData([UGCVideoListModel].self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

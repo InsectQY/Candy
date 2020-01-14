@@ -5,7 +5,6 @@
 //  Created by QY on 2018/11/16.
 //  Copyright © 2018年 Insect. All rights reserved.
 //  swiftlint:disable force_unwrapping
-
 import Moya
 
 enum VideoApi {
@@ -77,18 +76,6 @@ extension VideoApi: TargetType {
         }
     }
 
-    var method: Moya.Method {
-
-        switch self {
-        default:
-            return .get
-        }
-    }
-
-    var sampleData: Data {
-        "".data(using: String.Encoding.utf8)!
-    }
-
     var task: Task {
 
         var parameters = ParameterManger.shared.TTParameter
@@ -137,9 +124,5 @@ extension VideoApi: TargetType {
         }
 
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-    }
-
-    var headers: [String: String]? {
-        nil
     }
 }

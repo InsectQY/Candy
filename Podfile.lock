@@ -78,7 +78,7 @@ PODS:
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.38.1)
+  - SwiftLint (0.38.2)
   - Toast-Swift (5.0.1)
   - UIFontComplete (4.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -215,7 +215,7 @@ SPEC CHECKSUMS:
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 0aeb99ca7ccfc222ef93e2560a35e669f5465e6c
+  SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f

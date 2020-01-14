@@ -19,20 +19,13 @@ struct ErrorPlugin: PluginType {
         var result = result
 
         // 判断是否成功
-        if (try? result.value?.filterSuccessfulStatusCodes()) == nil {
-
-            let error: MoyaError = result.error ?? .underlying(LightError(code: 0, message: "抱歉~好像出错了哟~"), result.value)
-            return Result<Moya.Response, MoyaError>(error: error)
-        }
-
         switch result {
 
         case let .success(response):
-
             /// 阳光宽频网/微信登录的数据结构不适用
             if
                 target.baseURL.absoluteString == Configs.Network.yangGuangUrl ||
-                target.path == "video/openapi/v1/" ||
+                target.path == VideoHallApi.search(0, "").path ||
                 target.baseURL.absoluteString == Configs.Network.weChatUrl { break
             }
 
@@ -46,8 +39,8 @@ struct ErrorPlugin: PluginType {
 
                 result = Result<Moya.Response, MoyaError>(error: MoyaError.objectMapping(LightError(code: 0, message: res.message.rawValue), response))
             }
-        case let .failure(error):
-            result = Result<Moya.Response, MoyaError>(error: error)
+        default:
+            break
         }
 
         return result

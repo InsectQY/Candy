@@ -96,7 +96,7 @@ extension UserVideoViewModel {
                      visitedID: visitedID,
                      offset: offset)
         .request()
-        .mapObject(Model<[NewsListModel]>.self, atKeyPath: nil)
+        .mapObject(Model<[NewsListModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

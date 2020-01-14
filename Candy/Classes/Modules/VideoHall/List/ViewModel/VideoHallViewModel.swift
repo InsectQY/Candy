@@ -162,8 +162,7 @@ extension VideoHallViewModel {
         .list(offset,
               searchKey)
         .request()
-        .mapObject(VideoHallModel.self,
-                   atKeyPath: nil)
+        .mapObject(VideoHallModel.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

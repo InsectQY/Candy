@@ -53,18 +53,6 @@ extension VideoHallApi: TargetType {
         }
     }
 
-    var method: Moya.Method {
-
-        switch self {
-        default:
-            return .get
-        }
-    }
-
-    var sampleData: Data {
-        "".data(using: String.Encoding.utf8)!
-    }
-
     var task: Task {
 
         var parameters = ParameterManger.shared.YGParameter()
