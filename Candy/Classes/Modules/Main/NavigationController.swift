@@ -14,6 +14,8 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // iOS 13
+        modalPresentationStyle = .fullScreen
         // 全屏滑动返回
         fd_fullscreenPopGestureRecognizer.isEnabled = true
         // 转场动画

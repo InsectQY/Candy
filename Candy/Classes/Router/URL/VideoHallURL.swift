@@ -51,7 +51,7 @@ extension VideoHallURL {
             guard
                 let context = context as? String
             else {
-                return VideoHallSearchViewController()
+                return nil
             }
             let vc = VideoHallSearchViewController(context)
             return vc
