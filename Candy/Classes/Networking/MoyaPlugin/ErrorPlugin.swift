@@ -41,10 +41,11 @@ struct ErrorPlugin: PluginType {
         }
 
         if !res.isSuccess {
-
-            let errorResult: Result<Moya.Response, MoyaError>
-            errorResult = .failure(MoyaError.objectMapping(ErrorModel(code: 0, message: res.message.rawValue), response))
-            result = errorResult
+            // 自定义错误
+            let customError = ErrorModel(message: res.message.rawValue)
+            // 放在 Moya.objectMapping 错误类型中返回
+            result = Result<Moya.Response, MoyaError>
+            .failure(.objectMapping(customError, response))
         }
 
         return result

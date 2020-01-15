@@ -49,7 +49,7 @@ public extension Reactive where Base: UIViewController {
     var showError: Binder<Error> {
 
         Binder(base) { vc, error in
-            vc.view.show(error.errorMessage)
+            vc.view.show(error.moya?.responseDescription ?? "网络请求失败")
         }
     }
 }

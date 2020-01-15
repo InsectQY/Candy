@@ -24,7 +24,11 @@ enum VideoHallApi {
     case parseVideoHall(vid: String, ptoken: String, author: String)
 }
 
-extension VideoHallApi: ResponseVerify {
+extension VideoHallApi: TargetType, ResponseVerify {
+
+    func verifySuccess(response: Response) -> Bool {
+        true
+    }
 
     var baseURL: URL {
 

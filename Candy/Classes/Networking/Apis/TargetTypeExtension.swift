@@ -28,14 +28,21 @@ extension TargetType {
     }
 }
 
-protocol ResponseVerify: TargetType {
+public protocol ResponseVerify {
 
-    func isSuccess(response: Moya.Response) -> Bool
+    func verifySuccess(response: Moya.Response) -> Bool
 }
 
-extension ResponseVerify {
+public extension ResponseVerify {
 
     func isSuccess(response: Moya.Response) -> Bool {
         true
+    }
+}
+
+public extension TargetType where Self: ResponseVerify {
+
+    func isSuccess(response: Moya.Response) -> Bool {
+        verifySuccess(response: response)
     }
 }

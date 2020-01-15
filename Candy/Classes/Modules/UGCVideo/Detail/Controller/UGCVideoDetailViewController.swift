@@ -23,6 +23,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
                                         containerViewTag: 100)
         player.controlView = controlView
         player.shouldAutoPlay = true
+        player.isWWANAutoPlay = true
         player.playerDisapperaPercent = 1.0
         player.allowOrentitaionRotation = false
         player.disableGestureTypes = .pan
@@ -195,7 +196,7 @@ extension UGCVideoDetailViewController {
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UIScrollViewDelegate
 extension UGCVideoDetailViewController: UICollectionViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

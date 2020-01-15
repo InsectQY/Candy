@@ -96,6 +96,7 @@
 		E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59006472202F0AF00EE0838 /* VideoHallURL.swift */; };
 		E59112F221B6557300436D08 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59112F121B6557300436D08 /* VideoListViewController.swift */; };
 		E59112F721B655EA00436D08 /* VideoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59112F621B655EA00436D08 /* VideoPageViewController.swift */; };
+		E591D81623CEDEB600DA0AF2 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591D81523CEDEB600DA0AF2 /* ErrorExtension.swift */; };
 		E595D95821DDE208005A6C00 /* UserUGCVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D95721DDE208005A6C00 /* UserUGCVideoView.swift */; };
 		E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D95A21DDE2C1005A6C00 /* UserUGCFlowLayou.swift */; };
 		E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D95C21DDE355005A6C00 /* UserUGCVideoCell.swift */; };
@@ -342,6 +343,7 @@
 		E59006472202F0AF00EE0838 /* VideoHallURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallURL.swift; sourceTree = "<group>"; };
 		E59112F121B6557300436D08 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		E59112F621B655EA00436D08 /* VideoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageViewController.swift; sourceTree = "<group>"; };
+		E591D81523CEDEB600DA0AF2 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		E595D95721DDE208005A6C00 /* UserUGCVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUGCVideoView.swift; sourceTree = "<group>"; };
 		E595D95A21DDE2C1005A6C00 /* UserUGCFlowLayou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUGCFlowLayou.swift; sourceTree = "<group>"; };
 		E595D95C21DDE355005A6C00 /* UserUGCVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUGCVideoCell.swift; sourceTree = "<group>"; };
@@ -1619,6 +1621,7 @@
 			children = (
 				E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */,
 				E5E0206721B5057600A4CDF1 /* ErrorModel.swift */,
+				E591D81523CEDEB600DA0AF2 /* ErrorExtension.swift */,
 			);
 			path = MoyaPlugin;
 			sourceTree = "<group>";
@@ -2578,6 +2581,7 @@
 				E5EC45F321EC8FC2000EEA16 /* DefaultsKeyExtension.swift in Sources */,
 				E5E0208121B5057600A4CDF1 /* Then.swift in Sources */,
 				E5E1930821E82F21002CBAE8 /* UGCVideoActivityListModel.swift in Sources */,
+				E591D81623CEDEB600DA0AF2 /* ErrorExtension.swift in Sources */,
 				E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */,
 				E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */,
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
