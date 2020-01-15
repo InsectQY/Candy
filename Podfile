@@ -45,7 +45,7 @@ pod 'IQKeyboardManagerSwift' # https://github.com/hackiftekhar/IQKeyboardManager
 # HUD
 pod 'NVActivityIndicatorView' # https://github.com/ninjaprox/NVActivityIndicatorView
 # Transitions
-pod 'Hero', :git => 'https://github.com/HeroTransitions/Hero' # https://github.com/HeroTransitions/Hero
+pod 'Hero' # https://github.com/HeroTransitions/Hero
 pod 'Jelly' # https://github.com/SebastianBoldt/Jelly
 # Share
 pod 'MonkeyKing' # https://github.com/nixzhu/MonkeyKing

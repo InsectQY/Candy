@@ -1,6 +1,6 @@
 //
-//  PrimitiveSequence + Codable.swift
-//  GamerSky
+//  ObservableType+Codable.swift
+//  Moya+Codable
 //
 //  Created by QY on 2018/5/5.
 //  Copyright © 2018年 QY. All rights reserved.
@@ -11,7 +11,7 @@ import Moya
 import CleanJSON
 
 // MARK: - 通用封装
-public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+public extension ObservableType where Element == Response {
 
     /// Moya 解析 JSON 的 RxSwift 扩展
     /// - Parameters:
@@ -20,9 +20,10 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
     ///   - decoder: 解析器 (默认使用 CleanJSONDecoder 作为解析器)
     ///   - failsOnEmptyData: 在返回数据为空的情况下是否抛出异常
     func mapObject<D: Decodable>(_ type: D.Type,
-                               atKeyPath path: String? = nil,
-                               using decoder: JSONDecoder = CleanJSONDecoder(),
-                               failsOnEmptyData: Bool = true) -> Single<D> {
+                                 atKeyPath path: String? = nil,
+                                 using decoder: JSONDecoder = CleanJSONDecoder(),
+                                 failsOnEmptyData: Bool = true) -> Observable<D> {
+
         return map {
 
             guard
@@ -39,11 +40,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 }
 
 // MARK: - 针对自己项目的封装
-public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+public extension ObservableType where Element == Response {
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) -> Single<T> {
+    func mapModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
 
         return map {
 

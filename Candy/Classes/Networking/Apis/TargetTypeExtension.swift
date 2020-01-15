@@ -32,3 +32,10 @@ protocol ResponseVerify: TargetType {
 
     func isSuccess(response: Moya.Response) -> Bool
 }
+
+extension ResponseVerify {
+
+    func isSuccess(response: Moya.Response) -> Bool {
+        true
+    }
+}

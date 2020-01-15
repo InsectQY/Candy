@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.0.0-rc.3)
   - CleanJSON (1.0.0)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
@@ -26,10 +26,9 @@ PODS:
   - libwebp/webp (1.1.0)
   - MJRefresh (3.3.1)
   - MonkeyKing (1.16.0)
-  - Moya/Core (14.0.0-alpha.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Moya/RxSwift (14.0.0-alpha.1):
+  - Moya/Core (14.0.0-beta.6):
+    - Alamofire (= 5.0.0-rc.3)
+  - Moya/RxSwift (14.0.0-beta.6):
     - Moya/Core
     - RxSwift (~> 5.0)
   - "NSObject+Rx (5.0.2)":
@@ -42,7 +41,6 @@ PODS:
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
   - ReachabilitySwift (4.3.1)
-  - Result (4.1.0)
   - RxActivityIndicator (1.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
@@ -56,13 +54,13 @@ PODS:
   - RxMJ (1.0.0):
     - MJRefresh
     - RxCocoa (~> 5.0)
-  - RxNetwork (1.0.1-beta):
-    - RxNetwork/Core (= 1.0.1-beta)
-  - RxNetwork/Cacheable (1.0.1-beta):
+  - RxNetwork (1.1.0-beta):
+    - RxNetwork/Core (= 1.1.0-beta)
+  - RxNetwork/Cacheable (1.1.0-beta):
     - RxNetwork/Core
     - Storable
-  - RxNetwork/Core (1.0.1-beta):
-    - Moya/RxSwift (= 14.0.0-alpha.1)
+  - RxNetwork/Core (1.1.0-beta):
+    - Moya/RxSwift (= 14.0.0-beta.6)
   - RxOptional (4.1.0):
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
@@ -83,18 +81,18 @@ PODS:
   - UIFontComplete (4.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
-  - ZFPlayer/AVPlayer (3.2.16):
+  - ZFPlayer/AVPlayer (3.2.17):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.16):
+  - ZFPlayer/ControlView (3.2.17):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.16)
+  - ZFPlayer/Core (3.2.17)
 
 DEPENDENCIES:
   - CleanJSON
   - DefaultsKit
   - EmptyDataSet-Swift
   - FDFullscreenPopGesture
-  - Hero (from `https://github.com/HeroTransitions/Hero`)
+  - Hero
   - IQKeyboardManagerSwift
   - Jelly
   - JXCategoryView
@@ -129,6 +127,7 @@ SPEC REPOS:
     - Differentiator
     - EmptyDataSet-Swift
     - FDFullscreenPopGesture
+    - Hero
     - IQKeyboardManagerSwift
     - Jelly
     - JXCategoryView
@@ -144,7 +143,6 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - ReachabilitySwift
-    - Result
     - RxActivityIndicator
     - RxCocoa
     - RxDataSources
@@ -162,26 +160,21 @@ SPEC REPOS:
     - ZFPlayer
 
 EXTERNAL SOURCES:
-  Hero:
-    :git: https://github.com/HeroTransitions/Hero
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
   RxNetwork:
     :git: https://github.com/InsectQY/RxNetwork
 
 CHECKOUT OPTIONS:
-  Hero:
-    :commit: e4ebbb0cf2edf636a8196d2b18b6e1fff20c9374
-    :git: https://github.com/HeroTransitions/Hero
   RxMJ:
     :commit: fd4bc05a2bd707e84a5fe5205a109a0aa7bed47d
     :git: https://github.com/InsectQY/RxMJ.git
   RxNetwork:
-    :commit: b3cbbd2ecc73c104981a241da9d15e0a4736c12b
+    :commit: 61cbd7b03b5093306e145baa059b853dc8ff1cd0
     :git: https://github.com/InsectQY/RxNetwork
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -196,19 +189,18 @@ SPEC CHECKSUMS:
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   MonkeyKing: dc5076dc206bf9e6eb427d618317eff1b44b0666
-  Moya: 65485239114b3b327a17dc2e839f6c8b7143aae9
+  Moya: d4821fbcb3e784f34d2f82869e6855057a0b85d1
   "NSObject+Rx": 2eb2cf51fd1c554118449a7fbc36e4cd620b9e94
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
-  RxNetwork: 5271bb7ae4de93468a40372fde56eb7c3cc557bb
+  RxNetwork: ea58611a97e2065a0b9ec7797566996b125ff1b5
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
@@ -220,8 +212,8 @@ SPEC CHECKSUMS:
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
-  ZFPlayer: fbae8477ec9a83f644bd8890e92e7871f37a587d
+  ZFPlayer: ac9cb879291eec259e7fe77e840c884e2b80a499
 
-PODFILE CHECKSUM: 684ee8738d9508f96addfe1ec724121f62889358
+PODFILE CHECKSUM: 08893216855e7e3dc7bbc5fb89d6fded0fac53e4
 
 COCOAPODS: 1.8.4

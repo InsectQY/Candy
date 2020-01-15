@@ -1,6 +1,6 @@
 import Moya
 
-public struct LightError: Error {
+public struct ErrorModel: Error {
 
     public let code: Int
     public let message: String
@@ -21,7 +21,7 @@ extension Error {
         case let .statusCode(response):
             return "\(response.statusCode)错误"
         case let .objectMapping(error, _):
-            if let error = error as? LightError {
+            if let error = error as? ErrorModel {
                 return error.message
             }
         default:

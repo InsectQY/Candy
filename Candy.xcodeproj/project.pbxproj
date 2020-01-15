@@ -138,7 +138,7 @@
 		E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206321B5057600A4CDF1 /* Single+Codable.swift */; };
 		E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206421B5057600A4CDF1 /* Response+Codable.swift */; };
 		E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */; };
-		E5E0208D21B5057600A4CDF1 /* LightError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206721B5057600A4CDF1 /* LightError.swift */; };
+		E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206721B5057600A4CDF1 /* ErrorModel.swift */; };
 		E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206921B5057600A4CDF1 /* StringExtensions.swift */; };
 		E5E020CC21B50B4000A4CDF1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */; };
 		E5E020CD21B50B4000A4CDF1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CB21B50B4000A4CDF1 /* TabBarController.swift */; };
@@ -386,7 +386,7 @@
 		E5E0206321B5057600A4CDF1 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206421B5057600A4CDF1 /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPlugin.swift; sourceTree = "<group>"; };
-		E5E0206721B5057600A4CDF1 /* LightError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightError.swift; sourceTree = "<group>"; };
+		E5E0206721B5057600A4CDF1 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		E5E0206921B5057600A4CDF1 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		E5E020CB21B50B4000A4CDF1 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -1141,6 +1141,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E5BEF23B23CEB4AF00F87540 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
+				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
+				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
+				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
 		E5D23CC321DDD6F9008714F6 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1559,7 +1570,6 @@
 				E534047F21BFB0E0008807DA /* NSData */,
 				E5E0205121B5057600A4CDF1 /* RxSwift */,
 				E5E0205C21B5057600A4CDF1 /* UIKit */,
-				E5E0206021B5057600A4CDF1 /* NetWork */,
 				E5E0206821B5057600A4CDF1 /* Foundation */,
 			);
 			path = Extensions;
@@ -1594,15 +1604,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		E5E0206021B5057600A4CDF1 /* NetWork */ = {
-			isa = PBXGroup;
-			children = (
-				E5E0206121B5057600A4CDF1 /* Codable */,
-				E5E0206521B5057600A4CDF1 /* MoyaPlugin */,
-			);
-			path = NetWork;
-			sourceTree = "<group>";
-		};
 		E5E0206121B5057600A4CDF1 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1617,7 +1618,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */,
-				E5E0206721B5057600A4CDF1 /* LightError.swift */,
+				E5E0206721B5057600A4CDF1 /* ErrorModel.swift */,
 			);
 			path = MoyaPlugin;
 			sourceTree = "<group>";
@@ -2139,10 +2140,9 @@
 		E5FB739521B767CC0010D8A7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
-				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
-				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
-				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
+				E5E0206121B5057600A4CDF1 /* Codable */,
+				E5E0206521B5057600A4CDF1 /* MoyaPlugin */,
+				E5BEF23B23CEB4AF00F87540 /* Apis */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2553,7 +2553,7 @@
 				E595D96121DDE40B005A6C00 /* UserUGCViewModel.swift in Sources */,
 				18B7895B2293A4C80065E5D8 /* PYSearchViewController+Rx.swift in Sources */,
 				E5E0201C21B4FE4A00A4CDF1 /* ViewController.swift in Sources */,
-				E5E0208D21B5057600A4CDF1 /* LightError.swift in Sources */,
+				E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */,
 				E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */,
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
