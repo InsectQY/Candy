@@ -126,3 +126,5 @@ extension VideoApi: TargetType {
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
 }
+
+extension VideoApi: TTResponseHandle {}

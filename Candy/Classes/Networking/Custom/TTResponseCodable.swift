@@ -1,0 +1,65 @@
+//
+//  TTResponseCodable.swift
+//  Candy
+//
+//  Created by QY on 2020/1/15.
+//  Copyright © 2020 Insect. All rights reserved.
+//
+
+// MARK: - 用于今日头条返回 JSON 的解析
+
+import RxSwift
+import Moya
+import CleanJSON
+
+public extension Response {
+
+    /// 直接解析出项目 Model 基类中的 data
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModelData<T: Codable>(_ type: T.Type) throws -> T {
+
+        let decoder = CleanJSONDecoder()
+        /// 当 JSON 的 Value 是 JSON 字符串的时候也开启解析
+        decoder.jsonStringDecodingStrategy = .all
+        let response = try mapObject(Model<T>.self,
+                                     atKeyPath: nil,
+                                     using: decoder)
+        return response.data
+    }
+}
+
+public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+
+    /// 直接解析出项目 Model 基类中的 data
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModelData<T: Codable>(_ type: T.Type) -> Single<T> {
+
+        return map {
+
+            guard
+                let response = try? $0.mapModelData(type)
+            else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
+        }
+    }
+}
+
+public extension ObservableType where Element == Response {
+
+    /// 直接解析出项目 Model 基类中的 data
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
+
+        return map {
+
+            guard
+                let response = try? $0.mapModelData(type)
+            else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
+        }
+    }
+}

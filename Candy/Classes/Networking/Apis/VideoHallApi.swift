@@ -24,11 +24,7 @@ enum VideoHallApi {
     case parseVideoHall(vid: String, ptoken: String, author: String)
 }
 
-extension VideoHallApi: TargetType, ResponseVerify {
-
-    func verifySuccess(response: Response) -> Bool {
-        true
-    }
+extension VideoHallApi: TargetType {
 
     var baseURL: URL {
 
@@ -102,5 +98,12 @@ extension VideoHallApi: TargetType, ResponseVerify {
         default:
             return nil
         }
+    }
+}
+
+extension VideoHallApi: TTResponseHandle {
+
+    var isHandle: Bool {
+        baseURL.absoluteString != Configs.Network.yangGuangUrl
     }
 }

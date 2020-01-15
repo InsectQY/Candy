@@ -8,6 +8,7 @@
 
 import Moya
 
+/// 将 Error Protocol 转换为具体类型
 public extension Error {
 
     var moya: MoyaError? {

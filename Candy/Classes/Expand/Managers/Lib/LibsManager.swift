@@ -57,7 +57,7 @@ class LibsManager: NSObject {
     func setupNetwork() {
 
         Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
-        Network.Configuration.default.plugins = [ErrorPlugin()]
+        Network.Configuration.default.plugins = [CustomErrorPlugin()]
     }
 
     // MARK: - MonkeyKing

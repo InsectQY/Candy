@@ -90,6 +90,9 @@
 		E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45A21E319B30089A2D2 /* UserStatementViewController.swift */; };
 		E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45C21E335210089A2D2 /* WeChatApi.swift */; };
 		E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45E21E33D100089A2D2 /* UserInfoModel.swift */; };
+		E5859AC123CEF00600ADCED8 /* ResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC023CEF00600ADCED8 /* ResponseHandle.swift */; };
+		E5859AC523CF042500ADCED8 /* TTResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */; };
+		E5859AC923CF064600ADCED8 /* TTResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */; };
 		E590063E2202C8F200EE0838 /* VideoDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590063D2202C8F200EE0838 /* VideoDetailSection.swift */; };
 		E59006422202E33600EE0838 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59006412202E33600EE0838 /* NavigationMap.swift */; };
 		E59006452202E35500EE0838 /* VideoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59006442202E35500EE0838 /* VideoURL.swift */; };
@@ -138,7 +141,7 @@
 		E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */; };
 		E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206321B5057600A4CDF1 /* Single+Codable.swift */; };
 		E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206421B5057600A4CDF1 /* Response+Codable.swift */; };
-		E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */; };
+		E5E0208C21B5057600A4CDF1 /* CustomErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */; };
 		E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206721B5057600A4CDF1 /* ErrorModel.swift */; };
 		E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206921B5057600A4CDF1 /* StringExtensions.swift */; };
 		E5E020CC21B50B4000A4CDF1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */; };
@@ -337,6 +340,9 @@
 		E57DD45A21E319B30089A2D2 /* UserStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatementViewController.swift; sourceTree = "<group>"; };
 		E57DD45C21E335210089A2D2 /* WeChatApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatApi.swift; sourceTree = "<group>"; };
 		E57DD45E21E33D100089A2D2 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		E5859AC023CEF00600ADCED8 /* ResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandle.swift; sourceTree = "<group>"; };
+		E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTResponseHandle.swift; sourceTree = "<group>"; };
+		E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTResponseCodable.swift; sourceTree = "<group>"; };
 		E590063D2202C8F200EE0838 /* VideoDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailSection.swift; sourceTree = "<group>"; };
 		E59006412202E33600EE0838 /* NavigationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		E59006442202E35500EE0838 /* VideoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoURL.swift; sourceTree = "<group>"; };
@@ -387,7 +393,7 @@
 		E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206321B5057600A4CDF1 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206421B5057600A4CDF1 /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
-		E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPlugin.swift; sourceTree = "<group>"; };
+		E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomErrorPlugin.swift; sourceTree = "<group>"; };
 		E5E0206721B5057600A4CDF1 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		E5E0206921B5057600A4CDF1 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -988,6 +994,44 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E5859AC223CF005000ADCED8 /* HandleProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				E5859AC023CEF00600ADCED8 /* ResponseHandle.swift */,
+			);
+			path = HandleProtocol;
+			sourceTree = "<group>";
+		};
+		E5859AC323CF027600ADCED8 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0206721B5057600A4CDF1 /* ErrorModel.swift */,
+				E591D81523CEDEB600DA0AF2 /* ErrorExtension.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		E5859AC623CF05AF00ADCED8 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				E5859AC323CF027600ADCED8 /* Error */,
+				E5859AC223CF005000ADCED8 /* HandleProtocol */,
+				E5E0206121B5057600A4CDF1 /* Codable */,
+				E5E0206521B5057600A4CDF1 /* MoyaPlugin */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		E5859AC723CF060200ADCED8 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */,
+				E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */,
+				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		E590063F2202E30D00EE0838 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,7 +1190,6 @@
 		E5BEF23B23CEB4AF00F87540 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
-				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
 				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
 				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
 				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
@@ -1619,9 +1662,7 @@
 		E5E0206521B5057600A4CDF1 /* MoyaPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0206621B5057600A4CDF1 /* ErrorPlugin.swift */,
-				E5E0206721B5057600A4CDF1 /* ErrorModel.swift */,
-				E591D81523CEDEB600DA0AF2 /* ErrorExtension.swift */,
+				E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */,
 			);
 			path = MoyaPlugin;
 			sourceTree = "<group>";
@@ -2143,8 +2184,8 @@
 		E5FB739521B767CC0010D8A7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0206121B5057600A4CDF1 /* Codable */,
-				E5E0206521B5057600A4CDF1 /* MoyaPlugin */,
+				E5859AC623CF05AF00ADCED8 /* Public */,
+				E5859AC723CF060200ADCED8 /* Custom */,
 				E5BEF23B23CEB4AF00F87540 /* Apis */,
 			);
 			path = Networking;
@@ -2503,6 +2544,7 @@
 				E57DD44D21E2EB170089A2D2 /* UserCenterCell.swift in Sources */,
 				E5E5713021CB2853005C2D6E /* VideoHallDetailViewController.swift in Sources */,
 				E520A49021D76F2700CDDB04 /* UGCVideoTitleView.swift in Sources */,
+				E5859AC523CF042500ADCED8 /* TTResponseHandle.swift in Sources */,
 				E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */,
 				E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */,
 				18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */,
@@ -2526,6 +2568,7 @@
 				E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */,
 				E5FE0DBB21FAD75100DE1DED /* CollectionView.swift in Sources */,
 				E5E020CC21B50B4000A4CDF1 /* NavigationController.swift in Sources */,
+				E5859AC123CEF00600ADCED8 /* ResponseHandle.swift in Sources */,
 				E595D95821DDE208005A6C00 /* UserUGCVideoView.swift in Sources */,
 				E5FB73A121B771CF0010D8A7 /* NewsListModel.swift in Sources */,
 				E5FB739921B767FD0010D8A7 /* VideoApi.swift in Sources */,
@@ -2554,6 +2597,7 @@
 				18B7895922939AB60065E5D8 /* ZFPlayer+Rx.swift in Sources */,
 				E5F86F9B22042BFA008A0C26 /* UGCURL.swift in Sources */,
 				E595D96121DDE40B005A6C00 /* UserUGCViewModel.swift in Sources */,
+				E5859AC923CF064600ADCED8 /* TTResponseCodable.swift in Sources */,
 				18B7895B2293A4C80065E5D8 /* PYSearchViewController+Rx.swift in Sources */,
 				E5E0201C21B4FE4A00A4CDF1 /* ViewController.swift in Sources */,
 				E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */,
@@ -2561,7 +2605,7 @@
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
 				E534046921BF624B008807DA /* VideoDetailViewModel.swift in Sources */,
-				E5E0208C21B5057600A4CDF1 /* ErrorPlugin.swift in Sources */,
+				E5E0208C21B5057600A4CDF1 /* CustomErrorPlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,
 				18F81D61229636E00028CA14 /* NotificationExtension.swift in Sources */,
 				E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */,

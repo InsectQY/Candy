@@ -34,20 +34,3 @@ public extension Response {
         }
     }
 }
-
-// MARK: - 针对自己项目的封装
-public extension Response {
-
-    /// 直接解析出项目 Model 基类中的 data
-    /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) throws -> T {
-
-        let decoder = CleanJSONDecoder()
-        /// 当 JSON 的 Value 是 JSON 字符串的时候也开启解析
-        decoder.jsonStringDecodingStrategy = .all
-        let response = try mapObject(Model<T>.self,
-                                     atKeyPath: nil,
-                                     using: decoder)
-        return response.data
-    }
-}

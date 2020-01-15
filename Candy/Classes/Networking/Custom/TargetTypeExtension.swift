@@ -9,7 +9,7 @@
 import Moya
 
 /// 为 Moya TargetType 添加默认实现
-extension TargetType {
+public extension TargetType {
 
     var method: Moya.Method {
         .get
@@ -25,24 +25,5 @@ extension TargetType {
 
     var validationType: ValidationType {
         .successCodes
-    }
-}
-
-public protocol ResponseVerify {
-
-    func verifySuccess(response: Moya.Response) -> Bool
-}
-
-public extension ResponseVerify {
-
-    func isSuccess(response: Moya.Response) -> Bool {
-        true
-    }
-}
-
-public extension TargetType where Self: ResponseVerify {
-
-    func isSuccess(response: Moya.Response) -> Bool {
-        verifySuccess(response: response)
     }
 }
