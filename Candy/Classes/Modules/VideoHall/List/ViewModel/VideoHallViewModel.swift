@@ -160,9 +160,8 @@ extension VideoHallViewModel {
 
         VideoHallApi.category
         .request()
-        .mapObject(CategoryInfo.self,
-                   atKeyPath: "search_category_info")
-        .map { $0.search_category_list }
+        .mapObject([CategoryList].self,
+                   atKeyPath: "search_category_info.search_category_list")
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()

@@ -126,9 +126,9 @@ extension VideoHallDetailViewModel {
                         ptoken: ptoken,
                         author: author)
         .request()
-        .mapObject(Model<VideoPlayInfo>.self,
+        .mapObject(TTModel<VideoPlayInfo>.self,
                    atKeyPath: "video_info")
-        .filter { $0.message == .success }
+        .filter { $0.isSuccess }
         .map { $0.data }
         .trackActivity(loading)
         .trackError(error)

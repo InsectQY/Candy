@@ -90,14 +90,14 @@ extension UserQAViewModel {
 
     func request(category: String,
                  visitedID: String,
-                 offset: Int) -> Driver<Model<[QAModel]>> {
+                 offset: Int) -> Driver<TTModel<[QAModel]>> {
 
         VideoApi
         .profileType(category: category,
                      visitedID: visitedID,
                      offset: offset)
         .request()
-        .mapObject(Model<[QAModel]>.self)
+        .mapObject(TTModel<[QAModel]>.self)
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()

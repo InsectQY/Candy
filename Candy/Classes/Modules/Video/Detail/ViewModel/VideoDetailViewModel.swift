@@ -163,14 +163,14 @@ extension VideoDetailViewModel {
     /// 加载评论
     func requestComment(itemID: String,
                         groupID: String,
-                        offset: Int) -> Driver<Model<[VideoCommentModel]>> {
+                        offset: Int) -> Driver<TTModel<[VideoCommentModel]>> {
 
         VideoApi
         .comment(itemID: itemID,
                  groupID: groupID,
                  offset: offset)
         .request()
-        .mapObject(Model<[VideoCommentModel]>.self)
+        .mapObject(TTModel<[VideoCommentModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

@@ -89,14 +89,14 @@ extension UserVideoViewModel {
 
     func request(category: String,
                  visitedID: String,
-                 offset: Int) -> Driver<Model<[NewsListModel]>> {
+                 offset: Int) -> Driver<TTModel<[NewsListModel]>> {
 
         VideoApi
         .profileType(category: category,
                      visitedID: visitedID,
                      offset: offset)
         .request()
-        .mapObject(Model<[NewsListModel]>.self)
+        .mapObject(TTModel<[NewsListModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

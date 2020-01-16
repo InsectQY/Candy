@@ -83,13 +83,13 @@ extension UGCVideoCommentViewModel: ViewModelable {
 extension UGCVideoCommentViewModel {
 
     func request(groupID: String,
-                 offset: Int) -> Driver<Model<[VideoCommentModel]>> {
+                 offset: Int) -> Driver<TTModel<[VideoCommentModel]>> {
 
         VideoApi
         .ugcComment(groupID: groupID,
                     offset: offset)
         .request()
-        .mapObject(Model<[VideoCommentModel]>.self)
+        .mapObject(TTModel<[VideoCommentModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

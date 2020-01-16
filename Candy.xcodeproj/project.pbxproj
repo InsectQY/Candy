@@ -130,7 +130,7 @@
 		E5E0200F21B4FDED00A4CDF1 /* ImportFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0200E21B4FDED00A4CDF1 /* ImportFile.swift */; };
 		E5E0201C21B4FE4A00A4CDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */; };
 		E5E0201D21B4FE4A00A4CDF1 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0201621B4FE4A00A4CDF1 /* Label.swift */; };
-		E5E0201E21B4FE4A00A4CDF1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0201721B4FE4A00A4CDF1 /* Model.swift */; };
+		E5E0201E21B4FE4A00A4CDF1 /* TTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0201721B4FE4A00A4CDF1 /* TTModel.swift */; };
 		E5E0203321B4FE7B00A4CDF1 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0202A21B4FE7B00A4CDF1 /* AppConfigs.swift */; };
 		E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */; };
 		E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */; };
@@ -166,6 +166,7 @@
 		E5E5714C21CB708C005C2D6E /* VideoHallEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5714A21CB708C005C2D6E /* VideoHallEpisodeCell.xib */; };
 		E5E6800621E47E9400826132 /* VideoHallSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6800521E47E9400826132 /* VideoHallSearchViewController.swift */; };
 		E5E6800921E4818E00826132 /* SearchTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E6800821E4818E00826132 /* SearchTitleView.swift */; };
+		E5E7235323D0415F0042C140 /* YGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7235223D0415F0042C140 /* YGModel.swift */; };
 		E5E9B1E921D4762600B08281 /* VideoHallCellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B1E821D4762600B08281 /* VideoHallCellEnum.swift */; };
 		E5E9B1EF21D4973F00B08281 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B1EE21D4973F00B08281 /* TableView.swift */; };
 		E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */; };
@@ -382,7 +383,7 @@
 		E5E0200E21B4FDED00A4CDF1 /* ImportFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportFile.swift; sourceTree = "<group>"; };
 		E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5E0201621B4FE4A00A4CDF1 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		E5E0201721B4FE4A00A4CDF1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E5E0201721B4FE4A00A4CDF1 /* TTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTModel.swift; sourceTree = "<group>"; };
 		E5E0202A21B4FE7B00A4CDF1 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		E5E0204021B4FF5100A4CDF1 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
@@ -422,6 +423,7 @@
 		E5E5714A21CB708C005C2D6E /* VideoHallEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoHallEpisodeCell.xib; sourceTree = "<group>"; };
 		E5E6800521E47E9400826132 /* VideoHallSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchViewController.swift; sourceTree = "<group>"; };
 		E5E6800821E4818E00826132 /* SearchTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleView.swift; sourceTree = "<group>"; };
+		E5E7235223D0415F0042C140 /* YGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGModel.swift; sourceTree = "<group>"; };
 		E5E9B1E821D4762600B08281 /* VideoHallCellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallCellEnum.swift; sourceTree = "<group>"; };
 		E5E9B1EE21D4973F00B08281 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E5E9B20921D4B36100B08281 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -1510,9 +1512,9 @@
 		E5E0201121B4FE2100A4CDF1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB739521B767CC0010D8A7 /* Networking */,
 				E590063F2202E30D00EE0838 /* Router */,
 				E5E0201321B4FE4A00A4CDF1 /* Base */,
-				E5FB739521B767CC0010D8A7 /* Networking */,
 				E5E0203521B4FF3900A4CDF1 /* Expand */,
 				E5E0202221B4FE7B00A4CDF1 /* Configs */,
 				E5E0201221B4FE3400A4CDF1 /* Modules */,
@@ -1535,25 +1537,8 @@
 		E5E0201321B4FE4A00A4CDF1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
-				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
-				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
-				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
-				E5E0201721B4FE4A00A4CDF1 /* Model.swift */,
-				E5B4EC3821F59EA90065AB80 /* ViewModel.swift */,
-				18491006225453E2001D9974 /* RefreshViewModel.swift */,
-				E5E0201621B4FE4A00A4CDF1 /* Label.swift */,
-				E5FB73A621B79C290010D8A7 /* Button.swift */,
-				E5E9B1EE21D4973F00B08281 /* TableView.swift */,
-				E5FE0DC321FAFD8B00DE1DED /* TableViewCell.swift */,
-				E5FE0DBA21FAD75100DE1DED /* CollectionView.swift */,
-				E5FE0DC121FAFD4A00DE1DED /* CollectionViewCell.swift */,
-				E5FE0DC521FAFE8700DE1DED /* ImageView.swift */,
-				E5FE0DC721FAFF6000DE1DED /* View.swift */,
-				E5FE0DC921FB058000DE1DED /* TextField.swift */,
-				18767763222920F900A6D37A /* BarButtonItem.swift */,
-				187677652229220F00A6D37A /* ScrollView.swift */,
-				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
+				E5E7235423D041960042C140 /* UIKit */,
+				E5E7235523D041A90042C140 /* Entity */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1847,6 +1832,40 @@
 				E5E6800821E4818E00826132 /* SearchTitleView.swift */,
 			);
 			path = TitleView;
+			sourceTree = "<group>";
+		};
+		E5E7235423D041960042C140 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
+				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
+				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
+				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
+				E5B4EC3821F59EA90065AB80 /* ViewModel.swift */,
+				18491006225453E2001D9974 /* RefreshViewModel.swift */,
+				E5E0201621B4FE4A00A4CDF1 /* Label.swift */,
+				E5FB73A621B79C290010D8A7 /* Button.swift */,
+				E5E9B1EE21D4973F00B08281 /* TableView.swift */,
+				E5FE0DC321FAFD8B00DE1DED /* TableViewCell.swift */,
+				E5FE0DBA21FAD75100DE1DED /* CollectionView.swift */,
+				E5FE0DC121FAFD4A00DE1DED /* CollectionViewCell.swift */,
+				E5FE0DC521FAFE8700DE1DED /* ImageView.swift */,
+				E5FE0DC721FAFF6000DE1DED /* View.swift */,
+				E5FE0DC921FB058000DE1DED /* TextField.swift */,
+				18767763222920F900A6D37A /* BarButtonItem.swift */,
+				187677652229220F00A6D37A /* ScrollView.swift */,
+				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E5E7235523D041A90042C140 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E5E7235223D0415F0042C140 /* YGModel.swift */,
+				E5E0201721B4FE4A00A4CDF1 /* TTModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		E5E9B20421D4B2FE00B08281 /* Episode */ = {
@@ -2478,7 +2497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5E0201E21B4FE4A00A4CDF1 /* Model.swift in Sources */,
+				E5E0201E21B4FE4A00A4CDF1 /* TTModel.swift in Sources */,
 				E590063E2202C8F200EE0838 /* VideoDetailSection.swift in Sources */,
 				E565356A21DDDCF700091714 /* UserPorfileViewModel.swift in Sources */,
 				E5ED9FA121DEF5F10088775F /* QAModel.swift in Sources */,
@@ -2554,6 +2573,7 @@
 				E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */,
 				E595D96B21DE0343005A6C00 /* UserQACell.swift in Sources */,
 				E5D9541A21E6DB23007FC606 /* EpisodeListFlowLayout.swift in Sources */,
+				E5E7235323D0415F0042C140 /* YGModel.swift in Sources */,
 				E5D9542921E74D29007FC606 /* UGCVideoActivityCell.swift in Sources */,
 				E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */,
 				E534047021BF638F008807DA /* VideoDetailInfoCell.swift in Sources */,

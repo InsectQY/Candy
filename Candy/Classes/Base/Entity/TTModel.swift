@@ -8,16 +8,10 @@
 
 import Foundation
 
-enum ServerCode: String, Codable {
-
-    /// 请求成功
-    case success
-}
-
-struct Model<T: Codable>: Codable {
+public struct TTModel<T: Codable>: Codable {
 
     /// 返回 "success" 为成功
-    let message: ServerCode
+    let message: String
     /// 是否有更多数据
     let has_more: Bool
     /// 加载更多时用到
@@ -27,6 +21,6 @@ struct Model<T: Codable>: Codable {
 
     /// 是否返回成功
     var isSuccess: Bool {
-        message == .success
+        message == "success"
     }
 }

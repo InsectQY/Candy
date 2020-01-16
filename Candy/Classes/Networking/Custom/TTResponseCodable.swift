@@ -14,21 +14,42 @@ import CleanJSON
 
 public extension Response {
 
-    /// 直接解析出项目 Model 基类中的 data
+    /// 解析出项目基类 Model
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) throws -> T {
+    func mapModel<T: Codable>(_ type: T.Type) throws -> TTModel<T> {
 
         let decoder = CleanJSONDecoder()
         /// 当 JSON 的 Value 是 JSON 字符串的时候也开启解析
         decoder.jsonStringDecodingStrategy = .all
-        let response = try mapObject(Model<T>.self,
+        let response = try mapObject(TTModel<T>.self,
                                      atKeyPath: nil,
                                      using: decoder)
-        return response.data
+        return response
+    }
+
+    /// 直接解析出项目 Model 基类中的 data
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModelData<T: Codable>(_ type: T.Type) throws -> T {
+        return try mapModel(T.self).data
     }
 }
 
 public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+
+    /// 解析出项目 Model 基类
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModel<T: Codable>(_ type: T.Type) -> Single<TTModel<T>> {
+
+        return map {
+
+            guard
+                let response = try? $0.mapModel(type)
+            else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
+        }
+    }
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
@@ -47,6 +68,21 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 }
 
 public extension ObservableType where Element == Response {
+
+    /// 解析出项目 Model 基类
+    /// - Parameter type: Model 基类中 data 的类型
+    func mapModel<T: Codable>(_ type: T.Type) -> Observable<TTModel<T>> {
+
+        return map {
+
+            guard
+                let response = try? $0.mapModel(type)
+            else {
+                throw MoyaError.jsonMapping($0)
+            }
+            return response
+        }
+    }
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型

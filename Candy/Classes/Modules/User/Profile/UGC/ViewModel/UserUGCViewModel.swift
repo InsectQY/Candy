@@ -91,14 +91,14 @@ extension UserUGCViewModel {
 
     func request(category: String,
                  visitedID: String,
-                 offset: Int) -> Driver<Model<[UGCVideoListModel]>> {
+                 offset: Int) -> Driver<TTModel<[UGCVideoListModel]>> {
 
         VideoApi
         .profileType(category: category,
                      visitedID: visitedID,
                      offset: offset)
         .request()
-        .mapObject(Model<[UGCVideoListModel]>.self)
+        .mapObject(TTModel<[UGCVideoListModel]>.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

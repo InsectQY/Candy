@@ -18,18 +18,18 @@ public extension TTResponseHandle {
     }
 
     func isServerSuccess(response: Response) -> Bool {
-        let res = try? response.mapObject(Model<String>.self)
+        let res = try? response.mapObject(TTModel<String>.self)
         return res?.isSuccess ?? true
     }
 
     func customMoyaResponse(response: Response) -> Result<Response, MoyaError>? {
         guard
-            let res = try? response.mapObject(Model<String>.self)
+            let res = try? response.mapObject(TTModel<String>.self)
         else {
             return nil
         }
         // 自定义错误
-        let customError = ErrorModel(message: res.message.rawValue)
+        let customError = ErrorModel(message: res.message)
         // 放在 Moya.objectMapping 错误类型中返回
         return Result<Moya.Response, MoyaError>
         .failure(.objectMapping(customError, response))
