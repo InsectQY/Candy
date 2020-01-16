@@ -59,6 +59,7 @@
 		E534047921BF7FBD008807DA /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534047721BF7FBD008807DA /* CommentCell.swift */; };
 		E534047A21BF7FBD008807DA /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534047821BF7FBD008807DA /* CommentCell.xib */; };
 		E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = E534048121BFB0EE008807DA /* NSData+CRC32.m */; };
+		E535153A23D0436500264064 /* YGRespnseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E535153923D0436500264064 /* YGRespnseHandle.swift */; };
 		E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */; };
 		E565356A21DDDCF700091714 /* UserPorfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565356921DDDCF700091714 /* UserPorfileViewModel.swift */; };
 		E565356C21DDDD3100091714 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565356B21DDDD3100091714 /* UserProfileHeaderView.swift */; };
@@ -310,6 +311,7 @@
 		E534048021BFB0EE008807DA /* NSData+CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
 		E534048121BFB0EE008807DA /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		E534048421BFB15A008807DA /* Candy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Candy-Bridging-Header.h"; sourceTree = "<group>"; };
+		E535153923D0436500264064 /* YGRespnseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGRespnseHandle.swift; sourceTree = "<group>"; };
 		E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeExtension.swift; sourceTree = "<group>"; };
 		E565356921DDDCF700091714 /* UserPorfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPorfileViewModel.swift; sourceTree = "<group>"; };
 		E565356B21DDDD3100091714 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -1027,8 +1029,9 @@
 		E5859AC723CF060200ADCED8 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */,
+				E535153923D0436500264064 /* YGRespnseHandle.swift */,
 				E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */,
+				E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */,
 				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
 			);
 			path = Custom;
@@ -2663,6 +2666,7 @@
 				E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */,
 				E578101821C8DE70005BFFAC /* FilterView.swift in Sources */,
 				E5ED9FAE21DF40120088775F /* UserVideoCell.swift in Sources */,
+				E535153A23D0436500264064 /* YGRespnseHandle.swift in Sources */,
 				E59112F221B6557300436D08 /* VideoListViewController.swift in Sources */,
 				E578102221C8E3B9005BFFAC /* VideoHallListCell.swift in Sources */,
 				E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */,

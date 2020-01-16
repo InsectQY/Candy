@@ -24,8 +24,6 @@ enum VideoApi {
     case ugcActivity(offset: Int, userAction: String)
     /// 评论详情(参数: item_id, groupid, 当前加载数量)
     case comment(itemID: String, groupID: String, offset: Int)
-    /// 视频真实播放地址
-    case parsePlayInfo(String)
     /// 评论详情
     case ugcComment(groupID: String, offset: Int)
     /// 某条评论的回复
@@ -34,6 +32,10 @@ enum VideoApi {
     case userProfile(String)
     /// 用户某个分类下的所有数据
     case profileType(category: String, visitedID: String, offset: Int)
+    /// 视频真实播放地址
+    case parsePlayInfo(String)
+    /// 放映厅视频真实播放地址
+    case parseVideoHall(vid: String, ptoken: String, author: String)
 }
 
 extension VideoApi: TargetType {
@@ -72,6 +74,8 @@ extension VideoApi: TargetType {
             return "user/profile/homepage/v7/"
         case .ugcActivity:
             return "ugc/video/activity/channel/v1/"
+        case .parseVideoHall:
+            return "video/openapi/v1/"
         default:
             return "api/feed/profile/v1/"
         }
@@ -120,11 +124,26 @@ extension VideoApi: TargetType {
 
             parameters["off_set"] = offset
             parameters["user_action"] = action
+        case let .parseVideoHall(videoID, token, _):
+            var parameters: [String: Any] = [:]
+            parameters["action"] = "GetPlayInfo"
+            parameters["video_id"] = videoID
+            parameters["ptoken"] = token
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         default:
             break
         }
 
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
+
+    var headers: [String: String]? {
+        switch self {
+        case let .parseVideoHall(_, _, author):
+            return ["Authorization": author]
+        default:
+            return nil
+        }
     }
 }
 

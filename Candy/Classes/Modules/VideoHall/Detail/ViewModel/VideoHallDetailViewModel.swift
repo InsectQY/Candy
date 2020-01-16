@@ -121,7 +121,7 @@ extension VideoHallDetailViewModel {
                               ptoken: String,
                               author: String) -> Driver<VideoPlayInfo> {
 
-        VideoHallApi
+        VideoApi
         .parseVideoHall(vid: vid,
                         ptoken: ptoken,
                         author: author)

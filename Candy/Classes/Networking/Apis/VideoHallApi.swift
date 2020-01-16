@@ -21,20 +21,12 @@ enum VideoHallApi {
     case searchSug(String)
     /// 搜索结果(参数: 当前加载数量, 加载类别)
     case search(Int, String)
-    /// 放映厅视频真实播放地址()
-    case parseVideoHall(vid: String, ptoken: String, author: String)
 }
 
 extension VideoHallApi: TargetType {
 
     var baseURL: URL {
-
-        switch self {
-        case .parseVideoHall:
-            return URL(string: Configs.Network.touTiaoBaseUrl)!
-        default:
-            return URL(string: Configs.Network.yangGuangUrl)!
-        }
+        URL(string: Configs.Network.yangGuangUrl)!
     }
 
     var path: String {
@@ -49,8 +41,6 @@ extension VideoHallApi: TargetType {
             return "search/sug/"
         case .search:
             return "lvideo/search/"
-        case .parseVideoHall:
-            return "video/openapi/v1/"
         }
     }
 
@@ -83,28 +73,9 @@ extension VideoHallApi: TargetType {
             parameters["count"] = 50
             parameters["cur_tab"] = 2
             parameters["en_qc"] = 1
-        case let .parseVideoHall(videoID, token, _):
-
-            parameters["action"] = "GetPlayInfo"
-            parameters["video_id"] = videoID
-            parameters["ptoken"] = token
         }
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
-
-    var headers: [String: String]? {
-        switch self {
-        case let .parseVideoHall(_, _, author):
-            return ["Authorization": author]
-        default:
-            return nil
-        }
-    }
 }
 
-extension VideoHallApi: TTResponseHandle {
-
-    var isHandle: Bool {
-        baseURL.absoluteString != Configs.Network.yangGuangUrl
-    }
-}
+extension VideoHallApi: YGRespnseHandle {}
