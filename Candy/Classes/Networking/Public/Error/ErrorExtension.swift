@@ -8,7 +8,7 @@
 
 import Moya
 
-/// 将 Error Protocol 转换为具体类型
+/// 将 Error protocol 转换为具体类型
 public extension Error {
 
     var moya: MoyaError? {
@@ -20,7 +20,7 @@ public extension Error {
     }
 }
 
-/// MoyaError 的封装，方便直接取到自定义的错误信息
+/// 封装 MoyaError，方便获取自定义的错误信息
 /// 当你想获取原始数据时，Moya 原生提供了 var response: Moya.Response?
 public extension MoyaError {
 
@@ -28,7 +28,7 @@ public extension MoyaError {
     var responseDescription: String? {
         switch self {
         case let .objectMapping(error, _):
-            return error.errorModel?.message
+            return error.errorModel?.errorDescription
         default:
             return errorDescription
         }

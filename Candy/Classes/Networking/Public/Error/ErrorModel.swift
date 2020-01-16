@@ -10,3 +10,10 @@ public struct ErrorModel: Error {
         self.message = message
     }
 }
+
+extension ErrorModel: LocalizedError {
+
+    public var errorDescription: String? {
+        message
+    }
+}

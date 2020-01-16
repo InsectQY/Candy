@@ -16,7 +16,7 @@ public extension Response {
     /// 封装 Moya 解析 JSON 的方法，降低第三方库对项目的侵入性
     /// - Parameters:
     ///   - type: Model 的类型
-    ///   - path: 指定解析 JSON 的路径
+    ///   - path: 指定被解析 JSON 的 Key (默认根路径)
     ///   - decoder: 解析器 (默认使用 CleanJSONDecoder 作为解析器)
     ///   - failsOnEmptyData: 在返回数据为空的情况下是否抛出异常
     func mapObject<D: Decodable>(_ type: D.Type,

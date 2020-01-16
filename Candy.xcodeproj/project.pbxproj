@@ -141,7 +141,7 @@
 		E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */; };
 		E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206321B5057600A4CDF1 /* Single+Codable.swift */; };
 		E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206421B5057600A4CDF1 /* Response+Codable.swift */; };
-		E5E0208C21B5057600A4CDF1 /* CustomErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */; };
+		E5E0208C21B5057600A4CDF1 /* CustomResponsePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* CustomResponsePlugin.swift */; };
 		E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206721B5057600A4CDF1 /* ErrorModel.swift */; };
 		E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206921B5057600A4CDF1 /* StringExtensions.swift */; };
 		E5E020CC21B50B4000A4CDF1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */; };
@@ -393,7 +393,7 @@
 		E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206321B5057600A4CDF1 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206421B5057600A4CDF1 /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
-		E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomErrorPlugin.swift; sourceTree = "<group>"; };
+		E5E0206621B5057600A4CDF1 /* CustomResponsePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomResponsePlugin.swift; sourceTree = "<group>"; };
 		E5E0206721B5057600A4CDF1 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		E5E0206921B5057600A4CDF1 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E5E020CA21B50B4000A4CDF1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -1662,7 +1662,7 @@
 		E5E0206521B5057600A4CDF1 /* MoyaPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0206621B5057600A4CDF1 /* CustomErrorPlugin.swift */,
+				E5E0206621B5057600A4CDF1 /* CustomResponsePlugin.swift */,
 			);
 			path = MoyaPlugin;
 			sourceTree = "<group>";
@@ -2605,7 +2605,7 @@
 				E534047521BF7F0D008807DA /* VideoRelatedCell.swift in Sources */,
 				E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */,
 				E534046921BF624B008807DA /* VideoDetailViewModel.swift in Sources */,
-				E5E0208C21B5057600A4CDF1 /* CustomErrorPlugin.swift in Sources */,
+				E5E0208C21B5057600A4CDF1 /* CustomResponsePlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,
 				18F81D61229636E00028CA14 /* NotificationExtension.swift in Sources */,
 				E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */,
