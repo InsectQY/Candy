@@ -27,6 +27,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         let categories: Driver<[CategoryList]>
         /// 该分类下的视频
         let items: Driver<[VideoHallList]>
+        /// 筛选 view 高度
+        let filterViewHeight: Driver<CGFloat>
     }
 
     /// 搜索点击
@@ -40,6 +42,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
     private let categoryElements = BehaviorRelay<[CategoryList]>(value: [])
     /// 某个分类下的所有视频
     private let videoElements = BehaviorRelay<[VideoHallList]>(value: [])
+    /// 筛选 view 高度
+    private let filterViewHeight = BehaviorRelay<CGFloat>(value: 0)
 
     required init() {
 
@@ -47,7 +51,8 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
                       selection: selection.asObserver(),
                       searchKey: searchKey.asObserver())
         output = Output(categories: categoryElements.asDriver(),
-                        items: videoElements.asDriver())
+                        items: videoElements.asDriver(),
+                        filterViewHeight: filterViewHeight.asDriver())
 
         super.init()
     }
@@ -58,6 +63,14 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         // 获取视频分类
         requestCategory()
         .drive(categoryElements)
+        .disposed(by: disposeBag)
+
+        // filterView 的高度
+        categoryElements
+        .map {
+            FilterCell.cellHeight * CGFloat($0.count) + FilterCell.categoryViewY
+        }
+        .bind(to: filterViewHeight)
         .disposed(by: disposeBag)
 
         // 没有网络点击

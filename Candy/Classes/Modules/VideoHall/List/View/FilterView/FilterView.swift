@@ -17,8 +17,6 @@ public protocol FilterViewProtocol: class {
 
 public class FilterView: UIView {
 
-    static let height: CGFloat = FilterCell.cellHeight * 3 + 20
-
     public weak var delegate: FilterViewProtocol?
 
     private let cellID: String = "FilterCell"
@@ -36,6 +34,7 @@ public class FilterView: UIView {
             tableView.reloadData()
             // 默认选中每组第一个
             selItems = filter.compactMap { $0.search_category_word_list.first }
+            layoutSubviews()
         }
     }
 
@@ -44,7 +43,7 @@ public class FilterView: UIView {
         let tableView = UITableView(frame: bounds)
         tableView.register(FilterCell.self, forCellReuseIdentifier: cellID)
         tableView.dataSource = self
-        tableView.rowHeight = FilterCell.cellHeight
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.isScrollEnabled = false
@@ -98,5 +97,12 @@ extension FilterView: UITableViewDataSource {
             self.delegate?.filterView(self, didSelectAt: indexPath.row, item: $0)
         }
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension FilterView: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        indexPath.row == (filter.count - 1) ? FilterCell.cellHeight + FilterCell.categoryViewY : FilterCell.cellHeight
     }
 }

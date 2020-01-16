@@ -8,6 +8,7 @@
 
 import Moya
 
+/// 放映厅请求
 enum VideoHallApi {
 
     /// 视频分类
@@ -61,7 +62,7 @@ extension VideoHallApi: TargetType {
             parameters["category"] = "subv_xg_lvideo_recommend"
         case let .list(offset, key):
 
-            parameters["limit"] = 16
+            parameters["limit"] = 12
             parameters["offset"] = offset
             parameters["search_keys"] = key
             parameters["category"] = "subv_xg_lvideo_recommend"

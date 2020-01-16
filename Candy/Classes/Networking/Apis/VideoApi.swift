@@ -7,6 +7,7 @@
 //  swiftlint:disable force_unwrapping
 import Moya
 
+/// 视频 + 小视频请求
 enum VideoApi {
 
     /// 视频分类

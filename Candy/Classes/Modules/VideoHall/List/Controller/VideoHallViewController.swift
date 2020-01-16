@@ -21,7 +21,7 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     /// 添加到 collectionView 上的
     private lazy var filterView: FilterView = {
 
-        let filterView = FilterView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: FilterView.height))
+        let filterView = FilterView(frame: .zero)
         filterView.delegate = self
         return filterView
     }()
@@ -29,11 +29,13 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
     /// 添加到 view 上的
     fileprivate lazy var animateFilterView: FilterView = {
 
-        let animateFilterView = FilterView(frame: CGRect(x: 0, y: -FilterView.height, width: Configs.Dimensions.screenWidth, height: FilterView.height))
+        let animateFilterView = FilterView(frame: .zero)
         animateFilterView.isHidden = true
         animateFilterView.delegate = self
         return animateFilterView
     }()
+
+    private var filterViewHeight: CGFloat = 0
 
     init() {
         super.init(collectionViewLayout: VideoHallFlowLayout())
@@ -48,6 +50,12 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         super.viewDidLoad()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        animateFilterView.frame = CGRect(x: 0, y: -filterViewHeight, width: Configs.Dimensions.screenWidth, height: filterViewHeight)
+        filterView.frame = CGRect(x: 0, y: -filterViewHeight, width: Configs.Dimensions.screenWidth, height: filterViewHeight)
+    }
+
     override func makeUI() {
         super.makeUI()
 
@@ -59,7 +67,6 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         collectionView.refreshFooter = RefreshFooter()
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
-        collectionView.contentInset = UIEdgeInsets(top: FilterView.height, left: 0, bottom: 0, right: 0)
         view.addSubview(topView)
         view.addSubview(animateFilterView)
         collectionView.addSubview(filterView)
@@ -78,6 +85,16 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
         collectionView.rx.modelSelected(VideoHallList.self)
         .asObservable()
         .subscribe(viewModel.input.selection)
+        .disposed(by: rx.disposeBag)
+
+        // 刷新
+        viewModel.output
+        .filterViewHeight
+        .drive(onNext: { [weak self] in
+            self?.filterViewHeight = $0
+            self?.collectionView.contentInset = UIEdgeInsets(top: $0, left: 0, bottom: 0, right: 0)
+            self?.viewDidLayoutSubviews()
+        })
         .disposed(by: rx.disposeBag)
 
         // 视频分类
@@ -130,15 +147,16 @@ extension VideoHallViewController: UICollectionViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        let contentOffsetY = scrollView.contentOffset.y + FilterView.height + topH
-        filterView.y = -FilterView.height + contentOffsetY - contentOffsetY * 0.3
-        topView.alpha = scrollView.contentOffset.y <= (-FilterView.height - topH) ? 0 : scrollView.contentOffset.y / contentOffsetY * 2
+        let height = filterViewHeight
+        let contentOffsetY = scrollView.contentOffset.y + height + topH
+        filterView.y = -height + contentOffsetY - contentOffsetY * 0.3
+        topView.alpha = scrollView.contentOffset.y <= (-height - topH) ? 0 : scrollView.contentOffset.y / contentOffsetY * 2
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 
         animateFilterView.isHidden = true
-        animateFilterView.y = -FilterView.height
+        animateFilterView.y = -filterViewHeight
     }
 }
 

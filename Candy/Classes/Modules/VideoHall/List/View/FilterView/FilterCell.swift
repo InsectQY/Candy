@@ -11,7 +11,12 @@ import JXCategoryView
 
 class FilterCell: TableViewCell {
 
-    static let cellHeight: CGFloat = 40
+    public static let cellHeight: CGFloat = 45
+    public static let categoryViewY: CGFloat = 5
+
+    private var categoryViewHeight: CGFloat {
+        Self.cellHeight - Self.categoryViewY
+    }
 
     /// 点击回调
     var filterClick: ((Int) -> Void)?
@@ -20,7 +25,7 @@ class FilterCell: TableViewCell {
 
         let backgroundView = JXCategoryIndicatorBackgroundView()
         backgroundView.indicatorWidthIncrement = 30
-        backgroundView.indicatorHeight = 28
+        backgroundView.indicatorHeight = categoryViewHeight - FilterCell.categoryViewY
         backgroundView.indicatorColor = .RGBA(240, 240, 240)
         let categoryView = JXCategoryTitleView()
         categoryView.indicators = [backgroundView]
@@ -53,7 +58,7 @@ class FilterCell: TableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        categoryView.frame = CGRect(x: 0, y: 10, width: Configs.Dimensions.screenWidth, height: bounds.height)
+        categoryView.frame = CGRect(x: 0, y: Self.categoryViewY, width: bounds.width, height: categoryViewHeight)
     }
 }
 
