@@ -8,15 +8,19 @@
 
 import Moya
 
-/// 只用于处理当 Moya 的 HTTP 状态码返回成功时的数据
+/// 处理 Moya 返回的 Result<Moya.Response, MoyaError> 类型数据
 public protocol ResponseHandle {
 
-    /// 当 HTTP 状态码正确时，是否继续处理 (默认 false，不继续处理)
+    /// 是否自定义处理 Result
+    /// (默认 false，不继续处理)
     var isHandle: Bool { get }
-    /// 服务端返回的数据是否符合成功约定 (默认 true，全都符合)
+    /// 适用于 HTTP code 成功的数据，判断服务端返回的数据是否符合成功约定
+    /// @example: message == "success" , code == 0 ...
+    ///  (默认 true，全都符合)
     func isServerSuccess(response: Moya.Response) -> Bool
-    /// 自定义 Moya 返回数据 (默认 nil，不自定义)
-    func customMoyaResponse(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
+    /// 自定义 Moya 返回数据
+    ///  (默认 nil，不自定义)
+    func customMoyaResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
 }
 
 public extension ResponseHandle {
@@ -29,7 +33,7 @@ public extension ResponseHandle {
         true
     }
 
-    func customMoyaResponse(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
+    func customMoyaResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
         nil
     }
 }

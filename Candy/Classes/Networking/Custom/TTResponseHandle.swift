@@ -22,7 +22,7 @@ public extension TTResponseHandle {
         return res?.isSuccess ?? true
     }
 
-    func customMoyaResponse(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaResult(response: Response) -> Result<Response, MoyaError>? {
         guard
             let res = try? response.mapObject(TTModel<String>.self)
         else {
