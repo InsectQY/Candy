@@ -16,7 +16,14 @@ public extension Error {
     }
 
     var errorModel: ErrorModel? {
-        self as? ErrorModel
+
+        guard let moyaError = moya else { return nil }
+        switch moyaError {
+        case let .objectMapping(error, _):
+            return error as? ErrorModel
+        default:
+            return nil
+        }
     }
 }
 

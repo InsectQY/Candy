@@ -9,9 +9,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.4)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.2)
-  - Kingfisher (5.12.0):
-    - Kingfisher/Core (= 5.12.0)
-  - Kingfisher/Core (5.12.0)
+  - Kingfisher (5.13.0):
+    - Kingfisher/Core (= 5.13.0)
+  - Kingfisher/Core (5.13.0)
   - KingfisherWebP (0.7.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -184,7 +184,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
-  Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
+  Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
@@ -216,4 +216,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 08893216855e7e3dc7bbc5fb89d6fded0fac53e4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0.beta.2
