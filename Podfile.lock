@@ -6,7 +6,7 @@ PODS:
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.5.0)
-  - IQKeyboardManagerSwift (6.5.4)
+  - IQKeyboardManagerSwift (6.5.5)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.2)
   - Kingfisher (5.13.0):
@@ -181,7 +181,7 @@ SPEC CHECKSUMS:
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
-  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
   Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748

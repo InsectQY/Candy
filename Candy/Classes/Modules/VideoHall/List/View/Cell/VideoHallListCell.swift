@@ -42,6 +42,8 @@ class VideoHallListCell: CollectionViewCell {
                 scoreLabel.text = item.album.bottom_label
             } else if item.album.rating_score > 0 { // 没有总集数时显示评分
                 scoreLabel.text = "\(item.album.rating_score / 10)"
+            } else { // 都没有时不显示
+                scoreLabel.text = ""
             }
         }
     }
