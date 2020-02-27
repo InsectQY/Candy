@@ -5,7 +5,7 @@ platform :ios, '10.0'
 
 target 'Candy' do
 
- use_modular_headers!
+use_modular_headers!
 #use_frameworks!
 inhibit_all_warnings!
 
