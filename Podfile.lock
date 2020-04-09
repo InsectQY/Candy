@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.0.5)
+  - Alamofire (5.1.0)
   - CleanJSON (1.0.0)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
@@ -8,7 +8,7 @@ PODS:
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.5)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.3)
+  - JXCategoryView (1.5.4)
   - Kingfisher (5.13.3):
     - Kingfisher/Core (= 5.13.3)
   - Kingfisher/Core (5.13.3)
@@ -76,7 +76,7 @@ PODS:
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.39.1)
+  - SwiftLint (0.39.2)
   - Toast-Swift (5.0.1)
   - UIFontComplete (4.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -174,7 +174,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxNetwork
 
 SPEC CHECKSUMS:
-  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -183,7 +183,7 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: 64fbdf3d1bbc8087ebd0443dd3b49855000aca6e
+  JXCategoryView: f2970a2056277c5c38e32e532ae5afa77ac98f1b
   Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
@@ -207,7 +207,7 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
