@@ -6,8 +6,8 @@
 
 ## 要求
 
-- Xcode 11 +
-- Swift 5.1
+- Xcode 11.4 +
+- Swift 5.2
 - iOS 10.0 +
 
 ## 预览

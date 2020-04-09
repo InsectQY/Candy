@@ -8,8 +8,8 @@ Video iOS client written in RxSwift and MVVM
 
 ## Requirements
 
-- Xcode 11 +
-- Swift 5.1
+- Xcode 11.4 +
+- Swift 5.2
 - iOS 10.0 +
 
 ## Screenshots
