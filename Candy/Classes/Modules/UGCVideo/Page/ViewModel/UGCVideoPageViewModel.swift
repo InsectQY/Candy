@@ -51,7 +51,7 @@ extension UGCVideoPageViewModel {
         VideoApi.ugcCategory
         .request()
         .mapModelData(UGCVideoPageModel.self)
-        .map { $0.data }
+        .map(\.data)
         .map {
             // 过滤这一组
             $0.filter { $0.name != "关注" }

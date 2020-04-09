@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.0.2)
+  - Alamofire (5.0.5)
   - CleanJSON (1.0.0)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
@@ -8,10 +8,10 @@ PODS:
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.5)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.2)
-  - Kingfisher (5.13.1):
-    - Kingfisher/Core (= 5.13.1)
-  - Kingfisher/Core (5.13.1)
+  - JXCategoryView (1.5.3)
+  - Kingfisher (5.13.3):
+    - Kingfisher/Core (= 5.13.3)
+  - Kingfisher/Core (5.13.3)
   - KingfisherWebP (0.7.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -44,7 +44,7 @@ PODS:
   - RxActivityIndicator (1.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxDataSources (4.0.1):
@@ -68,9 +68,9 @@ PODS:
     - ReachabilitySwift (~> 4.3.1)
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.0.1):
+  - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.0.1)
+  - RxSwift (5.1.1)
   - RxURLNavigator (2.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
@@ -81,11 +81,11 @@ PODS:
   - UIFontComplete (4.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
-  - ZFPlayer/AVPlayer (3.2.17):
+  - ZFPlayer/AVPlayer (3.3.1):
     - ZFPlayer/Core
-  - ZFPlayer/ControlView (3.2.17):
+  - ZFPlayer/ControlView (3.3.1):
     - ZFPlayer/Core
-  - ZFPlayer/Core (3.2.17)
+  - ZFPlayer/Core (3.3.1)
 
 DEPENDENCIES:
   - CleanJSON
@@ -174,7 +174,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxNetwork
 
 SPEC CHECKSUMS:
-  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -183,8 +183,8 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
-  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
+  JXCategoryView: 64fbdf3d1bbc8087ebd0443dd3b49855000aca6e
+  Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
@@ -197,14 +197,14 @@ SPEC CHECKSUMS:
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
   RxNetwork: feaab454199f91990919047a9c5052c66fbeb232
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
@@ -212,7 +212,7 @@ SPEC CHECKSUMS:
   UIFontComplete: 9542d390ee6114412a585d979b09fe820896695d
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
-  ZFPlayer: ac9cb879291eec259e7fe77e840c884e2b80a499
+  ZFPlayer: 8a6021a3c45e281f2abd24dca5c88915af770a7e
 
 PODFILE CHECKSUM: dddec86abf85201d3941c6a712c68ecc5b830c74
 

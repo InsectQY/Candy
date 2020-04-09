@@ -108,7 +108,7 @@ extension Reactive where Base: UserPorfileViewController {
         Binder(base) { vc, result in
 
             vc.navigationItem.title = result.name
-            vc.categoryView.titles = result.top_tab.map { $0.show_name }
+            vc.categoryView.titles = result.top_tab.map(\.show_name)
             vc.dataSource = result.top_tab.map {
                 $0.type.viewWith(category: $0.category,
                                  visitedID: result.user_id)

@@ -138,7 +138,7 @@ class UGCVideoDetailViewController: CollectionViewController<UGCVideoListViewMod
         .disposed(by: rx.disposeBag)
 
         // 滑动时自动播放视频
-        collectionView.zf_scrollViewDidStopScrollCallback = { [weak self] in
+        collectionView.zf_scrollViewDidEndScrollingCallback = { [weak self] in
             self?.playAtTheIndexPath($0)
         }
 

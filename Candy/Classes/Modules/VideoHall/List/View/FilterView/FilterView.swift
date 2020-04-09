@@ -23,7 +23,7 @@ public class FilterView: UIView {
     /// 已经选择的筛选数据
     private var selItems: [Filter] = [] {
         didSet {
-            let key = selItems.map { $0.search_key }.joined(separator: ",")
+            let key = selItems.map(\.search_key).joined(separator: ",")
             delegate?.searchKey(key)
         }
     }
@@ -33,7 +33,7 @@ public class FilterView: UIView {
         didSet {
             tableView.reloadData()
             // 默认选中每组第一个
-            selItems = filter.compactMap { $0.search_category_word_list.first }
+            selItems = filter.compactMap(\.search_category_word_list.first)
             layoutSubviews()
         }
     }

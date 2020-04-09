@@ -93,7 +93,7 @@ extension VideoHallDetailViewModel: ViewModelable {
         .drive(videoPlayInfo)
         .disposed(by: disposeBag)
 
-        let output = Output(episodes: info.map { $0.block_list[1].cells },
+        let output = Output(episodes: info.map(\.block_list[1].cells),
                             items: elements.asDriver(),
                             videoPlayInfo: videoPlayInfo.asDriver())
         return output
@@ -128,8 +128,8 @@ extension VideoHallDetailViewModel {
         .request()
         .mapObject(TTModel<VideoPlayInfo>.self,
                    atKeyPath: "video_info")
-        .filter { $0.isSuccess }
-        .map { $0.data }
+        .filter(\.isSuccess)
+        .map(\.data)
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()

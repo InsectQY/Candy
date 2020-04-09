@@ -149,7 +149,7 @@ class VideoHallDetailViewController: TableViewController<VideoHallDetailViewMode
 
         // 保存点击的 index 防止复用
         clickEpisode
-        .map { $0.index }
+        .map(\.index)
         .drive(rx.selIndex)
         .disposed(by: rx.disposeBag)
 

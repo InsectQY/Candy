@@ -115,7 +115,7 @@ extension RichLabel {
     private func results(from regex: NSRegularExpression) -> [NSRange] {
         // 开始匹配，返回结果
         let checkingResults = regex.matches(in: textStorage.string, options: [], range: NSRange(location: 0, length: textStorage.length))
-        return checkingResults.map { $0.range }
+        return checkingResults.map(\.range)
     }
 
     /// 根据点击的坐标，获取范围

@@ -41,7 +41,7 @@ class FilterCell: TableViewCell {
     public var filter: [Filter] = [] {
 
         didSet {
-            categoryView.titles = filter.map { $0.name }
+            categoryView.titles = filter.map(\.name)
             categoryView.reloadData()
         }
     }

@@ -109,7 +109,7 @@ extension Reactive where Base: UGCVideoPageViewController {
 
         return Binder(base) { vc, result in
 
-            vc.categoryView.titles = result.map { $0.name }
+            vc.categoryView.titles = result.map(\.name)
             vc.categoryView.defaultSelectedIndex = 0
             vc.listContainerView.setDefaultSelectedIndex(0)
             vc.categoryView.reloadData()
