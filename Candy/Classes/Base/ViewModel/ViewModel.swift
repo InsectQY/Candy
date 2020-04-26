@@ -24,7 +24,7 @@ class ViewModel {
 
     func bindLoadingToIndicator() {
         loading
-        .drive(rx.isAnimating)
+        .drive(rx.isShowLoadingIndicator)
         .disposed(by: disposeBag)
     }
 }
