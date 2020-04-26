@@ -25,11 +25,22 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        trackLoadingState()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+    }
+
+    // MARK: - Private Methods
+    private func trackLoadingState() {
+
+        isLoading.asDriver()
+        .distinctUntilChanged()
+        .mapToVoid()
+        .drive(tableView.rx.reloadEmptyDataSet)
+        .disposed(by: rx.disposeBag)
     }
 
     // MARK: - init
@@ -58,7 +69,6 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        bindReloadEmpty()
         bindHeader()
         bindFooter()
         bindEmptyDataSetViewTap()
@@ -145,16 +155,6 @@ class TableViewController<RVM: RefreshViewModel>: ViewController<RVM> {
             return self.tableView.isTotalDataEmpty ? .hidden : .default
         }
         .drive(refreshFooter.rx.refreshFooterState)
-        .disposed(by: rx.disposeBag)
-    }
-
-    // MARK: - 绑定数据源 nil 的占位图
-    func bindReloadEmpty() {
-
-        viewModel.loading
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(tableView.rx.reloadEmptyDataSet)
         .disposed(by: rx.disposeBag)
     }
 }

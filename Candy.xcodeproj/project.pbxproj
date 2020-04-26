@@ -601,6 +601,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E51D60C22455D8430059171C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0201621B4FE4A00A4CDF1 /* Label.swift */,
+				E5FB73A621B79C290010D8A7 /* Button.swift */,
+				E5E9B1EE21D4973F00B08281 /* TableView.swift */,
+				E5FE0DC321FAFD8B00DE1DED /* TableViewCell.swift */,
+				E5FE0DBA21FAD75100DE1DED /* CollectionView.swift */,
+				E5FE0DC121FAFD4A00DE1DED /* CollectionViewCell.swift */,
+				E5FE0DC521FAFE8700DE1DED /* ImageView.swift */,
+				E5FE0DC721FAFF6000DE1DED /* View.swift */,
+				E5FE0DC921FB058000DE1DED /* TextField.swift */,
+				18767763222920F900A6D37A /* BarButtonItem.swift */,
+				187677652229220F00A6D37A /* ScrollView.swift */,
+				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E51D60C32455D8490059171C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5B4EC3821F59EA90065AB80 /* ViewModel.swift */,
+				18491006225453E2001D9974 /* RefreshViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E51D60C42455D85A0059171C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
+				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
+				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
+				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E51E4DD421E5932F00E06AD7 /* Result */ = {
 			isa = PBXGroup;
 			children = (
@@ -1540,6 +1579,7 @@
 		E5E0201321B4FE4A00A4CDF1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E51D60C32455D8490059171C /* ViewModel */,
 				E5E7235423D041960042C140 /* UIKit */,
 				E5E7235523D041A90042C140 /* Entity */,
 			);
@@ -1840,24 +1880,8 @@
 		E5E7235423D041960042C140 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
-				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
-				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
-				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
-				E5B4EC3821F59EA90065AB80 /* ViewModel.swift */,
-				18491006225453E2001D9974 /* RefreshViewModel.swift */,
-				E5E0201621B4FE4A00A4CDF1 /* Label.swift */,
-				E5FB73A621B79C290010D8A7 /* Button.swift */,
-				E5E9B1EE21D4973F00B08281 /* TableView.swift */,
-				E5FE0DC321FAFD8B00DE1DED /* TableViewCell.swift */,
-				E5FE0DBA21FAD75100DE1DED /* CollectionView.swift */,
-				E5FE0DC121FAFD4A00DE1DED /* CollectionViewCell.swift */,
-				E5FE0DC521FAFE8700DE1DED /* ImageView.swift */,
-				E5FE0DC721FAFF6000DE1DED /* View.swift */,
-				E5FE0DC921FB058000DE1DED /* TextField.swift */,
-				18767763222920F900A6D37A /* BarButtonItem.swift */,
-				187677652229220F00A6D37A /* ScrollView.swift */,
-				1876776722292EB200A6D37A /* CollectionReusableView.swift */,
+				E51D60C42455D85A0059171C /* Controller */,
+				E51D60C22455D8430059171C /* View */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
