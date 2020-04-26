@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserPorfileViewController: ViewController<UserPorfileViewModel> {
+class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 
     private let menuH: CGFloat = 44
 

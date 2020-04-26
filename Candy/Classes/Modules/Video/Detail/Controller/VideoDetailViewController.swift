@@ -10,7 +10,7 @@ import UIKit
 import ZFPlayer
 import RxDataSources
 
-class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
+class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
 
     private var video: NewsModel?
     fileprivate var seekTime: TimeInterval = 0
@@ -135,7 +135,5 @@ class VideoDetailViewController: TableViewController<VideoDetailViewModel> {
         .mapToVoid()
         .drive(player.rx.seek(toTime: seekTime))
         .disposed(by: rx.disposeBag)
-
-        bindLoadingToIndicator()
     }
 }

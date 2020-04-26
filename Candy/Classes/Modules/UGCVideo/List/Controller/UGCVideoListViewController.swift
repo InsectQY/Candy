@@ -10,7 +10,7 @@ import UIKit
 import Hero
 import JXCategoryView
 
-class UGCVideoListViewController: CollectionViewController<UGCVideoListViewModel> {
+class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
     /// 视频类型
     private var category: String = ""

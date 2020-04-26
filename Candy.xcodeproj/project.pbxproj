@@ -36,6 +36,9 @@
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
 		18FCD4842255CE60002EA93C /* ReplyCommentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */; };
 		2E6F4A86E4B20236C00F743B /* libPods-Candy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 720256DF8580231CCC50F0AD /* libPods-Candy.a */; };
+		E51D60C82455DA810059171C /* VMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C52455DA810059171C /* VMViewController.swift */; };
+		E51D60C92455DA810059171C /* VMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C62455DA810059171C /* VMCollectionViewController.swift */; };
+		E51D60CA2455DA810059171C /* VMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C72455DA810059171C /* VMTableViewController.swift */; };
 		E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */; };
 		E51E4DDD21E594EC00E06AD7 /* VideoHallSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */; };
 		E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDE21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift */; };
@@ -284,6 +287,9 @@
 		3788FE6E54E0955E6A992E3F /* Pods-Candy.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.adhoc.xcconfig"; sourceTree = "<group>"; };
 		720256DF8580231CCC50F0AD /* libPods-Candy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Candy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAACEECCE95BE32AF7265AD /* Pods-Candy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.release.xcconfig"; sourceTree = "<group>"; };
+		E51D60C52455DA810059171C /* VMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMViewController.swift; sourceTree = "<group>"; };
+		E51D60C62455DA810059171C /* VMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMCollectionViewController.swift; sourceTree = "<group>"; };
+		E51D60C72455DA810059171C /* VMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMTableViewController.swift; sourceTree = "<group>"; };
 		E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResultViewController.swift; sourceTree = "<group>"; };
 		E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResult.swift; sourceTree = "<group>"; };
 		E51E4DDE21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResultViewModel.swift; sourceTree = "<group>"; };
@@ -636,6 +642,9 @@
 				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
 				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
 				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
+				E51D60C52455DA810059171C /* VMViewController.swift */,
+				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
+				E51D60C72455DA810059171C /* VMTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2549,6 +2558,7 @@
 				1843B45422940161004F99AC /* VerticalButton.swift in Sources */,
 				E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */,
 				E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */,
+				E51D60C82455DA810059171C /* VMViewController.swift in Sources */,
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
 				E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */,
 				E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */,
@@ -2605,6 +2615,7 @@
 				E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */,
 				E534047021BF638F008807DA /* VideoDetailInfoCell.swift in Sources */,
 				E5ED9FA921DF38B80088775F /* UserVideoViewModel.swift in Sources */,
+				E51D60C92455DA810059171C /* VMCollectionViewController.swift in Sources */,
 				E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */,
 				E5FA89F421BA1D280084F3C3 /* UGCVideoPageViewModel.swift in Sources */,
 				E520A48B21D755E800CDDB04 /* ReplyCommentHeader.swift in Sources */,
@@ -2696,6 +2707,7 @@
 				E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */,
 				18491007225453E2001D9974 /* RefreshViewModel.swift in Sources */,
 				18767764222920F900A6D37A /* BarButtonItem.swift in Sources */,
+				E51D60CA2455DA810059171C /* VMTableViewController.swift in Sources */,
 				E5FB739C21B76C250010D8A7 /* VideoPageViewModel.swift in Sources */,
 				E534046521BF5F92008807DA /* VideoDetailHeader.swift in Sources */,
 				E5FAB71B21C0BC30002BF258 /* EmojiModel.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import UITableView_FDTemplateLayoutCell
 
-class ReplyCommentViewController: TableViewController<ReplyCommentViewModel> {
+class ReplyCommentViewController: VMTableViewController<ReplyCommentViewModel> {
 
     private var comment: Comment? {
         didSet {

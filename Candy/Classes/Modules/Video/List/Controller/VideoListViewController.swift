@@ -10,7 +10,7 @@ import UIKit
 import ZFPlayer
 import JXCategoryView
 
-class VideoListViewController: TableViewController<VideoListViewModel> {
+class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
     /// 视频类型
     private var category: String = ""

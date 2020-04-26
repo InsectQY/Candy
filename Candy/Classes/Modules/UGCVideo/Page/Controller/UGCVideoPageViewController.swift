@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
+class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
 
     private let menuH: CGFloat = 44
     private let menuW: CGFloat = Configs.Dimensions.screenWidth * 0.8
@@ -56,8 +56,6 @@ class UGCVideoPageViewController: ViewController<UGCVideoPageViewModel> {
 
     override func bindViewModel() {
         super.bindViewModel()
-
-        bindLoadingToIndicator()
 
         let input = UGCVideoPageViewModel.Input(emptyDataSetViewTap: NotificationCenter.default.rx
             .notification(Notification.UGCVideoNoConnectClick)

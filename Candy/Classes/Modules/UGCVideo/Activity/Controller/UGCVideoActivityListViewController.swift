@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UGCVideoActivityListViewController: TableViewController<UGCVideoActivityViewModel> {
+class UGCVideoActivityListViewController: VMTableViewController<UGCVideoActivityViewModel> {
 
     // MARK: - Init
     override init(style: UITableView.Style) {

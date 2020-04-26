@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class VideoPageViewController: ViewController<VideoPageViewModel> {
+class VideoPageViewController: VMViewController<VideoPageViewModel> {
 
     private let menuH: CGFloat = 44
 
@@ -54,8 +54,6 @@ class VideoPageViewController: ViewController<VideoPageViewModel> {
         .asDriver()
         .drive(rx.category)
         .disposed(by: rx.disposeBag)
-
-        bindLoadingToIndicator()
     }
 
     override func makeUI() {

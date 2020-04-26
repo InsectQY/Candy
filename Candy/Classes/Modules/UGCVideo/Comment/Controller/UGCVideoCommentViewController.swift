@@ -9,7 +9,7 @@
 import UIKit
 import UITableView_FDTemplateLayoutCell
 
-class UGCVideoCommentViewController: TableViewController<UGCVideoCommentViewModel> {
+class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewModel> {
 
     private var item: UGCVideoListModel? {
         didSet {

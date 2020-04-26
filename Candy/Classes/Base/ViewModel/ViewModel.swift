@@ -21,6 +21,12 @@ class ViewModel {
     deinit {
         print("\(type(of: self)): Deinited")
     }
+
+    func bindLoadingToIndicator() {
+        loading
+        .drive(rx.isAnimating)
+        .disposed(by: disposeBag)
+    }
 }
 
-extension ViewModel: HasDisposeBag {}
+extension ViewModel: HasDisposeBag, ReactiveCompatible {}

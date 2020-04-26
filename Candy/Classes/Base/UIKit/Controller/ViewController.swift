@@ -11,32 +11,10 @@ import EmptyDataSet_Swift
 import RxReachability
 import Reachability
 
-/// 继承时需指定 ViewModel 或其子类作为泛型。该类会自动懒加载指定类型的 VM 对象。
 /// 该类实现了 UITableView / UICollectionView 数据源 nil 时的占位视图逻辑。
-class ViewController<VM: ViewModel>: UIViewController {
+class ViewController: UIViewController {
 
     // MARK: - Lazyload
-
-    /// 不使用该对象时，不会被初始化
-    lazy var viewModel: VM = {
-
-        guard
-            let classType = "\(VM.self)".classType(VM.self)
-        else {
-            return VM()
-        }
-        let viewModel = classType.init()
-        viewModel
-        .loading
-        .drive(isLoading)
-        .disposed(by: rx.disposeBag)
-
-        viewModel
-        .error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
-        return viewModel
-    }()
 
     /// 监听网络状态改变
     lazy var reachability: Reachability? = Reachability()
@@ -73,8 +51,8 @@ class ViewController<VM: ViewModel>: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        trackReachabilityState()
         makeUI()
-        bindViewModel()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,20 +88,11 @@ class ViewController<VM: ViewModel>: UIViewController {
         view.backgroundColor = .white
     }
 
-    func bindViewModel() {
+    private func trackReachabilityState() {
 
         reachability?.rx.reachabilityChanged
         .mapAt(\.connection)
         .bind(to: reachabilityConnection)
-        .disposed(by: rx.disposeBag)
-    }
-
-    // MARK: - 绑定是否正在加载
-    func bindLoadingToIndicator() {
-
-        viewModel
-        .loading
-        .drive(rx.isAnimating)
         .disposed(by: rx.disposeBag)
     }
 }

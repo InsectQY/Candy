@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeListViewController: CollectionViewController<RefreshViewModel> {
+class EpisodeListViewController: VMCollectionViewController<RefreshViewModel> {
 
     fileprivate var item: EpisodePage?
 

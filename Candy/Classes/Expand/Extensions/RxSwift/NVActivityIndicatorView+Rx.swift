@@ -9,30 +9,19 @@
 import Foundation
 import NVActivityIndicatorView
 
-extension Reactive where Base: NVActivityIndicatorView {
+extension Reactive where Base: ViewModel {
 
-    public var isAnimating: Binder<Bool> {
-        Binder(self.base) { activityIndicator, active in
-            if active {
-                activityIndicator.startAnimating()
-            } else {
-                activityIndicator.stopAnimating()
-            }
-        }
-    }
-}
-
-extension Reactive where Base: UIViewController {
-
-    public var isAnimating: Binder<Bool> {
+    var isAnimating: Binder<Bool> {
         Binder(self.base) { vc, active in
             if active {
-                vc.startAnimating()
+                NVActivityIndicatorPresenter
+                .sharedInstance
+                .startAnimating(ActivityData())
             } else {
-                vc.stopAnimating()
+                NVActivityIndicatorPresenter
+                .sharedInstance
+                .stopAnimating()
             }
         }
     }
 }
-
-extension UIViewController: NVActivityIndicatorViewable {}

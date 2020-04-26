@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
+class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     // MARK: - Lazyload
     fileprivate lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: Configs.Dimensions.screenWidth, height: 44))
@@ -74,8 +74,6 @@ class VideoHallViewController: CollectionViewController<VideoHallViewModel> {
 
     override func bindViewModel() {
         super.bindViewModel()
-
-        bindLoadingToIndicator()
 
         titleView.beginEdit
         .asObservable()

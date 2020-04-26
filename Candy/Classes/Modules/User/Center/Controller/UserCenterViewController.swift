@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCenterViewController: TableViewController<UserCenterViewModel> {
+class UserCenterViewController: VMTableViewController<UserCenterViewModel> {
 
     // MARK: - Lazyload
     private lazy var headerView: UserCenterHeaderView = {

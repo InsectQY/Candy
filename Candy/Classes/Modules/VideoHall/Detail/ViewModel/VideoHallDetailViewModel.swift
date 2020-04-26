@@ -32,6 +32,7 @@ extension VideoHallDetailViewModel: ViewModelable {
 
     func transform(input: VideoHallDetailViewModel.Input) -> VideoHallDetailViewModel.Output {
 
+        bindLoadingToIndicator()
         // 视频播放信息
         let videoPlayInfo = BehaviorRelay<VideoPlayInfo?>(value: nil)
         // tableView 数据源

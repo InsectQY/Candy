@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoHallSearchResultViewController: TableViewController<VideoHallSearchResultViewModel> {
+class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearchResultViewModel> {
 
     private var keyword: String = ""
 
