@@ -1,6 +1,6 @@
 # Candy
 
-![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.2-orange.svg)
 
 一个视频类的客户端，接口抓取自今日头条和阳光宽屏网。
 
@@ -9,6 +9,12 @@
 - Xcode 11.4 +
 - Swift 5.2
 - iOS 10.0 +
+
+## 下载安装好依赖的版本
+
+1. [点击下载](https://github.com/InsectQY/Candy/releases/download/0.1.0/Candy.zip)
+2. 打开 "Candy.xcworkspace"
+3. 运行程序
 
 ## 预览
 
@@ -50,4 +56,6 @@
   ```ruby
   open "Candy.xcworkspace"
   ```
+
+
 

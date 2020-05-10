@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.1.0)
-  - CleanJSON (1.0.0)
+  - CleanJSON (1.0.1)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
@@ -8,10 +8,10 @@ PODS:
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.5)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.4)
-  - Kingfisher (5.13.3):
-    - Kingfisher/Core (= 5.13.3)
-  - Kingfisher/Core (5.13.3)
+  - JXCategoryView (1.5.5)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
   - KingfisherWebP (0.7.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -24,22 +24,22 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - MJRefresh (3.3.1)
+  - MJRefresh (3.4.3)
   - MonkeyKing (1.16.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
     - Moya/Core
     - RxSwift (~> 5.0)
-  - "NSObject+Rx (5.0.2)":
-    - RxSwift (~> 5.0)
+  - "NSObject+Rx (5.1.0)":
+    - RxSwift (~> 5.1)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - PYSearch (0.9.1)
-  - R.swift (5.1.0):
-    - R.swift.Library (~> 5.1.0)
-  - R.swift.Library (5.1.0)
+  - R.swift (5.2.2):
+    - R.swift.Library (~> 5.2.0)
+  - R.swift.Library (5.2.0)
   - ReachabilitySwift (4.3.1)
   - RxActivityIndicator (1.0.0):
     - RxCocoa (~> 5.0)
@@ -175,7 +175,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
+  CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
@@ -183,18 +183,18 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: f2970a2056277c5c38e32e532ae5afa77ac98f1b
-  Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
+  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   MonkeyKing: dc5076dc206bf9e6eb427d618317eff1b44b0666
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  "NSObject+Rx": 2eb2cf51fd1c554118449a7fbc36e4cd620b9e94
+  "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
-  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
+  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -216,4 +216,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: dddec86abf85201d3941c6a712c68ecc5b830c74
 
-COCOAPODS: 1.9.0.beta.2
+COCOAPODS: 1.9.1

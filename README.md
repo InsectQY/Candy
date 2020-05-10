@@ -12,6 +12,12 @@ Video iOS client written in RxSwift and MVVM
 - Swift 5.2
 - iOS 10.0 +
 
+## Download Release
+
+1. [Download](https://github.com/InsectQY/Candy/releases/download/0.1.0/Candy.zip)
+2. Open "Candy.xcworkspace"
+3. Run
+
 ## Screenshots
 
 ![Screenshot1](https://ae01.alicdn.com/kf/HTB1cWjjbRKw3KVjSZTE5jcuRpXak.gif)
