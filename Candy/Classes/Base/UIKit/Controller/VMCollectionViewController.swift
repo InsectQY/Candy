@@ -15,7 +15,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
     lazy var viewModel: RVM = {
 
         guard
-            let classType = "\(RVM.self)".classType(RVM.self)
+            let classType: RVM.Type = "\(RVM.self)".classType()
         else {
             return RVM()
         }

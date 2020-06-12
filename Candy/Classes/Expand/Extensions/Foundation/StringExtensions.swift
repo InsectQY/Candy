@@ -28,7 +28,7 @@ extension String {
         return attributedString
     }
 
-    public func classType<T>(_ type: T.Type) -> T.Type? {
+    public func classType<T>() -> T.Type? {
 
         guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
             return nil
@@ -42,9 +42,9 @@ extension String {
         return classType
     }
 
-    public func classObject<T: NSObject>(_ type: T.Type) -> T? {
+    public func classObject<T: NSObject>() -> T? {
 
-        guard let classType = classType(T.self) else {
+        guard let classType: T.Type = classType() else {
             return nil
         }
         return classType.init()

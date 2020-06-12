@@ -28,31 +28,3 @@ protocol NestedViewModelable {
 protocol HasViewModel {
     associatedtype VMType: ViewModel
 }
-
-//var key = "Key"
-
-extension HasViewModel {
-
-    var viewModel: ViewModel {
-
-        guard
-            let classType = "\(VMType.self)".classType(VMType.self)
-        else {
-            return VMType()
-        }
-        return classType.init()
-    }
-
-//    var associateValue: ViewModel? {
-//        get {
-//            return objc_getAssociatedObject(self, &key) as? ViewModel
-//        }
-//
-//        set {
-//            objc_setAssociatedObject(self,
-//                                     &key,
-//                                     newValue,
-//                                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-//        }
-//    }
-}

@@ -17,7 +17,7 @@ class VMViewController<VM: ViewModel>: ViewController {
     lazy var viewModel: VM = {
 
         guard
-            let classType = "\(VM.self)".classType(VM.self)
+            let classType: VM.Type = "\(VM.self)".classType()
         else {
             return VM()
         }
