@@ -43,12 +43,12 @@ extension UGCVideoActivityViewModel: ViewModelable {
 
         // 数据源
         loadNew
-        .mapAt(\.album_list)
+        .map(\.album_list)
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.album_list)
+        .map(\.album_list)
         .drive(elements.append)
         .disposed(by: disposeBag)
 

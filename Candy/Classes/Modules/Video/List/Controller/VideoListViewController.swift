@@ -127,7 +127,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)
-        .mapAt(\.content)
+        .map(\.content)
         .map { [unowned self] in
             ["news": $0,
             "seekTime": self.currentTime]

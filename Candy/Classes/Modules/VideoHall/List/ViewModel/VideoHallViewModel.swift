@@ -109,12 +109,12 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
         // 绑定数据源
         loadNew
-        .mapAt(\.cell_list)
+        .map(\.cell_list)
         .drive(videoElements)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.cell_list)
+        .map(\.cell_list)
         .drive(videoElements.append)
         .disposed(by: disposeBag)
 

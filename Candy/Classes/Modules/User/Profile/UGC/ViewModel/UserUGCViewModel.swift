@@ -49,12 +49,12 @@ extension UserUGCViewModel: ViewModelable {
 
         // 获取数据时绑定最新的 offset
         new
-        .mapAt(\.offset)
+        .map(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.offset)
+        .map(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
@@ -74,12 +74,12 @@ extension UserUGCViewModel: ViewModelable {
 
         // 绑定数据源
         new
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements.append)
         .disposed(by: disposeBag)
 

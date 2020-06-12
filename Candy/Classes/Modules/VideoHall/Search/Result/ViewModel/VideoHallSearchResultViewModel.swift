@@ -49,12 +49,12 @@ extension VideoHallSearchResultViewModel: ViewModelable {
 
         // 数据源
         loadNew
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements.append)
         .disposed(by: disposeBag)
 

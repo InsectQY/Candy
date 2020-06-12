@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     private func trackReachabilityState() {
 
         reachability?.rx.reachabilityChanged
-        .mapAt(\.connection)
+        .map(\.connection)
         .bind(to: reachabilityConnection)
         .disposed(by: rx.disposeBag)
     }

@@ -48,22 +48,22 @@ extension UserQAViewModel: ViewModelable {
         }
 
         // 获取数据时绑定最新的 offset
-        new.mapAt(\.offset)
+        new.map(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
-        footer.mapAt(\.offset)
+        footer.map(\.offset)
         .drive(offset)
         .disposed(by: disposeBag)
 
         // 绑定数据源
         new
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
         footer
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements.append)
         .disposed(by: disposeBag)
 

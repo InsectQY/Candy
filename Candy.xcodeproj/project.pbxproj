@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
-		18259E50229BBD2000A90B2C /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E4F229BBD2000A90B2C /* mapAt.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
 		18259E54229BC4FD00A90B2C /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E53229BC4FD00A90B2C /* not.swift */; };
 		18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */; };
@@ -259,7 +258,6 @@
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180959102215142400A0818D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		18259E4F229BBD2000A90B2C /* mapAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		18259E51229BC32F00A90B2C /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapTo.swift; sourceTree = "<group>"; };
 		18259E53229BC4FD00A90B2C /* not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = not.swift; sourceTree = "<group>"; };
 		18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = catchErrorJustComplete.swift; sourceTree = "<group>"; };
@@ -663,7 +661,6 @@
 				E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */,
 				18259E5D229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift */,
 				E5E0205721B5057600A4CDF1 /* Then.swift */,
-				18259E4F229BBD2000A90B2C /* mapAt.swift */,
 				18259E51229BC32F00A90B2C /* mapTo.swift */,
 				18259E53229BC4FD00A90B2C /* not.swift */,
 				18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */,
@@ -2590,7 +2587,6 @@
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
 				E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */,
 				187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */,
-				18259E50229BBD2000A90B2C /* mapAt.swift in Sources */,
 				E5FE0DC221FAFD4A00DE1DED /* CollectionViewCell.swift in Sources */,
 				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,

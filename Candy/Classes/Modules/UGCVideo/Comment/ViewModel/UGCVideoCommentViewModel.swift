@@ -44,12 +44,12 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
         // 数据源绑定
         loadNew
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .mapAt(\.data)
+        .map(\.data)
         .drive(elements.append)
         .disposed(by: disposeBag)
 

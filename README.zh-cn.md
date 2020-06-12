@@ -6,7 +6,7 @@
 
 ## 要求
 
-- Xcode 11.4 +
+- Xcode 11.5 +
 - Swift 5.2
 - iOS 10.0 +
 
