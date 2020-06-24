@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ViewModelable {
+public protocol ViewModelable {
 
     associatedtype Input
     associatedtype Output
@@ -16,15 +16,11 @@ protocol ViewModelable {
     func transform(input: Input) -> Output
 }
 
-protocol NestedViewModelable {
+public protocol NestedViewModelable {
 
     associatedtype Input
     associatedtype Output
 
     var input: Input { get }
     var output: Output { get }
-}
-
-protocol HasViewModel {
-    associatedtype VMType: ViewModel
 }

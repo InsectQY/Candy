@@ -13,6 +13,7 @@
 		13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */; };
 		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
+		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
@@ -265,6 +266,7 @@
 		13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+JXCategoryView.swift"; sourceTree = "<group>"; };
 		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 				13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */,
 				13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */,
 				13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */,
+				13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1693,18 +1696,18 @@
 				E5E020B521B5062B00A4CDF1 /* CustomViews */,
 				E5E0204C21B5057600A4CDF1 /* Extensions */,
 				E5E0206E21B5057600A4CDF1 /* Third Party */,
-				E5E0203621B4FF5100A4CDF1 /* Protocol */,
+				E5E0203621B4FF5100A4CDF1 /* Protocols */,
 			);
 			path = Expand;
 			sourceTree = "<group>";
 		};
-		E5E0203621B4FF5100A4CDF1 /* Protocol */ = {
+		E5E0203621B4FF5100A4CDF1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				13031D2424A336780010A440 /* EmptyDataSet */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
 			);
-			path = Protocol;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E5E0203921B4FF5100A4CDF1 /* ViewModel */ = {
@@ -2746,6 +2749,7 @@
 				E5FC766321CCC3C700FB6FFD /* VideoHallRoleCell.swift in Sources */,
 				E578101E21C8DF1D005BFFAC /* VideoHallModel.swift in Sources */,
 				E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */,
+				13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */,
 				E5ED9FBF21DF55AF0088775F /* UserArticleMultiImageCell.swift in Sources */,
 				E5D23CD921DDD6F9008714F6 /* UserVideoView.swift in Sources */,
 				18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */,
