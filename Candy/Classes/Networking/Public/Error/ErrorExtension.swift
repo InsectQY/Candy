@@ -32,10 +32,13 @@ public extension Error {
 public extension MoyaError {
 
     /// Moya 返回的错误信息
-    var responseDescription: String? {
+    var responseErrorDescription: String? {
         switch self {
         case let .underlying(error, _):
-            return error.errorModel?.errorDescription
+            if let customErrorDescription = error.errorModel?.errorDescription {
+                return customErrorDescription
+            }
+            return errorDescription
         default:
             return errorDescription
         }
