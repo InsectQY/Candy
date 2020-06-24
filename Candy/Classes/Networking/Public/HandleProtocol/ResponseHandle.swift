@@ -9,23 +9,25 @@
 import Moya
 
 /// 处理 Moya 返回的 Result<Moya.Response, MoyaError> 类型数据
+/// 有些服务端会自定义通用返回格式，例如:  "{code: xx, message: xx, data: xx}"
+/// 这样的场景下前端需要在 Result.success 中对数据再做一次判断，造成代码冗余
+/// 核心思想: 让所有  HTTP Status Code != 'success' 或  服务端返回的数据不符合成功约定，都返回自定义 Moya Result.failure 数据。此时 Result.success 永远返回过滤以后的成功数据，前端只需要在 Result.failure 中处理失败逻辑即可
+/// 特性: 支持对每个接口设置独立判断规则
 public protocol ResponseHandle {
 
     /// 是否自定义处理 Result
-    /// (默认 false，不继续处理)
-    var isHandle: Bool { get }
-    /// 适用于 HTTP code 成功的数据，判断服务端返回的数据是否符合成功约定
-    /// @example: message == "success" , code == 0 ...
-    ///  (默认 true，全都符合)
+    /// 默认 false，不继续处理
+    var isHandleResult: Bool { get }
+    /// 当 HTTP Status Code == 'success'，判断服务端返回的数据是否符合成功约定
+    /// 默认 true，全都符合
     func isServerSuccess(response: Moya.Response) -> Bool
-    /// 自定义 Moya 返回数据
-    ///  (默认 nil，不自定义)
-    func customMoyaResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
+    /// 默认 nil，不自定义，返回 Result<Moya.Response, MoyaError>.failure(.underlying(response)) 类型数据
+    func customMoyaResultFailure(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
 }
 
 public extension ResponseHandle {
 
-    var isHandle: Bool {
+    var isHandleResult: Bool {
         false
     }
 
@@ -33,7 +35,7 @@ public extension ResponseHandle {
         true
     }
 
-    func customMoyaResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
+    func customMoyaResultFailure(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
         nil
     }
 }

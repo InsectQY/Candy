@@ -54,13 +54,13 @@ PODS:
   - RxMJ (1.0.0):
     - MJRefresh
     - RxCocoa (~> 5.0)
-  - RxNetwork (1.1.0):
-    - RxNetwork/Core (= 1.1.0)
-  - RxNetwork/Cacheable (1.1.0):
+  - RxNetwork (1.0.2):
+    - RxNetwork/Core (= 1.0.2)
+  - RxNetwork/Cacheable (1.0.2):
     - RxNetwork/Core
     - Storable
-  - RxNetwork/Core (1.1.0):
-    - Moya/RxSwift (= 14.0.0)
+  - RxNetwork/Core (1.0.2):
+    - Moya/RxSwift
   - RxOptional (4.1.0):
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
@@ -107,8 +107,8 @@ DEPENDENCIES:
   - RxActivityIndicator
   - RxDataSources
   - RxMJ (from `https://github.com/InsectQY/RxMJ.git`)
-  - RxNetwork (from `https://github.com/InsectQY/RxNetwork`)
-  - RxNetwork/Cacheable (from `https://github.com/InsectQY/RxNetwork`)
+  - RxNetwork
+  - RxNetwork/Cacheable
   - RxOptional
   - RxReachability
   - RxURLNavigator
@@ -146,6 +146,7 @@ SPEC REPOS:
     - RxActivityIndicator
     - RxCocoa
     - RxDataSources
+    - RxNetwork
     - RxOptional
     - RxReachability
     - RxRelay
@@ -162,16 +163,11 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   RxMJ:
     :git: https://github.com/InsectQY/RxMJ.git
-  RxNetwork:
-    :git: https://github.com/InsectQY/RxNetwork
 
 CHECKOUT OPTIONS:
   RxMJ:
     :commit: fd4bc05a2bd707e84a5fe5205a109a0aa7bed47d
     :git: https://github.com/InsectQY/RxMJ.git
-  RxNetwork:
-    :commit: b2c7c271a237f875bd47dfc0a9ab781492527bf0
-    :git: https://github.com/InsectQY/RxNetwork
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -200,7 +196,7 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
-  RxNetwork: feaab454199f91990919047a9c5052c66fbeb232
+  RxNetwork: b14e08b1ed874a0379496065be43ef0ee1ac0adb
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
@@ -214,6 +210,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: 1310252c253b9958e4fcd411e706b99c31834eaf
 
-PODFILE CHECKSUM: dddec86abf85201d3941c6a712c68ecc5b830c74
+PODFILE CHECKSUM: 782b6aa5c3f36b33b597c0566bea81445d86d8e3
 
 COCOAPODS: 1.9.3

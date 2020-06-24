@@ -19,7 +19,7 @@ public extension Error {
 
         guard let moyaError = moya else { return nil }
         switch moyaError {
-        case let .objectMapping(error, _):
+        case let .underlying(error, _):
             return error as? ErrorModel
         default:
             return nil
@@ -34,7 +34,7 @@ public extension MoyaError {
     /// Moya 返回的错误信息
     var responseDescription: String? {
         switch self {
-        case let .objectMapping(error, _):
+        case let .underlying(error, _):
             return error.errorModel?.errorDescription
         default:
             return errorDescription

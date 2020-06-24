@@ -13,7 +13,7 @@ public protocol YGRespnseHandle: ResponseHandle {}
 
 public extension YGRespnseHandle {
 
-    var isHandle: Bool {
+    var isHandleResult: Bool {
         true
     }
 
@@ -22,7 +22,7 @@ public extension YGRespnseHandle {
         return res?.isSuccess ?? true
     }
 
-    func customMoyaResult(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaResultFailure(response: Response) -> Result<Response, MoyaError>? {
         guard
             let res = try? response.mapObject(YGModel.self)
         else {
@@ -30,8 +30,7 @@ public extension YGRespnseHandle {
         }
         // 自定义错误
         let customError = ErrorModel(message: res.base_resp.status_message)
-        // 放在 Moya.objectMapping 错误类型中返回
-        return Result<Moya.Response, MoyaError>
-        .failure(.objectMapping(customError, response))
+        // 放在 MoyaError.underlying 错误类型中返回
+        return .failure(.underlying(customError, response))
     }
 }

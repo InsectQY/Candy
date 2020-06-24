@@ -19,36 +19,34 @@ public struct CustomResponsePlugin: PluginType {
             // 只适用于 MultiTarget
             let target = target as? Moya.MultiTarget,
             // 是否对 Result 数据再进行一次处理
-            target.isHandle
+            target.isHandleResult
         else {
             return result
         }
 
         switch result {
         case let .success(response):
-            // 服务端返回的数据是否符合成功约定
-            if target.isServerSuccess(response: response) {
-                return result
-            }
-            return customResult(target: target, response: response)
-        case let .failure(error):
             guard
-                let response = error.moya?.response
+                // 服务端返回的数据是否符合成功约定
+                !target.isServerSuccess(response: response),
+                // 如果 nil 则 没有自定义返回结果
+                let customResponse = target.customMoyaResultFailure(response: response)
             else {
                 return result
             }
-            return customResult(target: target, response: response)
-        }
-    }
-
-    private func customResult(target: MultiTarget, response: Response) -> Result<Moya.Response, MoyaError> {
-        if let customResponse = target.customMoyaResult(response: response) {
+            // isServerSuccess == false && 自定义了返回失败
+            return customResponse
+        case let .failure(error):
+            guard
+                // 如果 nil 则 .underlying(Swift.Error, Response?)
+                let response = error.moya?.response,
+                // 如果 nil 则 没有自定义返回结果
+                let customResponse = target.customMoyaResultFailure(response: response)
+            else {
+                return result
+            }
             // 自定义了返回结果
             return customResponse
-        } else {
-            // customMoyaResponse == nil 默认返回 Moya.jsonMapping 错误
-            return Result<Moya.Response, MoyaError>
-            .failure(.jsonMapping(response))
         }
     }
 }

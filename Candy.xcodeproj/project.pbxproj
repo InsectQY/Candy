@@ -557,8 +557,8 @@
 			children = (
 				13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */,
 				13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */,
-				13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */,
 				13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */,
+				13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";

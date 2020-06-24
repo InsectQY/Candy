@@ -38,8 +38,6 @@ extension WeChatApi: TargetType {
     }
 }
 
-extension WeChatApi: ResponseHandle {}
-
 extension WeChatApi {
 
     public static func login() -> Observable<(token: String, openID: String)> {

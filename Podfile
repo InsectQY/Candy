@@ -25,8 +25,8 @@ pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
  # Swift
 
 # RxSwift
-pod 'RxNetwork', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
-pod 'RxNetwork/Cacheable', :git => 'https://github.com/InsectQY/RxNetwork' # https://github.com/Pircate/RxNetwork
+pod 'RxNetwork' # https://github.com/Pircate/RxNetwork
+pod 'RxNetwork/Cacheable' # https://github.com/Pircate/RxNetwork
 pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
