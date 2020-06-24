@@ -59,9 +59,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     override func makeUI() {
         super.makeUI()
 
-        verticalOffset = topH + 180
         navigationItem.titleView = titleView
-        emptyDataSetDescription = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
 
         collectionView.register(R.nib.videoHallListCell)
         collectionView.refreshFooter = RefreshFooter()
@@ -155,6 +153,17 @@ extension VideoHallViewController: UICollectionViewDelegate {
 
         animateFilterView.isHidden = true
         animateFilterView.y = -filterViewHeight
+    }
+}
+
+extension VideoHallViewController {
+
+    override var verticalOffset: CGFloat {
+        topH + 180
+    }
+
+    override var emptyDataSetDescription: String {
+        R.string.localizable.videoHallFilterResultEmptyPlaceholder()
     }
 }
 

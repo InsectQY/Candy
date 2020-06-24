@@ -12,13 +12,6 @@ import RxSwift
 
 extension Reactive where Base: UITableView {
 
-    var reloadEmptyDataSet: Binder<Void> {
-
-        Binder(base) { tableView, _ in
-            tableView.reloadEmptyDataSet()
-        }
-    }
-
     var reloadData: Binder<Void> {
 
         Binder(base) { tableView, _ in

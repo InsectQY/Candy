@@ -25,7 +25,7 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
         let viewModel = classType.init()
         viewModel
         .loading
-        .drive(isLoading)
+        .drive(rx.isLoading)
         .disposed(by: rx.disposeBag)
 
         viewModel
@@ -54,8 +54,7 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
     // MARK: - 绑定没有网络时的点击事件
     func bindEmptyDataSetViewTap() {
 
-        emptyDataSetViewTap
-        .asObservable()
+        rx.emptyDataSetDidTapView()
         .subscribe(viewModel.refreshInput.emptyDataSetViewTap)
         .disposed(by: rx.disposeBag)
     }

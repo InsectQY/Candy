@@ -23,7 +23,6 @@ class TableViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        trackLoadingState()
     }
 
     override func viewDidLayoutSubviews() {
@@ -31,14 +30,8 @@ class TableViewController: ViewController {
         tableView.frame = view.bounds
     }
 
-    // MARK: - Private Methods
-    private func trackLoadingState() {
-
-        isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(tableView.rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+    override func loadingStateChanged() {
+        tableView.reloadEmptyDataSet()
     }
 
     // MARK: - init

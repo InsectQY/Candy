@@ -22,7 +22,6 @@ class CollectionViewController: ViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        trackLoadingState()
     }
 
     override func viewDidLayoutSubviews() {
@@ -51,14 +50,8 @@ class CollectionViewController: ViewController {
         view.addSubview(collectionView)
     }
 
-    // MARK: - Private Methods
-    private func trackLoadingState() {
-
-        isLoading.asDriver()
-        .distinctUntilChanged()
-        .mapToVoid()
-        .drive(collectionView.rx.reloadEmptyDataSet)
-        .disposed(by: rx.disposeBag)
+    override func loadingStateChanged() {
+        collectionView.reloadEmptyDataSet()
     }
 
     // MARK: - 开始头部刷新

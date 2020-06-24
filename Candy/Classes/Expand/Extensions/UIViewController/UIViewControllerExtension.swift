@@ -7,15 +7,8 @@
 //
 
 import Foundation
-import JXCategoryView
 
-extension UIViewController: JXCategoryListContentViewDelegate {
-
-    // MARK: - JXCategoryListContentViewDelegate
-    public func listView() -> UIView! {
-        view
-    }
-
+extension UIViewController {
     public func disablesAdjustScrollViewInsets(_ scrollView: UIScrollView) {
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never

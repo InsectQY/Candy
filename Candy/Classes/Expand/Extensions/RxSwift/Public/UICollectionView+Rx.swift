@@ -12,13 +12,6 @@ import RxSwift
 
 extension Reactive where Base: UICollectionView {
 
-    var reloadEmptyDataSet: Binder<Void> {
-
-        Binder(base) { collectionView, _ in
-            collectionView.reloadEmptyDataSet()
-        }
-    }
-
     var reloadData: Binder<Void> {
 
         Binder(base) { collectionView, _ in

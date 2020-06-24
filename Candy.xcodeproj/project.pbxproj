@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13031D2324A336570010A440 /* ViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2224A336570010A440 /* ViewController+Rx.swift */; };
+		13031D2624A336780010A440 /* EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2524A336780010A440 /* EmptyDataSetable.swift */; };
+		13031D2E24A337FE0010A440 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */; };
+		13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */; };
+		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
+		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
@@ -21,7 +27,6 @@
 		187677662229220F00A6D37A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187677652229220F00A6D37A /* ScrollView.swift */; };
 		1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876776722292EB200A6D37A /* CollectionReusableView.swift */; };
 		187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187833CD221D4B75006C9008 /* ParameterManger.swift */; };
-		187CFAFB22927B1E00D8D387 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */; };
 		18B7895922939AB60065E5D8 /* ZFPlayer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895822939AB60065E5D8 /* ZFPlayer+Rx.swift */; };
 		18B7895B2293A4C80065E5D8 /* PYSearchViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895A2293A4C80065E5D8 /* PYSearchViewController+Rx.swift */; };
 		18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */; };
@@ -254,6 +259,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13031D2224A336570010A440 /* ViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Rx.swift"; sourceTree = "<group>"; };
+		13031D2524A336780010A440 /* EmptyDataSetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetable.swift; sourceTree = "<group>"; };
+		13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+JXCategoryView.swift"; sourceTree = "<group>"; };
+		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
+		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -270,7 +281,6 @@
 		187677652229220F00A6D37A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		1876776722292EB200A6D37A /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		187833CD221D4B75006C9008 /* ParameterManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterManger.swift; sourceTree = "<group>"; };
-		187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		18B7895822939AB60065E5D8 /* ZFPlayer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZFPlayer+Rx.swift"; sourceTree = "<group>"; };
 		18B7895A2293A4C80065E5D8 /* PYSearchViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PYSearchViewController+Rx.swift"; sourceTree = "<group>"; };
 		18B7895C2293A8BE0065E5D8 /* Notification+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Rx.swift"; sourceTree = "<group>"; };
@@ -524,6 +534,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13031D2124A336570010A440 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				13031D2224A336570010A440 /* ViewController+Rx.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		13031D2424A336780010A440 /* EmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				13031D2524A336780010A440 /* EmptyDataSetable.swift */,
+			);
+			path = EmptyDataSet;
+			sourceTree = "<group>";
+		};
+		13031D2724A337FE0010A440 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */,
+				13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */,
+				13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		13031D3124A338330010A440 /* ReachabilityManager */ = {
+			isa = PBXGroup;
+			children = (
+				13031D3224A338330010A440 /* ReachabilityManager.swift */,
+			);
+			path = ReachabilityManager;
+			sourceTree = "<group>";
+		};
 		18095905221501DA00A0818D /* CandyUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1657,8 +1701,8 @@
 		E5E0203621B4FF5100A4CDF1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				13031D2424A336780010A440 /* EmptyDataSet */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
-				E5E0203F21B4FF5100A4CDF1 /* Reusable */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1683,11 +1727,13 @@
 		E5E0204C21B5057600A4CDF1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				13031D2724A337FE0010A440 /* UIViewController */,
+				E5E0203F21B4FF5100A4CDF1 /* Reusable */,
 				18F81D5C229636A60028CA14 /* UIColor */,
 				18F81D592296366A0028CA14 /* UIFont */,
 				E534047F21BFB0E0008807DA /* NSData */,
 				E5E0205121B5057600A4CDF1 /* RxSwift */,
-				E5E0205C21B5057600A4CDF1 /* UIKit */,
+				E5E0205C21B5057600A4CDF1 /* UIView */,
 				E5E0206821B5057600A4CDF1 /* Foundation */,
 			);
 			path = Extensions;
@@ -1696,6 +1742,7 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				13031D2124A336570010A440 /* ViewController */,
 				E51D60D72455E5A40059171C /* PYSearch */,
 				E51D60D62455E58C0059171C /* ZFPlayer */,
 				E51D60D52455E5550059171C /* Public */,
@@ -1703,13 +1750,12 @@
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
-		E5E0205C21B5057600A4CDF1 /* UIKit */ = {
+		E5E0205C21B5057600A4CDF1 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
 				E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */,
-				187CFAFA22927B1E00D8D387 /* UIViewControllerExtension.swift */,
 			);
-			path = UIKit;
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		E5E0206121B5057600A4CDF1 /* Codable */ = {
@@ -1783,6 +1829,7 @@
 		E5E1932721E8848D002CBAE8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				13031D3124A338330010A440 /* ReachabilityManager */,
 				E578C03D23363678006C0CA1 /* Jelly */,
 				187833CC221D4AFD006C9008 /* Parameter */,
 				E5D749F121FEE8A200BCE75F /* Lib */,
@@ -2572,6 +2619,7 @@
 				E51D60D32455E5320059171C /* HUD+Rx.swift in Sources */,
 				E5E42A34220197E2003C46B9 /* R.generated.swift in Sources */,
 				E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */,
+				13031D2E24A337FE0010A440 /* UIViewControllerExtension.swift in Sources */,
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
@@ -2582,7 +2630,6 @@
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
 				E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */,
 				E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */,
-				187CFAFB22927B1E00D8D387 /* UIViewControllerExtension.swift in Sources */,
 				E5FE0DC021FAF68F00DE1DED /* WebViewController.swift in Sources */,
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
 				E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */,
@@ -2634,11 +2681,13 @@
 				E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */,
 				E534047021BF638F008807DA /* VideoDetailInfoCell.swift in Sources */,
 				E5ED9FA921DF38B80088775F /* UserVideoViewModel.swift in Sources */,
+				13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */,
 				E51D60C92455DA810059171C /* VMCollectionViewController.swift in Sources */,
 				E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */,
 				E5FA89F421BA1D280084F3C3 /* UGCVideoPageViewModel.swift in Sources */,
 				E520A48B21D755E800CDDB04 /* ReplyCommentHeader.swift in Sources */,
 				E520A48521D7216D00CDDB04 /* ReplyCommentModel.swift in Sources */,
+				13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */,
 				E578102621C8E7A8005BFFAC /* VideoHallFlowLayout.swift in Sources */,
 				E520A48021D7154900CDDB04 /* ReplyCommentViewController.swift in Sources */,
 				E5FC765821CCB96D00FB6FFD /* VideoHallTitleCell.swift in Sources */,
@@ -2742,6 +2791,9 @@
 				E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */,
 				E5FA8A0021BA37820084F3C3 /* UGCVideoListViewModel.swift in Sources */,
 				E595D96821DE02FE005A6C00 /* UserQAView.swift in Sources */,
+				13031D2624A336780010A440 /* EmptyDataSetable.swift in Sources */,
+				13031D2324A336570010A440 /* ViewController+Rx.swift in Sources */,
+				13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */,
 				E5FA89F721BA1E530084F3C3 /* UGCVideoPageModel.swift in Sources */,
 				E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */,
 				E5D23CD821DDD6F9008714F6 /* UserProfileModel.swift in Sources */,
@@ -2896,7 +2948,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snail.candy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";
@@ -3058,7 +3110,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snail.candy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";
@@ -3083,7 +3135,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.insect.candy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snail.candy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Candy/Bridging-Header/Candy-Bridging-Header.h";

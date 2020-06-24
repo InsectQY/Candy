@@ -24,7 +24,7 @@ class VMViewController<VM: ViewModel>: ViewController {
         let viewModel = classType.init()
         viewModel
         .loading
-        .drive(isLoading)
+        .drive(rx.isLoading)
         .disposed(by: rx.disposeBag)
 
         viewModel
