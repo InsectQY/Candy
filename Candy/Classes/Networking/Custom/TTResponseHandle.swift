@@ -9,7 +9,7 @@
 import Moya
 
 /// 用于今日头条返回数据结构
-public protocol TTResponseHandle: ResponseHandle {}
+public protocol TTResponseHandle: CustomMoyaResponseable {}
 
 public extension TTResponseHandle {
 

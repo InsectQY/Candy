@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
-  - CleanJSON (1.0.1)
+  - CleanJSON (1.0.3)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
@@ -171,7 +171,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
+  CleanJSON: 07e45d1a5882025096493eb92fec089ab722ea03
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171

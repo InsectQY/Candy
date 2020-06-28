@@ -9,7 +9,7 @@
 import Moya
 
 /// 用于阳光宽屏网返回数据结构
-public protocol YGRespnseHandle: ResponseHandle {}
+public protocol YGRespnseHandle: CustomMoyaResponseable {}
 
 public extension YGRespnseHandle {
 

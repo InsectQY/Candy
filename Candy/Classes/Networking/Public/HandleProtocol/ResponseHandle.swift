@@ -13,7 +13,7 @@ import Moya
 /// 这样的场景下前端需要在 Result.success 中对数据再做一次判断，造成代码冗余
 /// 核心思想: 让所有  HTTP Status Code != 'success' 或  服务端返回的数据不符合成功约定，都返回自定义 Moya Result.failure 数据。此时 Result.success 永远返回过滤以后的成功数据，前端只需要在 Result.failure 中处理失败逻辑即可
 /// 特性: 支持对每个接口设置独立判断规则
-public protocol ResponseHandle {
+public protocol CustomMoyaResponseable {
 
     /// 是否自定义处理 Result
     /// 默认 false，不继续处理
@@ -25,7 +25,7 @@ public protocol ResponseHandle {
     func customMoyaResultFailure(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
 }
 
-public extension ResponseHandle {
+public extension CustomMoyaResponseable {
 
     var isHandleResult: Bool {
         false
@@ -40,4 +40,4 @@ public extension ResponseHandle {
     }
 }
 
-extension Moya.MultiTarget: ResponseHandle {}
+public typealias TargetTypePlus = CustomMoyaResponseable & TargetType

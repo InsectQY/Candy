@@ -10,14 +10,13 @@ import Foundation
 import Moya
 
 /// Moya 自定义返回结果插件，处理 Result<Moya.Response, MoyaError> 类型的返回结果
-/// @required: 同时实现 Moya TargetType && ResponseHandle 两个 protocol
+/// 必须实现 TargetType & CustomMoyaResponseable 两个 protocol
 public struct CustomResponsePlugin: PluginType {
 
     public func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> {
 
         guard
-            // 只适用于 MultiTarget
-            let target = target as? Moya.MultiTarget,
+            let target = getPlus(target),
             // 是否对 Result 数据再进行一次处理
             target.isHandleResult
         else {
@@ -38,7 +37,7 @@ public struct CustomResponsePlugin: PluginType {
             return customResponse
         case let .failure(error):
             guard
-                // 如果 nil 则 .underlying(Swift.Error, Response?)
+                // 如果 nil 则 error 类型一定是 .underlying(Swift.Error, Response?)
                 let response = error.moya?.response,
                 // 如果 nil 则 没有自定义返回结果
                 let customResponse = target.customMoyaResultFailure(response: response)
@@ -48,5 +47,12 @@ public struct CustomResponsePlugin: PluginType {
             // 自定义了返回结果
             return customResponse
         }
+    }
+
+    private func getPlus(_ target: TargetType) -> TargetTypePlus? {
+        if let multiTarget = target as? Moya.MultiTarget { // 如果是 MultiTarget，则取出真实的 TargetType
+            return multiTarget.target as? TargetTypePlus
+        }
+        return target as? TargetTypePlus
     }
 }
