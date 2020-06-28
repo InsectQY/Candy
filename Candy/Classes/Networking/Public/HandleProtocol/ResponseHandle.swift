@@ -15,28 +15,28 @@ import Moya
 /// 特性: 支持对每个接口设置独立判断规则
 public protocol CustomMoyaResponseable {
 
-    /// 是否自定义处理 Result
-    /// 默认 false，不继续处理
-    var isHandleResult: Bool { get }
     /// 当 HTTP Status Code == 'success'，判断服务端返回的数据是否符合成功约定
-    /// 默认 true，全都符合
+    /// 默认 true，全都符合，当 false 时，返回结果为 Result.failure 类型
     func isServerSuccess(response: Moya.Response) -> Bool
     /// 默认 nil，不自定义，返回 Result<Moya.Response, MoyaError>.failure(.underlying(response)) 类型数据
-    func customMoyaResultFailure(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
+    func customMoyaFailureResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>?
+    /// 是否需要在 isServerSuccess = false && customMoyaFailureResult = nil 时，返回默认错误
+    /// 默认 true，都返回默认错误
+    func isReturnDefaultWhenCustomResultNil() -> Bool
 }
 
 public extension CustomMoyaResponseable {
-
-    var isHandleResult: Bool {
-        false
-    }
 
     func isServerSuccess(response: Moya.Response) -> Bool {
         true
     }
 
-    func customMoyaResultFailure(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
+    func customMoyaFailureResult(response: Moya.Response) -> Result<Moya.Response, MoyaError>? {
         nil
+    }
+
+    func isReturnDefaultWhenCustomResultNil() -> Bool {
+        true
     }
 }
 

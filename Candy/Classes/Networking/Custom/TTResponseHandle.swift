@@ -13,16 +13,12 @@ public protocol TTResponseHandle: CustomMoyaResponseable {}
 
 public extension TTResponseHandle {
 
-    var isHandleResult: Bool {
-        true
-    }
-
     func isServerSuccess(response: Response) -> Bool {
         let res = try? response.mapObject(TTModel<String>.self)
         return res?.isSuccess ?? true
     }
 
-    func customMoyaResultFailure(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaFailureResult(response: Response) -> Result<Response, MoyaError>? {
         guard
             let res = try? response.mapObject(TTModel<String>.self)
         else {

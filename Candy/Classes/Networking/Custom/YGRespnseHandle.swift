@@ -13,16 +13,12 @@ public protocol YGRespnseHandle: CustomMoyaResponseable {}
 
 public extension YGRespnseHandle {
 
-    var isHandleResult: Bool {
-        true
-    }
-
     func isServerSuccess(response: Response) -> Bool {
         let res = try? response.mapObject(YGModel.self)
         return res?.isSuccess ?? true
     }
 
-    func customMoyaResultFailure(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaFailureResult(response: Response) -> Result<Response, MoyaError>? {
         guard
             let res = try? response.mapObject(YGModel.self)
         else {
