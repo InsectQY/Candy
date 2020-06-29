@@ -128,10 +128,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     private func getUrls(_ items: Driver<[UGCVideoListModel]>) -> Driver<[URL]> {
         items
         .map {
-            $0.map {
-                URL(string: $0.content.raw_data.video.play_addr.url_list.first ?? "")
-            }
-            .compactMap { $0 }
+            $0.compactMap(\.content.raw_data.video.play_addr.firstURL)
         }
     }
 }

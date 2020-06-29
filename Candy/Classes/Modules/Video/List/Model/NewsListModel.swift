@@ -141,4 +141,8 @@ class Video: Codable {
         }
         return String(data: decodeData, encoding: .utf8) ?? ""
     }()
+
+    var playURL: URL? {
+        URL(string: mainURL)
+    }
 }

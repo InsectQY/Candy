@@ -90,10 +90,7 @@ extension VideoListViewModel: ViewModelable {
     private func getUrls(_ items: Driver<[NewsListModel]>) -> Driver<[URL]> {
         items
         .map {
-            $0.map {
-                URL(string: $0.content.video_play_info.video_list.video_1.mainURL)
-            }
-            .compactMap { $0 }
+            $0.compactMap(\.content.video_play_info.video_list.video_1.playURL)
         }
     }
 }

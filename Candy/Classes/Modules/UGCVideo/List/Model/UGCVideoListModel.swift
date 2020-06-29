@@ -78,4 +78,8 @@ struct UrlList: Codable {
     let width: CGFloat
     /// 图片高度
     let height: CGFloat
+
+    var firstURL: URL? {
+        URL(string: url_list.first ?? "")
+    }
 }
