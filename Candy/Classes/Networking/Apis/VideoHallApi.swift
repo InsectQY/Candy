@@ -32,34 +32,31 @@ extension VideoHallApi: TargetType {
     var path: String {
         switch self {
         case .category:
-            return "lvideo/filter/"
+            return "xigua/filter/"
         case .list:
-            return "lvideo/index/"
+            return "xigua/cosmos/"
         case .detail:
-            return "lvideo/info/"
+            return "xigua/video/"
         case .searchSug:
             return "search/sug/"
         case .search:
-            return "lvideo/search/"
+            return "xigua/search/"
         }
     }
 
     var task: Task {
-
         var parameters = ParameterManger.shared.YGParameter()
         switch self {
         case .category:
-            parameters["category"] = "subv_xg_lvideo_recommend"
-        case let .list(offset, key):
+            break
+        case let .list(offset, searchKey):
 
-            parameters["limit"] = 12
             parameters["offset"] = offset
-            parameters["search_keys"] = key
-            parameters["category"] = "subv_xg_lvideo_recommend"
+            parameters["FilterWordList"] = searchKey
         case let .detail(albumID, episodeID):
 
-            parameters["album_id"] = albumID
-            parameters["episode_id"] = episodeID
+            parameters["AlbumGid"] = albumID
+            parameters["EpisodeGid"] = episodeID
         case let .searchSug(keyword):
 
             parameters["keyword"] = keyword
@@ -78,4 +75,4 @@ extension VideoHallApi: TargetType {
     }
 }
 
-extension VideoHallApi: YGRespnseHandle {}
+//extension VideoHallApi: YGRespnseHandle {}

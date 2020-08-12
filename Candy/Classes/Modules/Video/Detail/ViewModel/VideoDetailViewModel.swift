@@ -56,20 +56,20 @@ extension VideoDetailViewModel: ViewModelable {
         let infoSection = Driver
         .just(input.video)
         .filterNil()
-        .map { VideoDetailSection.info([VideoDetailItem.info($0)]) }
+        .map { VideoDetailSection.info([.info($0)]) }
 
         // 视频评论
         let commentSection = commentElements
         .asDriver()
         .map {
-            VideoDetailSection.comment($0.map { VideoDetailItem.comment($0) })
+            VideoDetailSection.comment($0.map { .comment($0) })
         }
 
         // 相关视频
         let relatedSection = relatedInfo
         .asDriver()
         .map {
-            VideoDetailSection.related($0.map { VideoDetailItem.related($0) })
+            VideoDetailSection.related($0.map { .related($0) })
         }
 
         // 数据源
@@ -118,7 +118,7 @@ extension VideoDetailViewModel: ViewModelable {
             case let .related(item):
                 navigator.push(VideoURL.detail.path,
                                context: ["news": item,
-                                          "seekTime": 0])
+                                         "seekTime": 0])
             default:
                 break
             }
@@ -127,9 +127,8 @@ extension VideoDetailViewModel: ViewModelable {
 
         // 尾部刷新状态
         Driver.merge(
-            newComments.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+            newComments.map { _ in
+                RxMJRefreshFooterState.default
             },
             loadMoreComments.map { [unowned self] in
                 self.footerState($0.has_more,
@@ -172,7 +171,7 @@ extension VideoDetailViewModel {
         .request()
         .mapObject(TTModel<[VideoCommentModel]>.self)
         .trackActivity(loading)
-        .trackError(refreshError)
+        .trackError(error)
         .asDriverOnErrorJustComplete()
     }
 }

@@ -17,9 +17,9 @@ class VideoHallTitleCell: TableViewCell {
         didSet {
 
             guard let item = item else { return }
-            titleLabel.text = item.album.title
-            let sub = "\(item.album.tag_list.joined(separator: "·"))·\(item.album.area_list.joined(separator: "·"))"
-            subTitleLabel.text = !item.album.bottom_label.isEmpty ? "\(item.album.year)·\(item.album.bottom_label)·\(sub)" : "\(item.album.year)·\(sub)"
+            titleLabel.text = item.Album.title
+            let sub = "\(item.Album.tag_list.joined(separator: "·"))·\(item.Album.area_list.joined(separator: "·"))"
+            subTitleLabel.text = !item.Album.bottom_label.isEmpty ? "\(item.Album.year)·\(item.Album.bottom_label)·\(sub)" : "\(item.Album.year)·\(sub)"
         }
     }
 }

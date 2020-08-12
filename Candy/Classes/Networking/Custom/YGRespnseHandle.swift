@@ -25,7 +25,7 @@ public extension YGRespnseHandle {
             return nil
         }
         // 自定义错误
-        let customError = ErrorModel(message: res.base_resp.status_message)
+        let customError = ErrorModel(message: res.BaseResp.StatusMessage)
         // 放在 MoyaError.underlying 错误类型中返回
         return .failure(.underlying(customError, response))
     }

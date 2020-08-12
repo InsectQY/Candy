@@ -117,14 +117,14 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallRoleCell.identifier,
                                                          for: indexPath,
                                                          cellType: VideoHallRoleCell.self)
-                cell.items = item.album.actor_list
+                cell.items = item.Album.actor_list
                 return cell
             case let .episode(item): // 集数
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallEpisodeCell.identifier,
                                                          for: indexPath,
                                                          cellType: VideoHallEpisodeCell.self)
-                cell.items = item.block_list[1].cells
+                cell.items = item.BlockList[1].cells
                 cell.selIndex = self.selIndex
                 return cell
             }

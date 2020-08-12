@@ -46,9 +46,9 @@ extension VideoHallDetailViewModel: ViewModelable {
                                   episodeID: $0)
         }
         .flatMapLatest { [unowned self] in
-            self.requestVideoPlayInfo(vid: $0.episode.video_info.vid,
-                                      ptoken: $0.episode.video_info.business_token,
-                                      author: $0.episode.video_info.auth_token)
+            self.requestVideoPlayInfo(vid: $0.Episode.video_info.vid,
+                                      ptoken: $0.Episode.video_info.business_token,
+                                      author: $0.Episode.video_info.auth_token)
         }
         .drive(videoPlayInfo)
         .disposed(by: disposeBag)
@@ -71,13 +71,13 @@ extension VideoHallDetailViewModel: ViewModelable {
             // 标题
             cellData.append(.title($0))
             // 影人
-            if !$0.album.actor_list.isEmpty {
+            if !$0.Album.actor_list.isEmpty {
                 cellData.append(.role($0))
             }
             // 简介
             cellData.append(.intro($0))
             // 集数
-            if $0.album.total_episodes > 1 {
+            if $0.Album.isMultipleEpisode {
                 cellData.append(.episode($0))
             }
 
@@ -87,14 +87,14 @@ extension VideoHallDetailViewModel: ViewModelable {
 
         // 视频播放信息
         info.flatMapLatest { [unowned self] in
-            self.requestVideoPlayInfo(vid: $0.episode.video_info.vid,
-                                      ptoken: $0.episode.video_info.business_token,
-                                      author: $0.episode.video_info.auth_token)
+            self.requestVideoPlayInfo(vid: $0.Episode.video_info.vid,
+                                      ptoken: $0.Episode.video_info.business_token,
+                                      author: $0.Episode.video_info.auth_token)
         }
         .drive(videoPlayInfo)
         .disposed(by: disposeBag)
 
-        let output = Output(episodes: info.map(\.block_list[1].cells),
+        let output = Output(episodes: info.map(\.BlockList[1].cells),
                             items: elements.asDriver(),
                             videoPlayInfo: videoPlayInfo.asDriver())
         return output

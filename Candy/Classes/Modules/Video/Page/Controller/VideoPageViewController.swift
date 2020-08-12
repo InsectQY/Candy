@@ -81,13 +81,6 @@ extension VideoPageViewController: JXCategoryViewDelegate {
 
         listContainerView.didClickSelectedItem(at: index)
     }
-
-    func categoryView(_ categoryView: JXCategoryBaseView!, scrollingFromLeftIndex leftIndex: Int, toRightIndex rightIndex: Int, ratio: CGFloat) {
-        listContainerView.scrolling(fromLeftIndex: leftIndex,
-                                    toRightIndex: rightIndex,
-                                    ratio: ratio,
-                                    selectedIndex: categoryView.selectedIndex)
-    }
 }
 
 // MARK: - JXCategoryListContainerViewDelegate

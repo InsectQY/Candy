@@ -144,7 +144,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
 
         // 播放结束时重新播放
         player.playerDidToEnd = { [weak self] _ in
-            self?.player.currentPlayerManager.replay?()
+            self?.player.currentPlayerManager.replay()
         }
     }
 

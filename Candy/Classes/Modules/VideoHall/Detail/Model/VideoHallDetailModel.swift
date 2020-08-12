@@ -11,11 +11,11 @@ import Foundation
 struct VideoHallDetailModel: Codable {
 
     /// 视频信息
-    let album: Album
+    let Album: Album
     /// 播放信息
-    let episode: Episode
+    let Episode: Episode
     /// 集数信息(数组0是简介 1是集数信息)
-    let block_list: [BlockList]
+    let BlockList: [BlockList]
 }
 
 struct Episode: Codable {

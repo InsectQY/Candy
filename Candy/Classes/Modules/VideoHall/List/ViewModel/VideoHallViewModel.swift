@@ -109,12 +109,12 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
         // 绑定数据源
         loadNew
-        .map(\.cell_list)
+        .map(\.CellList)
         .drive(videoElements)
         .disposed(by: disposeBag)
 
         loadMore
-        .map(\.cell_list)
+        .map(\.CellList)
         .drive(videoElements.append)
         .disposed(by: disposeBag)
 
@@ -140,12 +140,12 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         // 尾部状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.cell_list.isEmpty)
+                self.footerState($0.IndexResponse.has_more,
+                                 isEmpty: $0.CellList.isEmpty)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.cell_list.isEmpty)
+                self.footerState($0.IndexResponse.has_more,
+                                 isEmpty: $0.CellList.isEmpty)
             }
         )
         .startWith(.hidden)

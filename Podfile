@@ -43,7 +43,7 @@ pod 'CleanJSON' # https://github.com/Pircate/CleanJSON
 # Keyboard
 pod 'IQKeyboardManagerSwift' # https://github.com/hackiftekhar/IQKeyboardManager
 # HUD
-pod 'NVActivityIndicatorView' # https://github.com/ninjaprox/NVActivityIndicatorView
+pod 'NVActivityIndicatorView/Extended' # https://github.com/ninjaprox/NVActivityIndicatorView
 # Transitions
 pod 'Hero' # https://github.com/HeroTransitions/Hero
 pod 'Jelly' # https://github.com/SebastianBoldt/Jelly

@@ -28,6 +28,7 @@ class LibsManager: NSObject {
         libsManager.setupNetwork()
         libsManager.setupRouter()
         libsManager.setupToast()
+        libsManager.setupReachability()
     }
 
     // MARK: - IQKeyboardManager
@@ -74,6 +75,10 @@ class LibsManager: NSObject {
     func setupToast() {
         ToastManager.shared.position = .center
         ToastManager.shared.style.messageFont = .pingFangSCMedium(18)
+    }
+
+    func setupReachability() {
+        ReachabilityManager.shared.startNotifier()
     }
 }
 

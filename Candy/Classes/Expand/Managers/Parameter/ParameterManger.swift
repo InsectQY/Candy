@@ -55,9 +55,7 @@ class ParameterManger {
 
     /// 阳光宽屏网公共参数
     func YGParameter() -> [String: Any] {
-        ["device_platform": YGDevicePlatform,
-        "aid": YGaid,
-        "device_id": YGDeviceID]
+        ["ChannelId": "94349541307"]
     }
 
     var count: Int {

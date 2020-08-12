@@ -10,10 +10,13 @@ import Foundation
 
 struct VideoHallModel: Codable {
 
+    let IndexResponse: IndexResponse
+    let CellList: [VideoHallList]
+}
+
+struct IndexResponse: Codable {
     /// 是否有更多数据
     let has_more: Bool
-
-    let cell_list: [VideoHallList]
 }
 
 struct VideoHallList: Codable {
@@ -54,6 +57,10 @@ struct Album: Codable {
     let director_list: [Role]
     /// 评分
     let rating_score: Float
+    /// 是否是多集视频
+    var isMultipleEpisode: Bool {
+        total_episodes > 1
+    }
 }
 
 struct CoverList: Codable {

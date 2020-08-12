@@ -9,15 +9,15 @@
 import Foundation
 
 public struct YGModel: Codable {
-    let base_resp: YGBaseRep
+    let BaseResp: YGBaseRep
 
     /// 是否返回成功
     var isSuccess: Bool {
-        base_resp.status_message == "success"
+        BaseResp.StatusMessage == "success"
     }
 }
 
 public struct YGBaseRep: Codable {
-    let status_code: Int
-    let status_message: String
+    let StatusCode: Int
+    let StatusMessage: String
 }
