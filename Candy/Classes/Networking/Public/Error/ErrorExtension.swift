@@ -11,13 +11,13 @@ import Moya
 /// 将 Error protocol 转换为具体类型
 public extension Error {
 
-    var moya: MoyaError? {
+    var asMoyaError: MoyaError? {
         self as? MoyaError
     }
 
     var errorModel: ErrorModel? {
 
-        guard let moyaError = moya else { return nil }
+        guard let moyaError = asMoyaError else { return nil }
         switch moyaError {
         case let .underlying(error, _):
             return error as? ErrorModel

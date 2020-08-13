@@ -41,7 +41,7 @@ public struct CustomResponsePlugin: PluginType {
         case let .failure(error):
             guard
                 // 如果 nil 则 error 类型一定是 .underlying(Swift.Error, Response?)
-                let response = error.moya?.response,
+                let response = error.asMoyaError?.response,
                 // 如果 nil 则 没有自定义返回结果
                 let customResponse = target.customMoyaFailureResult(response: response)
             else {

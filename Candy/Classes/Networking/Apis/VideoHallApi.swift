@@ -51,7 +51,7 @@ extension VideoHallApi: TargetType {
             break
         case let .list(offset, searchKey):
 
-            parameters["offset"] = offset
+            parameters["Offset"] = offset
             parameters["FilterWordList"] = searchKey
         case let .detail(albumID, episodeID):
 
