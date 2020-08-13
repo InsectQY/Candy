@@ -23,13 +23,21 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
         return videoView
     }()
 
-    private lazy var controlView = ZFPlayerControlView()
+     private lazy var controlView: ZFPlayerControlView = {
+       let controlView = ZFPlayerControlView()
+       controlView.prepareShowLoading = true
+       return controlView
+    }()
+
     private lazy var player: ZFPlayerController = {
 
         let playerManager = ZFAVPlayerManager()
         let player = ZFPlayerController(playerManager: playerManager,
                                         containerView: videoView.videoContainerView)
         player.controlView = controlView
+        player.orientationWillChange = { _, isFullScreen in
+            AppDelegate.shared().isAllowOrentitaionRotation = isFullScreen
+        }
         return player
     }()
 
@@ -72,6 +80,14 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     // MARK: - override
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+
+    override var shouldAutorotate: Bool {
+        false
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
     }
 
     override func makeUI() {

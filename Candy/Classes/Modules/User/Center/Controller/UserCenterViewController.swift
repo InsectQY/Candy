@@ -14,7 +14,7 @@ class UserCenterViewController: VMTableViewController<UserCenterViewModel> {
     private lazy var headerView: UserCenterHeaderView = {
 
         let headerView = R.nib.userCenterHeaderView.firstView(owner: nil)!
-        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: UserCenterHeaderView.height)
+        headerView.frame = CGRect(x: 0, y: 0, width: view.width, height: UserCenterHeaderView.height)
         return headerView
     }()
 

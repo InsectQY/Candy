@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    open var isAllowOrentitaionRotation: Bool = false
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         LibsManager.shared.setupLibs(with: window)
@@ -22,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        MonkeyKing.handleOpenURL(url)
+    }
 
-        if MonkeyKing.handleOpenURL(url) {
-            return true
-        }
-        return false
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        isAllowOrentitaionRotation ? .allButUpsideDown : .portrait
     }
 }

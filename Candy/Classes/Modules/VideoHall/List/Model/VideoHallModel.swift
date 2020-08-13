@@ -57,9 +57,40 @@ struct Album: Codable {
     let director_list: [Role]
     /// 评分
     let rating_score: Float
+
     /// 是否是多集视频
     var isMultipleEpisode: Bool {
         total_episodes > 1
+    }
+
+    /// 优先显示长图做封面
+    var coverImage: String? {
+        guard
+            let firstImage = cover_list.first
+        else {
+            return nil
+        }
+
+        if firstImage.height > firstImage.width {
+            return firstImage.url
+        } else {
+            if cover_list.count > 1 {
+                return cover_list[1].url
+            }
+        }
+        return nil
+    }
+
+    /// 列表封面底部展示的文字
+    var bottomTitle: String {
+
+        if !bottom_label.isEmpty { // 优先显示多少集
+            return bottom_label
+        } else if rating_score > 0 { // 没有总集数时显示评分
+            return "\(rating_score / 10)"
+        } else { // 都没有时不显示
+            return ""
+        }
     }
 }
 

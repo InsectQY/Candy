@@ -21,7 +21,7 @@ class VideoHallListCell: CollectionViewCell {
 
             guard
                 let item = item,
-                let firstImage = item.album.cover_list.first
+                let coverImage = item.album.coverImage
             else {
                 return
             }
@@ -30,21 +30,10 @@ class VideoHallListCell: CollectionViewCell {
                            KfWebPOptions.webpCache(),
                            KfOptions.fadeTransition(Configs.Time.imageTransition)]
             // 优先显示长图做封面
-            if firstImage.height > firstImage.width {
-                largeImage.qy_setImage(firstImage.url,
-                                       options: options)
-            } else {
-                largeImage.qy_setImage(item.album.cover_list[1].url,
-                                       options: options)
-            }
+            largeImage.qy_setImage(coverImage,
+                                   options: options)
 
-            if !item.album.bottom_label.isEmpty { // 优先显示多少集
-                scoreLabel.text = item.album.bottom_label
-            } else if item.album.rating_score > 0 { // 没有总集数时显示评分
-                scoreLabel.text = "\(item.album.rating_score / 10)"
-            } else { // 都没有时不显示
-                scoreLabel.text = ""
-            }
+            scoreLabel.text = item.album.bottomTitle
         }
     }
 }

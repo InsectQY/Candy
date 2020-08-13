@@ -16,6 +16,11 @@ struct VideoHallDetailModel: Codable {
     let Episode: Episode
     /// 集数信息(数组0是简介 1是集数信息)
     let BlockList: [BlockList]
+
+    /// 所有的剧集
+    var episodesInfo: [CellList] {
+        BlockList.count > 1 ? BlockList[1].cells : []
+    }
 }
 
 struct Episode: Codable {

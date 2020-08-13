@@ -115,6 +115,10 @@ class MediaInfo: Codable {
 class VideoPlayInfo: Codable {
 
     let video_list: VideoList
+
+    var playURL: URL? {
+        URL(string: video_list.video_1.mainURL)
+    }
 }
 
 class VideoList: Codable {

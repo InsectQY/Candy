@@ -15,15 +15,27 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     fileprivate var selIndex: Int = 0
     // MARK: - Lazyload
-    private lazy var videoView = R.nib.videoHallHeaderView.firstView(owner: nil)!
+    private lazy var videoView: VideoHallHeaderView = {
+        let videoView = VideoHallHeaderView()
+        videoView.backgroundColor = .black
+        return videoView
+    }()
 
-    private lazy var controlView = ZFPlayerControlView()
+    private lazy var controlView: ZFPlayerControlView = {
+        let controlView = ZFPlayerControlView()
+        controlView.prepareShowLoading = true
+        return controlView
+    }()
+
     private lazy var player: ZFPlayerController = {
 
         let playerManager = ZFAVPlayerManager()
         let player = ZFPlayerController(playerManager: playerManager,
-                                        containerView: videoView.videoContentView)
+                                        containerView: videoView)
         player.controlView = controlView
+        player.orientationWillChange = { _, isFullScreen in
+            AppDelegate.shared().isAllowOrentitaionRotation = isFullScreen
+        }
         return player
     }()
 
@@ -47,8 +59,8 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        videoView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: VideoHallHeaderView.height)
-        tableView.frame = CGRect(x: 0, y: videoView.bottom, width: Configs.Dimensions.screenWidth, height: Configs.Dimensions.screenHeight - VideoDetailHeader.height)
+        videoView.frame = CGRect(x: 0, y: 0, width: view.width, height: VideoHallHeaderView.height)
+        tableView.frame = CGRect(x: 0, y: videoView.bottom, width: view.width, height: view.height - VideoDetailHeader.height)
     }
 
     // MARK: - init
@@ -64,6 +76,14 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
     // MARK: - override
     override var prefersStatusBarHidden: Bool {
         true
+    }
+
+    override var shouldAutorotate: Bool {
+        false
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
     }
 
     override func makeUI() {
@@ -87,7 +107,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
         // 视频真实播放地址
         output.videoPlayInfo
         .filterNil()
-        .map { URL(string: $0.video_list.video_1.mainURL) }
+        .map(\.playURL)
         .filterNil()
         .drive(player.rx.assetURL)
         .disposed(by: rx.disposeBag)
@@ -124,7 +144,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallEpisodeCell.identifier,
                                                          for: indexPath,
                                                          cellType: VideoHallEpisodeCell.self)
-                cell.items = item.BlockList[1].cells
+                cell.items = item.episodesInfo
                 cell.selIndex = self.selIndex
                 return cell
             }
@@ -173,9 +193,12 @@ extension VideoHallDetailViewController {
 
     private func checkHistory() {
 
-        if let history = HistoryManager.getPlayHistory(videoID: albumID) {
-            selIndex = history.episodeIndex
+        guard
+            let history = HistoryManager.getPlayHistory(videoID: albumID)
+        else {
+            return
         }
+        selIndex = history.episodeIndex
     }
 }
 
