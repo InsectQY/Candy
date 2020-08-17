@@ -52,10 +52,7 @@ extension UGCVideoPageViewModel {
         .request()
         .mapModelData(UGCVideoPageModel.self)
         .map(\.data)
-        .map {
-            // 过滤这一组
-            $0.filter { $0.name != "关注" }
-        }
+        .filterMany { $0.name != "关注" }
         .trackActivity(loading)
         .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
     }

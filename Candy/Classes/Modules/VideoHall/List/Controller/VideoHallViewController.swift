@@ -11,9 +11,9 @@ import UIKit
 class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     // MARK: - Lazyload
-    fileprivate lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: Configs.Dimensions.screenWidth, height: 44))
+    private lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: Configs.Dimensions.screenWidth, height: 44))
 
-    fileprivate lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
+    private lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
 
     /// 搜索框
     private lazy var titleView = SearchTitleView(frame: CGRect(x: SearchTitleView.x, y: SearchTitleView.y, width: SearchTitleView.width, height: SearchTitleView.height))
@@ -27,7 +27,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     }()
 
     /// 添加到 view 上的
-    fileprivate lazy var animateFilterView: FilterView = {
+    private lazy var animateFilterView: FilterView = {
 
         let animateFilterView = FilterView(frame: .zero)
         animateFilterView.isHidden = true
@@ -86,11 +86,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         // 刷新
         viewModel.output
         .filterViewHeight
-        .drive(onNext: { [weak self] in
-            self?.filterViewHeight = $0
-            self?.collectionView.contentInset = UIEdgeInsets(top: $0, left: 0, bottom: 0, right: 0)
-            self?.viewDidLayoutSubviews()
-        })
+        .drive(rx.filterViewHeight)
         .disposed(by: rx.disposeBag)
 
         // 视频分类
@@ -119,6 +115,22 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         .disposed(by: rx.disposeBag)
 
         setUpEmptyDataSet()
+    }
+
+    func filterTap() {
+
+        animateFilterView.isHidden = false
+        UIView.animate(withDuration: 0.35, animations: {
+
+            self.topView.alpha = 0
+            self.animateFilterView.y = self.topH
+        })
+    }
+
+    func setFilterViewHeight(_ height: CGFloat) {
+        filterViewHeight = height
+        collectionView.contentInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
+        viewDidLayoutSubviews()
     }
 }
 
@@ -164,22 +176,5 @@ extension VideoHallViewController {
 
     override var emptyDataSetDescription: String {
         R.string.localizable.videoHallFilterResultEmptyPlaceholder()
-    }
-}
-
-// MARK: - Reactive-extension
-extension Reactive where Base: VideoHallViewController {
-
-    var filterTap: Binder<Void> {
-
-        Binder(base) { vc, _ in
-
-            vc.animateFilterView.isHidden = false
-            UIView.animate(withDuration: 0.35, animations: {
-
-                vc.topView.alpha = 0
-                vc.animateFilterView.y = vc.topH
-            })
-        }
     }
 }

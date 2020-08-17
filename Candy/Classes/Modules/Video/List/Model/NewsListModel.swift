@@ -12,6 +12,10 @@ class NewsListModel: Codable {
 
     /// 单条新闻内容(返回数据为 JSON 字符串)
     let content: NewsModel
+    /// 是否是广告
+    var isAd: Bool {
+        content.label.contains("广告")
+    }
 }
 
 class NewsModel: Codable {

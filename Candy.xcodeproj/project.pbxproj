@@ -15,7 +15,10 @@
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
+		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
+		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
+		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
@@ -269,7 +272,10 @@
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
+		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
+		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
+		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -722,6 +728,8 @@
 				18259E53229BC4FD00A90B2C /* not.swift */,
 				18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */,
 				134D706024EA2566002A4F12 /* mapMany.swift */,
+				134D706824EA303F002A4F12 /* filterMany.swift */,
+				13B75CF124EA599300AB4CAC /* compactMapMany.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -927,6 +935,7 @@
 			isa = PBXGroup;
 			children = (
 				E578100921C8DE70005BFFAC /* VideoHallViewController.swift */,
+				134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2776,6 +2785,7 @@
 				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
+				134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */,
 				18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */,
 				E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */,
 				E578101621C8DE70005BFFAC /* Filter.swift in Sources */,
@@ -2807,12 +2817,14 @@
 				E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */,
 				E5FA8A0021BA37820084F3C3 /* UGCVideoListViewModel.swift in Sources */,
 				E595D96821DE02FE005A6C00 /* UserQAView.swift in Sources */,
+				13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */,
 				13031D2624A336780010A440 /* EmptyDataSetable.swift in Sources */,
 				13031D2324A336570010A440 /* ViewController+Rx.swift in Sources */,
 				13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */,
 				E5FA89F721BA1E530084F3C3 /* UGCVideoPageModel.swift in Sources */,
 				E51E4DDF21E5971F00E06AD7 /* VideoHallSearchResultViewModel.swift in Sources */,
 				E5D23CD821DDD6F9008714F6 /* UserProfileModel.swift in Sources */,
+				134D706924EA303F002A4F12 /* filterMany.swift in Sources */,
 				E578101521C8DE70005BFFAC /* VideoHallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

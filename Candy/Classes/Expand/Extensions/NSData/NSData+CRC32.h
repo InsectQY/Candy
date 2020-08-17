@@ -11,8 +11,8 @@
 
 @interface NSData (CRC32)
 
--(int32_t)crc_32;
+- (int32_t)crc_32;
 
--(uLong)getCRC32;
+- (uLong)getCRC32;
 
 @end
