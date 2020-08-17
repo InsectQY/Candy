@@ -64,8 +64,8 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
         viewModel.transform(input: input)
 
         viewModel.category
-        .asDriver()
-        .map { $0.map(\.name) }
+        .mapMany(\.name)
+        .asDriverOnErrorJustComplete()
         .drive(categoryView.rx.titles)
         .disposed(by: rx.disposeBag)
     }

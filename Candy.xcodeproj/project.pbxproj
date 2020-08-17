@@ -14,6 +14,7 @@
 		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
+		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
@@ -267,6 +268,7 @@
 		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
+		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 				18259E51229BC32F00A90B2C /* mapTo.swift */,
 				18259E53229BC4FD00A90B2C /* not.swift */,
 				18259E55229BC5C900A90B2C /* catchErrorJustComplete.swift */,
+				134D706024EA2566002A4F12 /* mapMany.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -2648,6 +2651,7 @@
 				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
 				18259E52229BC32F00A90B2C /* mapTo.swift in Sources */,
+				134D706124EA2566002A4F12 /* mapMany.swift in Sources */,
 				18259E5E229BCC1000A90B2C /* BehaviorRelay+RangeReplaceableCollection.swift in Sources */,
 				E5E9B21621D4CC3500B08281 /* UGCVideoCommentViewController.swift in Sources */,
 				E5FB73A721B79C290010D8A7 /* Button.swift in Sources */,

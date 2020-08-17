@@ -13,7 +13,7 @@ import RxDataSources
 class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
 
     private var video: NewsModel?
-    fileprivate var seekTime: TimeInterval = 0
+    private var seekTime: TimeInterval = 0
 
     // MARK: - Lazyload
     private lazy var videoView: VideoDetailHeader = {
@@ -142,7 +142,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
 
         // 视频真实播放地址
         output.videoPlayInfo
-        .map { URL(string: $0.video_list.video_1.mainURL) }
+        .map(\.video_list.video_1.playURL)
         .filterNil()
         .drive(player.rx.assetURL)
         .disposed(by: rx.disposeBag)

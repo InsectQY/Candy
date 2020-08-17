@@ -52,7 +52,7 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
 
         // 分类数据
         viewModel.category
-        .map { $0.map(\.name) }
+        .mapMany(\.name)
         .bind(to: categoryView.rx.titles)
         .disposed(by: rx.disposeBag)
     }
