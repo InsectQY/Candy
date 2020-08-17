@@ -14,19 +14,20 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
     private let menuH: CGFloat = 44
 
     // MARK: - LazyLoad
-    fileprivate lazy var categoryView: JXCategoryTitleView = {
+    private lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()
         lineView.lineStyle = .normal
         let categoryView = JXCategoryTitleView()
-        categoryView.contentScrollView = listContainerView.scrollView
+        categoryView.listContainer = listContainerView
         categoryView.indicators = [lineView]
         categoryView.delegate = self
         return categoryView
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
+    private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView,
+                                                                     delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -51,8 +52,8 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
 
         // 分类数据
         viewModel.category
-        .asDriver()
-        .drive(rx.category)
+        .map { $0.map(\.name) }
+        .bind(to: categoryView.rx.titles)
         .disposed(by: rx.disposeBag)
     }
 
@@ -92,20 +93,5 @@ extension VideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
         return VideoListViewController(category: viewModel.category.value[index].category)
-    }
-}
-
-extension Reactive where Base: VideoPageViewController {
-
-    var category: Binder<[VideoCategory]> {
-
-        Binder(base) { vc, result in
-
-            vc.categoryView.titles = result.map(\.name)
-            vc.categoryView.defaultSelectedIndex = 0
-            vc.listContainerView.setDefaultSelectedIndex(0)
-            vc.categoryView.reloadData()
-            vc.listContainerView.reloadData()
-        }
     }
 }

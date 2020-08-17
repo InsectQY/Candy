@@ -8,7 +8,6 @@
 
 import UIKit
 import ZFPlayer
-import JXCategoryView
 
 class VideoListViewController: VMTableViewController<VideoListViewModel> {
 

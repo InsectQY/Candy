@@ -36,13 +36,15 @@ class EpisodeViewController: VMViewController<ViewModel> {
         let categoryView = JXCategoryTitleView(frame: .zero)
         categoryView.delegate = self
         categoryView.titleSelectedColor = .main
-        categoryView.indicators = [lineView]
         categoryView.isAverageCellSpacingEnabled = false
+        categoryView.listContainer = listContainerView
+        categoryView.indicators = [lineView]
         return categoryView
     }()
 
     // swiftlint:disable force_unwrapping
-    private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
+    private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView,
+                                                                     delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -103,13 +105,13 @@ class EpisodeViewController: VMViewController<ViewModel> {
             // 只有一集
             let title = (start + 1) == end ? "\(start + 1)" : "\(start + 1)-\(end)"
             titles.append(title)
-            childVcs.append(EpisodeListViewController(page: EpisodePage(start: start, end: end, selIndex: selIndex)))
+            childVcs.append(EpisodeListViewController(page: EpisodePage(start: start,
+                                                                        end: end,
+                                                                        selIndex: selIndex)))
         }
 
         categoryView.titles = titles
-        categoryView.contentScrollView = listContainerView.scrollView
         categoryView.reloadData()
-        listContainerView.reloadData()
     }
 
     override func bindViewModel() {

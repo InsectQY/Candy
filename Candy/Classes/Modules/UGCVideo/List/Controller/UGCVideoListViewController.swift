@@ -8,7 +8,6 @@
 
 import UIKit
 import Hero
-import JXCategoryView
 
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
 

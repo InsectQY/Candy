@@ -15,16 +15,17 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
     private let menuW: CGFloat = Configs.Dimensions.screenWidth * 0.8
 
     // MARK: - LazyLoad
-    fileprivate lazy var categoryView: UGCVideoTitleView = {
+    private lazy var categoryView: UGCVideoTitleView = {
 
         let categoryView = UGCVideoTitleView(frame: CGRect(x: 0, y: 0, width: menuW, height: menuH))
         categoryView.delegate = self
-        categoryView.contentScrollView = listContainerView.scrollView
+        categoryView.listContainer = listContainerView
         return categoryView
     }()
 
     // swiftlint:disable force_unwrapping
-    fileprivate lazy var listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)!
+    private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView,
+                                                                     delegate: self)!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -64,7 +65,8 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
 
         viewModel.category
         .asDriver()
-        .drive(rx.category)
+        .map { $0.map(\.name) }
+        .drive(categoryView.rx.titles)
         .disposed(by: rx.disposeBag)
     }
 }
@@ -91,20 +93,5 @@ extension UGCVideoPageViewController: JXCategoryViewDelegate {
         .post(name: Notification.pageDidScroll, object: nil)
 
         listContainerView.didClickSelectedItem(at: index)
-    }
-}
-
-extension Reactive where Base: UGCVideoPageViewController {
-
-    var category: Binder<[VideoCategory]> {
-
-        return Binder(base) { vc, result in
-
-            vc.categoryView.titles = result.map(\.name)
-            vc.categoryView.defaultSelectedIndex = 0
-            vc.listContainerView.setDefaultSelectedIndex(0)
-            vc.categoryView.reloadData()
-            vc.listContainerView.reloadData()
-        }
     }
 }

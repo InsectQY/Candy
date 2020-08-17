@@ -14,6 +14,7 @@
 		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
+		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
@@ -266,6 +267,7 @@
 		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
+		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -567,6 +569,14 @@
 				13031D3224A338330010A440 /* ReachabilityManager.swift */,
 			);
 			path = ReachabilityManager;
+			sourceTree = "<group>";
+		};
+		1374983024E6904D00677F39 /* JXCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				1374983124E6906800677F39 /* JXCategoryView+Rx.swift */,
+			);
+			path = JXCategoryView;
 			sourceTree = "<group>";
 		};
 		18095905221501DA00A0818D /* CandyUITests */ = {
@@ -1743,6 +1753,7 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				1374983024E6904D00677F39 /* JXCategoryView */,
 				13031D2124A336570010A440 /* ViewController */,
 				E51D60D72455E5A40059171C /* PYSearch */,
 				E51D60D62455E58C0059171C /* ZFPlayer */,
@@ -2764,6 +2775,7 @@
 				18259E56229BC5C900A90B2C /* catchErrorJustComplete.swift in Sources */,
 				E5FA8A1321BA54270084F3C3 /* VideoDetailViewController.swift in Sources */,
 				E578101621C8DE70005BFFAC /* Filter.swift in Sources */,
+				1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */,
 				E5FC765321CC8B0000FB6FFD /* EpisodeCell.swift in Sources */,
 				18259E54229BC4FD00A90B2C /* not.swift in Sources */,
 				E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */,
