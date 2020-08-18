@@ -157,7 +157,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
             return
         }
         player.playTheIndexPath(indexPath)
-        controlView.url = cell.item?.content.raw_data.video.origin_cover.url_list.first
+        controlView.coverImageURL = cell.item?.videoInfo.coverImg.urls.first?.url
         controlView.resetControlView()
     }
 }

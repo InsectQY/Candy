@@ -18,6 +18,8 @@
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
+		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
+		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
@@ -275,6 +277,8 @@
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
+		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
+		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
@@ -1348,6 +1352,7 @@
 				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
 				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
 				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
+				137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -2168,6 +2173,7 @@
 			isa = PBXGroup;
 			children = (
 				E5FA8A0821BA395A0084F3C3 /* UGCVideoListModel.swift */,
+				137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2779,6 +2785,7 @@
 				E591D81623CEDEB600DA0AF2 /* ErrorExtension.swift in Sources */,
 				E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */,
 				E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */,
+				137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */,
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
 				E57DD45021E2EC2D0089A2D2 /* UserCenterModel.swift in Sources */,
@@ -2797,6 +2804,7 @@
 				E578101821C8DE70005BFFAC /* FilterView.swift in Sources */,
 				E5ED9FAE21DF40120088775F /* UserVideoCell.swift in Sources */,
 				E535153A23D0436500264064 /* YGRespnseHandle.swift in Sources */,
+				137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */,
 				E59112F221B6557300436D08 /* VideoListViewController.swift in Sources */,
 				E578102221C8E3B9005BFFAC /* VideoHallListCell.swift in Sources */,
 				E5E9B20A21D4B36100B08281 /* EpisodeViewController.swift in Sources */,

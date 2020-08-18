@@ -11,19 +11,11 @@ import ZFPlayer
 
 class UGCVideoControlView: View {
 
-    weak var player: ZFPlayerController? {
-        didSet {
-            player?.currentPlayerManager.view.insertSubview(bgImageView,
-                                                            at: 0)
-            player?.currentPlayerManager.view.insertSubview(coverImageView,
-                                                            at: 1)
-        }
-    }
+    weak var player: ZFPlayerController?
 
-    var url: String? {
+    var coverImageURL: String? {
         didSet {
-            coverImageView.qy_setImage(url)
-            bgImageView.qy_setImage(url)
+            player?.currentPlayerManager.view.coverImageView.qy_setImage(coverImageURL)
         }
     }
 
@@ -36,20 +28,6 @@ class UGCVideoControlView: View {
         sliderView.sliderHeight = 2
         sliderView.isHideSliderBlock = false
         return sliderView
-    }()
-
-    private lazy var coverImageView: ImageView = {
-        let coverImageView = ImageView(frame: .zero)
-        coverImageView.contentMode = .scaleAspectFill
-        coverImageView.isUserInteractionEnabled = true
-        return coverImageView
-    }()
-
-    private lazy var bgImageView: ImageView = {
-        let bgImageView = ImageView(frame: .zero)
-        bgImageView.contentMode = .scaleAspectFill
-        bgImageView.isUserInteractionEnabled = true
-        return bgImageView
     }()
 
     private lazy var activity: ZFLoadingView = {
@@ -82,14 +60,11 @@ class UGCVideoControlView: View {
         activity.center = center
         activity.size = CGSize(width: 44, height: 44)
         sliderView.frame = CGRect(x: 0, y: height - 2, width: width, height: 2)
-        coverImageView.frame = bounds
-        bgImageView.frame = bounds
     }
 
     func resetControlView() {
         sliderView.value = 0
         sliderView.bufferValue = 0
-        coverImageView.contentMode = .scaleAspectFill
     }
 }
 
@@ -104,11 +79,6 @@ extension UGCVideoControlView: ZFPlayerMediaControl {
     }
 
     func videoPlayer(_ videoPlayer: ZFPlayerController, loadStateChanged state: ZFPlayerLoadState) {
-        if state == .prepare {
-            coverImageView.isHidden = true
-        } else if state == .playthroughOK {
-            coverImageView.isHidden = true
-        }
         if state == .stalled {
             activity.startAnimating()
         } else {

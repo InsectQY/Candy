@@ -12,7 +12,7 @@
     "selImg": "shipin-hong"
  },
  {
-     "vcName": "UGCVideoPageViewController",
+     "vcName": "UGCVideoListViewController",
      "title": "小视频",
      "normalImg": "xiaoshipin-hui",
      "selImg": "xiaoshipin-hong"

@@ -33,47 +33,36 @@ class UGCVideoDetailCell: CollectionViewCell {
     @IBOutlet private weak var commentBtn: Button!
     @IBOutlet private weak var shareBtn: Button!
 
-    public var item: UGCVideoListModel? {
-
+    public var item: ShortVideoItem? {
         didSet {
 
-            guard let item = item?.content else { return }
-
-            if (item.raw_data.large_image_list.first?.width ?? 0) > (item.raw_data.large_image_list.first?.height ?? 0) {
+            guard let item = item else { return }
+            if item.videoInfo.coverImg.width > item.videoInfo.coverImg.height {
                 coverImage.contentMode = .scaleAspectFit
                 coverImage.clipsToBounds = false
             } else {
                 coverImage.contentMode = .scaleAspectFill
                 coverImage.clipsToBounds = true
             }
-            coverImage
-            .qy_setImage(item.raw_data.video.origin_cover.url_list.first)
-            bgImage
-            .qy_setImage(item.raw_data.video.origin_cover.url_list.first)
-            abstractLabel.text = item.raw_data.title
-            userNameLabel.text = item.raw_data.user.info.name
-            avatarImage
-            .qy_setImage(item.raw_data.user.info.avatar_url)
-            commentBtn.setTitle(item.raw_data.action.commentCountString, for: .normal)
-            hero.id = item.raw_data.item_id
+            let imageURL = item.videoInfo.coverImg.urls.first?.url
+            coverImage.qy_setImage(imageURL)
+            bgImage.qy_setImage(imageURL)
+            abstractLabel.text = item.caption
+            userNameLabel.text = item.authorInfo.nickname
+            avatarImage.qy_setImage(item.authorInfo.headUrls.first?.url)
+            hero.id = item.itemId
         }
     }
 
     // MARK: - 点击头像
-    @objc private func avatarTap() {
-
-        return
-        let vc = UserPorfileViewController(userID: item?.content.raw_data.user.info.user_id ?? "")
-        let nav = NavigationController(rootViewController: vc)
-        parentVC?.present(nav, animated: true, completion: nil)
-    }
+    @objc private func avatarTap() {}
 
     // MARK: - 点击评论
     @IBAction private func commentBtnDidClick(_ sender: Any) {
 
-        let vc = UGCVideoCommentViewController(item: item)
-        let animator = JellyManager.UGCVideoComment()
-        animator.prepare(presentedViewController: vc)
-        parentVC?.present(vc, animated: true, completion: nil)
+//        let vc = UGCVideoCommentViewController(item: item)
+//        let animator = JellyManager.UGCVideoComment()
+//        animator.prepare(presentedViewController: vc)
+//        parentVC?.present(vc, animated: true, completion: nil)
     }
 }

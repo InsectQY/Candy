@@ -11,17 +11,13 @@ import Hero
 
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
-    /// 视频类型
-    private var category: String = ""
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     // MARK: - init
-    init(category: String) {
-        self.category = category
+    init() {
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
     }
 
@@ -40,11 +36,6 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
 
     override func bindViewModel() {
         super.bindViewModel()
-
-        viewModel
-        .input
-        .category
-        .onNext(category)
 
         collectionView.rx.itemSelected
         .asDriver()

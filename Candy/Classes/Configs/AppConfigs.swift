@@ -12,9 +12,14 @@ struct Configs {
 
     struct Network {
 
+        /// 今日头条
         static let touTiaoBaseUrl = "https://api3-normal-c-hl.snssdk.com"
         static let videoParseUrl = "https://i.snssdk.com"
+        /// 阳光宽频网
         static let yangGuangUrl = "https://365yg.com"
+        /// 快看点
+        static let kuaiKanUrl = "https://api.yuncheapp.cn"
+        /// 微信
         static let weChatUrl = "https://api.weixin.qq.com"
     }
 

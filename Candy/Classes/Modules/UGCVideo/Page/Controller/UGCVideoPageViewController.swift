@@ -80,7 +80,7 @@ extension UGCVideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
         let category = viewModel.category.value[index].category
-        return category == "ugc_video_activity" ? UGCVideoActivityListViewController(style: .plain) : UGCVideoListViewController(category: category)
+        return category == "ugc_video_activity" ? UGCVideoActivityListViewController(style: .plain) : UGCVideoListViewController()
     }
 }
 

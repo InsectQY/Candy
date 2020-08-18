@@ -14,9 +14,6 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     let output: Output
 
     struct Input {
-
-        /// 视频分类
-        let category: AnyObserver<String>
         /// 点击
         let selection: AnyObserver<IndexPath>
     }
@@ -24,20 +21,18 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     struct Output {
 
         /// 所有视频
-        let items: Driver<[UGCVideoListModel]>
+        let items: Driver<[ShortVideoItem]>
         /// 所有需要播放视频的 URL
         let videoURLs: Driver<[URL]>
         /// 已经选中的视频
         let indexPath: Driver<IndexPath>
     }
 
-    /// 视频分类
-    private let category = PublishSubject<String>()
     /// 点击
     private let selection = PublishSubject<IndexPath>()
 
     // 所有视频
-    private let elements = BehaviorRelay<[UGCVideoListModel]>(value: [])
+    private let elements = BehaviorRelay<[ShortVideoItem]>(value: [])
     // 所有需要播放的视频 URL
     private let videoURLs = BehaviorRelay<[URL]>(value: [])
     // 当前选中的
@@ -45,8 +40,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
     required init() {
 
-        input = Input(category: category.asObserver(),
-                      selection: selection.asObserver())
+        input = Input(selection: selection.asObserver())
         output = Output(items: elements.asDriver(),
                         videoURLs: videoURLs.asDriver(),
                         indexPath: indexPath.asDriver())
@@ -116,19 +110,18 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         .disposed(by: disposeBag)
     }
 
-    private func refresh(_ refreshing: Driver<Void>) -> Driver<[UGCVideoListModel]> {
+    private func refresh(_ refreshing: Driver<Void>) -> Driver<[ShortVideoItem]> {
 
         refreshing
-        .withLatestFrom(category.asDriverOnErrorJustComplete()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(category: $0)
+            self.request()
         }
     }
 
-    private func getUrls(_ items: Driver<[UGCVideoListModel]>) -> Driver<[URL]> {
+    private func getUrls(_ items: Driver<[ShortVideoItem]>) -> Driver<[URL]> {
         items
         .map {
-            $0.compactMap(\.content.raw_data.video.play_addr.firstURL)
+            $0.compactMap(\.videoInfo.videoUrls[0].playURL)
         }
     }
 }
@@ -136,12 +129,13 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 extension UGCVideoListViewModel {
 
     /// 加载小视频
-    func request(category: String) -> Driver<[UGCVideoListModel]> {
+    func request() -> Driver<[ShortVideoItem]> {
 
-        VideoApi
-        .ugcList(category)
+        ShortVideoApi
+        .list
         .request()
-        .mapModelData([UGCVideoListModel].self)
+        .mapObject(ShortVideoModel.self, atKeyPath: "data")
+        .map(\.items)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()
