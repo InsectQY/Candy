@@ -48,7 +48,9 @@ Video iOS client written in RxSwift and MVVM
 - Category view ([JXCategoryView](https://github.com/pujiaxin33/JXCategoryView))
 ## Building and Running
 
- Install dependencies
+Skip this step if you are downloading an installed dependent version 
+
+Install dependencies
 
   ```ruby
   pod install

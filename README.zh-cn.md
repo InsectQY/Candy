@@ -46,7 +46,9 @@
 - 分页视图 ([JXCategoryView](https://github.com/pujiaxin33/JXCategoryView))
 ## 编译和运行
 
-  安装依赖
+如果你下载的是已经安装好依赖的版本，则跳过该步骤  
+
+安装依赖
 
   ```ruby
   pod install
