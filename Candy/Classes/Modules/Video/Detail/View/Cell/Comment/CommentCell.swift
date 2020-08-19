@@ -21,6 +21,12 @@ class CommentCell: TableViewCell {
 
     /// 是否是小视频的详情
     public var isUGCVideo: Bool = false
+    /// 是否是回复
+    public var isReply: Bool = false {
+        didSet {
+            replyBtn.isHidden = isReply
+        }
+    }
 
     /// 单条评论详情
     public var item: ShortVideoCommentItem? {
@@ -39,46 +45,48 @@ class CommentCell: TableViewCell {
             commentLabel.attributedText = item.contentAttr
             diggCountBtn.setTitle(" \(item.likeCountString)", for: .normal)
 
-            if item.replyCnt == 0 {
+            if item.replies.isEmpty {
 
                 replyBtn.isHidden = true
                 timeLabel.text = item.createTimeString
             } else {
 
                 replyBtn.isHidden = false
-                replyBtn.setTitle("\(item.replyCnt)回复", for: .normal)
+                replyBtn.setTitle("\(item.replies.count)回复", for: .normal)
                 timeLabel.text = item.createTimeString + " ·"
             }
         }
     }
 
-    /// 回复某条评论的详情
-    public var reply: ReplyComment? {
-        didSet {
-
-            replyBtn.isHidden = true
-
-            guard let item = reply else { return }
-            userNameLabel.text = item.user.name
-            avatarImage.qy_setImage(item.user.avatar_url)
-            timeLabel.text = item.createTimeString
-            diggCountBtn.setTitle(" \(item.diggCountString)", for: .normal)
-            commentLabel.attributedText = item.replyToText
-        }
-    }
+//    /// 回复某条评论的详情
+//    public var reply: ShortVideoCommentItem? {
+//        didSet {
+//
+//            replyBtn.isHidden = true
+//
+//            guard let item = reply else { return }
+//            userNameLabel.text = item.nickName
+//            avatarImage.qy_setImage(item.headUrls.first?.url,
+//                                    placeholder: R.image.avatar(),
+//                                    options: options)
+//            timeLabel.text = item.createTimeString
+//            diggCountBtn.setTitle(" \(item.likeCountString)", for: .normal)
+//            commentLabel.attributedText = item.contentAttr
+//        }
+//    }
 
     // 查看回复评论
     @IBAction private func replyBtnDidClick(_ sender: Any) {
 
-//        let vc = ReplyCommentViewController(comment: item)
-//
-//        var animator: Animator?
-//        if isUGCVideo {
-//            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
-//        } else {
-//            animator = JellyManager.videoReplyComment()
-//        }
-//        animator?.prepare(presentedViewController: vc)
-//        parentVC?.present(vc, animated: true, completion: nil)
+        let vc = ReplyCommentViewController(comment: item)
+
+        var animator: Animator?
+        if isUGCVideo {
+            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
+        } else {
+            animator = JellyManager.videoReplyComment()
+        }
+        animator?.prepare(presentedViewController: vc)
+        parentVC?.present(vc, animated: true, completion: nil)
     }
 }

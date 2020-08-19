@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ReplyCommentHeader: UIView {
 
@@ -16,19 +17,22 @@ class ReplyCommentHeader: UIView {
     @IBOutlet private weak var avatarImage: ImageView!
 
     /// 单条评论详情
-    public var item: Comment? {
+    public var item: ShortVideoCommentItem? {
         didSet {
 
             guard let item = item else { return }
-            userNameLabel.text = item.user_name
-            let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
-            avatarImage.qy_setImage(item.user_profile_image_url,
+            userNameLabel.text = item.nickName
+            var options: [KingfisherOptionsInfoItem] = []
+            if item.headUrls.first?.isWebP ?? false {
+                options += [KfWebPOptions.webp(),
+                            KfWebPOptions.webpCache()]
+            }
+            avatarImage.qy_setImage(item.headUrls.first?.url,
                                     placeholder: R.image.avatar(),
-                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
-            commentLabel.attributedText = item.attrText
+                                    options: options)
+            commentLabel.attributedText = item.contentAttr
             timeLabel.text = item.createTimeString
-
-            layoutIfNeeded()
         }
     }
+
 }

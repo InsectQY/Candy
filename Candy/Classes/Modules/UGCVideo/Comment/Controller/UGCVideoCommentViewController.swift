@@ -12,11 +12,7 @@ import UITableView_FDTemplateLayoutCell
 class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewModel> {
 
     private var id: String?
-    private var commmentCount: Int? {
-        didSet {
-            headerView.count = commmentCount
-        }
-    }
+    private var commmentCount: Int?
 
     // MARK: - Lazyload
     private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(owner: nil)!
@@ -68,6 +64,8 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
+
+        headerView.count = commmentCount
     }
 }
 

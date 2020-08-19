@@ -9,13 +9,9 @@
 import UIKit
 import UITableView_FDTemplateLayoutCell
 
-class ReplyCommentViewController: VMTableViewController<ReplyCommentViewModel> {
+class ReplyCommentViewController: TableViewController {
 
-    private var comment: Comment? {
-        didSet {
-            topView.count = comment?.reply_count
-        }
-    }
+    private var comment: ShortVideoCommentItem?
 
     // MARK: - Lazyload
     private lazy var topView = R.nib.replyCommentTopView.firstView(owner: nil)!
@@ -33,7 +29,7 @@ class ReplyCommentViewController: VMTableViewController<ReplyCommentViewModel> {
     }
 
     // MARK: - convenience
-    init(comment: Comment?) {
+    init(comment: ShortVideoCommentItem?) {
         super.init(style: .plain)
         self.comment = comment
     }
@@ -49,23 +45,24 @@ class ReplyCommentViewController: VMTableViewController<ReplyCommentViewModel> {
         setUpTableHeader()
         tableView.delegate = self
         tableView.register(R.nib.commentCell)
-        tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
-        tableView.refreshHeader?.beginRefreshing()
+        tableView.refreshFooter?.state = .noMoreData
+        bindViewModel()
     }
 
-    override func bindViewModel() {
-        super.bindViewModel()
+    func bindViewModel() {
 
-        let input = ReplyCommentViewModel.Input(id: comment?.id ?? "")
-        let output = viewModel.transform(input: input)
+        guard let replyComment = comment?.replyComments else { return }
 
-        output.items
+        Driver.just(replyComment)
         .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
                                   cellType: CommentCell.self)) { tableView, item, cell in
-            cell.reply = item
+            cell.isReply = true
+            cell.item = item
         }
         .disposed(by: rx.disposeBag)
+
+        topView.count = comment?.replyComments.count
     }
 }
 

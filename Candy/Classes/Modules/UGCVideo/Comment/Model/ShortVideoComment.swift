@@ -32,10 +32,10 @@ public struct ShortVideoCommentItem: Codable {
     let realCreateTime: Int
     /// 点赞数量
     let likeCnt: Int
-    /// 回复数量
-    let replyCnt: Int
     /// 回复的评论 ID
     let replies: [String]
+    /// 回复的评论内容
+    var replyComments: [ShortVideoCommentItem]
 
     var contentAttr: NSMutableAttributedString {
         emojiManager.convertEmoji(content: content, font: .pingFangSCRegular(16))

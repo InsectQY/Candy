@@ -29,7 +29,7 @@ public extension Response {
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
     func mapKKModelData<T: Codable>(_ type: T.Type) throws -> T {
-        return try mapKKModel(T.self).data
+        try mapKKModel(T.self).data
     }
 
     /// 解析出评论数据
@@ -44,8 +44,17 @@ public extension Response {
             if let commentJSON = cmtMap?[item] {
                 let data = try JSONSerialization.data(withJSONObject: commentJSON,
                                                       options: .fragmentsAllowed)
-                let comment = try CleanJSONDecoder().decode(ShortVideoCommentItem.self,
+                var comment = try CleanJSONDecoder().decode(ShortVideoCommentItem.self,
                                                             from: data)
+                for replyID in comment.replies { // 有回复
+                    if let replyJSON = cmtMap?[replyID] {
+                        let data = try JSONSerialization.data(withJSONObject: replyJSON,
+                                                              options: .fragmentsAllowed)
+                        let reply = try CleanJSONDecoder().decode(ShortVideoCommentItem.self,
+                                                                  from: data)
+                        comment.replyComments.append(reply)
+                    }
+                }
                 kkModelData.comments.append(comment)
             }
         }
