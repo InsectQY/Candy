@@ -52,7 +52,7 @@ extension VideoPageViewModel {
                                             name: "推荐")
         return VideoApi.category
         .request()
-        .mapModelData([VideoCategory].self)
+        .mapTTModelData([VideoCategory].self)
         .map { category -> [VideoCategory] in
 
             var category = category

@@ -16,7 +16,7 @@ public extension Response {
 
     /// 解析出项目基类 Model
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModel<T: Codable>(_ type: T.Type) throws -> TTModel<T> {
+    func mapTTModel<T: Codable>(_ type: T.Type) throws -> TTModel<T> {
 
         let decoder = CleanJSONDecoder()
         /// 当 JSON 的 Value 是 JSON 字符串的时候也开启解析
@@ -29,8 +29,8 @@ public extension Response {
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) throws -> T {
-        return try mapModel(T.self).data
+    func mapTTModelData<T: Codable>(_ type: T.Type) throws -> T {
+        return try mapTTModel(T.self).data
     }
 }
 
@@ -38,12 +38,12 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 
     /// 解析出项目 Model 基类
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModel<T: Codable>(_ type: T.Type) -> Single<TTModel<T>> {
+    func mapTTModel<T: Codable>(_ type: T.Type) -> Single<TTModel<T>> {
 
         return map {
 
             guard
-                let response = try? $0.mapModel(type)
+                let response = try? $0.mapTTModel(type)
             else {
                 throw MoyaError.jsonMapping($0)
             }
@@ -53,12 +53,12 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) -> Single<T> {
+    func mapTTModelData<T: Codable>(_ type: T.Type) -> Single<T> {
 
         return map {
 
             guard
-                let response = try? $0.mapModelData(type)
+                let response = try? $0.mapTTModelData(type)
             else {
                 throw MoyaError.jsonMapping($0)
             }
@@ -71,12 +71,12 @@ public extension ObservableType where Element == Response {
 
     /// 解析出项目 Model 基类
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModel<T: Codable>(_ type: T.Type) -> Observable<TTModel<T>> {
+    func mapTTModel<T: Codable>(_ type: T.Type) -> Observable<TTModel<T>> {
 
         return map {
 
             guard
-                let response = try? $0.mapModel(type)
+                let response = try? $0.mapTTModel(type)
             else {
                 throw MoyaError.jsonMapping($0)
             }
@@ -86,12 +86,12 @@ public extension ObservableType where Element == Response {
 
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
-    func mapModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
+    func mapTTModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
 
         return map {
 
             guard
-                let response = try? $0.mapModelData(type)
+                let response = try? $0.mapTTModelData(type)
             else {
                 throw MoyaError.jsonMapping($0)
             }

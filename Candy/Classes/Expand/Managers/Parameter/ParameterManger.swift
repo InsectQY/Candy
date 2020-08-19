@@ -58,6 +58,10 @@ class ParameterManger {
         ["ChannelId": "94349541307"]
     }
 
+    var kuaiKanParameter: [String: Any] {
+        ["app": "pearl"]
+    }
+
     var count: Int {
         20
     }

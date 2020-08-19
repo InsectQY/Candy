@@ -86,15 +86,7 @@ class RefreshViewModel: ViewModel {
 
 extension RefreshViewModel {
 
-    public func footerState(_ isHasMore: Bool,
-                            isEmpty: Bool) -> RxMJRefreshFooterState {
-
-        if !isHasMore && !isEmpty {
-            return .noMoreData
-        } else if !isHasMore && isEmpty {
-            return .hidden
-        } else {
-            return .default
-        }
+    public func footerState(_ isHasMore: Bool) -> RxMJRefreshFooterState {
+        isHasMore ? .default : .noMoreData
     }
 }

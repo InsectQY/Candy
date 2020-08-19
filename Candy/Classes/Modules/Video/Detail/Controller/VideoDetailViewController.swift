@@ -130,7 +130,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell.identifier,
                                                          for: indexPath,
                                                          cellType: CommentCell.self)
-                cell.item = item.comment
+                cell.item = item
                 return cell
             }
         })

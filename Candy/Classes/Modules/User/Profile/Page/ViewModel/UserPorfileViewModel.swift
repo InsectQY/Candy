@@ -27,7 +27,7 @@ extension UserPorfileViewModel: ViewModelable {
         let userProfile = VideoApi
         .userProfile(input.userID)
         .request()
-        .mapModelData(UserProfileModel.self)
+        .mapTTModelData(UserProfileModel.self)
         .asObservable()
         .asDriverOnErrorJustComplete()
 

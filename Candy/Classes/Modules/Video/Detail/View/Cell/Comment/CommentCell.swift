@@ -8,6 +8,7 @@
 
 import UIKit
 import Jelly
+import Kingfisher
 
 class CommentCell: TableViewCell {
 
@@ -21,28 +22,31 @@ class CommentCell: TableViewCell {
     /// 是否是小视频的详情
     public var isUGCVideo: Bool = false
 
-    private let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
-
     /// 单条评论详情
-    public var item: Comment? {
+    public var item: ShortVideoCommentItem? {
         didSet {
 
             guard let item = item else { return }
-            userNameLabel.text = item.user_name
-            avatarImage.qy_setImage(item.user_profile_image_url,
+            userNameLabel.text = item.nickName
+            var options: [KingfisherOptionsInfoItem] = []
+            if item.headUrls.first?.isWebP ?? false {
+                options += [KfWebPOptions.webp(),
+                            KfWebPOptions.webpCache()]
+            }
+            avatarImage.qy_setImage(item.headUrls.first?.url,
                                     placeholder: R.image.avatar(),
-                                    options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
-            commentLabel.attributedText = item.attrText
-            diggCountBtn.setTitle(" \(item.diggCountString)", for: .normal)
+                                    options: options)
+            commentLabel.attributedText = item.contentAttr
+            diggCountBtn.setTitle(" \(item.likeCountString)", for: .normal)
 
-            if item.reply_count == 0 {
+            if item.replyCnt == 0 {
 
                 replyBtn.isHidden = true
                 timeLabel.text = item.createTimeString
             } else {
 
                 replyBtn.isHidden = false
-                replyBtn.setTitle("\(item.reply_count)回复", for: .normal)
+                replyBtn.setTitle("\(item.replyCnt)回复", for: .normal)
                 timeLabel.text = item.createTimeString + " ·"
             }
         }
@@ -56,7 +60,7 @@ class CommentCell: TableViewCell {
 
             guard let item = reply else { return }
             userNameLabel.text = item.user.name
-            avatarImage.qy_setImage(item.user.avatar_url, options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+            avatarImage.qy_setImage(item.user.avatar_url)
             timeLabel.text = item.createTimeString
             diggCountBtn.setTitle(" \(item.diggCountString)", for: .normal)
             commentLabel.attributedText = item.replyToText
@@ -66,15 +70,15 @@ class CommentCell: TableViewCell {
     // 查看回复评论
     @IBAction private func replyBtnDidClick(_ sender: Any) {
 
-        let vc = ReplyCommentViewController(comment: item)
-
-        var animator: Animator?
-        if isUGCVideo {
-            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
-        } else {
-            animator = JellyManager.videoReplyComment()
-        }
-        animator?.prepare(presentedViewController: vc)
-        parentVC?.present(vc, animated: true, completion: nil)
+//        let vc = ReplyCommentViewController(comment: item)
+//
+//        var animator: Animator?
+//        if isUGCVideo {
+//            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
+//        } else {
+//            animator = JellyManager.videoReplyComment()
+//        }
+//        animator?.prepare(presentedViewController: vc)
+//        parentVC?.present(vc, animated: true, completion: nil)
     }
 }

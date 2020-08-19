@@ -140,12 +140,10 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
         // 尾部状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.IndexResponse.has_more,
-                                 isEmpty: $0.CellList.isEmpty)
+                self.footerState($0.IndexResponse.has_more)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.IndexResponse.has_more,
-                                 isEmpty: $0.CellList.isEmpty)
+                self.footerState($0.IndexResponse.has_more)
             }
         )
         .startWith(.hidden)

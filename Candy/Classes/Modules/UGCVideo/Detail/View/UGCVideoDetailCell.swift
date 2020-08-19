@@ -60,9 +60,9 @@ class UGCVideoDetailCell: CollectionViewCell {
     // MARK: - 点击评论
     @IBAction private func commentBtnDidClick(_ sender: Any) {
 
-//        let vc = UGCVideoCommentViewController(item: item)
-//        let animator = JellyManager.UGCVideoComment()
-//        animator.prepare(presentedViewController: vc)
-//        parentVC?.present(vc, animated: true, completion: nil)
+        let vc = UGCVideoCommentViewController(id: item?.itemId, commmentCount: item?.cmtCnt)
+        let animator = JellyManager.UGCVideoComment()
+        animator.prepare(presentedViewController: vc)
+        parentVC?.present(vc, animated: true, completion: nil)
     }
 }

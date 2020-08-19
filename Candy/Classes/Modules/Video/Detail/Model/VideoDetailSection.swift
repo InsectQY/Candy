@@ -19,7 +19,7 @@ enum VideoDetailItem {
 
     case info(_ item: NewsModel)
     case related(_ item: NewsModel)
-    case comment(_ item: VideoCommentModel)
+    case comment(_ item: ShortVideoCommentItem)
 }
 
 extension VideoDetailSection: SectionModelType {

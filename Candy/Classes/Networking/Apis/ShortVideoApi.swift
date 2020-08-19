@@ -15,6 +15,8 @@ enum ShortVideoApi {
 
     /// 视频列表
     case list
+    /// 评论
+    case comment(id: String, cursor: String)
 }
 
 extension ShortVideoApi: TargetType {
@@ -23,12 +25,27 @@ extension ShortVideoApi: TargetType {
     }
 
     var path: String {
-        "pearl-server/api/v1/feeds"
+        switch self {
+        case .list:
+            return "pearl-server/api/v1/feeds"
+        case .comment:
+            return "comment-server/api/v1/comments"
+        }
     }
 
     var task: Task {
-        return .requestParameters(parameters: ["tabId": 3,
-                                               "cid": 45101,
-                                               "app": "pearl"], encoding: URLEncoding.default)
+
+        var parameters: [String: Any] = ["app": "pearl"]
+        switch self {
+        case .list:
+            parameters["tabId"] = 3
+            parameters["cid"] = 45101
+        case let .comment(id, cursor):
+            parameters["itemId"] = id
+            parameters["cursor"] = cursor
+        }
+        return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
 }
+
+extension ShortVideoApi: KKResponseHandle {}

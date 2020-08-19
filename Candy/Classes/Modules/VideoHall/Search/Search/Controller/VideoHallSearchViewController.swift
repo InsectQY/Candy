@@ -34,7 +34,7 @@ extension VideoHallSearchViewController: PYSearchViewControllerDelegate {
 
         VideoHallApi.searchSug(searchText)
         .request()
-        .mapModelData([String].self)
+        .mapTTModelData([String].self)
         .asDriver(onErrorJustReturn: [])
         .drive(rx.searchSuggestions)
         .disposed(by: rx.disposeBag)

@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct ShortVideoModel: Codable {
+public struct ShortVideoModel: Codable {
     /// 视频信息
     let items: [ShortVideoItem]
 }
 
-struct ShortVideoItem: Codable {
+public struct ShortVideoItem: Codable {
     /// 视频ID
     let itemId: String
     /// 标题
@@ -40,23 +40,27 @@ struct ShortVideoItem: Codable {
     }
 }
 
-struct ShortVideoInfo: Codable {
+public struct ShortVideoInfo: Codable {
     /// 视频信息
     let videoUrls: [ShortVideoUrl]
     /// 图片信息
     let coverImg: ShortVideoImage
 }
 
-struct ShortVideoUrl: Codable {
-    /// 视频播放地址
+public struct ShortVideoUrl: Codable {
+    /// URL 地址
     let url: String
-    /// URL 类型的播放地址
+    /// URL 地址
     var playURL: URL? {
         URL(string: url)
     }
+
+    var isWebP: Bool {
+        url.hasSuffix("webp")
+    }
 }
 
-struct ShortVideoImage: Codable {
+public struct ShortVideoImage: Codable {
     /// 宽度
     let width: Int
     /// 高度
@@ -65,7 +69,7 @@ struct ShortVideoImage: Codable {
     let urls: [ShortVideoUrl]
 }
 
-struct ShortVideoAuthor: Codable {
+public struct ShortVideoAuthor: Codable {
     /// ID
     let id: String
     /// 昵称

@@ -61,11 +61,10 @@ extension UserUGCViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             new.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty) },
+                self.footerState($0.has_more)
+            },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more)
             }
         )
         .startWith(.hidden)

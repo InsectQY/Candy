@@ -50,7 +50,7 @@ extension UGCVideoPageViewModel {
 
         VideoApi.ugcCategory
         .request()
-        .mapModelData(UGCVideoPageModel.self)
+        .mapTTModelData(UGCVideoPageModel.self)
         .map(\.data)
         .filterMany { $0.name != "关注" }
         .trackActivity(loading)

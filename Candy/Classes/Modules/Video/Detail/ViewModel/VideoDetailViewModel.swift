@@ -44,7 +44,7 @@ extension VideoDetailViewModel: ViewModelable {
                                            groupID: groupID)
         .request()
         .trackError(error)
-        .mapModelData(VideoDetailModel.self)
+        .mapTTModelData(VideoDetailModel.self)
         .map {
             $0.related_video_toutiao.filter {
                 !$0.show_tag.contains("广告")
@@ -59,11 +59,11 @@ extension VideoDetailViewModel: ViewModelable {
         .map { VideoDetailSection.info([.info($0)]) }
 
         // 视频评论
-        let commentSection = commentElements
-        .asDriver()
-        .map {
-            VideoDetailSection.comment($0.map { .comment($0) })
-        }
+//        let commentSection = commentElements
+//        .asDriver()
+//        .map {
+//            VideoDetailSection.comment($0.map { .comment($0) })
+//        }
 
         // 相关视频
         let relatedSection = relatedInfo
@@ -74,16 +74,14 @@ extension VideoDetailViewModel: ViewModelable {
 
         // 数据源
         let sections = Driver.combineLatest(infoSection,
-                                            commentSection,
                                             relatedSection) {
-            (info: $0, comment: $1, related: $2)
+            (info: $0, related: $1)
         }
         .map { all -> [VideoDetailSection] in
 
             var sections: [VideoDetailSection] = []
             sections.append(all.info)
             sections.append(all.related)
-            sections.append(all.comment)
             return sections
         }
 
@@ -131,8 +129,7 @@ extension VideoDetailViewModel: ViewModelable {
                 RxMJRefreshFooterState.default
             },
             loadMoreComments.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more)
             }
         )
         .startWith(.hidden)
@@ -153,7 +150,7 @@ extension VideoDetailViewModel {
 
         VideoApi.parsePlayInfo(videoID)
         .request()
-        .mapModelData(VideoPlayInfo.self)
+        .mapTTModelData(VideoPlayInfo.self)
         .trackActivity(loading)
         .trackError(error)
         .asDriverOnErrorJustComplete()

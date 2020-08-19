@@ -134,7 +134,7 @@ extension UGCVideoListViewModel {
         ShortVideoApi
         .list
         .request()
-        .mapObject(ShortVideoModel.self, atKeyPath: "data")
+        .mapKKModelData(ShortVideoModel.self)
         .map(\.items)
         .trackActivity(loading)
         .trackError(refreshError)

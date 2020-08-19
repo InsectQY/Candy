@@ -11,9 +11,10 @@ import UITableView_FDTemplateLayoutCell
 
 class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewModel> {
 
-    private var item: UGCVideoListModel? {
+    private var id: String?
+    private var commmentCount: Int? {
         didSet {
-            headerView.count = item?.content.raw_data.action.comment_count
+            headerView.count = commmentCount
         }
     }
 
@@ -33,9 +34,10 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     }
 
     // MARK: - init
-    init(item: UGCVideoListModel?) {
+    init(id: String?, commmentCount: Int?) {
         super.init(style: .plain)
-        self.item = item
+        self.id = id
+        self.commmentCount = commmentCount
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -56,14 +58,14 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UGCVideoCommentViewModel.Input(groupID: item?.content.raw_data.group_id ?? "")
+        let input = UGCVideoCommentViewModel.Input(id: id ?? "")
         let output = viewModel.transform(input: input)
 
         output.items
         .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
                                   cellType: CommentCell.self)) { tableView, item, cell in
             cell.isUGCVideo = true
-            cell.item = item.comment
+            cell.item = item
         }
         .disposed(by: rx.disposeBag)
     }

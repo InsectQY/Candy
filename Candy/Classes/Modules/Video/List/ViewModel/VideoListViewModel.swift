@@ -102,7 +102,7 @@ extension VideoListViewModel {
 
         VideoApi.list(category)
         .request()
-        .mapModelData([NewsListModel].self)
+        .mapTTModelData([NewsListModel].self)
         .filterMany { !$0.isAd }
         .trackActivity(loading)
         .trackError(refreshError)

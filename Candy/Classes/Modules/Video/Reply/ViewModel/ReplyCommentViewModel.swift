@@ -65,12 +65,10 @@ extension ReplyCommentViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.has_more)
             }
         )
         .startWith(.hidden)
@@ -91,7 +89,7 @@ extension ReplyCommentViewModel {
         .replyComment(id: id,
                       offset: offset)
         .request()
-        .mapModelData(ReplyCommentModel.self)
+        .mapTTModelData(ReplyCommentModel.self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

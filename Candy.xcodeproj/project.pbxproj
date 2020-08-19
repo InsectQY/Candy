@@ -17,10 +17,14 @@
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
+		13693E9624ECBB8D0049D259 /* KKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9524ECBB8D0049D259 /* KKModel.swift */; };
+		13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9724ECBD440049D259 /* KKResponseCodable.swift */; };
+		13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9924ECC0430049D259 /* KKResponseHandle.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
 		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
 		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
+		13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
 		18259E52229BC32F00A90B2C /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18259E51229BC32F00A90B2C /* mapTo.swift */; };
@@ -276,10 +280,14 @@
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
+		13693E9524ECBB8D0049D259 /* KKModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKModel.swift; sourceTree = "<group>"; };
+		13693E9724ECBD440049D259 /* KKResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseCodable.swift; sourceTree = "<group>"; };
+		13693E9924ECC0430049D259 /* KKResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseHandle.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
 		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
 		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
+		13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoComment.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
 		18095908221501DA00A0818D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -583,12 +591,39 @@
 			path = ReachabilityManager;
 			sourceTree = "<group>";
 		};
+		13693E9B24ECC0BD0049D259 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */,
+				13693E9724ECBD440049D259 /* KKResponseCodable.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		13693E9C24ECC0CB0049D259 /* HandleProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				13693E9924ECC0430049D259 /* KKResponseHandle.swift */,
+				E535153923D0436500264064 /* YGRespnseHandle.swift */,
+				E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */,
+			);
+			path = HandleProtocol;
+			sourceTree = "<group>";
+		};
 		1374983024E6904D00677F39 /* JXCategoryView */ = {
 			isa = PBXGroup;
 			children = (
 				1374983124E6906800677F39 /* JXCategoryView+Rx.swift */,
 			);
 			path = JXCategoryView;
+			sourceTree = "<group>";
+		};
+		13E0B2FA24EBD2DB00518D5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		18095905221501DA00A0818D /* CandyUITests */ = {
@@ -1183,10 +1218,9 @@
 		E5859AC723CF060200ADCED8 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				E535153923D0436500264064 /* YGRespnseHandle.swift */,
-				E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */,
-				E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */,
 				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
+				13693E9C24ECC0CB0049D259 /* HandleProtocol */,
+				13693E9B24ECC0BD0049D259 /* Codable */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -2002,6 +2036,7 @@
 			children = (
 				E5E7235223D0415F0042C140 /* YGModel.swift */,
 				E5E0201721B4FE4A00A4CDF1 /* TTModel.swift */,
+				13693E9524ECBB8D0049D259 /* KKModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2027,6 +2062,7 @@
 		E5E9B20F21D4CBF500B08281 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				13E0B2FA24EBD2DB00518D5F /* Model */,
 				1849100C225494CB001D9974 /* View */,
 				E5E9B21121D4CC1C00B08281 /* Controller */,
 				E5E9B21021D4CC1C00B08281 /* ViewModel */,
@@ -2654,6 +2690,7 @@
 				1843B45422940161004F99AC /* VerticalButton.swift in Sources */,
 				E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */,
 				E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */,
+				13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */,
 				E51D60C82455DA810059171C /* VMViewController.swift in Sources */,
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
 				E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */,
@@ -2687,8 +2724,10 @@
 				18DC116B222397DF004FB1F6 /* TopView.swift in Sources */,
 				E520A48321D718B100CDDB04 /* ReplyCommentViewModel.swift in Sources */,
 				E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */,
+				13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */,
 				E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */,
 				E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */,
+				13693E9624ECBB8D0049D259 /* KKModel.swift in Sources */,
 				E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */,
 				E59006422202E33600EE0838 /* NavigationMap.swift in Sources */,
 				E51D60D92455E5E90059171C /* ColorConfigs.swift in Sources */,
@@ -2764,6 +2803,7 @@
 				E5E0208C21B5057600A4CDF1 /* CustomResponsePlugin.swift in Sources */,
 				E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */,
 				18F81D61229636E00028CA14 /* NotificationConfigs.swift in Sources */,
+				13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */,
 				E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */,
 				E5FE0DC621FAFE8700DE1DED /* ImageView.swift in Sources */,
 				E5FAB72A21C1012E002BF258 /* UGCVideoDetailFlowLayout.swift in Sources */,

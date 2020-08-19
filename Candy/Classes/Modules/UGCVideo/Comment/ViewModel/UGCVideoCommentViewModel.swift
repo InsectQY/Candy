@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import CleanJSON
 
 final class UGCVideoCommentViewModel: RefreshViewModel {
 
     struct Input {
-        let groupID: String
+        let id: String
     }
 
     struct Output {
         /// 数据源
-        let items: Driver<[VideoCommentModel]>
+        let items: Driver<[ShortVideoCommentItem]>
     }
 }
 
@@ -25,31 +26,44 @@ extension UGCVideoCommentViewModel: ViewModelable {
     func transform(input: UGCVideoCommentViewModel.Input) -> UGCVideoCommentViewModel.Output {
 
         // 所有评论
-        let elements = BehaviorRelay<[VideoCommentModel]>(value: [])
+        let elements = BehaviorRelay<[ShortVideoCommentItem]>(value: [])
+        // 下一页角标
+        let nextCursor = BehaviorRelay<String>(value: "0")
 
         // 加载最新评论
         let loadNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(groupID: input.groupID,
-                         offset: 0)
+            self.request(id: input.id,
+                         offset: "0")
         }
         // 加载更多评论
         let loadMore = refreshOutput
         .footerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(groupID: input.groupID,
-                         offset: elements.value.count)
+            self.request(id: input.id,
+                         offset: nextCursor.value)
         }
+
+        // 下一页角标
+        loadNew
+        .map(\.nextCursor)
+        .drive(nextCursor)
+        .disposed(by: disposeBag)
+
+        loadMore
+        .map(\.nextCursor)
+        .drive(nextCursor)
+        .disposed(by: disposeBag)
 
         // 数据源绑定
         loadNew
-        .map(\.data)
+        .map(\.comments)
         .drive(elements)
         .disposed(by: disposeBag)
 
         loadMore
-        .map(\.data)
+        .map(\.comments)
         .drive(elements.append)
         .disposed(by: disposeBag)
 
@@ -62,12 +76,10 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 尾部刷新状态
         Driver.merge(
             loadNew.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.hasMore)
             },
             loadMore.map { [unowned self] in
-                self.footerState($0.has_more,
-                                 isEmpty: $0.data.isEmpty)
+                self.footerState($0.hasMore)
             }
         )
         .startWith(.hidden)
@@ -82,14 +94,11 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
 extension UGCVideoCommentViewModel {
 
-    func request(groupID: String,
-                 offset: Int) -> Driver<TTModel<[VideoCommentModel]>> {
-
-        VideoApi
-        .ugcComment(groupID: groupID,
-                    offset: offset)
+    func request(id: String, offset: String) -> Driver<ShortVideoComment> {
+        ShortVideoApi
+        .comment(id: id, cursor: offset)
         .request()
-        .mapObject(TTModel<[VideoCommentModel]>.self)
+        .mapKKComment()
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()
