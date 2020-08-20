@@ -55,7 +55,12 @@ class UGCVideoDetailCell: CollectionViewCell {
     }
 
     // MARK: - 点击头像
-    @objc private func avatarTap() {}
+    @objc private func avatarTap() {
+
+        guard let item = item else { return }
+        let vc = UserPorfileViewController(userID: item.authorInfo.id)
+        parentVC?.navigationController?.pushViewController(vc, animated: true)
+    }
 
     // MARK: - 点击评论
     @IBAction private func commentBtnDidClick(_ sender: Any) {

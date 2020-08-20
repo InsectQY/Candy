@@ -7,26 +7,41 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserProfileHeaderView: View {
 
     @IBOutlet private weak var diggCountLabel: Label!
     @IBOutlet private weak var followersCountLabel: Label!
     @IBOutlet private weak var followingCountLabel: Label!
-    @IBOutlet private weak var publishCountLabel: Label!
     @IBOutlet private weak var avatarImage: ImageView!
 
     public var item: UserProfileModel? {
         didSet {
 
             guard let item = item else { return }
+            diggCountLabel.text = item.userInfo.heartCountString
+            followersCountLabel.text = item.userInfo.followerCountString
+            followingCountLabel.text = item.userInfo.followingCountString
+            var options: [KingfisherOptionsInfoItem] = []
+            if item.userInfo.headUrls.first?.isWebP ?? false {
+                options += [KfWebPOptions.webp(),
+                            KfWebPOptions.webpCache()]
+            }
+            avatarImage.qy_setImage(item.userInfo.headUrls.first?.url,
+                                    placeholder: R.image.avatar(),
+                                    options: options)
+        }
+    }
+}
 
-            diggCountLabel.text = item.diggCountString
-            followersCountLabel.text = item.followersCountString
-            followingCountLabel.text = item.followingsCountString
-            publishCountLabel.text = item.publishCountString
-            let imageSize = CGSize(width: 80 * UIScreen.main.scale, height: 80 * UIScreen.main.scale)
-            avatarImage.qy_setImage(item.avatar_url, options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])
+// MARK: - Reactive-Extension
+extension Reactive where Base: UserProfileHeaderView {
+
+    var item: Binder<UserProfileModel?> {
+
+        return Binder(base) { target, value in
+            target.item = value
         }
     }
 }

@@ -15,12 +15,12 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 
     private var userID: String = ""
 
-    fileprivate var dataSource: [JXPagerViewListViewDelegate] = []
+    private var dataSource: [JXPagerViewListViewDelegate] = []
 
     // MARK: - Lazyload
-    fileprivate lazy var headerView = R.nib.userProfileHeaderView.firstView(owner: nil)!
+    private lazy var headerView = R.nib.userProfileHeaderView.firstView(owner: nil)!
 
-    fileprivate lazy var categoryView: JXCategoryTitleView = {
+    private lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()
         lineView.indicatorColor = .main
@@ -29,10 +29,11 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
         categoryView.titleSelectedColor = .main
         categoryView.contentScrollView = pagingView?.listContainerView.collectionView
         categoryView.indicators = [lineView]
+        categoryView.titles = ["小视频"]
         return categoryView
     }()
 
-    fileprivate lazy var pagingView = JXPagerView(delegate: self)
+    private lazy var pagingView = JXPagerView(delegate: self)
 
     // MARK: - LifeCylce
     override func viewDidLoad() {
@@ -42,7 +43,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView?.frame = view.bounds
-        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: 200)
+        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: 100)
     }
 
     // MARK: - init
@@ -50,6 +51,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
         self.userID = userID
         super.init(nibName: nil, bundle: nil)
         self.viewModel = UserPorfileViewModel()
+        dataSource = [UserUGCVideoView(visitedID: "")]
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +74,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 
         // 用户简介
         output.userProfile
-        .drive(rx.userProfile)
+        .drive(headerView.rx.item)
         .disposed(by: rx.disposeBag)
     }
 }
@@ -81,7 +83,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 extension UserPorfileViewController: JXPagerViewDelegate {
 
     func tableHeaderViewHeight(in pagerView: JXPagerView!) -> UInt {
-        200
+        100
     }
 
     func tableHeaderView(in pagerView: JXPagerView!) -> UIView! {
@@ -98,24 +100,5 @@ extension UserPorfileViewController: JXPagerViewDelegate {
 
     func listViews(in pagerView: JXPagerView!) -> [JXPagerViewListViewDelegate]! {
         dataSource
-    }
-}
-
-// MARK: - Reactive-Extension
-extension Reactive where Base: UserPorfileViewController {
-
-    var userProfile: Binder<UserProfileModel> {
-        Binder(base) { vc, result in
-
-            vc.navigationItem.title = result.name
-            vc.categoryView.titles = result.top_tab.map(\.show_name)
-            vc.dataSource = result.top_tab.map {
-                $0.type.viewWith(category: $0.category,
-                                 visitedID: result.user_id)
-            }
-            vc.categoryView.reloadData()
-            vc.pagingView?.reloadData()
-            vc.headerView.item = result
-        }
     }
 }

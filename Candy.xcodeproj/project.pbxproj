@@ -14,6 +14,7 @@
 		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
+		130E709F24ED158100F824AD /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E709E24ED158100F824AD /* UserApi.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
@@ -127,25 +128,17 @@
 		E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D95C21DDE355005A6C00 /* UserUGCVideoCell.swift */; };
 		E595D95F21DDE355005A6C00 /* UserUGCVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E595D95D21DDE355005A6C00 /* UserUGCVideoCell.xib */; };
 		E595D96121DDE40B005A6C00 /* UserUGCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D96021DDE40B005A6C00 /* UserUGCViewModel.swift */; };
-		E595D96821DE02FE005A6C00 /* UserQAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D96721DE02FE005A6C00 /* UserQAView.swift */; };
-		E595D96B21DE0343005A6C00 /* UserQACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595D96921DE0343005A6C00 /* UserQACell.swift */; };
-		E595D96C21DE0343005A6C00 /* UserQACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E595D96A21DE0343005A6C00 /* UserQACell.xib */; };
 		E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2B1D8220EAC20008702F0 /* DictionaryExtension.swift */; };
 		E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */; };
 		E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */; };
 		E5B4EC3921F59EA90065AB80 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4EC3821F59EA90065AB80 /* ViewModel.swift */; };
 		E5D23CD721DDD6F9008714F6 /* UserPorfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D23CC821DDD6F9008714F6 /* UserPorfileViewController.swift */; };
 		E5D23CD821DDD6F9008714F6 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D23CCA21DDD6F9008714F6 /* UserProfileModel.swift */; };
-		E5D23CD921DDD6F9008714F6 /* UserVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D23CCF21DDD6F9008714F6 /* UserVideoView.swift */; };
 		E5D749F021FEE0B300BCE75F /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D749EE21FEE0B300BCE75F /* ErrorTracker.swift */; };
 		E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D749F221FEE8C600BCE75F /* LibsManager.swift */; };
 		E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9541621E6D568007FC606 /* EpisodeListViewController.swift */; };
 		E5D9541A21E6DB23007FC606 /* EpisodeListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9541921E6DB23007FC606 /* EpisodeListFlowLayout.swift */; };
 		E5D9541D21E72DF3007FC606 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9541C21E72DF3007FC606 /* Episode.swift */; };
-		E5D9542421E74CD3007FC606 /* UGCVideoActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9542321E74CD3007FC606 /* UGCVideoActivityListViewController.swift */; };
-		E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9542521E74CFE007FC606 /* UGCVideoActivityViewModel.swift */; };
-		E5D9542921E74D29007FC606 /* UGCVideoActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9542721E74D29007FC606 /* UGCVideoActivityCell.swift */; };
-		E5D9542A21E74D29007FC606 /* UGCVideoActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D9542821E74D29007FC606 /* UGCVideoActivityCell.xib */; };
 		E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E01FDA21B4CCE600A4CDF1 /* AppDelegate.swift */; };
 		E5E01FE221B4CCE700A4CDF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E01FE121B4CCE700A4CDF1 /* Assets.xcassets */; };
 		E5E01FE521B4CCE700A4CDF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E01FE321B4CCE700A4CDF1 /* LaunchScreen.storyboard */; };
@@ -170,7 +163,6 @@
 		E5E020CD21B50B4000A4CDF1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CB21B50B4000A4CDF1 /* TabBarController.swift */; };
 		E5E020CF21B50B7300A4CDF1 /* AppDelegate+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E020CE21B50B7300A4CDF1 /* AppDelegate+Root.swift */; };
 		E5E020D421B50BEE00A4CDF1 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E020D321B50BEE00A4CDF1 /* MainVCSettings.json */; };
-		E5E1930821E82F21002CBAE8 /* UGCVideoActivityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1930721E82F21002CBAE8 /* UGCVideoActivityListModel.swift */; };
 		E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1932821E887F6002CBAE8 /* UserManager.swift */; };
 		E5E1933121E88C25002CBAE8 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E1933021E88C25002CBAE8 /* HistoryManager.swift */; };
 		E5E3240621DC5312002DC676 /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E3240521DC5312002DC676 /* RichLabel.swift */; };
@@ -196,18 +188,6 @@
 		E5E9F52621D5FEA00043ACED /* UGCVideoCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E9F52521D5FEA00043ACED /* UGCVideoCommentViewModel.swift */; };
 		E5EC45F321EC8FC2000EEA16 /* DefaultsKeyConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EC45F221EC8FC2000EEA16 /* DefaultsKeyConfigs.swift */; };
 		E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED44C921BE319B00451010 /* VideoCommentModel.swift */; };
-		E5ED9FA121DEF5F10088775F /* QAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FA021DEF5F10088775F /* QAModel.swift */; };
-		E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FA221DF01420088775F /* UserQAViewModel.swift */; };
-		E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FA421DF25540088775F /* ImageCell.swift */; };
-		E5ED9FA721DF25540088775F /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED9FA521DF25540088775F /* ImageCell.xib */; };
-		E5ED9FA921DF38B80088775F /* UserVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FA821DF38B80088775F /* UserVideoViewModel.swift */; };
-		E5ED9FAE21DF40120088775F /* UserVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FAC21DF40120088775F /* UserVideoCell.swift */; };
-		E5ED9FAF21DF40120088775F /* UserVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED9FAD21DF40120088775F /* UserVideoCell.xib */; };
-		E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FB521DF515C0088775F /* UserArticleView.swift */; };
-		E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FB921DF51940088775F /* UserArticleCell.swift */; };
-		E5ED9FBC21DF51940088775F /* UserArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED9FBA21DF51940088775F /* UserArticleCell.xib */; };
-		E5ED9FBF21DF55AF0088775F /* UserArticleMultiImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED9FBD21DF55AF0088775F /* UserArticleMultiImageCell.swift */; };
-		E5ED9FC021DF55AF0088775F /* UserArticleMultiImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED9FBE21DF55AF0088775F /* UserArticleMultiImageCell.xib */; };
 		E5F86F9922042ABE008A0C26 /* UserURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F86F9822042ABE008A0C26 /* UserURL.swift */; };
 		E5F86F9B22042BFA008A0C26 /* UGCURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F86F9A22042BFA008A0C26 /* UGCURL.swift */; };
 		E5FA89F121BA1CC80084F3C3 /* UGCVideoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA89F021BA1CC80084F3C3 /* UGCVideoPageViewController.swift */; };
@@ -277,6 +257,7 @@
 		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
+		130E709E24ED158100F824AD /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
@@ -399,25 +380,17 @@
 		E595D95C21DDE355005A6C00 /* UserUGCVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUGCVideoCell.swift; sourceTree = "<group>"; };
 		E595D95D21DDE355005A6C00 /* UserUGCVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserUGCVideoCell.xib; sourceTree = "<group>"; };
 		E595D96021DDE40B005A6C00 /* UserUGCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUGCViewModel.swift; sourceTree = "<group>"; };
-		E595D96721DE02FE005A6C00 /* UserQAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQAView.swift; sourceTree = "<group>"; };
-		E595D96921DE0343005A6C00 /* UserQACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQACell.swift; sourceTree = "<group>"; };
-		E595D96A21DE0343005A6C00 /* UserQACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserQACell.xib; sourceTree = "<group>"; };
 		E5A2B1D8220EAC20008702F0 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		E5B0238B2291A1BC00D3111D /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
 		E5B0238D2291A23500D3111D /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
 		E5B4EC3821F59EA90065AB80 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E5D23CC821DDD6F9008714F6 /* UserPorfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPorfileViewController.swift; sourceTree = "<group>"; };
 		E5D23CCA21DDD6F9008714F6 /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
-		E5D23CCF21DDD6F9008714F6 /* UserVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVideoView.swift; sourceTree = "<group>"; };
 		E5D749EE21FEE0B300BCE75F /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		E5D749F221FEE8C600BCE75F /* LibsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsManager.swift; sourceTree = "<group>"; };
 		E5D9541621E6D568007FC606 /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
 		E5D9541921E6DB23007FC606 /* EpisodeListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListFlowLayout.swift; sourceTree = "<group>"; };
 		E5D9541C21E72DF3007FC606 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		E5D9542321E74CD3007FC606 /* UGCVideoActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoActivityListViewController.swift; sourceTree = "<group>"; };
-		E5D9542521E74CFE007FC606 /* UGCVideoActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoActivityViewModel.swift; sourceTree = "<group>"; };
-		E5D9542721E74D29007FC606 /* UGCVideoActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoActivityCell.swift; sourceTree = "<group>"; };
-		E5D9542821E74D29007FC606 /* UGCVideoActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UGCVideoActivityCell.xib; sourceTree = "<group>"; };
 		E5E01FD721B4CCE600A4CDF1 /* Candy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Candy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E01FDA21B4CCE600A4CDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E01FE121B4CCE700A4CDF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -444,7 +417,6 @@
 		E5E020CB21B50B4000A4CDF1 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E5E020CE21B50B7300A4CDF1 /* AppDelegate+Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Root.swift"; sourceTree = "<group>"; };
 		E5E020D321B50BEE00A4CDF1 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
-		E5E1930721E82F21002CBAE8 /* UGCVideoActivityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoActivityListModel.swift; sourceTree = "<group>"; };
 		E5E1932821E887F6002CBAE8 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E5E1933021E88C25002CBAE8 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		E5E3240521DC5312002DC676 /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
@@ -474,18 +446,6 @@
 		E5E9F52521D5FEA00043ACED /* UGCVideoCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoCommentViewModel.swift; sourceTree = "<group>"; };
 		E5EC45F221EC8FC2000EEA16 /* DefaultsKeyConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeyConfigs.swift; sourceTree = "<group>"; };
 		E5ED44C921BE319B00451010 /* VideoCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCommentModel.swift; sourceTree = "<group>"; };
-		E5ED9FA021DEF5F10088775F /* QAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAModel.swift; sourceTree = "<group>"; };
-		E5ED9FA221DF01420088775F /* UserQAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQAViewModel.swift; sourceTree = "<group>"; };
-		E5ED9FA421DF25540088775F /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		E5ED9FA521DF25540088775F /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
-		E5ED9FA821DF38B80088775F /* UserVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideoViewModel.swift; sourceTree = "<group>"; };
-		E5ED9FAC21DF40120088775F /* UserVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideoCell.swift; sourceTree = "<group>"; };
-		E5ED9FAD21DF40120088775F /* UserVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserVideoCell.xib; sourceTree = "<group>"; };
-		E5ED9FB521DF515C0088775F /* UserArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticleView.swift; sourceTree = "<group>"; };
-		E5ED9FB921DF51940088775F /* UserArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticleCell.swift; sourceTree = "<group>"; };
-		E5ED9FBA21DF51940088775F /* UserArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserArticleCell.xib; sourceTree = "<group>"; };
-		E5ED9FBD21DF55AF0088775F /* UserArticleMultiImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticleMultiImageCell.swift; sourceTree = "<group>"; };
-		E5ED9FBE21DF55AF0088775F /* UserArticleMultiImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserArticleMultiImageCell.xib; sourceTree = "<group>"; };
 		E5F86F9822042ABE008A0C26 /* UserURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserURL.swift; sourceTree = "<group>"; };
 		E5F86F9A22042BFA008A0C26 /* UGCURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCURL.swift; sourceTree = "<group>"; };
 		E5FA89F021BA1CC80084F3C3 /* UGCVideoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoPageViewController.swift; sourceTree = "<group>"; };
@@ -1334,52 +1294,6 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
-		E595D96221DE029F005A6C00 /* QA */ = {
-			isa = PBXGroup;
-			children = (
-				E595D96321DE02E3005A6C00 /* Controller */,
-				E595D96521DE02E3005A6C00 /* Model */,
-				E595D96421DE02E3005A6C00 /* View */,
-				E595D96621DE02E3005A6C00 /* ViewModel */,
-			);
-			path = QA;
-			sourceTree = "<group>";
-		};
-		E595D96321DE02E3005A6C00 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E595D96721DE02FE005A6C00 /* UserQAView.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E595D96421DE02E3005A6C00 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E595D96921DE0343005A6C00 /* UserQACell.swift */,
-				E595D96A21DE0343005A6C00 /* UserQACell.xib */,
-				E5ED9FA421DF25540088775F /* ImageCell.swift */,
-				E5ED9FA521DF25540088775F /* ImageCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E595D96521DE02E3005A6C00 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FA021DEF5F10088775F /* QAModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E595D96621DE02E3005A6C00 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FA221DF01420088775F /* UserQAViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		E5BEF23B23CEB4AF00F87540 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1301,7 @@
 				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
 				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
 				137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */,
+				130E709E24ED158100F824AD /* UserApi.swift */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -1405,9 +1320,6 @@
 			isa = PBXGroup;
 			children = (
 				E5D23CC521DDD6F9008714F6 /* Page */,
-				E5ED9FB021DF50F80088775F /* Article */,
-				E595D96221DE029F005A6C00 /* QA */,
-				E5D23CCC21DDD6F9008714F6 /* Video */,
 				E5D23CD221DDD6F9008714F6 /* UGC */,
 			);
 			path = Profile;
@@ -1453,41 +1365,6 @@
 			children = (
 				E565356B21DDDD3100091714 /* UserProfileHeaderView.swift */,
 				E565356D21DDDD4A00091714 /* UserProfileHeaderView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E5D23CCC21DDD6F9008714F6 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				E5D23CCD21DDD6F9008714F6 /* ViewModel */,
-				E5D23CCE21DDD6F9008714F6 /* Controller */,
-				E5D23CD121DDD6F9008714F6 /* View */,
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
-		E5D23CCD21DDD6F9008714F6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FA821DF38B80088775F /* UserVideoViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E5D23CCE21DDD6F9008714F6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E5D23CCF21DDD6F9008714F6 /* UserVideoView.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E5D23CD121DDD6F9008714F6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FAC21DF40120088775F /* UserVideoCell.swift */,
-				E5ED9FAD21DF40120088775F /* UserVideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1582,50 +1459,6 @@
 			isa = PBXGroup;
 			children = (
 				E5D9541C21E72DF3007FC606 /* Episode.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E5D9541E21E74C8A007FC606 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				E5D9542021E74CB4007FC606 /* Controller */,
-				E5D9542221E74CB4007FC606 /* Model */,
-				E5D9542121E74CB4007FC606 /* View */,
-				E5D9541F21E74CB4007FC606 /* ViewModel */,
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
-		E5D9541F21E74CB4007FC606 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E5D9542521E74CFE007FC606 /* UGCVideoActivityViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E5D9542021E74CB4007FC606 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E5D9542321E74CD3007FC606 /* UGCVideoActivityListViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E5D9542121E74CB4007FC606 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E5D9542721E74D29007FC606 /* UGCVideoActivityCell.swift */,
-				E5D9542821E74D29007FC606 /* UGCVideoActivityCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E5D9542221E74CB4007FC606 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E5E1930721E82F21002CBAE8 /* UGCVideoActivityListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2086,54 +1919,9 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		E5ED9FB021DF50F80088775F /* Article */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FB321DF51460088775F /* Controller */,
-				E5ED9FB221DF51460088775F /* View */,
-			);
-			path = Article;
-			sourceTree = "<group>";
-		};
-		E5ED9FB221DF51460088775F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FC221DF55C10088775F /* Normal */,
-				E5ED9FC121DF55B30088775F /* MultiImage */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E5ED9FB321DF51460088775F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FB521DF515C0088775F /* UserArticleView.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E5ED9FC121DF55B30088775F /* MultiImage */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FBD21DF55AF0088775F /* UserArticleMultiImageCell.swift */,
-				E5ED9FBE21DF55AF0088775F /* UserArticleMultiImageCell.xib */,
-			);
-			path = MultiImage;
-			sourceTree = "<group>";
-		};
-		E5ED9FC221DF55C10088775F /* Normal */ = {
-			isa = PBXGroup;
-			children = (
-				E5ED9FB921DF51940088775F /* UserArticleCell.swift */,
-				E5ED9FBA21DF51940088775F /* UserArticleCell.xib */,
-			);
-			path = Normal;
-			sourceTree = "<group>";
-		};
 		E5FA89ED21BA1BC40084F3C3 /* UGCVideo */ = {
 			isa = PBXGroup;
 			children = (
-				E5D9541E21E74C8A007FC606 /* Activity */,
 				E5E9B20F21D4CBF500B08281 /* Comment */,
 				E5FAB71F21C0FDB7002BF258 /* Detail */,
 				E5FA89F821BA37300084F3C3 /* List */,
@@ -2528,27 +2316,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D9542A21E74D29007FC606 /* UGCVideoActivityCell.xib in Resources */,
 				E5FAB72721C0FE28002BF258 /* UGCVideoDetailCell.xib in Resources */,
 				E5E01FE521B4CCE700A4CDF1 /* LaunchScreen.storyboard in Resources */,
 				E5FC765F21CCB9B900FB6FFD /* VideoHallIntroCell.xib in Resources */,
 				E5FAB71821C0BB2F002BF258 /* emoji_mapping.plist in Resources */,
 				E5E9B20C21D4B38C00B08281 /* EpisodeViewController.xib in Resources */,
 				E534046721BF5FA2008807DA /* VideoDetailHeader.xib in Resources */,
-				E5ED9FC021DF55AF0088775F /* UserArticleMultiImageCell.xib in Resources */,
 				E5FC765921CCB96D00FB6FFD /* VideoHallTitleCell.xib in Resources */,
 				184910102254950B001D9974 /* UGCVideoCommentHeaderView.xib in Resources */,
 				E565356E21DDDD4A00091714 /* UserProfileHeaderView.xib in Resources */,
 				E5FC766821CCC43900FB6FFD /* RoleCell.xib in Resources */,
-				E5ED9FA721DF25540088775F /* ImageCell.xib in Resources */,
 				E578102321C8E3B9005BFFAC /* VideoHallListCell.xib in Resources */,
 				E595D95F21DDE355005A6C00 /* UserUGCVideoCell.xib in Resources */,
 				E57DD44921E2E7A00089A2D2 /* UserCenterHeaderView.xib in Resources */,
-				E5ED9FBC21DF51940088775F /* UserArticleCell.xib in Resources */,
 				E5FA8A0421BA37C70084F3C3 /* UGCVideoListCell.xib in Resources */,
 				E5FB739421B761740010D8A7 /* VideoListCell.xib in Resources */,
-				E5ED9FAF21DF40120088775F /* UserVideoCell.xib in Resources */,
-				E595D96C21DE0343005A6C00 /* UserQACell.xib in Resources */,
 				E5E5714C21CB708C005C2D6E /* VideoHallEpisodeCell.xib in Resources */,
 				E5E01FE221B4CCE700A4CDF1 /* Assets.xcassets in Resources */,
 				E51ED46D2210866F0075F32C /* Localizable.strings in Resources */,
@@ -2666,7 +2448,6 @@
 				E5E0201E21B4FE4A00A4CDF1 /* TTModel.swift in Sources */,
 				E590063E2202C8F200EE0838 /* VideoDetailSection.swift in Sources */,
 				E565356A21DDDCF700091714 /* UserPorfileViewModel.swift in Sources */,
-				E5ED9FA121DEF5F10088775F /* QAModel.swift in Sources */,
 				E5E3242921DC819E002DC676 /* JXPagerView.m in Sources */,
 				E5D23CD721DDD6F9008714F6 /* UserPorfileViewController.swift in Sources */,
 				E5E020CD21B50B4000A4CDF1 /* TabBarController.swift in Sources */,
@@ -2689,7 +2470,6 @@
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
 				1843B45422940161004F99AC /* VerticalButton.swift in Sources */,
 				E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */,
-				E5ED9FA321DF01420088775F /* UserQAViewModel.swift in Sources */,
 				13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */,
 				E51D60C82455DA810059171C /* VMViewController.swift in Sources */,
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
@@ -2697,10 +2477,8 @@
 				E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */,
 				E5FE0DC021FAF68F00DE1DED /* WebViewController.swift in Sources */,
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
-				E5ED9FA621DF25540088775F /* ImageCell.swift in Sources */,
 				187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */,
 				E5FE0DC221FAFD4A00DE1DED /* CollectionViewCell.swift in Sources */,
-				E5ED9FB621DF515C0088775F /* UserArticleView.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
 				18259E52229BC32F00A90B2C /* mapTo.swift in Sources */,
 				134D706124EA2566002A4F12 /* mapMany.swift in Sources */,
@@ -2742,13 +2520,10 @@
 				E5D749F021FEE0B300BCE75F /* ErrorTracker.swift in Sources */,
 				E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */,
 				E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */,
-				E595D96B21DE0343005A6C00 /* UserQACell.swift in Sources */,
 				E5D9541A21E6DB23007FC606 /* EpisodeListFlowLayout.swift in Sources */,
 				E5E7235323D0415F0042C140 /* YGModel.swift in Sources */,
-				E5D9542921E74D29007FC606 /* UGCVideoActivityCell.swift in Sources */,
 				E5A2B1D9220EAC20008702F0 /* DictionaryExtension.swift in Sources */,
 				E534047021BF638F008807DA /* VideoDetailInfoCell.swift in Sources */,
-				E5ED9FA921DF38B80088775F /* UserVideoViewModel.swift in Sources */,
 				13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */,
 				E51D60C92455DA810059171C /* VMCollectionViewController.swift in Sources */,
 				E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */,
@@ -2771,14 +2546,11 @@
 				18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */,
 				E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */,
 				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
-				E5D9542621E74CFE007FC606 /* UGCVideoActivityViewModel.swift in Sources */,
 				E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
 				E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */,
-				E5ED9FBB21DF51940088775F /* UserArticleCell.swift in Sources */,
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
-				E5D9542421E74CD3007FC606 /* UGCVideoActivityListViewController.swift in Sources */,
 				E51D60D42455E5320059171C /* HUD.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
 				E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */,
@@ -2816,12 +2588,9 @@
 				E578101E21C8DF1D005BFFAC /* VideoHallModel.swift in Sources */,
 				E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */,
 				13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */,
-				E5ED9FBF21DF55AF0088775F /* UserArticleMultiImageCell.swift in Sources */,
-				E5D23CD921DDD6F9008714F6 /* UserVideoView.swift in Sources */,
 				18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */,
 				E5EC45F321EC8FC2000EEA16 /* DefaultsKeyConfigs.swift in Sources */,
 				E5E0208121B5057600A4CDF1 /* Then.swift in Sources */,
-				E5E1930821E82F21002CBAE8 /* UGCVideoActivityListModel.swift in Sources */,
 				E591D81623CEDEB600DA0AF2 /* ErrorExtension.swift in Sources */,
 				E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */,
 				E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */,
@@ -2842,7 +2611,6 @@
 				E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */,
 				E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */,
 				E578101821C8DE70005BFFAC /* FilterView.swift in Sources */,
-				E5ED9FAE21DF40120088775F /* UserVideoCell.swift in Sources */,
 				E535153A23D0436500264064 /* YGRespnseHandle.swift in Sources */,
 				137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */,
 				E59112F221B6557300436D08 /* VideoListViewController.swift in Sources */,
@@ -2860,11 +2628,11 @@
 				E5E0201D21B4FE4A00A4CDF1 /* Label.swift in Sources */,
 				E5FE0DB921FAD69C00DE1DED /* CollectionViewController.swift in Sources */,
 				E5FB739F21B76CC10010D8A7 /* VideoCategory.swift in Sources */,
+				130E709F24ED158100F824AD /* UserApi.swift in Sources */,
 				E578C03323362753006C0CA1 /* KingfisherExtension.swift in Sources */,
 				E5E0203321B4FE7B00A4CDF1 /* AppConfigs.swift in Sources */,
 				E595D95B21DDE2C1005A6C00 /* UserUGCFlowLayou.swift in Sources */,
 				E5FA8A0021BA37820084F3C3 /* UGCVideoListViewModel.swift in Sources */,
-				E595D96821DE02FE005A6C00 /* UserQAView.swift in Sources */,
 				13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */,
 				13031D2624A336780010A440 /* EmptyDataSetable.swift in Sources */,
 				13031D2324A336570010A440 /* ViewController+Rx.swift in Sources */,

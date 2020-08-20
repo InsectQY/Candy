@@ -11,9 +11,6 @@ import Foundation
 final class UserUGCViewModel: RefreshViewModel {
 
     struct Input {
-
-        /// 请求类别
-        let category: String
         /// 需要访问人的 ID
         let visitedID: String
     }
@@ -33,18 +30,16 @@ extension UserUGCViewModel: ViewModelable {
 
         let output = Output(items: elements.asDriver())
 
-        let new = request(category: input.category,
-                          visitedID: input.visitedID,
-                          offset: 0)
+        let new = request(visitedID: input.visitedID,
+                          offset: "0")
 
         // 上拉加载更多
         let loadMore = refreshOutput
         .footerRefreshing
         .withLatestFrom(offset.asDriver()) { $1 }
         .flatMapLatest { [unowned self] in
-            self.request(category: input.category,
-                         visitedID: input.visitedID,
-                         offset: $0)
+            self.request(visitedID: input.visitedID,
+                         offset: "\($0)")
         }
 
         // 获取数据时绑定最新的 offset
@@ -88,14 +83,11 @@ extension UserUGCViewModel: ViewModelable {
 
 extension UserUGCViewModel {
 
-    func request(category: String,
-                 visitedID: String,
-                 offset: Int) -> Driver<TTModel<[UGCVideoListModel]>> {
+    func request(visitedID: String,
+                 offset: String) -> Driver<TTModel<[UGCVideoListModel]>> {
 
-        VideoApi
-        .profileType(category: category,
-                     visitedID: visitedID,
-                     offset: offset)
+        UserApi
+        .video(id: visitedID, cursor: offset)
         .request()
         .mapObject(TTModel<[UGCVideoListModel]>.self)
         .trackActivity(loading)

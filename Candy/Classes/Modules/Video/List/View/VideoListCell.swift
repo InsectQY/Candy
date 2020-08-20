@@ -22,12 +22,7 @@ class VideoListCell: TableViewCell {
     @IBOutlet private weak var timeLabel: Label!
     @IBOutlet private(set) weak var videoBtn: Button!
 
-    @IBAction private func avatarBtnDidClick(_ sender: UIButton) {
-
-        return
-        let vc = UserPorfileViewController(userID: item?.user_info.user_id ?? "")
-        parentVC?.navigationController?.pushViewController(vc, animated: true)
-    }
+    @IBAction private func avatarBtnDidClick(_ sender: UIButton) {}
 
     public var item: NewsModel? {
 

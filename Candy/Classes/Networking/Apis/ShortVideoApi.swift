@@ -9,8 +9,6 @@
 
 import Moya
 
-import Foundation
-
 enum ShortVideoApi {
 
     /// 视频列表

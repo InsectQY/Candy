@@ -1,6 +1,6 @@
 # Candy
 
-![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg) [![中文文档](https://woolson.gitee.io/npmer-badge/-007ec6-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-007ec6-github-ffffff-square-gradient-shadow.svg)](https://github.com/InsectQY/Candy/blob/master/README.zh-cn.md)
+![Swift](https://img.shields.io/badge/Swift-5.2-orange.svg) [![中文文档](https://woolson.gitee.io/npmer-badge/-007ec6-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-007ec6-github-ffffff-square-gradient-shadow.svg)](https://github.com/InsectQY/Candy/blob/master/README.zh-cn.md)
 
 [中文文档](https://github.com/InsectQY/Candy/blob/master/README.zh-cn.md)
 

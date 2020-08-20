@@ -15,7 +15,6 @@ final class UserPorfileViewModel: ViewModel {
     }
 
     struct Output {
-
         let userProfile: Driver<UserProfileModel>
     }
 }
@@ -24,10 +23,10 @@ extension UserPorfileViewModel: ViewModelable {
 
     func transform(input: UserPorfileViewModel.Input) -> UserPorfileViewModel.Output {
 
-        let userProfile = VideoApi
-        .userProfile(input.userID)
+        let userProfile = UserApi
+        .profile(input.userID)
         .request()
-        .mapTTModelData(UserProfileModel.self)
+        .mapKKModelData(UserProfileModel.self)
         .asObservable()
         .asDriverOnErrorJustComplete()
 

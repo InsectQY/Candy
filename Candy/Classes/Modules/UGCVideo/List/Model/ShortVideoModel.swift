@@ -29,7 +29,7 @@ public struct ShortVideoItem: Codable {
     /// 视频信息
     let videoInfo: ShortVideoInfo
     /// 作者信息
-    let authorInfo: ShortVideoAuthor
+    let authorInfo: ShortVideoUser
 
     var viewCountString: String {
         viewCnt.countString
@@ -67,19 +67,4 @@ public struct ShortVideoImage: Codable {
     let height: Int
     /// 视频播放地址
     let urls: [ShortVideoUrl]
-}
-
-public struct ShortVideoAuthor: Codable {
-    /// ID
-    let id: String
-    /// 昵称
-    let nickname: String
-    /// 头像
-    let headUrls: [ShortVideoUrl]
-    /// 性别
-    let gender: String
-    /// 生日
-    let birthday: String
-    /// 介绍
-    let introduction: String
 }

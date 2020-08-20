@@ -13,8 +13,6 @@ class UserUGCVideoView: View {
 
     public var scrollCallback: ((UIScrollView?) -> Void)?
 
-    /// 分类
-    private var category: String = ""
     /// 访问用户的 ID
     private var visitedID: String = ""
 
@@ -45,8 +43,7 @@ class UserUGCVideoView: View {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UserUGCViewModel.Input(category: category,
-                                           visitedID: visitedID)
+        let input = UserUGCViewModel.Input(visitedID: visitedID)
         let output = viewModel.transform(input: input)
 
         output.items
@@ -63,9 +60,8 @@ class UserUGCVideoView: View {
         .disposed(by: rx.disposeBag)
     }
 
-    convenience init(category: String, visitedID: String) {
+    convenience init(visitedID: String) {
         self.init()
-        self.category = category
         self.visitedID = visitedID
     }
 
