@@ -48,20 +48,3 @@ struct Configs {
                                                 type: NewsModel.self)
     }
 }
-
-enum Keys {
-
-    case weChat
-
-    var appID: String {
-        switch self {
-        case .weChat: return ""
-        }
-    }
-
-    var appKey: String {
-        switch self {
-        case .weChat: return ""
-        }
-    }
-}

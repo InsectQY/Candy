@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MonkeyKing
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,10 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LibsManager.shared.setupLibs(with: window)
         initRootViewController()
         return true
-    }
-
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        MonkeyKing.handleOpenURL(url)
     }
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

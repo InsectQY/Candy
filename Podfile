@@ -47,8 +47,6 @@ pod 'NVActivityIndicatorView/Extended' # https://github.com/ninjaprox/NVActivity
 # Transitions
 pod 'Hero' # https://github.com/HeroTransitions/Hero
 pod 'Jelly' # https://github.com/SebastianBoldt/Jelly
-# Share
-pod 'MonkeyKing' # https://github.com/nixzhu/MonkeyKing
 # UserDefaults
 pod 'DefaultsKit' # https://github.com/nmdias/DefaultsKit
 # Code

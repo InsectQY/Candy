@@ -9,9 +9,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.6)
-  - Kingfisher (5.14.1):
-    - Kingfisher/Core (= 5.14.1)
-  - Kingfisher/Core (5.14.1)
+  - Kingfisher (5.15.0):
+    - Kingfisher/Core (= 5.15.0)
+  - Kingfisher/Core (5.15.0)
   - KingfisherWebP (1.0.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -24,8 +24,7 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - MJRefresh (3.4.3)
-  - MonkeyKing (1.16.0)
+  - MJRefresh (3.5.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -33,8 +32,8 @@ PODS:
     - RxSwift (~> 5.0)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
-  - NVActivityIndicatorView/Base (5.0.0)
-  - NVActivityIndicatorView/Extended (5.0.0):
+  - NVActivityIndicatorView/Base (5.0.1)
+  - NVActivityIndicatorView/Extended (5.0.1):
     - NVActivityIndicatorView/Base
   - PYSearch (0.9.1)
   - R.swift (5.2.2):
@@ -99,7 +98,6 @@ DEPENDENCIES:
   - Kingfisher
   - KingfisherWebP
   - MJRefresh
-  - MonkeyKing
   - "NSObject+Rx"
   - NVActivityIndicatorView/Extended
   - PYSearch
@@ -135,7 +133,6 @@ SPEC REPOS:
     - KingfisherWebP
     - libwebp
     - MJRefresh
-    - MonkeyKing
     - Moya
     - "NSObject+Rx"
     - NVActivityIndicatorView
@@ -180,14 +177,13 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
-  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
-  MonkeyKing: dc5076dc206bf9e6eb427d618317eff1b44b0666
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
-  NVActivityIndicatorView: f109ed069924ac1b4adbc1ae9cfaeac0be1d6c2c
+  NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
@@ -210,6 +206,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 8b059c526c9765f5c1b50ba05f4ab188567b01b0
+PODFILE CHECKSUM: df57fec87f63a646732ef3c50e9ada0435d60a13
 
 COCOAPODS: 1.9.3

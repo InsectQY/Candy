@@ -11,7 +11,6 @@ import NVActivityIndicatorView
 import IQKeyboardManagerSwift
 import Kingfisher
 import RxNetwork
-import MonkeyKing
 import Moya
 import Toast_Swift
 
@@ -24,7 +23,6 @@ class LibsManager: NSObject {
         let libsManager = LibsManager.shared
         libsManager.setupKeyboardManager()
         libsManager.setupActivityView()
-        libsManager.setupMonkeyKing()
         libsManager.setupNetwork()
         libsManager.setupRouter()
         libsManager.setupToast()
@@ -59,13 +57,6 @@ class LibsManager: NSObject {
 
         Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
         Network.Configuration.default.plugins = [CustomResponsePlugin()]
-    }
-
-    // MARK: - MonkeyKing
-    func setupMonkeyKing() {
-        MonkeyKing.registerAccount(.weChat(appID: Keys.weChat.appID,
-                                           appKey: Keys.weChat.appKey,
-                                           miniAppID: nil))
     }
 
     func setupRouter() {

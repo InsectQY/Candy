@@ -9,8 +9,6 @@
 import Foundation
 
 enum UserURL {
-    /// 免责声明
-    case statement
     /// 分享
     case share
 }
@@ -20,20 +18,12 @@ extension UserURL {
     var path: String {
 
         switch self {
-
-        case .statement:
-            return "navigator://UserURL/statement"
         case .share:
             return "navigator://userURL/share"
         }
     }
 
     static func initRouter() {
-
-        navigator.register(UserURL.statement.path) { url, values, context in
-            let vc = UserStatementViewController()
-            return vc
-        }
 
 //        navigator.register(UserURL.share.path) { (_, _, _) in
 //

@@ -15,6 +15,7 @@
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
 		130E709F24ED158100F824AD /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E709E24ED158100F824AD /* UserApi.swift */; };
+		13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13114CB824EF9260008FFA4D /* UserInfoModel.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
@@ -102,17 +103,7 @@
 		E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03623362E30006C0CA1 /* Toast+UIView.swift */; };
 		E578C03B23362E3C006C0CA1 /* KfWebPOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03A23362E3C006C0CA1 /* KfWebPOptions.swift */; };
 		E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578C03E23363683006C0CA1 /* JellyManager.swift */; };
-		E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44321E2E7100089A2D2 /* UserCenterViewController.swift */; };
-		E57DD44721E2E7960089A2D2 /* UserCenterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44621E2E7960089A2D2 /* UserCenterHeaderView.swift */; };
-		E57DD44921E2E7A00089A2D2 /* UserCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57DD44821E2E7A00089A2D2 /* UserCenterHeaderView.xib */; };
-		E57DD44D21E2EB170089A2D2 /* UserCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44B21E2EB170089A2D2 /* UserCenterCell.swift */; };
-		E57DD44E21E2EB170089A2D2 /* UserCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57DD44C21E2EB170089A2D2 /* UserCenterCell.xib */; };
-		E57DD45021E2EC2D0089A2D2 /* UserCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD44F21E2EC2C0089A2D2 /* UserCenterModel.swift */; };
 		E57DD45221E2F0D20089A2D2 /* user_center.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57DD45121E2F0D20089A2D2 /* user_center.plist */; };
-		E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45321E2F2C80089A2D2 /* UserCenterViewModel.swift */; };
-		E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45A21E319B30089A2D2 /* UserStatementViewController.swift */; };
-		E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45C21E335210089A2D2 /* WeChatApi.swift */; };
-		E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD45E21E33D100089A2D2 /* UserInfoModel.swift */; };
 		E5859AC123CEF00600ADCED8 /* ResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC023CEF00600ADCED8 /* ResponseHandle.swift */; };
 		E5859AC523CF042500ADCED8 /* TTResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */; };
 		E5859AC923CF064600ADCED8 /* TTResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */; };
@@ -258,6 +249,7 @@
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
 		130E709E24ED158100F824AD /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		13114CB824EF9260008FFA4D /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
@@ -354,17 +346,7 @@
 		E578C03623362E30006C0CA1 /* Toast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Toast+UIView.swift"; sourceTree = "<group>"; };
 		E578C03A23362E3C006C0CA1 /* KfWebPOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KfWebPOptions.swift; sourceTree = "<group>"; };
 		E578C03E23363683006C0CA1 /* JellyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyManager.swift; sourceTree = "<group>"; };
-		E57DD44321E2E7100089A2D2 /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
-		E57DD44621E2E7960089A2D2 /* UserCenterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterHeaderView.swift; sourceTree = "<group>"; };
-		E57DD44821E2E7A00089A2D2 /* UserCenterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterHeaderView.xib; sourceTree = "<group>"; };
-		E57DD44B21E2EB170089A2D2 /* UserCenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterCell.swift; sourceTree = "<group>"; };
-		E57DD44C21E2EB170089A2D2 /* UserCenterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCenterCell.xib; sourceTree = "<group>"; };
-		E57DD44F21E2EC2C0089A2D2 /* UserCenterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterModel.swift; sourceTree = "<group>"; };
 		E57DD45121E2F0D20089A2D2 /* user_center.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = user_center.plist; sourceTree = "<group>"; };
-		E57DD45321E2F2C80089A2D2 /* UserCenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewModel.swift; sourceTree = "<group>"; };
-		E57DD45A21E319B30089A2D2 /* UserStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatementViewController.swift; sourceTree = "<group>"; };
-		E57DD45C21E335210089A2D2 /* WeChatApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatApi.swift; sourceTree = "<group>"; };
-		E57DD45E21E33D100089A2D2 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		E5859AC023CEF00600ADCED8 /* ResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandle.swift; sourceTree = "<group>"; };
 		E5859AC423CF042500ADCED8 /* TTResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTResponseHandle.swift; sourceTree = "<group>"; };
 		E5859AC823CF064600ADCED8 /* TTResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTResponseCodable.swift; sourceTree = "<group>"; };
@@ -1068,85 +1050,6 @@
 			path = Jelly;
 			sourceTree = "<group>";
 		};
-		E57DD43E21E2E67B0089A2D2 /* Center */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44021E2E6B90089A2D2 /* Controller */,
-				E57DD44221E2E6B90089A2D2 /* Model */,
-				E57DD44121E2E6B90089A2D2 /* View */,
-				E57DD43F21E2E6B90089A2D2 /* ViewModel */,
-			);
-			path = Center;
-			sourceTree = "<group>";
-		};
-		E57DD43F21E2E6B90089A2D2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD45321E2F2C80089A2D2 /* UserCenterViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E57DD44021E2E6B90089A2D2 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44321E2E7100089A2D2 /* UserCenterViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E57DD44121E2E6B90089A2D2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44A21E2EB000089A2D2 /* Cell */,
-				E57DD44521E2E76E0089A2D2 /* Header */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E57DD44221E2E6B90089A2D2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44F21E2EC2C0089A2D2 /* UserCenterModel.swift */,
-				E57DD45E21E33D100089A2D2 /* UserInfoModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E57DD44521E2E76E0089A2D2 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44621E2E7960089A2D2 /* UserCenterHeaderView.swift */,
-				E57DD44821E2E7A00089A2D2 /* UserCenterHeaderView.xib */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		E57DD44A21E2EB000089A2D2 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD44B21E2EB170089A2D2 /* UserCenterCell.swift */,
-				E57DD44C21E2EB170089A2D2 /* UserCenterCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		E57DD45521E319780089A2D2 /* Statement */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD45721E319990089A2D2 /* Controller */,
-			);
-			path = Statement;
-			sourceTree = "<group>";
-		};
-		E57DD45721E319990089A2D2 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E57DD45A21E319B30089A2D2 /* UserStatementViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		E5859AC223CF005000ADCED8 /* HandleProtocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -1299,7 +1202,6 @@
 			children = (
 				E5FB739821B767FD0010D8A7 /* VideoApi.swift */,
 				E578100021C890F8005BFFAC /* VideoHallApi.swift */,
-				E57DD45C21E335210089A2D2 /* WeChatApi.swift */,
 				137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */,
 				130E709E24ED158100F824AD /* UserApi.swift */,
 			);
@@ -1309,8 +1211,6 @@
 		E5D23CC321DDD6F9008714F6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				E57DD45521E319780089A2D2 /* Statement */,
-				E57DD43E21E2E67B0089A2D2 /* Center */,
 				E5D23CC421DDD6F9008714F6 /* Profile */,
 			);
 			path = User;
@@ -1355,6 +1255,7 @@
 		E5D23CC921DDD6F9008714F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13114CB824EF9260008FFA4D /* UserInfoModel.swift */,
 				E5D23CCA21DDD6F9008714F6 /* UserProfileModel.swift */,
 			);
 			path = Model;
@@ -2328,7 +2229,6 @@
 				E5FC766821CCC43900FB6FFD /* RoleCell.xib in Resources */,
 				E578102321C8E3B9005BFFAC /* VideoHallListCell.xib in Resources */,
 				E595D95F21DDE355005A6C00 /* UserUGCVideoCell.xib in Resources */,
-				E57DD44921E2E7A00089A2D2 /* UserCenterHeaderView.xib in Resources */,
 				E5FA8A0421BA37C70084F3C3 /* UGCVideoListCell.xib in Resources */,
 				E5FB739421B761740010D8A7 /* VideoListCell.xib in Resources */,
 				E5E5714C21CB708C005C2D6E /* VideoHallEpisodeCell.xib in Resources */,
@@ -2339,7 +2239,6 @@
 				E534047A21BF7FBD008807DA /* CommentCell.xib in Resources */,
 				E5FAB71621C0B9AF002BF258 /* emoji_sort.plist in Resources */,
 				E51E4DE321E59DD700E06AD7 /* VideoHallSearchResultCell.xib in Resources */,
-				E57DD44E21E2EB170089A2D2 /* UserCenterCell.xib in Resources */,
 				E5FC765421CC8B0000FB6FFD /* EpisodeCell.xib in Resources */,
 				E5E020D421B50BEE00A4CDF1 /* MainVCSettings.json in Resources */,
 				E534047121BF638F008807DA /* VideoDetailInfoCell.xib in Resources */,
@@ -2473,7 +2372,6 @@
 				13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */,
 				E51D60C82455DA810059171C /* VMViewController.swift in Sources */,
 				E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */,
-				E57DD45F21E33D100089A2D2 /* UserInfoModel.swift in Sources */,
 				E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */,
 				E5FE0DC021FAF68F00DE1DED /* WebViewController.swift in Sources */,
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
@@ -2509,7 +2407,6 @@
 				E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */,
 				E59006422202E33600EE0838 /* NavigationMap.swift in Sources */,
 				E51D60D92455E5E90059171C /* ColorConfigs.swift in Sources */,
-				E57DD44D21E2EB170089A2D2 /* UserCenterCell.swift in Sources */,
 				E5E5713021CB2853005C2D6E /* VideoHallDetailViewController.swift in Sources */,
 				E520A49021D76F2700CDDB04 /* UGCVideoTitleView.swift in Sources */,
 				E5859AC523CF042500ADCED8 /* TTResponseHandle.swift in Sources */,
@@ -2541,10 +2438,10 @@
 				E595D95821DDE208005A6C00 /* UserUGCVideoView.swift in Sources */,
 				E5FB73A121B771CF0010D8A7 /* NewsListModel.swift in Sources */,
 				E5FB739921B767FD0010D8A7 /* VideoApi.swift in Sources */,
+				13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */,
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,
 				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */,
-				E57DD45B21E319B30089A2D2 /* UserStatementViewController.swift in Sources */,
 				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
 				E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
@@ -2553,7 +2450,6 @@
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
 				E51D60D42455E5320059171C /* HUD.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
-				E57DD45D21E335210089A2D2 /* WeChatApi.swift in Sources */,
 				1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */,
 				E5FE0DCA21FB058000DE1DED /* TextField.swift in Sources */,
 				E5E5713C21CB670B005C2D6E /* VideoHallHeaderView.swift in Sources */,
@@ -2580,7 +2476,6 @@
 				E5FE0DC621FAFE8700DE1DED /* ImageView.swift in Sources */,
 				E5FAB72A21C1012E002BF258 /* UGCVideoDetailFlowLayout.swift in Sources */,
 				E5FB73A321B772FC0010D8A7 /* VideoListViewModel.swift in Sources */,
-				E57DD44721E2E7960089A2D2 /* UserCenterHeaderView.swift in Sources */,
 				E59006452202E35500EE0838 /* VideoURL.swift in Sources */,
 				E578101721C8DE70005BFFAC /* FilterCell.swift in Sources */,
 				18EE6F2F229CE6AC007AF055 /* UGCVideoControlView.swift in Sources */,
@@ -2597,7 +2492,6 @@
 				137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */,
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
-				E57DD45021E2EC2D0089A2D2 /* UserCenterModel.swift in Sources */,
 				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
@@ -2608,8 +2502,6 @@
 				1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */,
 				E5FC765321CC8B0000FB6FFD /* EpisodeCell.swift in Sources */,
 				18259E54229BC4FD00A90B2C /* not.swift in Sources */,
-				E57DD44421E2E7100089A2D2 /* UserCenterViewController.swift in Sources */,
-				E57DD45421E2F2C80089A2D2 /* UserCenterViewModel.swift in Sources */,
 				E578101821C8DE70005BFFAC /* FilterView.swift in Sources */,
 				E535153A23D0436500264064 /* YGRespnseHandle.swift in Sources */,
 				137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */,
