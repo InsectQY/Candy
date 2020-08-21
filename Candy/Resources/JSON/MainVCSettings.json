@@ -16,11 +16,5 @@
      "title": "小视频",
      "normalImg": "xiaoshipin-hui",
      "selImg": "xiaoshipin-hong"
- },
- {
-     "vcName": "UserCenterViewController",
-     "title": "我的",
-     "normalImg": "wode-hui",
-     "selImg": "wode-hong"
  }
  ]
