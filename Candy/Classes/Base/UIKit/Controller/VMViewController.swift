@@ -22,15 +22,6 @@ class VMViewController<VM: ViewModel>: ViewController {
             return VM()
         }
         let viewModel = classType.init()
-        viewModel
-        .loading
-        .drive(rx.isLoading)
-        .disposed(by: rx.disposeBag)
-
-        viewModel
-        .error
-        .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
         return viewModel
     }()
 
@@ -48,7 +39,17 @@ class VMViewController<VM: ViewModel>: ViewController {
         bindViewModel()
     }
 
+    /// 子类调用 super.bindViewModel 会自动创建 viewModel 对象。
+    /// 如果不需要自动创建 viewModel，不调用 super 即可。
     func bindViewModel() {
+        viewModel
+        .loading
+        .drive(rx.isLoading)
+        .disposed(by: rx.disposeBag)
 
+        viewModel
+        .error
+        .drive(rx.showError)
+        .disposed(by: rx.disposeBag)
     }
 }

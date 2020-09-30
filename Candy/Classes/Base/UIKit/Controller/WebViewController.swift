@@ -19,7 +19,6 @@ class WebViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadURL("www.google.com")
     }
 
     override func makeUI() {

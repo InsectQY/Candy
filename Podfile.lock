@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.2.2)
-  - CleanJSON (1.0.4)
+  - CleanJSON (1.0.6)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
@@ -8,10 +8,10 @@ PODS:
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.6)
-  - Kingfisher (5.15.0):
-    - Kingfisher/Core (= 5.15.0)
-  - Kingfisher/Core (5.15.0)
+  - JXCategoryView (1.5.7)
+  - Kingfisher (5.15.5):
+    - Kingfisher/Core (= 5.15.5)
+  - Kingfisher/Core (5.15.5)
   - KingfisherWebP (1.0.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
@@ -75,7 +75,7 @@ PODS:
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.40.0)
+  - SwiftLint (0.40.3)
   - Toast-Swift (5.0.1)
   - UIFontComplete (5.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -168,7 +168,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  CleanJSON: 17f4248ca3d12b8438b31c5cf1dd02cea46c591f
+  CleanJSON: fd25726a3f337077a93a006e55c85329662090e2
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
@@ -176,8 +176,8 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
-  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  JXCategoryView: fca2146e87eeaf014c71041337cb07bd4de5830b
+  Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
@@ -199,13 +199,13 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 4154893c73a4c52d6240195507eb7a3e3c64087e
+  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 843cb7b58fd6503b3918447918ea6daaeaceccff
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: df57fec87f63a646732ef3c50e9ada0435d60a13
+PODFILE CHECKSUM: 4b758d40e64fe701b103579d95ab9892cb2c44d6
 
 COCOAPODS: 1.9.3
