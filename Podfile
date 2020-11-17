@@ -27,12 +27,12 @@ pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
 # RxSwift
 pod 'RxNetwork' # https://github.com/Pircate/RxNetwork
 pod 'RxNetwork/Cacheable' # https://github.com/Pircate/RxNetwork
+pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
 pod 'RxOptional' # https://github.com/RxSwiftCommunity/RxOptional
 pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
-pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
 pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
 
 # UIImage Download
