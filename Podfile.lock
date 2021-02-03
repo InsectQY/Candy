@@ -1,18 +1,19 @@
 PODS:
-  - Alamofire (5.4.0)
-  - CleanJSON (1.0.7)
+  - Alamofire (5.4.1)
+  - CleanJSON (1.0.8)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.5.0)
+  - IJKMediaFramework (0.1.5)
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.8)
-  - Kingfisher (5.15.7):
-    - Kingfisher/Core (= 5.15.7)
-  - Kingfisher/Core (5.15.7)
-  - KingfisherWebP (1.0.0):
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
+  - KingfisherWebP (1.1.0):
     - Kingfisher (~> 5.8)
     - libwebp (>= 0.5.0)
   - libwebp (1.1.0):
@@ -36,7 +37,7 @@ PODS:
   - NVActivityIndicatorView/Extended (5.1.1):
     - NVActivityIndicatorView/Base
   - PYSearch (0.9.1)
-  - R.swift (5.3.0):
+  - R.swift (5.3.1):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - ReachabilitySwift (4.3.1)
@@ -75,16 +76,19 @@ PODS:
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.41.0)
+  - SwiftLint (0.42.0)
   - Toast-Swift (5.0.1)
   - UIFontComplete (5.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
-  - ZFPlayer/AVPlayer (4.0.1):
-    - ZFPlayer/Core
+  - ZFPlayer (4.0.1):
+    - ZFPlayer/Core (= 4.0.1)
   - ZFPlayer/ControlView (4.0.1):
     - ZFPlayer/Core
   - ZFPlayer/Core (4.0.1)
+  - ZFPlayer/ijkplayer (4.0.1):
+    - IJKMediaFramework
+    - ZFPlayer/Core
 
 DEPENDENCIES:
   - CleanJSON
@@ -114,8 +118,9 @@ DEPENDENCIES:
   - Toast-Swift
   - UIFontComplete
   - "UITableView+FDTemplateLayoutCell"
-  - ZFPlayer/AVPlayer
+  - ZFPlayer
   - ZFPlayer/ControlView
+  - ZFPlayer/ijkplayer
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -126,6 +131,7 @@ SPEC REPOS:
     - EmptyDataSet-Swift
     - FDFullscreenPopGesture
     - Hero
+    - IJKMediaFramework
     - IQKeyboardManagerSwift
     - Jelly
     - JXCategoryView
@@ -167,25 +173,26 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  CleanJSON: a6ca52c0f20645e67f6748e9d2630ea36af2643d
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  CleanJSON: 7cc2fbb8f3face17e80a25a2266199ad31002bfc
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
-  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
-  KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  KingfisherWebP: 0768e0c00bf9746de9ee5b22a795e9504345f258
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  R.swift: 4170fb7161c67be3bc1a847040b79367d69c419f
+  R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
@@ -199,13 +206,13 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 843cb7b58fd6503b3918447918ea6daaeaceccff
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: cd0dc9f1c6cb3df56612cc717e245a625c27359d
+PODFILE CHECKSUM: 73f41fbb558cf3dc2e17c7824d1f33937d2a1542
 
 COCOAPODS: 1.9.3

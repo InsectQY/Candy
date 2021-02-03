@@ -20,8 +20,9 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
     private lazy var controlView = ZFPlayerControlView()
     private lazy var player: ZFPlayerController = {
 
-        let playerManager = ZFAVPlayerManager()
-        let player = ZFPlayerController(scrollView: tableView, playerManager: playerManager, containerViewTag: 100)
+        let player = ZFPlayerController(scrollView: tableView,
+                                        playerManager: ZFIJKPlayerManager(),
+                                        containerViewTag: 100)
         player.controlView = controlView
         player.shouldAutoPlay = false
         player.playerDisapperaPercent = 1.0

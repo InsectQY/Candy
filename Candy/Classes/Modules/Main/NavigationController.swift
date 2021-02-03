@@ -46,6 +46,10 @@ class NavigationController: UINavigationController {
 
         super.pushViewController(viewController, animated: animated)
     }
+
+    deinit {
+        print("\(type(of: self)): Deinited")
+    }
 }
 
 // MARK: - 返回点击事件

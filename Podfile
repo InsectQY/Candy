@@ -15,7 +15,8 @@ pod 'UITableView+FDTemplateLayoutCell' # https://github.com/forkingdog/UITableVi
 # page
 pod 'JXCategoryView' # https://github.com/pujiaxin33/JXCategoryView
 # Video Player
-pod 'ZFPlayer/AVPlayer' # https://github.com/renzifeng/ZFPlayer
+pod 'ZFPlayer'
+pod 'ZFPlayer/ijkplayer' # https://github.com/renzifeng/ZFPlayer
 pod 'ZFPlayer/ControlView'
 # Search
 pod 'PYSearch' # https://github.com/ko1o/PYSearch

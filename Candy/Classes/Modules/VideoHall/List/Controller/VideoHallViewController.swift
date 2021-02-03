@@ -120,11 +120,10 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     func filterTap() {
 
         animateFilterView.isHidden = false
-        UIView.animate(withDuration: 0.35, animations: {
-
-            self.topView.alpha = 0
-            self.animateFilterView.y = self.topH
-        })
+        UIView.animate(withDuration: 0.35) { [self] in
+            topView.alpha = 0
+            animateFilterView.y = self.topH
+        }
     }
 
     func setFilterViewHeight(_ height: CGFloat) {

@@ -16,7 +16,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
     private lazy var controlView = UGCVideoControlView(frame: UIScreen.main.bounds)
     private lazy var player: ZFPlayerController = {
 
-        let playerManager = ZFAVPlayerManager()
+        let playerManager = ZFIJKPlayerManager()
         playerManager.scalingMode = .aspectFill
         let player = ZFPlayerController(scrollView: collectionView,
                                         playerManager: playerManager,

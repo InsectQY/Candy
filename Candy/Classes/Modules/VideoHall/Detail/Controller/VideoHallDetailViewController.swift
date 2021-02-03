@@ -29,8 +29,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     private lazy var player: ZFPlayerController = {
 
-        let playerManager = ZFAVPlayerManager()
-        let player = ZFPlayerController(playerManager: playerManager,
+        let player = ZFPlayerController(playerManager: ZFIJKPlayerManager(),
                                         containerView: videoView)
         player.controlView = controlView
         player.orientationWillChange = { _, isFullScreen in
