@@ -75,4 +75,4 @@ extension VideoHallApi: TargetType {
     }
 }
 
-//extension VideoHallApi: YGRespnseHandle {}
+//  extension VideoHallApi: YGRespnseHandle {}

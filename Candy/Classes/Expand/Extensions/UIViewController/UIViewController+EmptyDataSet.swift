@@ -18,7 +18,7 @@ extension ViewController: EmptyDataSetSource {
 
         var title = ""
         switch ReachabilityManager.shared.reachabilityConnection.value {
-        case .none:
+        case .unavailable, .none:
             title = noConnectionTitle
         case .cellular, .wifi:
             title = emptyDataSetTitle
@@ -30,7 +30,7 @@ extension ViewController: EmptyDataSetSource {
 
         var description = ""
         switch ReachabilityManager.shared.reachabilityConnection.value {
-        case .none:
+        case .unavailable, .none:
             description = noConnectionDescription
         case .cellular, .wifi:
             description = emptyDataSetDescription
@@ -41,7 +41,7 @@ extension ViewController: EmptyDataSetSource {
     public func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
 
         switch ReachabilityManager.shared.reachabilityConnection.value {
-        case .none:
+        case .unavailable, .none:
             return noConnectionImage
         case .cellular, .wifi:
             return emptyDataSetImage
@@ -71,7 +71,7 @@ extension ViewController: EmptyDataSetDelegate {
     public func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
 
         switch ReachabilityManager.shared.reachabilityConnection.value {
-        case .none:
+        case .none, .unavailable:
             return isNoConnectionShouldAllowScroll
         case .cellular, .wifi:
             return isEmptyDataSetShouldAllowScroll

@@ -14,7 +14,7 @@ Video iOS client written in RxSwift and MVVM
 
 ## Download Release
 
-1. [Download](https://github.com/InsectQY/Candy/releases/download/0.1.0/Candy.zip)
+1. [Download](https://github.com/InsectQY/Candy/releases/download/v0.1.0/Candy.zip)
 2. Open "Candy.xcworkspace"
 3. Run
 

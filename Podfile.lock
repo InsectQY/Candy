@@ -5,7 +5,7 @@ PODS:
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
-  - Hero (1.5.0)
+  - Hero (1.6.0)
   - IJKMediaFramework (0.1.5)
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
@@ -40,7 +40,7 @@ PODS:
   - R.swift (5.3.1):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
-  - ReachabilitySwift (4.3.1)
+  - ReachabilitySwift (5.0.0)
   - RxActivityIndicator (1.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
@@ -64,8 +64,8 @@ PODS:
   - RxOptional (4.1.0):
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
-  - RxReachability (1.0.0):
-    - ReachabilitySwift (~> 4.3.1)
+  - RxReachability (1.1.0):
+    - ReachabilitySwift (~> 5.0)
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
@@ -179,7 +179,7 @@ SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  Hero: 052b9b9bab68fc4e30cc04e5936eaf0de97b59d3
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
@@ -194,14 +194,14 @@ SPEC CHECKSUMS:
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
-  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
   RxNetwork: b14e08b1ed874a0379496065be43ef0ee1ac0adb
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
-  RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
+  RxReachability: 3da1c23ba6d93dabc004290cda61dd9e7884422d
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475

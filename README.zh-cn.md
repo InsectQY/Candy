@@ -12,7 +12,7 @@
 
 ## 下载安装好依赖的版本
 
-1. [点击下载](https://github.com/InsectQY/Candy/releases/download/0.1.0/Candy.zip)
+1. [点击下载](https://github.com/InsectQY/Candy/releases/download/v0.1.0/Candy.zip)
 2. 打开 "Candy.xcworkspace"
 3. 运行程序
 
