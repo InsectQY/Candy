@@ -11,6 +11,7 @@ import UIKit
 class EpisodeListViewController: VMCollectionViewController<RefreshViewModel> {
 
     fileprivate var item: EpisodePage?
+    fileprivate var selIndex: Int = -1
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -18,8 +19,9 @@ class EpisodeListViewController: VMCollectionViewController<RefreshViewModel> {
     }
 
     // MARK: - init
-    init(page: EpisodePage) {
+    init(page: EpisodePage, selIndex: Int) {
         item = page
+        self.selIndex = selIndex
         super.init(collectionViewLayout: EpisodeListFlowLayout())
     }
 
@@ -67,7 +69,7 @@ extension EpisodeListViewController: UICollectionViewDataSource {
                                                       for: indexPath,
                                                       cellType: EpisodeCell.self)
         cell.item = "\(item!.start + indexPath.item + 1)"
-        cell.isSel = indexPath.item == item!.selIndex - item!.start
+        cell.isSel = indexPath.item == selIndex - item!.start
         return cell
     }
 }
@@ -91,7 +93,7 @@ extension Reactive where Base: EpisodeListViewController {
 
             guard let item = vc.item else { return }
             // 点击的是其他页面(当前页面全部取消选中)
-            vc.item?.selIndex = (item.start...item.end).contains(result) ? result : -1
+            vc.selIndex = (item.start...item.end).contains(result) ? result : -1
             vc.collectionView.reloadData()
         }
     }

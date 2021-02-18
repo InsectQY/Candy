@@ -8,18 +8,30 @@
 
 import Foundation
 
-/// 每页的集数信息
-struct EpisodePage: Codable {
-
+class EpisodePage: Codable {
     /// 集数开始位置
     let start: Int
     /// 集数结束位置
     let end: Int
-    /// 已经选择的集数位置
-    var selIndex: Int
 
-    /// 选中的集数是否在当前页面中
-    var isInRange: Bool {
-        (start...end).contains(selIndex)
+    init(start: Int, end: Int) {
+        self.start = start
+        self.end = end
+    }
+}
+
+/// 每页的集数信息
+class TitleEpisodePage: EpisodePage {
+
+    /// 标题
+    var title: String = ""
+
+    init(start: Int, end: Int, title: String) {
+        self.title = title
+        super.init(start: start, end: end)
+    }
+
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

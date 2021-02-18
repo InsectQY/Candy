@@ -19,6 +19,7 @@
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
+		1356166125DE5597006B115D /* EpisodePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1356166025DE5597006B115D /* EpisodePageViewModel.swift */; };
 		13693E9624ECBB8D0049D259 /* KKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9524ECBB8D0049D259 /* KKModel.swift */; };
 		13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9724ECBD440049D259 /* KKResponseCodable.swift */; };
 		13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9924ECC0430049D259 /* KKResponseHandle.swift */; };
@@ -253,6 +254,7 @@
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
+		1356166025DE5597006B115D /* EpisodePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePageViewModel.swift; sourceTree = "<group>"; };
 		13693E9524ECBB8D0049D259 /* KKModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKModel.swift; sourceTree = "<group>"; };
 		13693E9724ECBD440049D259 /* KKResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseCodable.swift; sourceTree = "<group>"; };
 		13693E9924ECC0430049D259 /* KKResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseHandle.swift; sourceTree = "<group>"; };
@@ -531,6 +533,14 @@
 				13031D3224A338330010A440 /* ReachabilityManager.swift */,
 			);
 			path = ReachabilityManager;
+			sourceTree = "<group>";
+		};
+		1356165F25DE557E006B115D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1356166025DE5597006B115D /* EpisodePageViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		13693E9B24ECC0BD0049D259 /* Codable */ = {
@@ -1334,6 +1344,7 @@
 		E5D9541421E6D546007FC606 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				1356165F25DE557E006B115D /* ViewModel */,
 				E5D9541B21E72DD7007FC606 /* Model */,
 				E5E9B20621D4B34000B08281 /* Controller */,
 			);
@@ -2429,6 +2440,7 @@
 				E520A48521D7216D00CDDB04 /* ReplyCommentModel.swift in Sources */,
 				13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */,
 				E578102621C8E7A8005BFFAC /* VideoHallFlowLayout.swift in Sources */,
+				1356166125DE5597006B115D /* EpisodePageViewModel.swift in Sources */,
 				E520A48021D7154900CDDB04 /* ReplyCommentViewController.swift in Sources */,
 				E5FC765821CCB96D00FB6FFD /* VideoHallTitleCell.swift in Sources */,
 				E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */,

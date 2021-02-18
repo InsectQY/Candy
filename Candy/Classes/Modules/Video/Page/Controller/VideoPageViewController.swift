@@ -88,10 +88,10 @@ extension VideoPageViewController: JXCategoryViewDelegate {
 extension VideoPageViewController: JXCategoryListContainerViewDelegate {
 
     func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
-        return viewModel.category.value.count
+        viewModel.category.value.count
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        return VideoListViewController(category: viewModel.category.value[index].category)
+        VideoListViewController(category: viewModel.category.value[index].category)
     }
 }
