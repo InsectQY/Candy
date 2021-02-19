@@ -12,11 +12,6 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
 
     private var keyword: String = ""
 
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     // MARK: - convenience
     init(keyword: String) {
         self.keyword = keyword

@@ -56,9 +56,7 @@ class CollectionViewController: ViewController {
 
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
-        collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
-        }
+        collectionView.refreshHeader?.beginRefreshing(completionBlock: setUpEmptyDataSet)
     }
 
     // MARK: - 设置 DZNEmptyDataSet

@@ -11,11 +11,6 @@ import Hero
 
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     // MARK: - init
     init() {
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
@@ -39,7 +34,7 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
 
         collectionView.rx.itemSelected
         .asDriver()
-        .drive(viewModel.input.selection)
+        .drive(viewModel.input.selectionOb)
         .disposed(by: rx.disposeBag)
 
         viewModel.output

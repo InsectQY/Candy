@@ -16,9 +16,9 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
     struct Input {
 
-        let searchTap: AnyObserver<Void>
-        let selection: AnyObserver<VideoHallList>
-        let searchKey: AnyObserver<String>
+        let searchTapOb: AnyObserver<Void>
+        let selectionOb: AnyObserver<VideoHallList>
+        let searchKeyOb: AnyObserver<String>
     }
 
     struct Output {
@@ -47,18 +47,17 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
 
     required init() {
 
-        input = Input(searchTap: searchTap.asObserver(),
-                      selection: selection.asObserver(),
-                      searchKey: searchKey.asObserver())
+        input = Input(searchTapOb: searchTap.asObserver(),
+                      selectionOb: selection.asObserver(),
+                      searchKeyOb: searchKey.asObserver())
         output = Output(categories: categoryElements.asDriver(),
                         items: videoElements.asDriver(),
                         filterViewHeight: filterViewHeight.asDriver())
-
         super.init()
     }
 
-    override func bindState() {
-        super.bindState()
+    override func transform() {
+        super.transform()
 
         bindLoadingToIndicator()
         // 获取视频分类
@@ -147,7 +146,7 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
     }
 }

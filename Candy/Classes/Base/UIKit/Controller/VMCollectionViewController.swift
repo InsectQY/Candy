@@ -12,17 +12,6 @@ import UIKit
 /// 该类实现 UICollectionView 的 header / footer 刷新逻辑。
 class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewController {
 
-    lazy var viewModel: RVM = {
-
-        guard
-            let classType: RVM.Type = "\(RVM.self)".classType()
-        else {
-            return RVM()
-        }
-        let viewModel = classType.init()
-        return viewModel
-    }()
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,27 +21,33 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
     /// 如果不需要自动创建 viewModel，不调用 super 即可。
     func bindViewModel() {
 
+        bindError()
+        bindLoading()
+        bindHeader()
+        bindFooter()
+        bindEmptyDataSetViewTap()
+    }
+
+    // MARK: - 绑定加载状态
+    func bindLoading() {
         viewModel
         .loading
         .drive(rx.isLoading)
         .disposed(by: rx.disposeBag)
+    }
 
+    func bindError() {
         viewModel
         .error
         .drive(rx.showError)
         .disposed(by: rx.disposeBag)
-
-        bindHeader()
-        bindFooter()
-        bindEmptyDataSetViewTap()
-        viewModel.bindState()
     }
 
     // MARK: - 绑定没有网络时的点击事件
     func bindEmptyDataSetViewTap() {
 
         rx.emptyDataSetDidTapView()
-        .subscribe(viewModel.refreshInput.emptyDataSetViewTap)
+        .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
         .disposed(by: rx.disposeBag)
     }
 
@@ -67,7 +62,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
 
         // 将刷新事件传递给 refreshVM
         refreshHeader.rx.refreshing
-        .bind(to: viewModel.refreshInput.beginHeaderRefresh)
+        .bind(to: viewModel.refreshInput.headerRefreshOb)
         .disposed(by: rx.disposeBag)
 
         // 成功时的头部状态
@@ -96,7 +91,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
 
         // 将刷新事件传递给 refreshVM
         refreshFooter.rx.refreshing
-        .bind(to: viewModel.refreshInput.beginFooterRefresh)
+        .bind(to: viewModel.refreshInput.footerRefreshOb)
         .disposed(by: rx.disposeBag)
 
         // 成功时的尾部状态
@@ -116,4 +111,8 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
         .drive(refreshFooter.rx.refreshFooterState)
         .disposed(by: rx.disposeBag)
     }
+}
+
+extension VMCollectionViewController: ViewModelObject {
+    typealias VMType = RVM
 }

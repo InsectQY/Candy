@@ -39,6 +39,15 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    // MARK: - init
+    func makeUI() {
+        // iOS 13
+        modalPresentationStyle = .fullScreen
+        view.backgroundColor = .white
+    }
+
+    func loadingStateChanged() {}
+
     // MARK: - deinit
     deinit {
         print("\(type(of: self)): Deinited")
@@ -48,16 +57,5 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         print("\(type(of: self)): Received Memory Warning")
-    }
-
-    // MARK: - init
-    func makeUI() {
-        // iOS 13
-        modalPresentationStyle = .fullScreen
-        view.backgroundColor = .white
-    }
-
-    func loadingStateChanged() {
-
     }
 }

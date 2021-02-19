@@ -70,7 +70,7 @@ extension VideoHallSearchResultViewModel: ViewModelable {
         // 头部刷新状态
         loadNew
         .mapTo(false)
-        .drive(refreshInput.headerRefreshState)
+        .drive(refreshInput.headerRefreshStateOb)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -83,7 +83,7 @@ extension VideoHallSearchResultViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
 
         return output

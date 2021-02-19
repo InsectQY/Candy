@@ -36,10 +36,6 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     private lazy var pagingView = JXPagerView(delegate: self)
 
     // MARK: - LifeCylce
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView?.frame = view.bounds

@@ -40,10 +40,10 @@ extension ReplyCommentViewModel: ViewModelable {
         // 加载更多评论
         let loadMore = refreshOutput
         .footerRefreshing
-        .flatMapLatest { [unowned self] in
+        .flatMapLatest ({ [unowned self] in
             self.request(id: input.id,
                          offset: elements.value.count)
-        }
+        })
 
         // 数据源绑定
         loadNew
@@ -59,7 +59,7 @@ extension ReplyCommentViewModel: ViewModelable {
         // 头部刷新状态
         loadNew
         .mapTo(false)
-        .drive(refreshInput.headerRefreshState)
+        .drive(refreshInput.headerRefreshStateOb)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -72,7 +72,7 @@ extension ReplyCommentViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
 
         return output

@@ -70,7 +70,7 @@ extension UGCVideoCommentViewModel: ViewModelable {
         // 头部刷新状态
         loadNew
         .mapTo(false)
-        .drive(refreshInput.headerRefreshState)
+        .drive(refreshInput.headerRefreshStateOb)
         .disposed(by: disposeBag)
 
         // 尾部刷新状态
@@ -83,7 +83,7 @@ extension UGCVideoCommentViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
 
         let output = Output(items: elements.asDriver())

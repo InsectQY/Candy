@@ -133,7 +133,7 @@ extension VideoDetailViewModel: ViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
 
         let output = Output(videoPlayInfo: realVideo,

@@ -18,10 +18,6 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(owner: nil)!
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 

@@ -42,10 +42,6 @@ class EpisodeViewController: VMViewController<EpisodePageViewModel> {
                                                                      delegate: self)!
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         categoryView.frame = categoryContentView.bounds

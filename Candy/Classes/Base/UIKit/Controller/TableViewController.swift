@@ -57,9 +57,7 @@ class TableViewController: ViewController {
 
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
-        tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
-        }
+        tableView.refreshHeader?.beginRefreshing(completionBlock: setUpEmptyDataSet)
     }
 
     // MARK: - 设置 DZNEmptyDataSet

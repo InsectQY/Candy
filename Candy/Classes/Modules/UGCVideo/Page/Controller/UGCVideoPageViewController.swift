@@ -28,10 +28,6 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
                                                                      delegate: self)!
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     init() {
         super.init(nibName: nil, bundle: nil)
     }

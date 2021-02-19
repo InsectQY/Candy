@@ -15,7 +15,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
     struct Input {
         /// 点击
-        let selection: AnyObserver<IndexPath>
+        let selectionOb: AnyObserver<IndexPath>
     }
 
     struct Output {
@@ -40,15 +40,15 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
 
     required init() {
 
-        input = Input(selection: selection.asObserver())
+        input = Input(selectionOb: selection.asObserver())
         output = Output(items: elements.asDriver(),
                         videoURLs: videoURLs.asDriver(),
                         indexPath: indexPath.asDriver())
         super.init()
     }
 
-    override func bindState() {
-        super.bindState()
+    override func transform() {
+        super.transform()
 
         // 下拉刷新
         let loadNew = refresh(refreshOutput.headerRefreshing)
@@ -93,7 +93,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
         // 头部状态
         loadNew
         .mapTo(false)
-        .drive(refreshInput.headerRefreshState)
+        .drive(refreshInput.headerRefreshStateOb)
         .disposed(by: disposeBag)
 
         // 尾部状态
@@ -106,7 +106,7 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
             }
         )
         .startWith(.hidden)
-        .drive(refreshInput.footerRefreshState)
+        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
     }
 

@@ -24,6 +24,7 @@
 		13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9724ECBD440049D259 /* KKResponseCodable.swift */; };
 		13693E9A24ECC0430049D259 /* KKResponseHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13693E9924ECC0430049D259 /* KKResponseHandle.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
+		1379042025DFA0F80072B707 /* ViewModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379041F25DFA0F80072B707 /* ViewModelObject.swift */; };
 		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
 		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
@@ -259,6 +260,7 @@
 		13693E9724ECBD440049D259 /* KKResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseCodable.swift; sourceTree = "<group>"; };
 		13693E9924ECC0430049D259 /* KKResponseHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKResponseHandle.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
+		1379041F25DFA0F80072B707 /* ViewModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelObject.swift; sourceTree = "<group>"; };
 		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
 		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
@@ -691,8 +693,9 @@
 				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
 				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
 				E51D60C52455DA810059171C /* VMViewController.swift */,
-				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
 				E51D60C72455DA810059171C /* VMTableViewController.swift */,
+				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
+				1379041F25DFA0F80072B707 /* ViewModelObject.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2502,6 +2505,7 @@
 				E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */,
 				E5FAB71021C09DD0002BF258 /* IntExtension.swift in Sources */,
 				137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */,
+				1379042025DFA0F80072B707 /* ViewModelObject.swift in Sources */,
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
 				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,

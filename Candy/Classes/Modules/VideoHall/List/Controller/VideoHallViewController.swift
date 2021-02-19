@@ -46,10 +46,6 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     }
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         animateFilterView.frame = CGRect(x: 0, y: -filterViewHeight, width: Configs.Dimensions.screenWidth, height: filterViewHeight)
@@ -75,12 +71,12 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
         titleView.beginEdit
         .asObservable()
-        .subscribe(viewModel.input.searchTap)
+        .subscribe(viewModel.input.searchTapOb)
         .disposed(by: rx.disposeBag)
 
         collectionView.rx.modelSelected(VideoHallList.self)
         .asObservable()
-        .subscribe(viewModel.input.selection)
+        .subscribe(viewModel.input.selectionOb)
         .disposed(by: rx.disposeBag)
 
         // 刷新
@@ -145,7 +141,7 @@ extension VideoHallViewController: FilterViewProtocol {
     }
 
     func searchKey(_ key: String) {
-        viewModel.input.searchKey.onNext(key)
+        viewModel.input.searchKeyOb.onNext(key)
     }
 }
 

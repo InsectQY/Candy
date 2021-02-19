@@ -29,11 +29,7 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
     private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView,
                                                                      delegate: self)!
 
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+    // MARK: - init
     init() {
         super.init(nibName: nil, bundle: nil)
     }

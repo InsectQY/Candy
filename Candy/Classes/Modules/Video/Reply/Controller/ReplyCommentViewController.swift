@@ -17,10 +17,6 @@ class ReplyCommentViewController: TableViewController {
     private lazy var topView = R.nib.replyCommentTopView.firstView(owner: nil)!
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 

@@ -13,11 +13,6 @@ class EpisodeListViewController: VMCollectionViewController<RefreshViewModel> {
     fileprivate var item: EpisodePage?
     fileprivate var selIndex: Int = -1
 
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     // MARK: - init
     init(page: EpisodePage, selIndex: Int) {
         item = page

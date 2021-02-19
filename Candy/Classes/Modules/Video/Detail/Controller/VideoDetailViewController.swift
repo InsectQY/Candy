@@ -47,11 +47,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
