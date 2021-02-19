@@ -572,6 +572,27 @@
 			path = JXCategoryView;
 			sourceTree = "<group>";
 		};
+		1379042325DFBC1E0072B707 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
+				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
+				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
+				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1379042425DFBC570072B707 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				E51D60C52455DA810059171C /* VMViewController.swift */,
+				E51D60C72455DA810059171C /* VMTableViewController.swift */,
+				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
 		13E0B2FA24EBD2DB00518D5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,14 +709,8 @@
 		E51D60C42455D85A0059171C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0201521B4FE4A00A4CDF1 /* ViewController.swift */,
-				E5FE0DB421FAC0D900DE1DED /* TableViewController.swift */,
-				E5FE0DB821FAD69C00DE1DED /* CollectionViewController.swift */,
-				E5FE0DBF21FAF68F00DE1DED /* WebViewController.swift */,
-				E51D60C52455DA810059171C /* VMViewController.swift */,
-				E51D60C72455DA810059171C /* VMTableViewController.swift */,
-				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
-				1379041F25DFA0F80072B707 /* ViewModelObject.swift */,
+				1379042325DFBC1E0072B707 /* Public */,
+				1379042425DFBC570072B707 /* VM */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1521,6 +1536,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */,
+				1379041F25DFA0F80072B707 /* ViewModelObject.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
