@@ -10,12 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    /// 当前是否正在加载数据
-    var isLoading: Bool = false {
-        didSet {
-            loadingStateChanged()
-        }
-    }
     /// 数据源 nil 时点击了 view
     var emptyDataSetDidTapView: (() -> Void)?
 
@@ -46,8 +40,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
     }
 
-    func loadingStateChanged() {}
-
     // MARK: - deinit
     deinit {
         print("\(type(of: self)): Deinited")
@@ -58,4 +50,9 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         print("\(type(of: self)): Received Memory Warning")
     }
+}
+
+extension ViewController: LoadingStateable {
+
+    @objc func loadingStateChanged() {}
 }

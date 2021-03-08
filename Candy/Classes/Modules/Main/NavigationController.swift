@@ -28,7 +28,6 @@ class NavigationController: UINavigationController {
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont.pingFangSCMedium(17)
         ]}()
-        view.backgroundColor = .white
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

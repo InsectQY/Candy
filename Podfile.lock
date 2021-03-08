@@ -10,21 +10,19 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.8)
-  - Kingfisher (5.15.8):
-    - Kingfisher/Core (= 5.15.8)
-  - Kingfisher/Core (5.15.8)
-  - KingfisherWebP (1.1.0):
-    - Kingfisher (~> 5.8)
-    - libwebp (>= 0.5.0)
-  - libwebp (1.1.0):
-    - libwebp/demux (= 1.1.0)
-    - libwebp/mux (= 1.1.0)
-    - libwebp/webp (= 1.1.0)
-  - libwebp/demux (1.1.0):
+  - Kingfisher (6.1.1)
+  - KingfisherWebP (1.2.0):
+    - Kingfisher (~> 6.1)
+    - libwebp (>= 1.1.0)
+  - libwebp (1.2.0):
+    - libwebp/demux (= 1.2.0)
+    - libwebp/mux (= 1.2.0)
+    - libwebp/webp (= 1.2.0)
+  - libwebp/demux (1.2.0):
     - libwebp/webp
-  - libwebp/mux (1.1.0):
+  - libwebp/mux (1.2.0):
     - libwebp/demux
-  - libwebp/webp (1.1.0)
+  - libwebp/webp (1.2.0)
   - MJRefresh (3.5.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -70,13 +68,13 @@ PODS:
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.2)
   - RxURLNavigator (2.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.42.0)
+  - SwiftLint (0.43.0)
   - Toast-Swift (5.0.1)
   - UIFontComplete (5.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -184,9 +182,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
-  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
-  KingfisherWebP: 0768e0c00bf9746de9ee5b22a795e9504345f258
-  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
+  Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
+  KingfisherWebP: f3f431a98aa3938249aefeaf1ad4d98d0a1c88da
+  libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
@@ -203,10 +201,10 @@ SPEC CHECKSUMS:
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxReachability: 3da1c23ba6d93dabc004290cda61dd9e7884422d
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+  SwiftLint: 0c645fdc6feed3e390c1701ab3cc669f88b42752
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 843cb7b58fd6503b3918447918ea6daaeaceccff
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f

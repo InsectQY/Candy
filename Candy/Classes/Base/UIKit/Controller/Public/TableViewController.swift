@@ -30,10 +30,6 @@ class TableViewController: ViewController {
         tableView.frame = view.bounds
     }
 
-    override func loadingStateChanged() {
-        tableView.reloadEmptyDataSet()
-    }
-
     // MARK: - init
     init(style: UITableView.Style) {
         self.style = style
@@ -57,12 +53,21 @@ class TableViewController: ViewController {
 
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
-        tableView.refreshHeader?.beginRefreshing(completionBlock: setUpEmptyDataSet)
+        tableView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.setUpEmptyDataSet()
+        }
     }
 
     // MARK: - 设置 DZNEmptyDataSet
     func setUpEmptyDataSet() {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+    }
+}
+
+extension TableViewController {
+
+    override func loadingStateChanged() {
+        tableView.reloadEmptyDataSet()
     }
 }

@@ -16,6 +16,7 @@
 		13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */; };
 		130E709F24ED158100F824AD /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E709E24ED158100F824AD /* UserApi.swift */; };
 		13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13114CB824EF9260008FFA4D /* UserInfoModel.swift */; };
+		1341B35925F5BCE000ECA7C5 /* LoadingStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
@@ -252,6 +253,7 @@
 		13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+EmptyDataSetable.swift"; sourceTree = "<group>"; };
 		130E709E24ED158100F824AD /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		13114CB824EF9260008FFA4D /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateable.swift; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
@@ -1535,6 +1537,7 @@
 		E5E0203921B4FF5100A4CDF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */,
 				E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */,
 				1379041F25DFA0F80072B707 /* ViewModelObject.swift */,
 			);
@@ -2486,6 +2489,7 @@
 				E5E5713C21CB670B005C2D6E /* VideoHallHeaderView.swift in Sources */,
 				E5FA89F121BA1CC80084F3C3 /* UGCVideoPageViewController.swift in Sources */,
 				E565356C21DDDD3100091714 /* UserProfileHeaderView.swift in Sources */,
+				1341B35925F5BCE000ECA7C5 /* LoadingStateable.swift in Sources */,
 				E5F86F9922042ABE008A0C26 /* UserURL.swift in Sources */,
 				E5FA8A0321BA37C70084F3C3 /* UGCVideoListCell.swift in Sources */,
 				18B7895922939AB60065E5D8 /* ZFPlayer+Rx.swift in Sources */,

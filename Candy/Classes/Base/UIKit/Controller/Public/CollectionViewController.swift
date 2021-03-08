@@ -50,18 +50,23 @@ class CollectionViewController: ViewController {
         view.addSubview(collectionView)
     }
 
-    override func loadingStateChanged() {
-        collectionView.reloadEmptyDataSet()
-    }
-
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
-        collectionView.refreshHeader?.beginRefreshing(completionBlock: setUpEmptyDataSet)
+        collectionView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.setUpEmptyDataSet()
+        }
     }
 
     // MARK: - 设置 DZNEmptyDataSet
     func setUpEmptyDataSet() {
         collectionView.emptyDataSetSource = self
         collectionView.emptyDataSetDelegate = self
+    }
+}
+
+extension CollectionViewController {
+
+    override func loadingStateChanged() {
+        collectionView.reloadEmptyDataSet()
     }
 }
