@@ -515,6 +515,7 @@
 		13031D2424A336780010A440 /* EmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
+				1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */,
 				13031D2524A336780010A440 /* EmptyDataSetable.swift */,
 			);
 			path = EmptyDataSet;
@@ -1537,7 +1538,6 @@
 		E5E0203921B4FF5100A4CDF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */,
 				E5E0203A21B4FF5100A4CDF1 /* ViewModelable.swift */,
 				1379041F25DFA0F80072B707 /* ViewModelObject.swift */,
 			);

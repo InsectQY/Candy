@@ -46,7 +46,6 @@ class CollectionViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
-
         view.addSubview(collectionView)
     }
 
@@ -67,6 +66,7 @@ class CollectionViewController: ViewController {
 extension CollectionViewController {
 
     override func loadingStateChanged() {
+        super.loadingStateChanged()
         collectionView.reloadEmptyDataSet()
     }
 }

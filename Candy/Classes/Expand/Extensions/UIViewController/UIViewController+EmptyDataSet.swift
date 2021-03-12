@@ -11,7 +11,7 @@ import EmptyDataSet_Swift
 
 /// 该类实现了 UITableView / UICollectionView@objc  数据源 nil 时的占位视图逻辑。
 
-// MARK: - EmptyDataSetS@objc ource
+// MARK: - EmptyDataSet
 extension ViewController: EmptyDataSetSource {
 
     public func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {

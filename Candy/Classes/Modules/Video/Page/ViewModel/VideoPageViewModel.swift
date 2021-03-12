@@ -25,8 +25,6 @@ extension VideoPageViewModel: ViewModelable {
     @discardableResult
     func transform(input: VideoPageViewModel.Input) -> VideoPageViewModel.Output {
 
-        bindLoadingToIndicator()
-
         input.noConnectTap
         .asDriverOnErrorJustComplete()
         .flatMap { [unowned self] in

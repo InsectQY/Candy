@@ -54,5 +54,11 @@ class ViewController: UIViewController {
 
 extension ViewController: LoadingStateable {
 
-    @objc func loadingStateChanged() {}
+    @objc func loadingStateChanged() {
+        if isLoading {
+            HUD.startLoading()
+        } else {
+            HUD.stopLoading()
+        }
+    }
 }

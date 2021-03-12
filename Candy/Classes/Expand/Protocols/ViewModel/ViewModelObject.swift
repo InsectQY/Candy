@@ -8,7 +8,7 @@
 
 import Foundation
 
-private var objectContext: UInt8 = 0
+private var context: UInt8 = 0
 
 protocol ViewModelObject: class {
     associatedtype VMType: ViewModel
@@ -21,7 +21,7 @@ extension ViewModelObject {
     var viewModel: VMType {
         get {
 
-            if let vmObject = objc_getAssociatedObject(self, &objectContext) as? VMType {
+            if let vmObject = objc_getAssociatedObject(self, &context) as? VMType {
                 return vmObject
             }
 
@@ -32,7 +32,7 @@ extension ViewModelObject {
                 vmObject = VMType()
             }
             objc_setAssociatedObject(self,
-                                     &objectContext,
+                                     &context,
                                      vmObject,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return vmObject
@@ -40,7 +40,7 @@ extension ViewModelObject {
 
         set {
             objc_setAssociatedObject(self,
-                                     &objectContext,
+                                     &context,
                                      newValue,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }

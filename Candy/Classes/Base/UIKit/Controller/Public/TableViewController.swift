@@ -47,7 +47,6 @@ class TableViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
-
         view.addSubview(tableView)
     }
 
@@ -68,6 +67,7 @@ class TableViewController: ViewController {
 extension TableViewController {
 
     override func loadingStateChanged() {
+        super.loadingStateChanged()
         tableView.reloadEmptyDataSet()
     }
 }

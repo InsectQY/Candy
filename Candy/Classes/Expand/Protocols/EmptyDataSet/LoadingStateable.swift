@@ -8,7 +8,7 @@
 
 import Foundation
 
-private var objectContext: UInt8 = 0
+private var context: UInt8 = 0
 
 protocol LoadingStateable: class {
 
@@ -22,12 +22,12 @@ extension LoadingStateable {
     var isLoading: Bool {
         get {
 
-            if let loading = objc_getAssociatedObject(self, &objectContext) as? Bool {
+            if let loading = objc_getAssociatedObject(self, &context) as? Bool {
                 return loading
             }
 
             objc_setAssociatedObject(self,
-                                     &objectContext,
+                                     &context,
                                      false,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return false
@@ -35,7 +35,7 @@ extension LoadingStateable {
 
         set {
             objc_setAssociatedObject(self,
-                                     &objectContext,
+                                     &context,
                                      newValue,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             loadingStateChanged()

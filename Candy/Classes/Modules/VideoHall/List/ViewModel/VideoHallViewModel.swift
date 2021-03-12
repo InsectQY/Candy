@@ -59,7 +59,6 @@ final class VideoHallViewModel: RefreshViewModel, NestedViewModelable {
     override func transform() {
         super.transform()
 
-        bindLoadingToIndicator()
         // 获取视频分类
         requestCategory()
         .drive(categoryElements)

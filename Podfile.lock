@@ -5,12 +5,12 @@ PODS:
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
   - FDFullscreenPopGesture (1.1)
-  - Hero (1.6.0)
+  - Hero (1.6.1)
   - IJKMediaFramework (0.1.5)
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.8)
-  - Kingfisher (6.1.1)
+  - Kingfisher (6.2.1)
   - KingfisherWebP (1.2.0):
     - Kingfisher (~> 6.1)
     - libwebp (>= 1.1.0)
@@ -35,7 +35,7 @@ PODS:
   - NVActivityIndicatorView/Extended (5.1.1):
     - NVActivityIndicatorView/Base
   - PYSearch (0.9.1)
-  - R.swift (5.3.1):
+  - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - ReachabilitySwift (5.0.0)
@@ -177,12 +177,12 @@ SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Hero: 052b9b9bab68fc4e30cc04e5936eaf0de97b59d3
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
-  Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   KingfisherWebP: f3f431a98aa3938249aefeaf1ad4d98d0a1c88da
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
@@ -190,7 +190,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
@@ -213,4 +213,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 73f41fbb558cf3dc2e17c7824d1f33937d2a1542
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
