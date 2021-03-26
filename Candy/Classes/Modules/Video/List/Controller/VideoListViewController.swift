@@ -69,7 +69,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         let output = viewModel.transform(input: input)
 
         // 数据源 nil 时点击
-        rx.emptyDataSetDidTapView()
+        tableView.rx.emptyDataSetDidTapView()
         .bind(to: rx.post(name: Notification.videoNoConnectClick))
         .disposed(by: rx.disposeBag)
 

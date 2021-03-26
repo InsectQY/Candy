@@ -46,19 +46,21 @@ class CollectionViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
+        setUpDefaultEmptyDataSet()
         view.addSubview(collectionView)
     }
 
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
         collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
+            self?.collectionView.setUpEmptyDataSet()
         }
     }
+}
 
-    // MARK: - 设置 DZNEmptyDataSet
-    func setUpEmptyDataSet() {
-        collectionView.emptyDataSetSource = self
-        collectionView.emptyDataSetDelegate = self
+extension CollectionViewController {
+
+    func setUpDefaultEmptyDataSet() {
+        collectionView.emptyDataSet.image = R.image.hg_defaultError()
     }
 }

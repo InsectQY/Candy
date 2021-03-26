@@ -30,6 +30,7 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
         tableView.rowHeight = VideoHallSearchResultCell.height
         tableView.register(R.nib.videoHallSearchResultCell)
         tableView.refreshHeader = RefreshHeader()
+        tableView.emptyDataSet.description = R.string.localizable.videoHallSearchResultEmptyPlaceholder()
         beginHeaderRefresh()
     }
 
@@ -47,12 +48,5 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
-    }
-}
-
-extension VideoHallSearchResultViewController {
-
-    override var emptyDataSetDescription: String {
-        R.string.localizable.videoHallSearchResultEmptyPlaceholder()
     }
 }

@@ -46,7 +46,7 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         .disposed(by: rx.disposeBag)
 
         // 数据源 nil 时点击
-        rx.emptyDataSetDidTapView()
+        collectionView.rx.emptyDataSetDidTapView()
         .bind(to: rx.post(name: Notification.UGCVideoNoConnectClick))
         .disposed(by: rx.disposeBag)
     }

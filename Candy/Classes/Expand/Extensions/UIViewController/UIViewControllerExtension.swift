@@ -12,12 +12,12 @@ extension UIViewController {
 
     func setNavBarTransparent(_ isNavgationBarTransparent: Bool) {
         if isNavgationBarTransparent {
-            navigationController?.navigationBar
-                .setBackgroundImage(UIImage(), for: .default)
+            navigationController?.navigationBar.setBackgroundImage(UIImage(),
+                                                                   for: .default)
             navigationController?.navigationBar.shadowImage = UIImage()
         } else {
-            navigationController?.navigationBar
-                .setBackgroundImage(nil, for: .default)
+            navigationController?.navigationBar.setBackgroundImage(nil,
+                                                                   for: .default)
             navigationController?.navigationBar.shadowImage = nil
         }
     }

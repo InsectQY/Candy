@@ -47,19 +47,21 @@ class TableViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
+        setUpDefaultEmptyDataSet()
         view.addSubview(tableView)
     }
 
     // MARK: - 开始头部刷新
     func beginHeaderRefresh() {
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.setUpEmptyDataSet()
+            self?.tableView.setUpEmptyDataSet()
         }
     }
+}
 
-    // MARK: - 设置 DZNEmptyDataSet
-    func setUpEmptyDataSet() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+extension TableViewController {
+
+    func setUpDefaultEmptyDataSet() {
+        tableView.emptyDataSet.image = R.image.hg_defaultError()
     }
 }

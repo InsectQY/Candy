@@ -110,7 +110,9 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         .bind(to: rx.filterTap)
         .disposed(by: rx.disposeBag)
 
-        setUpEmptyDataSet()
+        collectionView.setUpEmptyDataSet()
+        collectionView.emptyDataSet.description = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
+        collectionView.emptyDataSet.verticalOffset = topH + 180
     }
 
     func filterTap() {
@@ -160,16 +162,5 @@ extension VideoHallViewController: UICollectionViewDelegate {
 
         animateFilterView.isHidden = true
         animateFilterView.y = -filterViewHeight
-    }
-}
-
-extension VideoHallViewController {
-
-    override var verticalOffset: CGFloat {
-        topH + 180
-    }
-
-    override var emptyDataSetDescription: String {
-        R.string.localizable.videoHallFilterResultEmptyPlaceholder()
     }
 }

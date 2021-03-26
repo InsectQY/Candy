@@ -10,9 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    /// 数据源 nil 时点击了 view
-    var emptyDataSetDidTapView: (() -> Void)?
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

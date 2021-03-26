@@ -22,8 +22,8 @@ extension LoadingStateable {
     var isLoading: Bool {
         get {
 
-            if let loading = objc_getAssociatedObject(self, &context) as? Bool {
-                return loading
+            if let object = objc_getAssociatedObject(self, &context) as? Bool {
+                return object
             }
 
             objc_setAssociatedObject(self,
@@ -41,4 +41,6 @@ extension LoadingStateable {
             loadingStateChanged()
         }
     }
+
+    func loadingStateChanged() {}
 }
