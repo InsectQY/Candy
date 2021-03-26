@@ -62,11 +62,3 @@ class CollectionViewController: ViewController {
         collectionView.emptyDataSetDelegate = self
     }
 }
-
-extension CollectionViewController {
-
-    override func loadingStateChanged() {
-        super.loadingStateChanged()
-        collectionView.reloadEmptyDataSet()
-    }
-}

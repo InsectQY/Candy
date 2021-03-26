@@ -63,11 +63,3 @@ class TableViewController: ViewController {
         tableView.emptyDataSetDelegate = self
     }
 }
-
-extension TableViewController {
-
-    override func loadingStateChanged() {
-        super.loadingStateChanged()
-        tableView.reloadEmptyDataSet()
-    }
-}

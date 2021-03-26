@@ -49,14 +49,3 @@ class ViewController: UIViewController {
         print("\(type(of: self)): Received Memory Warning")
     }
 }
-
-extension ViewController: LoadingStateable {
-
-    @objc func loadingStateChanged() {
-        if isLoading {
-            HUD.startLoading()
-        } else {
-            HUD.stopLoading()
-        }
-    }
-}
