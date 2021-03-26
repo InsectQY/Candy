@@ -20,8 +20,8 @@ class ReplyCommentViewController: TableViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        topView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: ReplyCommentTopView.height)
-        tableView.frame = CGRect(x: 0, y: ReplyCommentTopView.height, width: Configs.Dimensions.screenWidth, height: view.height - ReplyCommentTopView.height)
+        topView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: ReplyCommentTopView.height)
+        tableView.frame = CGRect(x: 0, y: ReplyCommentTopView.height, width: .screenWidth, height: view.height - ReplyCommentTopView.height)
     }
 
     // MARK: - convenience

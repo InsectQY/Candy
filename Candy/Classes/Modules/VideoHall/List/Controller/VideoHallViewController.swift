@@ -11,7 +11,7 @@ import UIKit
 class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     // MARK: - Lazyload
-    private lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: Configs.Dimensions.screenWidth, height: 44))
+    private lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: .screenWidth, height: 44))
 
     private lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
 
@@ -48,8 +48,8 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     // MARK: - LifeCycle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        animateFilterView.frame = CGRect(x: 0, y: -filterViewHeight, width: Configs.Dimensions.screenWidth, height: filterViewHeight)
-        filterView.frame = CGRect(x: 0, y: -filterViewHeight, width: Configs.Dimensions.screenWidth, height: filterViewHeight)
+        animateFilterView.frame = CGRect(x: 0, y: -filterViewHeight, width: .screenWidth, height: filterViewHeight)
+        filterView.frame = CGRect(x: 0, y: -filterViewHeight, width: .screenWidth, height: filterViewHeight)
     }
 
     override func makeUI() {

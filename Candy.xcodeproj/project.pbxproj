@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		13031D2324A336570010A440 /* ViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2224A336570010A440 /* ViewController+Rx.swift */; };
 		13031D2624A336780010A440 /* EmptyDataSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2524A336780010A440 /* EmptyDataSetable.swift */; };
-		13031D2E24A337FE0010A440 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */; };
 		13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */; };
 		13031D3024A337FE0010A440 /* UIViewController+EmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */; };
 		13031D3324A338330010A440 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13031D3224A338330010A440 /* ReachabilityManager.swift */; };
@@ -17,6 +16,9 @@
 		130E709F24ED158100F824AD /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E709E24ED158100F824AD /* UserApi.swift */; };
 		13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13114CB824EF9260008FFA4D /* UserInfoModel.swift */; };
 		1341B35925F5BCE000ECA7C5 /* LoadingStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */; };
+		134C180A260D7B5E003E2780 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C1809260D7B5E003E2780 /* UIViewControllerExtension.swift */; };
+		134C180E260D7F5A003E2780 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C180D260D7F5A003E2780 /* AppDelegateExtension.swift */; };
+		134C1812260D7FAB003E2780 /* DimensionConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C1811260D7FAB003E2780 /* DimensionConfigs.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
@@ -246,7 +248,6 @@
 /* Begin PBXFileReference section */
 		13031D2224A336570010A440 /* ViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Rx.swift"; sourceTree = "<group>"; };
 		13031D2524A336780010A440 /* EmptyDataSetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetable.swift; sourceTree = "<group>"; };
-		13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+JXCategoryView.swift"; sourceTree = "<group>"; };
 		13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyDataSet.swift"; sourceTree = "<group>"; };
 		13031D3224A338330010A440 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -254,6 +255,9 @@
 		130E709E24ED158100F824AD /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		13114CB824EF9260008FFA4D /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateable.swift; sourceTree = "<group>"; };
+		134C1809260D7B5E003E2780 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		134C180D260D7F5A003E2780 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
+		134C1811260D7FAB003E2780 /* DimensionConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionConfigs.swift; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
@@ -524,7 +528,7 @@
 		13031D2724A337FE0010A440 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				13031D2A24A337FE0010A440 /* UIViewControllerExtension.swift */,
+				134C1809260D7B5E003E2780 /* UIViewControllerExtension.swift */,
 				13031D2B24A337FE0010A440 /* UIViewController+JXCategoryView.swift */,
 				13031D3424A33B480010A440 /* ViewController+EmptyDataSetable.swift */,
 				13031D2C24A337FE0010A440 /* UIViewController+EmptyDataSet.swift */,
@@ -1455,6 +1459,7 @@
 				E5E0200E21B4FDED00A4CDF1 /* ImportFile.swift */,
 				E5E01FDA21B4CCE600A4CDF1 /* AppDelegate.swift */,
 				E5E020CE21B50B7300A4CDF1 /* AppDelegate+Root.swift */,
+				134C180D260D7F5A003E2780 /* AppDelegateExtension.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1509,6 +1514,7 @@
 				18F81D60229636E00028CA14 /* NotificationConfigs.swift */,
 				E51D60D82455E5E90059171C /* ColorConfigs.swift */,
 				E5E0202A21B4FE7B00A4CDF1 /* AppConfigs.swift */,
+				134C1811260D7FAB003E2780 /* DimensionConfigs.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -2396,7 +2402,6 @@
 				E51D60D32455E5320059171C /* HUD+Rx.swift in Sources */,
 				E5E42A34220197E2003C46B9 /* R.generated.swift in Sources */,
 				E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */,
-				13031D2E24A337FE0010A440 /* UIViewControllerExtension.swift in Sources */,
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
@@ -2410,6 +2415,7 @@
 				E5FB739321B761740010D8A7 /* VideoListCell.swift in Sources */,
 				187833CE221D4B75006C9008 /* ParameterManger.swift in Sources */,
 				E5FE0DC221FAFD4A00DE1DED /* CollectionViewCell.swift in Sources */,
+				134C180E260D7F5A003E2780 /* AppDelegateExtension.swift in Sources */,
 				E5FC765E21CCB9B900FB6FFD /* VideoHallIntroCell.swift in Sources */,
 				18259E52229BC32F00A90B2C /* mapTo.swift in Sources */,
 				134D706124EA2566002A4F12 /* mapMany.swift in Sources */,
@@ -2520,6 +2526,7 @@
 				13031D3524A33B480010A440 /* ViewController+EmptyDataSetable.swift in Sources */,
 				18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */,
 				E5EC45F321EC8FC2000EEA16 /* DefaultsKeyConfigs.swift in Sources */,
+				134C180A260D7B5E003E2780 /* UIViewControllerExtension.swift in Sources */,
 				E5E0208121B5057600A4CDF1 /* Then.swift in Sources */,
 				E591D81623CEDEB600DA0AF2 /* ErrorExtension.swift in Sources */,
 				E5E1932921E887F6002CBAE8 /* UserManager.swift in Sources */,
@@ -2554,6 +2561,7 @@
 				E51E4DE221E59DD700E06AD7 /* VideoHallSearchResultCell.swift in Sources */,
 				E578C03223362753006C0CA1 /* KfOptions.swift in Sources */,
 				E5E0201D21B4FE4A00A4CDF1 /* Label.swift in Sources */,
+				134C1812260D7FAB003E2780 /* DimensionConfigs.swift in Sources */,
 				E5FE0DB921FAD69C00DE1DED /* CollectionViewController.swift in Sources */,
 				E5FB739F21B76CC10010D8A7 /* VideoCategory.swift in Sources */,
 				130E709F24ED158100F824AD /* UserApi.swift in Sources */,

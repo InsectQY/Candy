@@ -24,7 +24,6 @@ class TableViewCell: UITableViewCell {
 
     func makeUI() {
 
-        selectionStyle = .none
         backgroundColor = .clear
         updateUI()
     }

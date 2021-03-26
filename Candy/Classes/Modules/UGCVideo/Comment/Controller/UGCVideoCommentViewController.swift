@@ -21,8 +21,8 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: UGCVideoCommentHeaderView.height)
-        tableView.frame = CGRect(x: 0, y: UGCVideoCommentHeaderView.height, width: Configs.Dimensions.screenWidth, height: view.height - UGCVideoCommentHeaderView.height)
+        headerView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: UGCVideoCommentHeaderView.height)
+        tableView.frame = CGRect(x: 0, y: UGCVideoCommentHeaderView.height, width: .screenWidth, height: view.height - UGCVideoCommentHeaderView.height)
     }
 
     // MARK: - init

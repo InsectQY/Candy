@@ -35,7 +35,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
                                         containerView: videoView.videoContainerView)
         player.controlView = controlView
         player.orientationWillChange = { _, isFullScreen in
-            AppDelegate.shared().isAllowOrentitaionRotation = isFullScreen
+            AppDelegate.shared.isAllowOrentitaionRotation = isFullScreen
         }
         return player
     }()
@@ -44,21 +44,18 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.isViewControllerDisappear = false
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        setNavBarTransparent(true)
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
+        setNavBarTransparent(false)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        videoView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: VideoDetailHeader.height)
-        tableView.frame = CGRect(x: 0, y: videoView.bottom, width: Configs.Dimensions.screenWidth, height: Configs.Dimensions.screenHeight - VideoDetailHeader.height)
+        videoView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: VideoDetailHeader.height)
+        tableView.frame = CGRect(x: 0, y: videoView.bottom, width: .screenWidth, height: .screenHeight - VideoDetailHeader.height)
     }
 
     // MARK: - init

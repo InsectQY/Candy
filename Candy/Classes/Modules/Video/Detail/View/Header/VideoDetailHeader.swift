@@ -10,7 +10,7 @@ import UIKit
 
 class VideoDetailHeader: View {
 
-    static let height: CGFloat = Configs.Dimensions.screenHeight * 0.4
+    static let height: CGFloat = .screenHeight * 0.4
     static let bottomHeight: CGFloat = 55
 
     @IBOutlet private weak var avatarImage: ImageView!
@@ -22,7 +22,7 @@ class VideoDetailHeader: View {
 
             guard let video = video else { return }
             nameLabel.text = video.user_info.name
-            let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
+            let imageSize = CGSize(width: 40 * .scale, height: 40 * .scale)
             avatarImage.qy_setImage(video.user_info.avatar_url,
                                     placeholder: R.image.avatar(),
                                     options: [KfOptions.corner(imageSize.width * 2, targetSize: imageSize)])

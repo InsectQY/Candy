@@ -23,13 +23,6 @@ struct Configs {
         static let weChatUrl = "https://api.weixin.qq.com"
     }
 
-    struct Dimensions {
-
-        static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
-        static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
-        static let topH: CGFloat = UIApplication.shared.statusBarFrame.size.height + (UIApplication.shared.keyWindow?.rootViewController?.navigationController?.navigationBar.height ?? 0)
-    }
-
     struct Time {
         static let imageTransition: TimeInterval = 1.0
         /// 图片缓存时间 (1 周)

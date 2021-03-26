@@ -116,6 +116,6 @@ extension VideoHallEpisodeCell {
     private static let kMaxCol: CGFloat = 6
     /// cell 宽度
     public static var kItemW: CGFloat {
-        (Configs.Dimensions.screenWidth - (VideoHallEpisodeCell.kMaxCol - 1) * VideoHallEpisodeCell.kMargin - VideoHallEpisodeCell.KInset * 2) / VideoHallEpisodeCell.kMaxCol
+        (.screenWidth - (VideoHallEpisodeCell.kMaxCol - 1) * VideoHallEpisodeCell.kMargin - VideoHallEpisodeCell.KInset * 2) / VideoHallEpisodeCell.kMaxCol
     }
 }

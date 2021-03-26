@@ -11,7 +11,7 @@ import UIKit
 class VideoListCell: TableViewCell {
 
     static var height: CGFloat {
-        Configs.Dimensions.screenWidth * 0.63 + 55 + 5
+        .screenWidth * 0.63 + 55 + 5
     }
     @IBOutlet private weak var largeImage: ImageView!
     @IBOutlet private weak var commentBtn: Button!
@@ -31,7 +31,7 @@ class VideoListCell: TableViewCell {
             guard let item = item else { return }
             titleLabel.text = item.title
 
-            let imageSize = CGSize(width: 40 * UIScreen.main.scale, height: 40 * UIScreen.main.scale)
+            let imageSize = CGSize(width: 40 * .scale, height: 40 * .scale)
             avatarBtn.qy_setImage(item.user_info.avatar_url,
                                   for: .normal,
                                   placeholder: R.image.avatar(),

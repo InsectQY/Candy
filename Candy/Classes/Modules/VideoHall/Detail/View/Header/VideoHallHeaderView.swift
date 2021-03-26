@@ -10,5 +10,5 @@ import UIKit
 
 class VideoHallHeaderView: UIView {
 
-    static let height: CGFloat = Configs.Dimensions.screenHeight * 0.4
+    static let height: CGFloat = .screenHeight * 0.4
 }

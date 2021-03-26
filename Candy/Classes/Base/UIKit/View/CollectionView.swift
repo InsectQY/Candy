@@ -33,13 +33,4 @@ class CollectionView: UICollectionView {
     func updateUI() {
         setNeedsDisplay()
     }
-
-    func itemWidth(forItemsPerRow itemsPerRow: Int, withInset inset: CGFloat = 0) -> CGFloat {
-
-        let collectionWidth = Int(frame.size.width)
-        if collectionWidth == 0 {
-            return 0
-        }
-        return CGFloat(Int((collectionWidth - (itemsPerRow + 1) * Int(inset)) / itemsPerRow))
-    }
 }

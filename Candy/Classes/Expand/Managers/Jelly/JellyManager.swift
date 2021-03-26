@@ -14,7 +14,7 @@ class JellyManager {
     /// 剧集弹出动画
     static func episodeAnimator() -> Animator {
         /// 大小
-        let size = Self.size(height: Configs.Dimensions.screenHeight - VideoHallHeaderView.height)
+        let size = Self.size(height: .screenHeight - VideoHallHeaderView.height)
         let presentation = CoverPresentation(directionShow: .bottom,
                                              directionDismiss: .bottom,
                                              size: size,
@@ -25,7 +25,7 @@ class JellyManager {
     /// 小视频评论弹出动画
     static func UGCVideoComment() -> Animator {
         /// 大小
-        let size = Self.size(height: Configs.Dimensions.screenHeight * 0.7)
+        let size = Self.size(height: .screenHeight * 0.7)
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 12)
         let presentation = CoverPresentation(directionShow: .bottom,
                                              directionDismiss: .bottom,
@@ -44,7 +44,7 @@ class JellyManager {
         /// 圆角
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 5)
         /// 大小
-        let size = Self.size(height: Configs.Dimensions.screenHeight * 0.7)
+        let size = Self.size(height: .screenHeight * 0.7)
         let presentation = CoverPresentation(directionShow: .right,
                                              directionDismiss: .right,
                                              uiConfiguration: uiConfiguration,
@@ -56,7 +56,7 @@ class JellyManager {
 
     static func videoReplyComment() -> Animator {
         /// 大小
-        let size = Self.size(height: Configs.Dimensions.screenHeight - VideoDetailHeader.height + VideoDetailHeader.bottomHeight)
+        let size = Self.size(height: .screenHeight - VideoDetailHeader.height + VideoDetailHeader.bottomHeight)
         let presentation = CoverPresentation(directionShow: .bottom,
                                              directionDismiss: .bottom,
                                              size: size,

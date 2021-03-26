@@ -24,7 +24,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 
         let lineView = JXCategoryIndicatorLineView()
         lineView.indicatorColor = .main
-        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: menuH))
+        let categoryView = JXCategoryTitleView(frame: CGRect(x: 0, y: 0, width: .screenWidth, height: menuH))
         categoryView.titleColor = .black
         categoryView.titleSelectedColor = .main
         categoryView.contentScrollView = pagingView?.listContainerView.collectionView
@@ -39,7 +39,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView?.frame = view.bounds
-        headerView.frame = CGRect(x: 0, y: 0, width: Configs.Dimensions.screenWidth, height: 100)
+        headerView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: 100)
     }
 
     // MARK: - init

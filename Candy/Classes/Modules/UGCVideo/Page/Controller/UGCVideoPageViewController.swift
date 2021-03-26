@@ -12,7 +12,7 @@ import JXCategoryView
 class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
 
     private let menuH: CGFloat = 44
-    private let menuW: CGFloat = Configs.Dimensions.screenWidth * 0.8
+    private let menuW: CGFloat = .screenWidth * 0.8
 
     // MARK: - LazyLoad
     private lazy var categoryView: UGCVideoTitleView = {

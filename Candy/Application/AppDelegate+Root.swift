@@ -18,11 +18,3 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
 }
-
-extension AppDelegate {
-
-    static func shared() -> AppDelegate {
-        // swiftlint:disable force_cast
-        UIApplication.shared.delegate as! AppDelegate
-    }
-}

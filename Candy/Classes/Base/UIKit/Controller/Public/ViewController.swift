@@ -35,8 +35,6 @@ class ViewController: UIViewController {
 
     // MARK: - init
     func makeUI() {
-        // iOS 13
-        modalPresentationStyle = .fullScreen
         view.backgroundColor = .white
     }
 

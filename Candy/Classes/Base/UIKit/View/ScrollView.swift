@@ -20,9 +20,7 @@ class ScrollView: UIScrollView {
         makeUI()
     }
 
-    func makeUI() {
-
-    }
+    func makeUI() {}
 
     func updateUI() {
         setNeedsDisplay()

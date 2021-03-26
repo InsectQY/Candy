@@ -16,8 +16,9 @@ class UserUGCFlowLayout: UICollectionViewFlowLayout {
     private let kMargin: CGFloat = 1
     /// cell 宽度
     private var kItemW: CGFloat {
-        (Configs.Dimensions.screenWidth - (kMaxCol - 1) * kMargin) / kMaxCol
+        (.screenWidth - (kMaxCol - 1) * kMargin) / kMaxCol
     }
+
     private var kItemH: CGFloat {
         kItemW * 1.6
     }

@@ -43,6 +43,6 @@ extension ViewController: EmptyDataSetable {
     }
 
     @objc public var verticalOffset: CGFloat {
-        Configs.Dimensions.topH
+        .navgationBarBottomY
     }
 }

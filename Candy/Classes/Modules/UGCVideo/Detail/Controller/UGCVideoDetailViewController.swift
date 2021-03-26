@@ -35,8 +35,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        setNavBarTransparent(true)
     }
 
     override func viewDidLoad() {
@@ -46,8 +45,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
+        setNavBarTransparent(false)
     }
 
     // MARK: - convenience

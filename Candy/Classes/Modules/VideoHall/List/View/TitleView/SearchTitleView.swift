@@ -13,7 +13,7 @@ class SearchTitleView: UIView {
     public static let x: CGFloat = 20
     public static let y: CGFloat = 5
     public static let height: CGFloat = 34
-    public static let width: CGFloat = Configs.Dimensions.screenWidth - x * 2
+    public static let width: CGFloat = .screenWidth - x * 2
 
     public let beginEdit = PublishSubject<Void>()
 

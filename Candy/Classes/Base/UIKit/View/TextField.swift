@@ -20,6 +20,5 @@ class TextField: UITextField {
         makeUI()
     }
 
-    func makeUI() {
-    }
+    func makeUI() {}
 }
