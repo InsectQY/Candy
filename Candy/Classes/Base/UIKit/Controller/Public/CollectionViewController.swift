@@ -20,10 +20,6 @@ class CollectionViewController: ViewController {
     }()
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
@@ -49,18 +45,11 @@ class CollectionViewController: ViewController {
         setUpDefaultEmptyDataSet()
         view.addSubview(collectionView)
     }
-
-    // MARK: - 开始头部刷新
-    func beginHeaderRefresh() {
-        collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.collectionView.setUpEmptyDataSet()
-        }
-    }
 }
 
 extension CollectionViewController {
 
     func setUpDefaultEmptyDataSet() {
-        collectionView.emptyDataSet.image = R.image.hg_defaultError()
+        collectionView.emptyDataSet?.image = R.image.hg_defaultError()
     }
 }

@@ -13,7 +13,7 @@ private var context: UInt8 = 0
 
 extension UIScrollView {
 
-    var emptyDataSet: EmptyDataSet {
+    var emptyDataSet: EmptyDataSet? {
 
         get {
 
@@ -43,26 +43,19 @@ extension UIScrollView {
     }
 }
 
-// MARK: - LoadingStateable
-extension UIScrollView: LoadingStateable {
-    func loadingStateChanged() {
-        reloadEmptyDataSet()
-    }
-}
-
 // MARK: - EmptyDataSetSource
 extension UIScrollView: EmptyDataSetSource {
 
     public func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: emptyDataSet.title)
+        NSAttributedString(string: emptyDataSet?.title ?? "")
     }
 
     public func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: emptyDataSet.description)
+        NSAttributedString(string: emptyDataSet?.description ?? "")
     }
 
     public func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
-        emptyDataSet.image
+        emptyDataSet?.image
     }
 
     public func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
@@ -70,7 +63,7 @@ extension UIScrollView: EmptyDataSetSource {
     }
 
     public func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
-        emptyDataSet.verticalOffset
+        emptyDataSet?.verticalOffset ?? 0
     }
 }
 
@@ -82,10 +75,17 @@ extension UIScrollView: EmptyDataSetDelegate {
     }
 
     public func emptyDataSet(_ scrollView: UIScrollView, didTapView view: UIView) {
-        emptyDataSet.didTapView?()
+        emptyDataSet?.didTapView?()
     }
 
     public func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
-        emptyDataSet.isShouldAllowScroll
+        emptyDataSet?.isShouldAllowScroll ?? false
+    }
+}
+
+// MARK: - LoadingStateable
+extension UIScrollView: LoadingStateable {
+    func loadingStateChanged() {
+        reloadEmptyDataSet()
     }
 }

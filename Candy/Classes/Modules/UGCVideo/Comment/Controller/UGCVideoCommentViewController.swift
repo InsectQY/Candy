@@ -44,12 +44,12 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
-        beginHeaderRefresh()
+        tableView.refreshHeader?.beginRefreshing()
     }
 
     override func bindViewModel() {
         super.bindViewModel()
-
+        tableView.setUpEmptyDataSet()
         let input = UGCVideoCommentViewModel.Input(id: id ?? "")
         let output = viewModel.transform(input: input)
 

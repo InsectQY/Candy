@@ -518,12 +518,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		13031D2424A336780010A440 /* EmptyDataSet */ = {
+		13031D2424A336780010A440 /* LoadingStateable */ = {
 			isa = PBXGroup;
 			children = (
 				1341B35825F5BCE000ECA7C5 /* LoadingStateable.swift */,
 			);
-			path = EmptyDataSet;
+			path = LoadingStateable;
 			sourceTree = "<group>";
 		};
 		13031D2724A337FE0010A440 /* UIViewController */ = {
@@ -598,6 +598,32 @@
 				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		1386E1A02612F32A0092DA33 /* EmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				1386E1A22612F3890092DA33 /* RxSwift */,
+				1386E1A12612F37F0092DA33 /* Public */,
+			);
+			path = EmptyDataSet;
+			sourceTree = "<group>";
+		};
+		1386E1A12612F37F0092DA33 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				13031D2424A336780010A440 /* LoadingStateable */,
+				13976E2E260D8EA600977F55 /* UIScrollView */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1386E1A22612F3890092DA33 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				13976E37260DABB400977F55 /* UIScrollView */,
+			);
+			path = RxSwift;
 			sourceTree = "<group>";
 		};
 		13976E2E260D8EA600977F55 /* UIScrollView */ = {
@@ -1552,7 +1578,6 @@
 		E5E0203621B4FF5100A4CDF1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				13031D2424A336780010A440 /* EmptyDataSet */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
 			);
 			path = Protocols;
@@ -1579,7 +1604,6 @@
 		E5E0204C21B5057600A4CDF1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				13976E2E260D8EA600977F55 /* UIScrollView */,
 				13031D2724A337FE0010A440 /* UIViewController */,
 				E5E0203F21B4FF5100A4CDF1 /* Reusable */,
 				18F81D5C229636A60028CA14 /* UIColor */,
@@ -1595,7 +1619,6 @@
 		E5E0205121B5057600A4CDF1 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				13976E37260DABB400977F55 /* UIScrollView */,
 				1374983024E6904D00677F39 /* JXCategoryView */,
 				13031D2124A336570010A440 /* ViewController */,
 				E51D60D72455E5A40059171C /* PYSearch */,
@@ -1645,6 +1668,7 @@
 		E5E0206E21B5057600A4CDF1 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				1386E1A02612F32A0092DA33 /* EmptyDataSet */,
 				E51D60D02455E5220059171C /* HUD */,
 				E578C03423362E30006C0CA1 /* Toast */,
 				E578C02C23362753006C0CA1 /* Kingfisher */,

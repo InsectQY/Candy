@@ -21,10 +21,6 @@ class TableViewController: ViewController {
     }()
 
     // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -50,18 +46,11 @@ class TableViewController: ViewController {
         setUpDefaultEmptyDataSet()
         view.addSubview(tableView)
     }
-
-    // MARK: - 开始头部刷新
-    func beginHeaderRefresh() {
-        tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.setUpEmptyDataSet()
-        }
-    }
 }
 
 extension TableViewController {
 
     func setUpDefaultEmptyDataSet() {
-        tableView.emptyDataSet.image = R.image.hg_defaultError()
+        tableView.emptyDataSet?.image = R.image.hg_defaultError()
     }
 }

@@ -29,7 +29,7 @@ extension Reactive where Base: UIScrollView {
                 return Disposables.create()
             }
 
-            control.emptyDataSet.didTapView = {
+            control.emptyDataSet?.didTapView = {
                 observer.on(.next(()))
             }
 

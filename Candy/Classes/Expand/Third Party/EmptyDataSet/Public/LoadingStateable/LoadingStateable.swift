@@ -34,6 +34,10 @@ extension LoadingStateable {
         }
 
         set {
+            
+            if newValue == isLoading {
+                return
+            }
             objc_setAssociatedObject(self,
                                      &context,
                                      newValue,

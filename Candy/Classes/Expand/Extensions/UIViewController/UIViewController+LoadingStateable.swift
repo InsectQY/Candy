@@ -18,19 +18,3 @@ extension ViewController: LoadingStateable {
         }
     }
 }
-
-extension TableViewController {
-
-    override func loadingStateChanged() {
-        super.loadingStateChanged()
-        tableView.reloadEmptyDataSet()
-    }
-}
-
-extension CollectionViewController {
-
-    override func loadingStateChanged() {
-        super.loadingStateChanged()
-        collectionView.reloadEmptyDataSet()
-    }
-}

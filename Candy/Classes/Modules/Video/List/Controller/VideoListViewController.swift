@@ -53,13 +53,12 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
     override func makeUI() {
         super.makeUI()
 
+        tableView.delegate = self
         tableView.rowHeight = VideoListCell.height
         tableView.register(R.nib.videoListCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
-        tableView.delegate = self
-
-        beginHeaderRefresh()
+        tableView.refreshHeader?.beginRefreshing()
     }
 
     override func bindViewModel() {

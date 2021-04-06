@@ -111,8 +111,8 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         .disposed(by: rx.disposeBag)
 
         collectionView.setUpEmptyDataSet()
-        collectionView.emptyDataSet.description = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
-        collectionView.emptyDataSet.verticalOffset = topH + 180
+        collectionView.emptyDataSet?.description = R.string.localizable.videoHallFilterResultEmptyPlaceholder()
+        collectionView.emptyDataSet?.verticalOffset = topH + 180
     }
 
     func filterTap() {

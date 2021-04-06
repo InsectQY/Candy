@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import RxOptional
 
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
@@ -26,7 +27,9 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         collectionView.register(R.nib.ugcVideoListCell)
         collectionView.refreshHeader = RefreshHeader()
         collectionView.refreshFooter = RefreshFooter()
-        beginHeaderRefresh()
+        collectionView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.collectionView.setUpEmptyDataSet()
+        }
     }
 
     override func bindViewModel() {
@@ -39,8 +42,9 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
 
         viewModel.output
         .items
+        .filterEmpty()
         .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
-                                       cellType: UGCVideoListCell.self)) { collectionView, item, cell in
+                                       cellType: UGCVideoListCell.self)) { _, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
