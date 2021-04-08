@@ -33,11 +33,6 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
 
         viewModel
         .loading
-        .drive(rx.isLoading)
-        .disposed(by: rx.disposeBag)
-
-        viewModel
-        .loading
         .drive(collectionView.rx.isLoading)
         .disposed(by: rx.disposeBag)
     }

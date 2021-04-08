@@ -136,8 +136,8 @@ extension UGCVideoListViewModel {
         .request()
         .mapKKModelData(ShortVideoModel.self)
         .map(\.items)
-        .trackActivity(loading)
         .trackError(refreshError)
+        .trackActivity(loading)
         .asDriverOnErrorJustComplete()
     }
 }

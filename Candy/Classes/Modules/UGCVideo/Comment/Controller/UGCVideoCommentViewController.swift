@@ -44,7 +44,9 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
-        tableView.refreshHeader?.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.tableView.setUpEmptyDataSet()
+        }
     }
 
     override func bindViewModel() {

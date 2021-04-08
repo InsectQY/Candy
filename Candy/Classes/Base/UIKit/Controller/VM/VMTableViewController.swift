@@ -31,10 +31,6 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
 
     // MARK: - 绑定加载状态
     func bindLoading() {
-        viewModel
-        .loading
-        .drive(rx.isLoading)
-        .disposed(by: rx.disposeBag)
 
         viewModel
         .loading

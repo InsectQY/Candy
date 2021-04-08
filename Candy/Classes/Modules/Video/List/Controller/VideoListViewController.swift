@@ -58,7 +58,9 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         tableView.register(R.nib.videoListCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
-        tableView.refreshHeader?.beginRefreshing()
+        tableView.refreshHeader?.beginRefreshing { [weak self] in
+            self?.tableView.setUpEmptyDataSet()
+        }
     }
 
     override func bindViewModel() {
