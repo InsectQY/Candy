@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol FilterViewProtocol: class {
+public protocol FilterViewProtocol: AnyObject {
 
     func searchKey(_ key: String)
 

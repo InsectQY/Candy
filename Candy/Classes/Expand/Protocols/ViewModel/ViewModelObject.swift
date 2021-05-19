@@ -10,7 +10,7 @@ import Foundation
 
 private var context: UInt8 = 0
 
-protocol ViewModelObject: class {
+protocol ViewModelObject: AnyObject {
     associatedtype VMType: ViewModel
 
     var viewModel: VMType { get set }

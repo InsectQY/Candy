@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.3)
   - CleanJSON (1.0.8)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
@@ -9,8 +9,8 @@ PODS:
   - IJKMediaFramework (0.1.5)
   - IQKeyboardManagerSwift (6.5.6)
   - Jelly (2.2.2)
-  - JXCategoryView (1.5.8)
-  - Kingfisher (6.2.1)
+  - JXCategoryView (1.5.9)
+  - Kingfisher (6.3.0)
   - KingfisherWebP (1.3.0):
     - Kingfisher (~> 6.2)
     - libwebp (>= 1.1.0)
@@ -23,7 +23,7 @@ PODS:
   - libwebp/mux (1.2.0):
     - libwebp/demux
   - libwebp/webp (1.2.0)
-  - MJRefresh (3.5.0)
+  - MJRefresh (3.6.1)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -171,7 +171,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/InsectQY/RxMJ.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   CleanJSON: 7cc2fbb8f3face17e80a25a2266199ad31002bfc
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -181,11 +181,11 @@ SPEC CHECKSUMS:
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
-  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   KingfisherWebP: dec17a5eb1af2658791bde1f93ae9a853678f826
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
@@ -211,6 +211,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 331e8a61465d7df3bc5e9ae7100eb42648a76196
+PODFILE CHECKSUM: 128b24a1b8d73a334392869915082a8f9a3b0e41
 
 COCOAPODS: 1.10.1

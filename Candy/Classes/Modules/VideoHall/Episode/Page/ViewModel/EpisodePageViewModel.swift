@@ -15,8 +15,9 @@ final class EpisodePageViewModel: ViewModel, NestedViewModelable {
 
     let input: Input
     let output: Output
-    
+
     struct Input {
+
         /// 总共有多少集
         let totalCount: Int
     }

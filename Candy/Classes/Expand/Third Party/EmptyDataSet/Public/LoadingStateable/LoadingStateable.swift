@@ -10,7 +10,7 @@ import Foundation
 
 private var context: UInt8 = 0
 
-protocol LoadingStateable: class {
+protocol LoadingStateable: AnyObject {
 
     var isLoading: Bool { get set }
 
