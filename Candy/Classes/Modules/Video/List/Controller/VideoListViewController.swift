@@ -131,7 +131,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         .map(\.content)
         .map { [unowned self] in
             ["news": $0,
-            "seekTime": self.currentTime]
+             "seekTime": self.currentTime]
         }
         .flatMap {
             navigator.rx.push(VideoURL.detail.path,

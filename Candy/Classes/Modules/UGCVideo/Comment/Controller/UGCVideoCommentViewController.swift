@@ -57,7 +57,7 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
 
     override func bindViewModel() {
         super.bindViewModel()
-        tableView.setUpEmptyDataSet()
+
         let input = UGCVideoCommentViewModel.Input(id: id ?? "")
         let output = viewModel.transform(input: input)
 

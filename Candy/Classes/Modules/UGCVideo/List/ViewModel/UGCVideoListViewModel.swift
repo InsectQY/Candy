@@ -36,7 +36,8 @@ final class UGCVideoListViewModel: RefreshViewModel, NestedViewModelable {
     // 所有需要播放的视频 URL
     private let videoURLs = BehaviorRelay<[URL]>(value: [])
     // 当前选中的
-    private let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
+    private let indexPath = BehaviorRelay<IndexPath>(value: IndexPath(item: 0,
+                                                                      section: 0))
 
     required init() {
 

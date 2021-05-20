@@ -74,7 +74,6 @@ class RefreshViewModel: ViewModel {
                                       footerRefreshState: footerRefreshState.asDriverOnErrorJustComplete(),
                                       emptyDataSetViewTap: emptyDataSetViewTap.asDriverOnErrorJustComplete())
         super.init()
-        transform()
     }
 
     func transform() {}

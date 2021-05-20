@@ -26,6 +26,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
         bindHeader()
         bindFooter()
         bindEmptyDataSetViewTap()
+        viewModel.transform()
     }
 
     // MARK: - 绑定加载状态

@@ -27,6 +27,7 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
         bindHeader()
         bindFooter()
         bindEmptyDataSetViewTap()
+        viewModel.transform()
     }
 
     // MARK: - 绑定加载状态
