@@ -72,7 +72,8 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
 
     private func addPanGesture() {
 
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self,
+                                                          action: #selector(panned(_:)))
         panGestureRecognizer.delegate = self
         collectionView.addGestureRecognizer(panGestureRecognizer)
     }
@@ -95,7 +96,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
         viewModel.output
         .items
         .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoDetailCell.identifier,
-                                       cellType: UGCVideoDetailCell.self)) { collectionView, item, cell in
+                                       cellType: UGCVideoDetailCell.self)) { _, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
@@ -178,7 +179,8 @@ extension UGCVideoDetailViewController {
             navigationItem.leftBarButtonItem = nil
             cell.isPanned = true
             Hero.shared.update(progress)
-            let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
+            let currentPos = CGPoint(x: translation.x + view.center.x,
+                                     y: translation.y + view.center.y)
             Hero.shared.apply(modifiers: [.position(currentPos)],
                               to: cell)
         default:

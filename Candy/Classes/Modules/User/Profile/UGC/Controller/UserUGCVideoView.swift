@@ -19,7 +19,8 @@ class UserUGCVideoView: View {
     // MARK: - Lazyload
     private lazy var collectionView: CollectionView = {
 
-        let collectionView = CollectionView(frame: bounds, collectionViewLayout: UserUGCFlowLayout())
+        let collectionView = CollectionView(frame: bounds,
+                                            collectionViewLayout: UserUGCFlowLayout())
         collectionView.delegate = self
         collectionView.register(R.nib.userUGCVideoCell)
         collectionView.refreshFooter = RefreshFooter()

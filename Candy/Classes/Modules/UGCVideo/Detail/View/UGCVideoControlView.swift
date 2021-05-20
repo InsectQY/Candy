@@ -58,8 +58,12 @@ class UGCVideoControlView: View {
         super.layoutSubviews()
 
         activity.center = center
-        activity.size = CGSize(width: 44, height: 44)
-        sliderView.frame = CGRect(x: 0, y: height - 2, width: width, height: 2)
+        activity.size = CGSize(width: 44,
+                               height: 44)
+        sliderView.frame = CGRect(x: 0,
+                                  y: height - 2,
+                                  width: width,
+                                  height: 2)
     }
 
     func resetControlView() {

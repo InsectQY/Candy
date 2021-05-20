@@ -63,8 +63,14 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        categoryView.frame = CGRect(x: 0, y: 0, width: view.width, height: menuH)
-        listContainerView.frame = CGRect(x: 0, y: menuH, width: view.width, height: view.height)
+        categoryView.frame = CGRect(x: 0,
+                                    y: 0,
+                                    width: view.width,
+                                    height: menuH)
+        listContainerView.frame = CGRect(x: 0,
+                                         y: menuH,
+                                         width: view.width,
+                                         height: view.height)
     }
 }
 

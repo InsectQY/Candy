@@ -20,14 +20,18 @@ class VideoHallRoleCell: TableViewCell {
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
 
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: VideoHallRoleCell.KInset, bottom: 0, right: VideoHallRoleCell.KInset)
+            collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                       left: VideoHallRoleCell.KInset,
+                                                       bottom: 0,
+                                                       right: VideoHallRoleCell.KInset)
             collectionView.register(R.nib.roleCell)
         }
     }
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout! {
         didSet {
             flowLayout.scrollDirection = .horizontal
-            flowLayout.itemSize = CGSize(width: VideoHallRoleCell.kItemW, height: VideoHallRoleCell.kItemW * 2)
+            flowLayout.itemSize = CGSize(width: VideoHallRoleCell.kItemW,
+                                         height: VideoHallRoleCell.kItemW * 2)
             flowLayout.minimumLineSpacing = VideoHallRoleCell.kMargin
             flowLayout.minimumInteritemSpacing = VideoHallRoleCell.kMargin
         }

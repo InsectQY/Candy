@@ -39,7 +39,10 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pagingView?.frame = view.bounds
-        headerView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: 100)
+        headerView.frame = CGRect(x: 0,
+                                  y: 0,
+                                  width: .screenWidth,
+                                  height: 100)
     }
 
     // MARK: - init

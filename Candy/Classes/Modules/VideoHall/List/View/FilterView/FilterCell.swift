@@ -58,7 +58,10 @@ class FilterCell: TableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        categoryView.frame = CGRect(x: 0, y: Self.categoryViewY, width: bounds.width, height: categoryViewHeight)
+        categoryView.frame = CGRect(x: 0,
+                                    y: Self.categoryViewY,
+                                    width: bounds.width,
+                                    height: categoryViewHeight)
     }
 }
 

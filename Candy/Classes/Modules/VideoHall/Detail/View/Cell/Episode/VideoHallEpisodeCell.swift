@@ -18,7 +18,10 @@ class VideoHallEpisodeCell: TableViewCell {
     public var selIndex: Int = 0 {
         didSet {
 
-            collectionView.scrollToItem(at: IndexPath(item: selIndex, section: 0), at: .left, animated: false)
+            collectionView.scrollToItem(at: IndexPath(item: selIndex,
+                                                      section: 0),
+                                        at: .left,
+                                        animated: false)
             collectionView.reloadData()
         }
     }
@@ -41,7 +44,8 @@ class VideoHallEpisodeCell: TableViewCell {
 
     @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout! {
         didSet {
-            flowLayout.itemSize = CGSize(width: VideoHallEpisodeCell.kItemW, height: VideoHallEpisodeCell.kItemW)
+            flowLayout.itemSize = CGSize(width: VideoHallEpisodeCell.kItemW,
+                                         height: VideoHallEpisodeCell.kItemW)
             flowLayout.minimumLineSpacing = VideoHallEpisodeCell.kMargin
             flowLayout.minimumInteritemSpacing = VideoHallEpisodeCell.kMargin
         }
@@ -49,7 +53,10 @@ class VideoHallEpisodeCell: TableViewCell {
 
     @IBOutlet private weak var collectionView: CollectionView! {
         didSet {
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: VideoHallEpisodeCell.KInset, bottom: 0, right: VideoHallEpisodeCell.KInset)
+            collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                       left: VideoHallEpisodeCell.KInset,
+                                                       bottom: 0,
+                                                       right: VideoHallEpisodeCell.KInset)
             collectionView.register(R.nib.episodeCell)
         }
     }

@@ -56,8 +56,14 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        videoView.frame = CGRect(x: 0, y: 0, width: view.width, height: VideoHallHeaderView.height)
-        tableView.frame = CGRect(x: 0, y: videoView.bottom, width: view.width, height: view.height - VideoDetailHeader.height)
+        videoView.frame = CGRect(x: 0,
+                                 y: 0,
+                                 width: view.width,
+                                 height: VideoHallHeaderView.height)
+        tableView.frame = CGRect(x: 0,
+                                 y: videoView.bottom,
+                                 width: view.width,
+                                 height: view.height - VideoDetailHeader.height)
     }
 
     // MARK: - init

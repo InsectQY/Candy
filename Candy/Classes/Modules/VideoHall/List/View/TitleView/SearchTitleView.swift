@@ -26,8 +26,12 @@ class SearchTitleView: UIView {
         searchTF.leftViewMode = .always
         searchTF.leftView?.origin = CGPoint(x: 10, y: 0)
         let image = UIButton(type: .custom)
-        image.setImage(R.image.search_24x24_(), for: .normal)
-        image.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        image.setImage(R.image.search_24x24_(),
+                       for: .normal)
+        image.frame = CGRect(x: 0,
+                             y: 0,
+                             width: 24,
+                             height: 24)
         searchTF.leftView = image
         searchTF.delegate = self
         return searchTF

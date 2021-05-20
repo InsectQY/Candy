@@ -11,12 +11,18 @@ import UIKit
 class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     // MARK: - Lazyload
-    private lazy var topView = TopView(frame: CGRect(x: 0, y: topH, width: .screenWidth, height: 44))
+    private lazy var topView = TopView(frame: CGRect(x: 0,
+                                                     y: topH,
+                                                     width: .screenWidth,
+                                                     height: 44))
 
     private lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
 
     /// 搜索框
-    private lazy var titleView = SearchTitleView(frame: CGRect(x: SearchTitleView.x, y: SearchTitleView.y, width: SearchTitleView.width, height: SearchTitleView.height))
+    private lazy var titleView = SearchTitleView(frame: CGRect(x: SearchTitleView.x,
+                                                               y: SearchTitleView.y,
+                                                               width: SearchTitleView.width,
+                                                               height: SearchTitleView.height))
 
     /// 添加到 collectionView 上的
     private lazy var filterView: FilterView = {
@@ -48,8 +54,14 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     // MARK: - LifeCycle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        animateFilterView.frame = CGRect(x: 0, y: -filterViewHeight, width: .screenWidth, height: filterViewHeight)
-        filterView.frame = CGRect(x: 0, y: -filterViewHeight, width: .screenWidth, height: filterViewHeight)
+        animateFilterView.frame = CGRect(x: 0,
+                                         y: -filterViewHeight,
+                                         width: .screenWidth,
+                                         height: filterViewHeight)
+        filterView.frame = CGRect(x: 0,
+                                  y: -filterViewHeight,
+                                  width: .screenWidth,
+                                  height: filterViewHeight)
     }
 
     override func makeUI() {
@@ -100,7 +112,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         viewModel.output
         .items
         .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallListCell.identifier,
-                                       cellType: VideoHallListCell.self)) { collectionView, item, cell in
+                                       cellType: VideoHallListCell.self)) { _, item, cell in
             cell.item = item
         }
         .disposed(by: rx.disposeBag)
@@ -126,7 +138,10 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     func setFilterViewHeight(_ height: CGFloat) {
         filterViewHeight = height
-        collectionView.contentInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: height,
+                                                   left: 0,
+                                                   bottom: 0,
+                                                   right: 0)
         viewDidLayoutSubviews()
     }
 }

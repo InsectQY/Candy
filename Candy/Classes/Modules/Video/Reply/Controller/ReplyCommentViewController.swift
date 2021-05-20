@@ -20,8 +20,14 @@ class ReplyCommentViewController: TableViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        topView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: ReplyCommentTopView.height)
-        tableView.frame = CGRect(x: 0, y: ReplyCommentTopView.height, width: .screenWidth, height: view.height - ReplyCommentTopView.height)
+        topView.frame = CGRect(x: 0,
+                               y: 0,
+                               width: .screenWidth,
+                               height: ReplyCommentTopView.height)
+        tableView.frame = CGRect(x: 0,
+                                 y: ReplyCommentTopView.height,
+                                 width: .screenWidth,
+                                 height: view.height - ReplyCommentTopView.height)
     }
 
     // MARK: - convenience
@@ -52,7 +58,7 @@ class ReplyCommentViewController: TableViewController {
 
         Driver.just(replyComment)
         .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
-                                  cellType: CommentCell.self)) { tableView, item, cell in
+                                  cellType: CommentCell.self)) { _, item, cell in
             cell.isReply = true
             cell.item = item
         }
