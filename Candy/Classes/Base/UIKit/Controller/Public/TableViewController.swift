@@ -12,7 +12,7 @@ class TableViewController: ViewController {
 
     private var style: UITableView.Style = .plain
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     lazy var tableView: TableView = {
 
         let tableView = TableView(frame: view.bounds,

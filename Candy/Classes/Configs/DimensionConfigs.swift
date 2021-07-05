@@ -24,9 +24,9 @@ public extension CGFloat {
         }
     }
 
-    /// navgationBar 底部的 Y 值
-    static var navgationBarBottomY: CGFloat {
-        .navgationBarHeight + .safeAreaTop
+    /// navigationBar 底部的 Y 值
+    static var navigationBarBottomY: CGFloat {
+        .navigationBarHeight + .safeAreaTop
     }
 
     /// tabBar 顶部的 Y 值
@@ -38,8 +38,8 @@ public extension CGFloat {
         safeAreaTop + safeAreaBottom
     }
 
-    /// navgationBar 高度
-    static var navgationBarHeight: CGFloat {
+    /// navigationBar 高度
+    static var navigationBarHeight: CGFloat {
         AppDelegate.rootViewController?.navigationController?.navigationBar.size.height ?? 0
     }
 

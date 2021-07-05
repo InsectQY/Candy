@@ -10,7 +10,7 @@ import UIKit
 
 class Label: UILabel {
 
-    // MARK: - Inital
+    // MARK: - Initial
     public override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()

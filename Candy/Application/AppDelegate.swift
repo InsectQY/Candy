@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    open var isAllowOrentitaionRotation: Bool = false
+    open var isAllowOrientationRotation: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -23,6 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        isAllowOrentitaionRotation ? .allButUpsideDown : .portrait
+        isAllowOrientationRotation ? .allButUpsideDown : .portrait
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class Button: UIButton {
 
-    // MARK: - Inital
+    // MARK: - Initial
     public override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()

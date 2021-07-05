@@ -11,7 +11,7 @@ import UIKit
 class CollectionViewController: ViewController {
 
     private var layout: UICollectionViewLayout = UICollectionViewLayout()
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     lazy var collectionView: CollectionView = {
 
         let collectionView = CollectionView(frame: view.bounds,

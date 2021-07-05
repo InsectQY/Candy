@@ -146,11 +146,11 @@ extension VideoListViewController {
 
     private func setUpVideo() {
 
-        player.playerPlayTimeChanged = { [weak self] asset, currentTime, duration in
+        player.playerPlayTimeChanged = { [weak self] _, currentTime, _ in
             self?.currentTime = currentTime
         }
 
-        player.playerDidToEnd = { [weak self] asset in
+        player.playerDidToEnd = { [weak self] _ in
             self?.currentTime = 0
         }
     }
