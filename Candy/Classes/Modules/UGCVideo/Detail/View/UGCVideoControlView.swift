@@ -19,7 +19,7 @@ class UGCVideoControlView: View {
         }
     }
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var sliderView: ZFSliderView = {
 
         let sliderView = ZFSliderView()

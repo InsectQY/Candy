@@ -13,7 +13,7 @@ class ReplyCommentViewController: TableViewController {
 
     private var comment: ShortVideoCommentItem?
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var topView = R.nib.replyCommentTopView.firstView(owner: nil)!
 
     // MARK: - LifeCycle

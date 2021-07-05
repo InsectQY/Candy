@@ -40,7 +40,7 @@ extension Reactive where Base: UserProfileHeaderView {
 
     var item: Binder<UserProfileModel?> {
 
-        return Binder(base) { target, value in
+        Binder(base) { target, value in
             target.item = value
         }
     }

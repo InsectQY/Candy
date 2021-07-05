@@ -47,7 +47,7 @@ extension VideoHallDetailViewModel: ViewModelable {
         }
         .flatMapLatest { [unowned self] in
             self.requestVideoPlayInfo(vid: $0.Episode.video_info.vid,
-                                      ptoken: $0.Episode.video_info.business_token,
+                                      pToken: $0.Episode.video_info.business_token,
                                       author: $0.Episode.video_info.auth_token)
         }
         .drive(videoPlayInfo)
@@ -88,7 +88,7 @@ extension VideoHallDetailViewModel: ViewModelable {
         // 视频播放信息
         info.flatMapLatest { [unowned self] in
             self.requestVideoPlayInfo(vid: $0.Episode.video_info.vid,
-                                      ptoken: $0.Episode.video_info.business_token,
+                                      pToken: $0.Episode.video_info.business_token,
                                       author: $0.Episode.video_info.auth_token)
         }
         .drive(videoPlayInfo)
@@ -119,12 +119,12 @@ extension VideoHallDetailViewModel {
 
     // 获取视频播放信息
     func requestVideoPlayInfo(vid: String,
-                              ptoken: String,
+                              pToken: String,
                               author: String) -> Driver<VideoPlayInfo> {
 
         VideoApi
         .parseVideoHall(vid: vid,
-                        ptoken: ptoken,
+                        pToken: pToken,
                         author: author)
         .request()
         .mapObject(TTModel<VideoPlayInfo>.self,

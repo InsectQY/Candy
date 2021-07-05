@@ -4,10 +4,10 @@ extension UIView {
 
     public var x: CGFloat {
         get {
-            self.frame.origin.x
+            frame.origin.x
         }
         set {
-            var frame = self.frame
+            var frame = frame
             frame.origin.x = newValue
             self.frame = frame
         }
@@ -15,11 +15,11 @@ extension UIView {
 
     public var y: CGFloat {
         get {
-            self.frame.origin.y
+            frame.origin.y
         }
 
         set {
-            var frame = self.frame
+            var frame = frame
             frame.origin.y = newValue
             self.frame = frame
         }
@@ -27,11 +27,11 @@ extension UIView {
 
     public var width: CGFloat {
         get {
-            self.frame.size.width
+            frame.size.width
         }
 
         set {
-            var frame = self.frame
+            var frame = frame
             frame.size.width = newValue
             self.frame = frame
         }
@@ -39,11 +39,11 @@ extension UIView {
 
     public var height: CGFloat {
         get {
-            self.frame.size.height
+            frame.size.height
         }
 
         set {
-            var frame = self.frame
+            var frame = frame
             frame.size.height = newValue
             self.frame = frame
         }
@@ -51,11 +51,11 @@ extension UIView {
 
     public var size: CGSize {
         get {
-            self.frame.size
+            frame.size
         }
 
         set {
-            var frame = self.frame
+            var frame = frame
             frame.size = newValue
             self.frame = frame
         }
@@ -63,18 +63,18 @@ extension UIView {
 
     public var origin: CGPoint {
         get {
-            self.frame.origin
+            frame.origin
         }
 
         set {
-            var frame = self.frame
+            var frame = frame
             frame.origin = newValue
             self.frame = frame
         }
     }
 
     public var bottom: CGFloat {
-        self.frame.origin.y + self.frame.size.height
+        frame.origin.y + frame.size.height
     }
 
     public func isShowingOnKeyWindow() -> Bool {

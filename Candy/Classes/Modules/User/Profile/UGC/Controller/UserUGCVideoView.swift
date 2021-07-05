@@ -16,7 +16,7 @@ class UserUGCVideoView: View {
     /// 访问用户的 ID
     private var visitedID: String = ""
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var collectionView: CollectionView = {
 
         let collectionView = CollectionView(frame: bounds,
@@ -29,7 +29,7 @@ class UserUGCVideoView: View {
 
     private lazy var viewModel = UserUGCViewModel()
 
-    // MARK: - LifeCylce
+    // MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

@@ -74,5 +74,3 @@ extension VideoHallApi: TargetType {
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
 }
-
-//  extension VideoHallApi: YGRespnseHandle {}

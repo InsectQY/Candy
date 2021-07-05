@@ -1,5 +1,5 @@
 //
-//  UGCVIdeoPageModel.swift
+//  UGCVideoPageModel.swift
 //  QYNews
 //
 //  Created by Insect on 2018/12/7.

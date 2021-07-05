@@ -30,7 +30,8 @@ public extension Response {
     /// 直接解析出项目 Model 基类中的 data
     /// - Parameter type: Model 基类中 data 的类型
     func mapTTModelData<T: Codable>(_ type: T.Type) throws -> T {
-        return try mapTTModel(T.self).data
+
+        try mapTTModel(T.self).data
     }
 }
 
@@ -40,11 +41,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
     /// - Parameter type: Model 基类中 data 的类型
     func mapTTModel<T: Codable>(_ type: T.Type) -> Single<TTModel<T>> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapTTModel(type)
-            else {
+                    let response = try? $0.mapTTModel(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -55,11 +56,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
     /// - Parameter type: Model 基类中 data 的类型
     func mapTTModelData<T: Codable>(_ type: T.Type) -> Single<T> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapTTModelData(type)
-            else {
+                    let response = try? $0.mapTTModelData(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -73,11 +74,11 @@ public extension ObservableType where Element == Response {
     /// - Parameter type: Model 基类中 data 的类型
     func mapTTModel<T: Codable>(_ type: T.Type) -> Observable<TTModel<T>> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapTTModel(type)
-            else {
+                    let response = try? $0.mapTTModel(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -88,11 +89,11 @@ public extension ObservableType where Element == Response {
     /// - Parameter type: Model 基类中 data 的类型
     func mapTTModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapTTModelData(type)
-            else {
+                    let response = try? $0.mapTTModelData(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

@@ -21,7 +21,7 @@ class EpisodeViewController: VMViewController<EpisodePageViewModel> {
     @IBOutlet private weak var categoryContentView: View!
     @IBOutlet private weak var pageContentView: View!
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var categoryView: JXCategoryTitleView = {
 
         let lineView = JXCategoryIndicatorLineView()

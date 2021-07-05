@@ -12,9 +12,9 @@ import UITableView_FDTemplateLayoutCell
 class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewModel> {
 
     private var id: String?
-    private var commmentCount: Int?
+    private var commentCount: Int?
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(owner: nil)!
 
     // MARK: - LifeCycle
@@ -32,10 +32,10 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     }
 
     // MARK: - init
-    init(id: String?, commmentCount: Int?) {
+    init(id: String?, commentCount: Int?) {
         super.init(style: .plain)
         self.id = id
-        self.commmentCount = commmentCount
+        self.commentCount = commentCount
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -69,7 +69,7 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         }
         .disposed(by: rx.disposeBag)
 
-        headerView.count = commmentCount
+        headerView.count = commentCount
     }
 }
 

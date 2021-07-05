@@ -12,7 +12,7 @@ import Foundation
 public extension Reactive where Base: FilterView {
 
     var categories: Binder<[CategoryList]> {
-        return Binder(base) { view, result in
+        Binder(base) { view, result in
             view.filter = result
         }
     }

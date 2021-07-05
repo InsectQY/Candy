@@ -12,6 +12,6 @@ typealias TypedUserInfoKey<T> = (key: String, type: T.Type)
 
 extension Dictionary where Key == String, Value == Any {
     subscript<T>(_ typedKey: TypedUserInfoKey<T>) -> T? {
-        return self[typedKey.key] as? T
+        self[typedKey.key] as? T
     }
 }

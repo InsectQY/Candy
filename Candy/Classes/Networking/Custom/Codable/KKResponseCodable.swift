@@ -68,11 +68,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
     /// - Parameter type: Model 基类中 data 的类型
     func mapKKModel<T: Codable>(_ type: T.Type) -> Single<KKModel<T>> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKModel(type)
-            else {
+                    let response = try? $0.mapKKModel(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -83,11 +83,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
     /// - Parameter type: Model 基类中 data 的类型
     func mapKKModelData<T: Codable>(_ type: T.Type) -> Single<T> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKModelData(type)
-            else {
+                    let response = try? $0.mapKKModelData(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -96,11 +96,11 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 
     func mapKKComment() -> Single<ShortVideoComment> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKComment()
-            else {
+                    let response = try? $0.mapKKComment()
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -114,11 +114,11 @@ public extension ObservableType where Element == Response {
     /// - Parameter type: Model 基类中 data 的类型
     func mapKKModel<T: Codable>(_ type: T.Type) -> Observable<KKModel<T>> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKModel(type)
-            else {
+                    let response = try? $0.mapKKModel(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -129,11 +129,11 @@ public extension ObservableType where Element == Response {
     /// - Parameter type: Model 基类中 data 的类型
     func mapKKModelData<T: Codable>(_ type: T.Type) -> Observable<T> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKModelData(type)
-            else {
+                    let response = try? $0.mapKKModelData(type)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response
@@ -142,11 +142,11 @@ public extension ObservableType where Element == Response {
 
     func mapKKComment() -> Observable<ShortVideoComment> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapKKComment()
-            else {
+                    let response = try? $0.mapKKComment()
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

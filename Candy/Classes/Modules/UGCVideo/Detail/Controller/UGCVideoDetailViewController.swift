@@ -12,7 +12,7 @@ import Hero
 
 class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var controlView = UGCVideoControlView(frame: UIScreen.main.bounds)
     private lazy var player: ZFPlayerController = {
 

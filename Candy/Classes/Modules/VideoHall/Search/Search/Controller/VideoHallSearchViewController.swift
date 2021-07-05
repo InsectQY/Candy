@@ -12,9 +12,9 @@ import URLNavigator
 
 class VideoHallSearchViewController: PYSearchViewController {
 
-    convenience init(_ placeHoder: String? = nil) {
+    convenience init(_ placeHolder: String? = nil) {
 
-        self.init(hotSearches: nil, searchBarPlaceholder: placeHoder)
+        self.init(hotSearches: nil, searchBarPlaceholder: placeHolder)
         self.cancelButton.setTitleColor(.white, for: .normal)
         self.hotSearches = ["无间道",
                             "放牛班的春天",

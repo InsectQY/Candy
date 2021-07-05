@@ -24,14 +24,14 @@ public extension ObservableType where Element == Response {
                                  using decoder: JSONDecoder = CleanJSONDecoder(),
                                  failsOnEmptyData: Bool = true) -> Observable<D> {
 
-        return map {
+        map {
 
             guard
-                let response = try? $0.mapObject(type,
-                                                 atKeyPath: path,
-                                                 using: decoder,
-                                                 failsOnEmptyData: failsOnEmptyData)
-            else {
+                    let response = try? $0.mapObject(type,
+                                                     atKeyPath: path,
+                                                     using: decoder,
+                                                     failsOnEmptyData: failsOnEmptyData)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

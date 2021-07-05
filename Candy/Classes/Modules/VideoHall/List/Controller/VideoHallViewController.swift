@@ -10,7 +10,7 @@ import UIKit
 
 class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var topView = TopView(frame: CGRect(x: 0,
                                                      y: topH,
                                                      width: .screenWidth,
@@ -129,7 +129,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     func filterTap() {
 
         animateFilterView.isHidden = false
-        UIView.animate(withDuration: 0.35) { [self] in
+        UIView.animate(withDuration: 0.35) { [unowned self] in
             topView.alpha = 0
             animateFilterView.y = self.topH
         }

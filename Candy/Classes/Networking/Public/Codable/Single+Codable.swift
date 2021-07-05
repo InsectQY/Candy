@@ -23,14 +23,15 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
                                  atKeyPath path: String? = nil,
                                  using decoder: JSONDecoder = CleanJSONDecoder(),
                                  failsOnEmptyData: Bool = true) -> Single<D> {
-        return map {
+
+        map {
 
             guard
-                let response = try? $0.mapObject(type,
-                                                 atKeyPath: path,
-                                                 using: decoder,
-                                                 failsOnEmptyData: failsOnEmptyData)
-            else {
+                    let response = try? $0.mapObject(type,
+                                                     atKeyPath: path,
+                                                     using: decoder,
+                                                     failsOnEmptyData: failsOnEmptyData)
+                    else {
                 throw MoyaError.jsonMapping($0)
             }
             return response

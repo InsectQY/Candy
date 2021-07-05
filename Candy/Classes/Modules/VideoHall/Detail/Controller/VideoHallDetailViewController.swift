@@ -14,7 +14,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
     private var albumID: String = ""
 
     fileprivate var selIndex: Int = 0
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var videoView: VideoHallHeaderView = {
         let videoView = VideoHallHeaderView()
         videoView.backgroundColor = .black
@@ -209,7 +209,7 @@ extension VideoHallDetailViewController {
 extension Reactive where Base: VideoHallDetailViewController {
 
     var selIndex: Binder<Int> {
-        return Binder(base) { vc, result in
+        Binder(base) { vc, result in
             vc.selIndex = result
         }
     }

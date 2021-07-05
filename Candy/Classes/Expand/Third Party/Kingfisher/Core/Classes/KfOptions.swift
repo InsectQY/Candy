@@ -30,6 +30,7 @@ public class KfOptions {
     }
 
     public static func fadeTransition(_ time: TimeInterval) -> KingfisherOptionsInfoItem {
-        return KingfisherOptionsInfoItem.transition(.fade(time))
+
+        KingfisherOptionsInfoItem.transition(.fade(time))
     }
 }

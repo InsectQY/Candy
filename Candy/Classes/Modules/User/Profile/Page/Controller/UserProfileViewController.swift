@@ -1,5 +1,5 @@
 //
-//  UserPorfileViewController.swift
+//  UserProfileViewController.swift
 //  QYNews
 //
 //  Created by Insect on 2019/1/2.
@@ -9,7 +9,7 @@
 import UIKit
 import JXCategoryView
 
-class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
+class UserProfileViewController: VMViewController<UserProfileViewModel> {
 
     private let menuH: CGFloat = 44
 
@@ -17,7 +17,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 
     private var dataSource: [JXPagerViewListViewDelegate] = []
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var headerView = R.nib.userProfileHeaderView.firstView(owner: nil)!
 
     private lazy var categoryView: JXCategoryTitleView = {
@@ -49,7 +49,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     init(userID: String) {
         self.userID = userID
         super.init(nibName: nil, bundle: nil)
-        self.viewModel = UserPorfileViewModel()
+        viewModel = UserProfileViewModel()
         dataSource = [UserUGCVideoView(visitedID: "")]
     }
 
@@ -68,7 +68,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        let input = UserPorfileViewModel.Input(userID: userID)
+        let input = UserProfileViewModel.Input(userID: userID)
         let output = viewModel.transform(input: input)
 
         // 用户简介
@@ -79,7 +79,7 @@ class UserPorfileViewController: VMViewController<UserPorfileViewModel> {
 }
 
 // MARK: - JXPagerViewDelegate
-extension UserPorfileViewController: JXPagerViewDelegate {
+extension UserProfileViewController: JXPagerViewDelegate {
 
     func tableHeaderViewHeight(in pagerView: JXPagerView!) -> UInt {
         100

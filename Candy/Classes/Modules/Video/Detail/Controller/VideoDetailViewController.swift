@@ -15,7 +15,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     private var video: NewsModel?
     private var seekTime: TimeInterval = 0
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var videoView: VideoDetailHeader = {
 
         let videoView = R.nib.videoDetailHeader.firstView(owner: nil)!
@@ -77,7 +77,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
 
     // MARK: - override
     override var prefersStatusBarHidden: Bool {
-        return true
+        true
     }
 
     override var shouldAutorotate: Bool {

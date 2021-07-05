@@ -39,7 +39,7 @@ class NavigationController: UINavigationController {
                                          target: self,
                                          action: #selector(backBtnDidClick))
             viewController.navigationItem.leftBarButtonItem = backItem
-            // 隐藏要push的控制器的tabbar
+            // 隐藏要push的控制器的tabBar
             viewController.hidesBottomBarWhenPushed = true
         }
 
@@ -47,7 +47,7 @@ class NavigationController: UINavigationController {
     }
 
     deinit {
-        print("\(type(of: self)): Deinited")
+        print("\(type(of: self)): deinit")
     }
 }
 

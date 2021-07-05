@@ -86,9 +86,9 @@ extension VideoDetailViewModel: ViewModelable {
         }
 
         // 加载最新评论
-        let newComments = self.requestComment(itemID: itemID,
-                                              groupID: groupID,
-                                              offset: 0)
+        let newComments = requestComment(itemID: itemID,
+                                         groupID: groupID,
+                                         offset: 0)
 
         // 加载更多评论
         let loadMoreComments = refreshOutput

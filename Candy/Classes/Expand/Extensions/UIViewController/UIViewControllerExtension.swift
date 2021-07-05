@@ -10,8 +10,8 @@ import Foundation
 
 extension UIViewController {
 
-    func setNavBarTransparent(_ isNavgationBarTransparent: Bool) {
-        if isNavgationBarTransparent {
+    func setNavBarTransparent(_ isNavigationBarTransparent: Bool) {
+        if isNavigationBarTransparent {
             navigationController?.navigationBar.setBackgroundImage(UIImage(),
                                                                    for: .default)
             navigationController?.navigationBar.shadowImage = UIImage()

@@ -16,7 +16,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
     /// 视频已经播放的时间
     private var currentTime: TimeInterval = 0
 
-    // MARK: - Lazyload
+    // MARK: - LazyLoad
     private lazy var controlView = ZFPlayerControlView()
     private lazy var player: ZFPlayerController = {
 

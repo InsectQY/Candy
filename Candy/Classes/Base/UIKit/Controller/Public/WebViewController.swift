@@ -2,8 +2,8 @@
 //  WebViewController.swift
 //  SwiftHub
 //
-//  Created by Khoren Markosyan on 7/19/18.
-//  Copyright © 2018 Khoren Markosyan. All rights reserved.
+//  Created by Insect on 7/19/18.
+//  Copyright © 2018 Insect. All rights reserved.
 //
 
 import UIKit

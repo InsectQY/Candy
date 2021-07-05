@@ -1,5 +1,5 @@
 //
-//  YGRespnseHandle.swift
+//  YGResponseHandle.swift
 //  Candy
 //
 //  Created by QY on 2020/1/16.
@@ -9,9 +9,9 @@
 import Moya
 
 /// 用于阳光宽屏网返回数据结构
-public protocol YGRespnseHandle: CustomMoyaResponseable {}
+public protocol YGResponseHandle: CustomMoyaResponseable {}
 
-public extension YGRespnseHandle {
+public extension YGResponseHandle {
 
     func isServerSuccess(response: Response) -> Bool {
         let res = try? response.mapObject(YGModel.self)

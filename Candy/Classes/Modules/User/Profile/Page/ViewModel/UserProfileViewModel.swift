@@ -1,5 +1,5 @@
 //
-//  UserPorfileViewModel.swift
+//  UserProfileViewModel.swift
 //  QYNews
 //
 //  Created by Insect on 2019/1/3.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserPorfileViewModel: ViewModel {
+final class UserProfileViewModel: ViewModel {
 
     struct Input {
         let userID: String
@@ -19,9 +19,9 @@ final class UserPorfileViewModel: ViewModel {
     }
 }
 
-extension UserPorfileViewModel: ViewModelable {
+extension UserProfileViewModel: ViewModelable {
 
-    func transform(input: UserPorfileViewModel.Input) -> UserPorfileViewModel.Output {
+    func transform(input: UserProfileViewModel.Input) -> UserProfileViewModel.Output {
 
         let userProfile = UserApi
         .profile(input.userID)

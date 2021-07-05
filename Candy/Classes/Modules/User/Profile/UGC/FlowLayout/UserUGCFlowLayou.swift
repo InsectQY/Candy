@@ -1,5 +1,5 @@
 //
-//  UserUGCFlowLayou.swift
+//  UserUGCFlowLayout.swift
 //  QYNews
 //
 //  Created by Insect on 2019/1/3.

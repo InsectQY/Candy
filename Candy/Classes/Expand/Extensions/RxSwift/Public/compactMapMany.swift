@@ -16,7 +16,8 @@ public extension ObservableType where Element: Collection {
      - returns: An observable collection whose elements are the result of invoking the transform function on each element of source.
      */
     func compactMapMany<Result>(_ transform: @escaping (Element.Element) throws -> Result) -> Observable<[Result]> {
-        return compactMap { collection -> [Result] in
+
+        compactMap { collection -> [Result] in
             try collection.compactMap(transform)
         }
     }
@@ -24,7 +25,8 @@ public extension ObservableType where Element: Collection {
 
 public extension SharedSequenceConvertibleType where Element: Collection {
     func compactMapMany<Result>(_ transform: @escaping (Element.Element) -> Result) -> SharedSequence<SharingStrategy, [Result]> {
-        return compactMap { collection -> [Result] in
+
+        compactMap { collection -> [Result] in
             collection.compactMap(transform)
         }
     }

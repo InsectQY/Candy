@@ -19,7 +19,7 @@ class ViewModel {
     required init() {}
 
     deinit {
-        print("\(type(of: self)): Deinited")
+        print("\(type(of: self)): deinit")
     }
 }
 

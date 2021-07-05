@@ -58,14 +58,14 @@ class UGCVideoDetailCell: CollectionViewCell {
     @objc private func avatarTap() {
 
         guard let item = item else { return }
-        let vc = UserPorfileViewController(userID: item.authorInfo.id)
+        let vc = UserProfileViewController(userID: item.authorInfo.id)
         parentVC?.navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: - 点击评论
     @IBAction private func commentBtnDidClick(_ sender: Any) {
 
-        let vc = UGCVideoCommentViewController(id: item?.itemId, commmentCount: item?.cmtCnt)
+        let vc = UGCVideoCommentViewController(id: item?.itemId, commentCount: item?.cmtCnt)
         let animator = JellyManager.UGCVideoComment()
         animator.prepare(presentedViewController: vc)
         parentVC?.present(vc, animated: true, completion: nil)

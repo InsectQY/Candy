@@ -87,9 +87,11 @@ extension Reactive where Base: EpisodeListViewController {
 
     var selIndex: Binder<Int> {
 
-        return Binder(base) { vc, result in
+        Binder(base) { vc, result in
 
-            guard let item = vc.item else { return }
+            guard let item = vc.item else {
+                return
+            }
             // 点击的是其他页面(当前页面全部取消选中)
             vc.selIndex = (item.start...item.end).contains(result) ? result : -1
             vc.collectionView.reloadData()

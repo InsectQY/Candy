@@ -35,7 +35,7 @@ enum VideoApi {
     /// 视频真实播放地址
     case parsePlayInfo(String)
     /// 放映厅视频真实播放地址
-    case parseVideoHall(vid: String, ptoken: String, author: String)
+    case parseVideoHall(vid: String, pToken: String, author: String)
 }
 
 extension VideoApi: TargetType {

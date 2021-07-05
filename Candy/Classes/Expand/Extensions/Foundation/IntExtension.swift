@@ -40,7 +40,7 @@ extension Int {
 
     /// 数量超过1万以后显示的内容
     public var countString: String {
-        return self / 10000 >= 1 ? "\(self / 10000)万" : "\(self)"
+        self / 10000 >= 1 ? "\(self / 10000)万" : "\(self)"
     }
 
     /// 视频时长

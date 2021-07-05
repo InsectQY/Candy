@@ -58,7 +58,7 @@ struct VideoHallInfo: Codable {
 
     /// ID
     let vid: String
-    /// token(请求视频播放地址的 ptoken)
+    /// token(请求视频播放地址的 pToken)
     let business_token: String
     /// token(请求视频播放地址请求头的 Authorization)
     let auth_token: String

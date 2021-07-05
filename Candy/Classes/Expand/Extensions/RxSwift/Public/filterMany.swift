@@ -16,7 +16,8 @@ extension ObservableType where Element: Collection {
      - returns: An observable collection whose elements are the result of invoking the transform function on each element of source.
      */
     public func filterMany(_ isIncluded: @escaping (Element.Element) throws -> Bool) -> Observable<[Element.Element]> {
-        return map { collection -> [Element.Element] in
+
+        map { collection -> [Element.Element] in
             try collection.filter(isIncluded)
         }
     }
@@ -30,7 +31,8 @@ public extension PrimitiveSequenceType where Trait == SingleTrait, Element: Coll
      - returns: An observable collection whose elements are the result of invoking the transform function on each element of source.
      */
     func filterMany(_ isIncluded: @escaping (Element.Element) throws -> Bool) -> PrimitiveSequence<SingleTrait, [Element.Element]> {
-        return map { collection -> [Element.Element] in
+
+        map { collection -> [Element.Element] in
             try collection.filter(isIncluded)
         }
     }
@@ -38,7 +40,8 @@ public extension PrimitiveSequenceType where Trait == SingleTrait, Element: Coll
 
 public extension SharedSequenceConvertibleType where Element: Collection {
     func filterMany(_ isIncluded: @escaping (Element.Element) -> Bool) -> SharedSequence<SharingStrategy, [Element.Element]> {
-        return map { collection -> [Element.Element] in
+
+        map { collection -> [Element.Element] in
             collection.filter(isIncluded)
         }
     }

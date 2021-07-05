@@ -20,11 +20,11 @@ extension String {
         ) -> NSAttributedString {
 
         let attributedString = NSMutableAttributedString(string: self)
-        let paragraphStye = NSMutableParagraphStyle()
+        let paragraphStyle = NSMutableParagraphStyle()
 
-        paragraphStye.lineSpacing = lineSpace
+        paragraphStyle.lineSpacing = lineSpace
         let range = NSRange(location: 0, length: CFStringGetLength(self as CFString?))
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStye, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
         return attributedString
     }
 
