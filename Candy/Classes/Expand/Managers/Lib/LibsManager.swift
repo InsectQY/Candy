@@ -56,7 +56,7 @@ class LibsManager: NSObject {
     func setupNetwork() {
 
         Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
-        Network.Configuration.default.plugins = [CustomResponsePlugin()]
+        Network.Configuration.default.plugins = [CustomResultPlugin()]
     }
 
     func setupRouter() {

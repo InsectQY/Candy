@@ -46,4 +46,4 @@ extension ShortVideoApi: TargetType {
     }
 }
 
-extension ShortVideoApi: KKResponseHandle {}
+extension ShortVideoApi: KKResultHandle {}

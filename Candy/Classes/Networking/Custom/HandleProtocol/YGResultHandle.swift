@@ -9,16 +9,16 @@
 import Moya
 
 /// 用于阳光宽屏网返回数据结构
-public protocol YGResponseHandle: CustomMoyaResponseable {}
+public protocol YGResultHandle: CustomMoyaResultable {}
 
-public extension YGResponseHandle {
+public extension YGResultHandle {
 
     func isServerSuccess(response: Response) -> Bool {
         let res = try? response.mapObject(YGModel.self)
         return res?.isSuccess ?? true
     }
 
-    func customMoyaFailureResult(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaResult(response: Response) -> Result<Response, MoyaError>? {
         guard
             let res = try? response.mapObject(YGModel.self)
         else {

@@ -1,26 +1,26 @@
 //
-//  TTResponseHandle.swift
+//  KKResponseHandle.swift
 //  Candy
 //
-//  Created by QY on 2020/1/15.
+//  Created by Insect on 2020/8/19.
 //  Copyright © 2020 Insect. All rights reserved.
 //
 
 import Moya
 
-/// 用于今日头条返回数据结构
-public protocol TTResponseHandle: CustomMoyaResponseable {}
+/// 用于快看视频返回数据结构
+public protocol KKResultHandle: CustomMoyaResultable {}
 
-public extension TTResponseHandle {
+public extension KKResultHandle {
 
     func isServerSuccess(response: Response) -> Bool {
-        let res = try? response.mapObject(TTModel<String>.self)
+        let res = try? response.mapObject(KKModel<String>.self)
         return res?.isSuccess ?? true
     }
 
-    func customMoyaFailureResult(response: Response) -> Result<Response, MoyaError>? {
+    func customMoyaResult(response: Response) -> Result<Response, MoyaError>? {
         guard
-            let res = try? response.mapObject(TTModel<String>.self)
+            let res = try? response.mapObject(KKModel<String>.self)
         else {
             return nil
         }

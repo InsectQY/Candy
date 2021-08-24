@@ -15,15 +15,8 @@ public extension Error {
         self as? MoyaError
     }
 
-    var errorModel: ErrorModel? {
-
-        guard let moyaError = asMoyaError else { return nil }
-        switch moyaError {
-        case let .underlying(error, _):
-            return error as? ErrorModel
-        default:
-            return nil
-        }
+    var asErrorModel: ErrorModel? {
+        self as? ErrorModel
     }
 }
 
@@ -35,7 +28,7 @@ public extension MoyaError {
     var responseErrorDescription: String? {
         switch self {
         case let .underlying(error, _):
-            if let customErrorDescription = error.errorModel?.errorDescription {
+            if let customErrorDescription = error.asErrorModel?.errorDescription {
                 return customErrorDescription
             }
             return errorDescription

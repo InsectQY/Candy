@@ -52,4 +52,4 @@ extension UserApi: TargetType {
     }
 }
 
-extension UserApi: KKResponseHandle {}
+extension UserApi: KKResultHandle {}

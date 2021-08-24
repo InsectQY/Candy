@@ -147,4 +147,4 @@ extension VideoApi: TargetType {
     }
 }
 
-extension VideoApi: TTResponseHandle {}
+extension VideoApi: TTResultHandle {}
