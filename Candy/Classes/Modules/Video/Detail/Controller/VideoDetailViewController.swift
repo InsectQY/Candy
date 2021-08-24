@@ -113,20 +113,17 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
             case let .info(item):
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoDetailInfoCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoDetailInfoCell.self)
                 cell.item = item
                 return cell
             case let .related(item):
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoRelatedCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoRelatedCell.self)
                 cell.item = item
                 return cell
             case let .comment(item):
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell.identifier,
-                                                         for: indexPath,
                                                          cellType: CommentCell.self)
                 cell.item = item
                 return cell

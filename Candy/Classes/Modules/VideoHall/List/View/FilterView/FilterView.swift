@@ -89,7 +89,6 @@ extension FilterView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID,
-                                                 for: indexPath,
                                                  cellType: FilterCell.self)
         cell.filter = filter[indexPath.row].search_category_word_list
         cell.filterClick = { [unowned self] in

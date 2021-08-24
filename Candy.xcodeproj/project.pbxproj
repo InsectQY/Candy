@@ -676,6 +676,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		13F1502D26D4D91D00AC254D /* ThirdPartyExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				E578C02C23362753006C0CA1 /* Kingfisher */,
+				E578C02923362753006C0CA1 /* MJRefresh */,
+				E578C03423362E30006C0CA1 /* Toast */,
+				1386E1A02612F32A0092DA33 /* EmptyDataSet */,
+				E51D60D02455E5220059171C /* HUD */,
+			);
+			path = ThirdPartyExtensions;
+			sourceTree = "<group>";
+		};
 		18095905221501DA00A0818D /* CandyUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1573,11 +1585,12 @@
 		E5E0203521B4FF3900A4CDF1 /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				13F1502D26D4D91D00AC254D /* ThirdPartyExtensions */,
 				138EDABC2692D413003DA9FE /* CustomViews */,
 				E5E1932721E8848D002CBAE8 /* Managers */,
 				E5FAB71121C0B97D002BF258 /* Tools */,
 				E5E0204C21B5057600A4CDF1 /* Extensions */,
-				E5E0206E21B5057600A4CDF1 /* Third Party */,
+				E5E0206E21B5057600A4CDF1 /* ThirdParties */,
 				E5E0203621B4FF5100A4CDF1 /* Protocols */,
 			);
 			path = Expand;
@@ -1674,18 +1687,13 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		E5E0206E21B5057600A4CDF1 /* Third Party */ = {
+		E5E0206E21B5057600A4CDF1 /* ThirdParties */ = {
 			isa = PBXGroup;
 			children = (
-				1386E1A02612F32A0092DA33 /* EmptyDataSet */,
-				E51D60D02455E5220059171C /* HUD */,
-				E578C03423362E30006C0CA1 /* Toast */,
-				E578C02C23362753006C0CA1 /* Kingfisher */,
-				E578C02923362753006C0CA1 /* MJRefresh */,
 				E5D749ED21FEE0B300BCE75F /* RxErrorTracker */,
 				E5E3241E21DC819E002DC676 /* JXPagerView */,
 			);
-			path = "Third Party";
+			path = ThirdParties;
 			sourceTree = "<group>";
 		};
 		E5E020C921B50B4000A4CDF1 /* Main */ = {

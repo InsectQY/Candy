@@ -118,34 +118,29 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
         // tableView
         output.items.drive(tableView.rx.items) { [unowned self] tableView, row, item in
 
-            let indexPath = IndexPath(row: row, section: 0)
             switch item {
 
             case let .title(item):  // 标题
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallTitleCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoHallTitleCell.self)
                 cell.item = item
                 return cell
             case let .intro(item): // 简介
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallIntroCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoHallIntroCell.self)
                 cell.item = item
                 return cell
             case let .role(item): // 影人
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallRoleCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoHallRoleCell.self)
                 cell.items = item.Album.actor_list
                 return cell
             case let .episode(item): // 集数
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoHallEpisodeCell.identifier,
-                                                         for: indexPath,
                                                          cellType: VideoHallEpisodeCell.self)
                 cell.items = item.episodesInfo
                 cell.selIndex = self.selIndex

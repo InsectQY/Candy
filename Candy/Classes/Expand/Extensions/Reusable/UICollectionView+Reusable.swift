@@ -12,7 +12,8 @@ extension UICollectionView {
          for indexPath: IndexPath,
          cellType: T.Type = T.self) -> T {
         guard
-            let cell = dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T
+            let cell = dequeueReusableCell(withReuseIdentifier: identifier,
+                                           for: indexPath) as? T
         else {
             fatalError(
                 "Failed to dequeue a cell with identifier \(identifier) matching type \(cellType.self) "

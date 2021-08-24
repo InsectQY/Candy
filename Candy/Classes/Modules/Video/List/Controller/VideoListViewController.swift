@@ -104,7 +104,6 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
             let indexPath = IndexPath(row: row, section: 0)
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.videoListCell.identifier,
-                                                     for: indexPath,
                                                      cellType: VideoListCell.self)
             cell.item = item.content
 

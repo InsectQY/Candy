@@ -21,6 +21,18 @@ extension UITableView {
             return cell
     }
 
+    final func dequeueReusableCell<T: UITableViewCell>(withIdentifier identifier: String,
+                                                       cellType: T.Type = T.self) -> T {
+        guard
+            let cell = dequeueReusableCell(withIdentifier: identifier) as? T
+        else {
+            fatalError(
+                "Failed to dequeue a cell with identifier \(identifier) matching type \(cellType.self) "
+            )
+        }
+        return cell
+    }
+
     final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>
         (withIdentifier identifier: String,
          _ viewType: T.Type = T.self) -> T {
