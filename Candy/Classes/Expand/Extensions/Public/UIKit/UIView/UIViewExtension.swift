@@ -80,7 +80,7 @@ extension UIView {
     public func isShowingOnKeyWindow() -> Bool {
 
         guard
-            let keyWindow = UIApplication.shared.keyWindow
+            let keyWindow = UIApplication.keyWindow
         else {
             return false
         }

@@ -6,7 +6,7 @@
 //  Copyright © 2021 Insect. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension ViewController: LoadingStateable {
 

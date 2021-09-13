@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
-  - CleanJSON (1.0.8)
+  - CleanJSON (1.0.9)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
@@ -74,7 +74,7 @@ PODS:
     - RxSwift (~> 5.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.43.1)
+  - SwiftLint (0.44.0)
   - Toast-Swift (5.0.1)
   - UIFontComplete (5.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -172,7 +172,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  CleanJSON: 7cc2fbb8f3face17e80a25a2266199ad31002bfc
+  CleanJSON: 910a36465ce4829e264a902ccf6d1455fdd9f980
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
@@ -204,7 +204,7 @@ SPEC CHECKSUMS:
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIFontComplete: 843cb7b58fd6503b3918447918ea6daaeaceccff
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f

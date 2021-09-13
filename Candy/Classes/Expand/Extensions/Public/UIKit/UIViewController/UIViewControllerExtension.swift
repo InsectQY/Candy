@@ -6,7 +6,7 @@
 //  Copyright © 2019 Insect. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIViewController {
 

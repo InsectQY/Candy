@@ -16,19 +16,13 @@ class TabBarController: UITabBarController {
 
         seUpTabBarAttr()
 
-        guard let jsonPath = R.file.mainVCSettingsJson()?.path else {
-            return
-        }
-
-        guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)) else {
-            return
-        }
-
-        guard let anyObject = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) else {
-            return
-        }
-
-        guard let dictArray = anyObject as? [[String: AnyObject]] else {
+        guard
+            let jsonPath = R.file.mainVCSettingsJson()?.path,
+            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
+            let anyObject = try? JSONSerialization.jsonObject(with: jsonData,
+                                                              options: .mutableContainers),
+            let dictArray: [[String: Any]] = anyObject as? [[String: Any]]
+        else {
             return
         }
 

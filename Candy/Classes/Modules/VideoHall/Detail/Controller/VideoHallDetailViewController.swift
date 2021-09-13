@@ -33,7 +33,8 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
                                         containerView: videoView)
         player.controlView = controlView
         player.orientationWillChange = { _, isFullScreen in
-            AppDelegate.shared.isAllowOrientationRotation = isFullScreen
+            let appDelegate: AppDelegate? = UIApplication.delegate()
+            appDelegate?.isAllowOrientationRotation = isFullScreen
         }
         return player
     }()

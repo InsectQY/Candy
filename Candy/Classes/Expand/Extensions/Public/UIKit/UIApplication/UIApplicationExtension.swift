@@ -1,21 +1,21 @@
 //
-//  AppDelegateExtension.swift
-//  Assistant
+//  UIApplicationExtension.swift
+//  Candy
 //
-//  Created by QY on 2021/3/21.
+//  Created by Insect on 2021/9/13.
+//  Copyright © 2021 Insect. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-extension AppDelegate {
-
-    static var shared: AppDelegate {
-        // swiftlint:disable force_cast
-        UIApplication.shared.delegate as! AppDelegate
-    }
+public extension UIApplication {
 
     static var keyWindow: UIWindow? {
-        UIApplication.shared.windows.filter { $0.isKeyWindow }.first
+        shared.windows.filter { $0.isKeyWindow }.first
+    }
+
+    static func delegate<T: UIApplicationDelegate>() -> T? {
+        shared.delegate as? T
     }
 
     static var rootViewController: UIViewController? {
