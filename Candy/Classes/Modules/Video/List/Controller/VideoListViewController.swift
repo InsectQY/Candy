@@ -71,7 +71,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
         // 数据源 nil 时点击
         tableView.rx.emptyDataSetDidTapView()
-        .bind(to: rx.post(name: Notification.videoNoConnectClick))
+        .bind(to: rx.post(name: .videoNoConnectClick))
         .disposed(by: rx.disposeBag)
 
         // 视频 URL
@@ -82,7 +82,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
         // 界面左右滚动/下拉刷新/上拉加载都停止播放视频
         NotificationCenter.default.rx
-        .notification(Notification.pageDidScroll)
+        .notification(.pageDidScroll)
         .mapToVoid()
         .bind(to: player.rx.stop)
         .disposed(by: rx.disposeBag)

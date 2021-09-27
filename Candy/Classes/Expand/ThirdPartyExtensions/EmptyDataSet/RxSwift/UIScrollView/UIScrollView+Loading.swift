@@ -6,21 +6,19 @@
 //  Copyright © 2021 Insect. All rights reserved.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 // MARK: - Reactive-Extension
-extension Reactive where Base: UIScrollView {
-    
-    var isLoading: Binder<Bool> {
 
+extension Reactive where Base: UIScrollView {
+    var isLoading: Binder<Bool> {
         Binder(base) { target, value in
             target.isLoading = value
         }
     }
 
-    func emptyDataSetDidTapView() -> ControlEvent<()> {
-
+    func emptyDataSetDidTapView() -> ControlEvent<Void> {
         let source: Observable<Void> = Observable.create { [weak control = self.base] observer in
 
             MainScheduler.ensureRunningOnMainThread()

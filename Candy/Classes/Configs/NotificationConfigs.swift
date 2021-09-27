@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension Notification {
+public extension Notification.Name {
 
     /// 列表滚动
     static var pageDidScroll: Notification.Name {

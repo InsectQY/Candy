@@ -11,17 +11,14 @@ import Foundation
 private var context: UInt8 = 0
 
 protocol LoadingStateable: AnyObject {
-
     var isLoading: Bool { get set }
 
     func loadingStateChanged()
 }
 
 extension LoadingStateable {
-
     var isLoading: Bool {
         get {
-
             if let object = objc_getAssociatedObject(self, &context) as? Bool {
                 return object
             }
@@ -34,7 +31,6 @@ extension LoadingStateable {
         }
 
         set {
-            
             if newValue == isLoading {
                 return
             }

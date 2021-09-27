@@ -152,7 +152,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
         // 点击了某一集
         let clickEpisode = NotificationCenter.default.rx
-        .notification(Notification.clickEpisode)
+        .notification(.clickEpisode)
         .asDriverOnErrorJustComplete()
         .map { $0.object as? Int }
         .filterNil()

@@ -11,10 +11,8 @@ import Moya
 /// Moya 自定义返回结果插件，处理 Result<Moya.Response, MoyaError> 类型的返回结果
 /// 必须实现 TargetType & CustomMoyaResultable 两个 protocol
 public struct CustomResultPlugin: PluginType {
-
     public func process(_ result: Result<Moya.Response, MoyaError>,
                         target: TargetType) -> Result<Moya.Response, MoyaError> {
-
         guard
             let target = asTargetTypePlus(target)
         else {
@@ -34,13 +32,12 @@ public struct CustomResultPlugin: PluginType {
             }
             // 返回默认错误
             return .failure(.underlying(UnderlyingError(), response))
-        case .failure(_):
+        case .failure:
             return result
         }
     }
 
     private func asTargetTypePlus(_ target: TargetType) -> CustomMoyaResultable? {
-
         if let multiTarget = target as? Moya.MultiTarget { // 如果是 MultiTarget，则取出真实的 TargetType
             return multiTarget.target as? CustomMoyaResultable
         }

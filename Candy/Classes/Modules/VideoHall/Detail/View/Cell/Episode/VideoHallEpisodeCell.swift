@@ -65,7 +65,7 @@ class VideoHallEpisodeCell: TableViewCell {
 
         // 刷新界面, 播放视频
         NotificationCenter.default.rx
-        .notification(Notification.clickEpisode)
+        .notification(.clickEpisode)
         .asDriverOnErrorJustComplete()
         .map { $0.object as? Int }
         .filterNil()
@@ -97,7 +97,7 @@ extension VideoHallEpisodeCell: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NotificationCenter.default
-        .post(name: Notification.clickEpisode, object: indexPath.item)
+        .post(name: .clickEpisode, object: indexPath.item)
     }
 }
 

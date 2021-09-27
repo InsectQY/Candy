@@ -42,7 +42,7 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
         super.bindViewModel()
 
         let noConnectTap = NotificationCenter.default.rx
-            .notification(Notification.videoNoConnectClick)
+            .notification(.videoNoConnectClick)
             .mapToVoid()
         viewModel.transform(input: VideoPageViewModel.Input(noConnectTap: noConnectTap))
 
@@ -80,7 +80,7 @@ extension VideoPageViewController: JXCategoryViewDelegate {
     func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
 
         NotificationCenter.default
-        .post(name: Notification.pageDidScroll, object: nil)
+        .post(name: .pageDidScroll, object: nil)
 
         listContainerView.didClickSelectedItem(at: index)
     }

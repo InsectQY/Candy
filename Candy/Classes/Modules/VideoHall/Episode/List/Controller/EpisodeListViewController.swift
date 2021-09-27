@@ -42,7 +42,7 @@ class EpisodeListViewController: VMCollectionViewController<RefreshViewModel> {
         super.bindViewModel()
 
         NotificationCenter.default.rx
-        .notification(Notification.clickEpisode)
+        .notification(.clickEpisode)
         .asDriverOnErrorJustComplete()
         .map { $0.object as? Int }
         .filterNil()
@@ -78,7 +78,7 @@ extension EpisodeListViewController: UICollectionViewDelegate {
     //  swiftlint:disable force_unwrapping
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NotificationCenter.default
-        .post(name: Notification.clickEpisode,
+        .post(name: .clickEpisode,
               object: item!.start + indexPath.item)
     }
 }

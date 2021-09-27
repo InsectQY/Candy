@@ -55,7 +55,7 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
         super.bindViewModel()
 
         let input = UGCVideoPageViewModel.Input(emptyDataSetViewTap: NotificationCenter.default.rx
-            .notification(Notification.UGCVideoNoConnectClick)
+            .notification(.UGCVideoNoConnectClick)
             .mapToVoid())
         viewModel.transform(input: input)
 
@@ -85,7 +85,7 @@ extension UGCVideoPageViewController: JXCategoryViewDelegate {
     func categoryView(_ categoryView: JXCategoryBaseView!, didSelectedItemAt index: Int) {
 
         NotificationCenter.default
-        .post(name: Notification.pageDidScroll, object: nil)
+        .post(name: .pageDidScroll, object: nil)
 
         listContainerView.didClickSelectedItem(at: index)
     }
