@@ -6,17 +6,14 @@
 //  Copyright © 2021 Insect. All rights reserved.
 //
 
-import UIKit
 import EmptyDataSet_Swift
+import UIKit
 
 private var context: UInt8 = 0
 
-extension UIScrollView {
-
+public extension UIScrollView {
     var emptyDataSet: EmptyDataSet? {
-
         get {
-
             if let object = objc_getAssociatedObject(self, &context) as? EmptyDataSet {
                 return object
             }
@@ -37,6 +34,7 @@ extension UIScrollView {
     }
 
     // MARK: - 设置 EmptyDataSet
+
     func setUpEmptyDataSet() {
         emptyDataSetSource = self
         emptyDataSetDelegate = self
@@ -44,22 +42,42 @@ extension UIScrollView {
 }
 
 // MARK: - EmptyDataSetSource
-extension UIScrollView: EmptyDataSetSource {
 
+extension UIScrollView: EmptyDataSetSource {
     public func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: emptyDataSet?.title ?? "")
+        if let title = emptyDataSet?.title {
+            return NSAttributedString(string: title)
+        } else {
+            return nil
+        }
     }
 
     public func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: emptyDataSet?.description ?? "")
+        if let description = emptyDataSet?.description {
+            return NSAttributedString(string: description)
+        } else {
+            return nil
+        }
     }
 
     public func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         emptyDataSet?.image
     }
 
+    public func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        emptyDataSet?.imageTintColor
+    }
+
+    public func imageAnimation(forEmptyDataSet scrollView: UIScrollView) -> CAAnimation? {
+        emptyDataSet?.imageAnimation
+    }
+
+    public func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
+        emptyDataSet?.customView
+    }
+
     public func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
-        .clear
+        emptyDataSet?.backgroundColor
     }
 
     public func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
@@ -68,8 +86,8 @@ extension UIScrollView: EmptyDataSetSource {
 }
 
 // MARK: - EmptyDataSetDelegate
-extension UIScrollView: EmptyDataSetDelegate {
 
+extension UIScrollView: EmptyDataSetDelegate {
     public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
         !isLoading
     }
@@ -81,9 +99,34 @@ extension UIScrollView: EmptyDataSetDelegate {
     public func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
         emptyDataSet?.isShouldAllowScroll ?? false
     }
+
+    public func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView) -> Bool {
+        emptyDataSet?.isShouldAllowTouch ?? true
+    }
+
+    public func emptyDataSet(_ scrollView: UIScrollView, didTapButton button: UIButton) {
+        emptyDataSet?.didTapButton?()
+    }
+
+    public func emptyDataSetWillAppear(_ scrollView: UIScrollView) {
+        emptyDataSet?.willAppear?()
+    }
+
+    public func emptyDataSetDidAppear(_ scrollView: UIScrollView) {
+        emptyDataSet?.didAppear?()
+    }
+
+    public func emptyDataSetWillDisappear(_ scrollView: UIScrollView) {
+        emptyDataSet?.willDisappear?()
+    }
+
+    public func emptyDataSetDidDisappear(_ scrollView: UIScrollView) {
+        emptyDataSet?.didDisappear?()
+    }
 }
 
 // MARK: - LoadingStateable
+
 extension UIScrollView: LoadingStateable {
     func loadingStateChanged() {
         reloadEmptyDataSet()

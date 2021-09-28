@@ -9,18 +9,6 @@
 import UIKit
 
 extension UIViewController {
-
-    func setNavBarTransparent(_ isNavigationBarTransparent: Bool) {
-        if isNavigationBarTransparent {
-            navigationController?.navigationBar.setBackgroundImage(UIImage(),
-                                                                   for: .default)
-            navigationController?.navigationBar.shadowImage = UIImage()
-        } else {
-            navigationController?.navigationBar.setBackgroundImage(nil,
-                                                                   for: .default)
-            navigationController?.navigationBar.shadowImage = nil
-        }
-    }
     
     public func disablesAdjustScrollViewInsets(_ scrollView: UIScrollView) {
         if #available(iOS 11.0, *) {

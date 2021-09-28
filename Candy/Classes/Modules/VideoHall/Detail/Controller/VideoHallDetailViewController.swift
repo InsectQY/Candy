@@ -42,7 +42,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavBarTransparent(true)
+        navigationController?.navigationBar.qy.setIsTransparent(true)
     }
 
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        setNavBarTransparent(false)
+        navigationController?.navigationBar.qy.setIsTransparent(false)
     }
 
     override func viewDidLayoutSubviews() {

@@ -1717,7 +1717,6 @@
 				13F1502D26D4D91D00AC254D /* ThirdPartyExtensions */,
 				138EDABC2692D413003DA9FE /* CustomViews */,
 				E5E1932721E8848D002CBAE8 /* Managers */,
-				E5FAB71121C0B97D002BF258 /* Tools */,
 				E5E0204C21B5057600A4CDF1 /* Extensions */,
 				E5E0206E21B5057600A4CDF1 /* ThirdParties */,
 				E5E0203621B4FF5100A4CDF1 /* Protocols */,
@@ -1811,6 +1810,7 @@
 		E5E0206E21B5057600A4CDF1 /* ThirdParties */ = {
 			isa = PBXGroup;
 			children = (
+				E5FAB71921C0BC1C002BF258 /* Emoji */,
 				E5D749ED21FEE0B300BCE75F /* RxErrorTracker */,
 				E5E3241E21DC819E002DC676 /* JXPagerView */,
 			);
@@ -2167,14 +2167,6 @@
 				E534046321BF5F7E008807DA /* Header */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E5FAB71121C0B97D002BF258 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				E5FAB71921C0BC1C002BF258 /* Emoji */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		E5FAB71421C0B9A7002BF258 /* Plist */ = {

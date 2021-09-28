@@ -45,12 +45,12 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.isViewControllerDisappear = false
-        setNavBarTransparent(true)
+        navigationController?.navigationBar.qy.setIsTransparent(true)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
-        setNavBarTransparent(false)
+        navigationController?.navigationBar.qy.setIsTransparent(false)
     }
 
     override func viewDidLayoutSubviews() {
