@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension ViewController: LoadingStateable {
+extension ViewController {
 
-    @objc func loadingStateChanged() {
+    func startLoading(isLoading: Bool) {
         if isLoading {
             HUD.startLoading()
         } else {

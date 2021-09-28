@@ -58,8 +58,9 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         tableView.register(R.nib.videoListCell)
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
+
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.setUpEmptyDataSet()
+            self?.tableView.emptyDataSet.setConfig(EmptyDataSetConfig(image: R.image.hg_defaultError()))
         }
     }
 
@@ -70,7 +71,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         let output = viewModel.transform(input: input)
 
         // 数据源 nil 时点击
-        tableView.rx.emptyDataSetDidTapView()
+        tableView.emptyDataSet.rx.didTapView()
         .bind(to: rx.post(name: .videoNoConnectClick))
         .disposed(by: rx.disposeBag)
 

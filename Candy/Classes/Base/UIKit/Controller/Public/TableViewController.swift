@@ -43,14 +43,6 @@ class TableViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
-        setUpDefaultEmptyDataSet()
         view.addSubview(tableView)
-    }
-}
-
-extension TableViewController {
-
-    func setUpDefaultEmptyDataSet() {
-        tableView.emptyDataSet?.image = R.image.hg_defaultError()
     }
 }

@@ -8,17 +8,21 @@
 
 import RxSwift
 import UIKit
+import EmptyDataSet_Swift
 
 // MARK: - Reactive-Extension
 
-extension Reactive where Base: UIScrollView {
+extension EmptyDataSetWrapper: ReactiveCompatible {}
+
+extension Reactive where Base: EmptyDataSetWrapper {
+
     var isLoading: Binder<Bool> {
         Binder(base) { target, value in
-            target.isLoading = value
+            target.config?.isLoading = value
         }
     }
 
-    func emptyDataSetDidTapView() -> ControlEvent<Void> {
+    func didTapView() -> ControlEvent<Void> {
         let source: Observable<Void> = Observable.create { [weak control = self.base] observer in
 
             MainScheduler.ensureRunningOnMainThread()
@@ -27,13 +31,13 @@ extension Reactive where Base: UIScrollView {
                 return Disposables.create()
             }
 
-            control.emptyDataSet?.didTapView = {
+            control.config?.didTapView = {
                 observer.on(.next(()))
             }
 
             return Disposables.create()
         }
-        .takeUntil(deallocated)
+            .takeUntil(deallocated)
 
         return ControlEvent(events: source)
     }

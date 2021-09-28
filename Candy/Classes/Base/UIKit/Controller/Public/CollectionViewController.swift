@@ -42,14 +42,6 @@ class CollectionViewController: ViewController {
 
     override func makeUI() {
         super.makeUI()
-        setUpDefaultEmptyDataSet()
         view.addSubview(collectionView)
-    }
-}
-
-extension CollectionViewController {
-
-    func setUpDefaultEmptyDataSet() {
-        collectionView.emptyDataSet?.image = R.image.hg_defaultError()
     }
 }

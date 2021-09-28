@@ -50,8 +50,11 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         tableView.refreshHeader = RefreshHeader()
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
+
+        let config = EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                        image: R.image.hg_defaultError())
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.setUpEmptyDataSet()
+            self?.tableView.emptyDataSet.setConfig(config)
         }
     }
 

@@ -34,7 +34,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
 
         viewModel
         .loading
-        .drive(collectionView.rx.isLoading)
+        .drive(collectionView.emptyDataSet.rx.isLoading)
         .disposed(by: rx.disposeBag)
     }
 
@@ -48,7 +48,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
     // MARK: - 绑定没有网络时的点击事件
     func bindEmptyDataSetViewTap() {
 
-        collectionView.rx.emptyDataSetDidTapView()
+        collectionView.emptyDataSet.rx.didTapView()
         .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
         .disposed(by: rx.disposeBag)
     }

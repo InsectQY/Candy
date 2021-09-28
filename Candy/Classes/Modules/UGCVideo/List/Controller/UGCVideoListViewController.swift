@@ -6,13 +6,13 @@
 //  Copyright © 2018 Insect. All rights reserved.
 //
 
-import UIKit
 import Hero
 import RxOptional
+import UIKit
 
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
-
     // MARK: - init
+
     init() {
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
     }
@@ -27,8 +27,10 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         collectionView.register(R.nib.ugcVideoListCell)
         collectionView.refreshHeader = RefreshHeader()
         collectionView.refreshFooter = RefreshFooter()
+
         collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.collectionView.setUpEmptyDataSet()
+            self?.collectionView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                                           image: R.image.hg_defaultError()))
         }
     }
 
@@ -36,22 +38,22 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         super.bindViewModel()
 
         collectionView.rx.itemSelected
-        .asDriver()
-        .drive(viewModel.input.selectionOb)
-        .disposed(by: rx.disposeBag)
+            .asDriver()
+            .drive(viewModel.input.selectionOb)
+            .disposed(by: rx.disposeBag)
 
         viewModel.output
-        .items
-        .filterEmpty()
-        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
-                                       cellType: UGCVideoListCell.self)) { _, item, cell in
-            cell.item = item
-        }
-        .disposed(by: rx.disposeBag)
+            .items
+            .filterEmpty()
+            .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.ugcVideoListCell.identifier,
+                                           cellType: UGCVideoListCell.self)) { _, item, cell in
+                cell.item = item
+            }
+            .disposed(by: rx.disposeBag)
 
         // 数据源 nil 时点击
-        collectionView.rx.emptyDataSetDidTapView()
-        .bind(to: rx.post(name: .UGCVideoNoConnectClick))
-        .disposed(by: rx.disposeBag)
+        collectionView.emptyDataSet.rx.didTapView()
+            .bind(to: rx.post(name: .UGCVideoNoConnectClick))
+            .disposed(by: rx.disposeBag)
     }
 }

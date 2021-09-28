@@ -15,7 +15,7 @@ extension Reactive where Base: ViewController {
     var isLoading: Binder<Bool> {
 
         Binder(base) { target, value in
-            target.isLoading = value
+            target.startLoading(isLoading: value)
         }
     }
 }
