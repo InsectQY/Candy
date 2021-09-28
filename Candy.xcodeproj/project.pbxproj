@@ -25,6 +25,10 @@
 		13709A3526EF228200B1D12C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13709A3426EF228200B1D12C /* UIApplicationExtension.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
 		1379042025DFA0F80072B707 /* ViewModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379041F25DFA0F80072B707 /* ViewModelObject.swift */; };
+		1379AD9B2702A4D800A0882D /* UINavigationBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */; };
+		1379AD9C2702A4D800A0882D /* UINavigationBarCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */; };
+		1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */; };
+		1379ADA42702ACEA00A0882D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ADA32702ACEA00A0882D /* R.generated.swift */; };
 		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
 		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		138EDAC12692D413003DA9FE /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDABE2692D413003DA9FE /* RichLabel.swift */; };
@@ -167,7 +171,6 @@
 		E5E3242821DC819E002DC676 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3242021DC819E002DC676 /* JXPagerMainTableView.m */; };
 		E5E3242921DC819E002DC676 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3242121DC819E002DC676 /* JXPagerView.m */; };
 		E5E3242A21DC819E002DC676 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3242621DC819E002DC676 /* JXPagerListRefreshView.m */; };
-		E5E42A34220197E2003C46B9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E42A33220197E2003C46B9 /* R.generated.swift */; };
 		E5E5713021CB2853005C2D6E /* VideoHallDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5712F21CB2853005C2D6E /* VideoHallDetailViewController.swift */; };
 		E5E5713221CB28A7005C2D6E /* VideoHallDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5713121CB28A7005C2D6E /* VideoHallDetailViewModel.swift */; };
 		E5E5713421CB42CF005C2D6E /* VideoHallDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5713321CB42CF005C2D6E /* VideoHallDetailModel.swift */; };
@@ -265,6 +268,10 @@
 		13709A3426EF228200B1D12C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
 		1379041F25DFA0F80072B707 /* ViewModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelObject.swift; sourceTree = "<group>"; };
+		1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarWrapper.swift; sourceTree = "<group>"; };
+		1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarCompatible.swift; sourceTree = "<group>"; };
+		1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
+		1379ADA32702ACEA00A0882D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
 		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		138EDABE2692D413003DA9FE /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
@@ -422,7 +429,6 @@
 		E5E3242421DC819E002DC676 /* JXPagerListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListContainerView.h; sourceTree = "<group>"; };
 		E5E3242521DC819E002DC676 /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
 		E5E3242621DC819E002DC676 /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
-		E5E42A33220197E2003C46B9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E5E5712F21CB2853005C2D6E /* VideoHallDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailViewController.swift; sourceTree = "<group>"; };
 		E5E5713121CB28A7005C2D6E /* VideoHallDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailViewModel.swift; sourceTree = "<group>"; };
 		E5E5713321CB42CF005C2D6E /* VideoHallDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallDetailModel.swift; sourceTree = "<group>"; };
@@ -581,6 +587,7 @@
 		137099ED26EF1C4200B1D12C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1379AD972702A4D800A0882D /* UINavigationBar */,
 				13031D2724A337FE0010A440 /* UIViewController */,
 				E5E0205C21B5057600A4CDF1 /* UIView */,
 				18F81D5C229636A60028CA14 /* UIColor */,
@@ -703,6 +710,24 @@
 				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		1379AD972702A4D800A0882D /* UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */,
+				1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */,
+				1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */,
+			);
+			path = UINavigationBar;
+			sourceTree = "<group>";
+		};
+		1379ADA22702ACC700A0882D /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1379ADA32702ACEA00A0882D /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		1386E1A02612F32A0092DA33 /* EmptyDataSet */ = {
@@ -1603,7 +1628,7 @@
 		E5E0200B21B4FDC100A4CDF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E5E42A33220197E2003C46B9 /* R.generated.swift */,
+				1379ADA22702ACC700A0882D /* Generated */,
 				E51ED46C2210864E0075F32C /* Localizable */,
 				E5E0201021B4FE0D00A4CDF1 /* LaunchScreen */,
 				E5FAB71421C0B9A7002BF258 /* Plist */,
@@ -2500,11 +2525,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/Candy/Resources/R.generated.swift,
+				$SRCROOT/Candy/Resources/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Candy/Resources/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Candy/Resources/Generated/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2539,7 +2564,6 @@
 				E5E9F52621D5FEA00043ACED /* UGCVideoCommentViewModel.swift in Sources */,
 				E5B4EC3921F59EA90065AB80 /* ViewModel.swift in Sources */,
 				E51D60D32455E5320059171C /* HUD+Rx.swift in Sources */,
-				E5E42A34220197E2003C46B9 /* R.generated.swift in Sources */,
 				E595D95E21DDE355005A6C00 /* UserUGCVideoCell.swift in Sources */,
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
@@ -2573,6 +2597,7 @@
 				E5FA89FE21BA37620084F3C3 /* UGCVideoListViewController.swift in Sources */,
 				E5FA8A0921BA395A0084F3C3 /* UGCVideoListModel.swift in Sources */,
 				18DC116B222397DF004FB1F6 /* TopView.swift in Sources */,
+				1379AD9C2702A4D800A0882D /* UINavigationBarCompatible.swift in Sources */,
 				E520A48321D718B100CDDB04 /* ReplyCommentViewModel.swift in Sources */,
 				E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */,
 				13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */,
@@ -2622,6 +2647,7 @@
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,
 				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */,
+				1379ADA42702ACEA00A0882D /* R.generated.swift in Sources */,
 				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
 				E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
@@ -2629,6 +2655,7 @@
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
 				E51D60D42455E5320059171C /* HUD.swift in Sources */,
+				1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
 				1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */,
 				E5FE0DCA21FB058000DE1DED /* TextField.swift in Sources */,
@@ -2655,6 +2682,7 @@
 				18F81D61229636E00028CA14 /* NotificationConfigs.swift in Sources */,
 				13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */,
 				E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */,
+				1379AD9B2702A4D800A0882D /* UINavigationBarWrapper.swift in Sources */,
 				E5FE0DC621FAFE8700DE1DED /* ImageView.swift in Sources */,
 				E5FAB72A21C1012E002BF258 /* UGCVideoDetailFlowLayout.swift in Sources */,
 				E5FB73A321B772FC0010D8A7 /* VideoListViewModel.swift in Sources */,

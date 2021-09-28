@@ -19,8 +19,6 @@ struct Configs {
         static let yangGuangUrl = "https://365yg.com"
         /// 快看点
         static let kuaiKanUrl = "https://api.yuncheapp.cn"
-        /// 微信
-        static let weChatUrl = "https://api.weixin.qq.com"
     }
 
     struct Time {

@@ -21,13 +21,9 @@ class NavigationController: UINavigationController {
         // 转场动画
         hero.isEnabled = true
         // 导航栏背景和文字设置
-        let naviBar: UINavigationBar = UINavigationBar.appearance()
-        naviBar.barTintColor = .main
-        naviBar.titleTextAttributes = {[
-
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.pingFangSCMedium(17)
-        ]}()
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.qy.backgroundColor = .main
+        navigationBar.qy.titleTextForegroundColor = .white
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

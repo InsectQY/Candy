@@ -56,21 +56,21 @@ class VideoPageViewController: VMViewController<VideoPageViewModel> {
     override func makeUI() {
         super.makeUI()
 
-        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         view.addSubview(categoryView)
         view.addSubview(listContainerView)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
         categoryView.frame = CGRect(x: 0,
-                                    y: 0,
+                                    y: .navigationBarBottomY,
                                     width: view.width,
                                     height: menuH)
         listContainerView.frame = CGRect(x: 0,
-                                         y: menuH,
+                                         y: .navigationBarBottomY + menuH,
                                          width: view.width,
-                                         height: view.height)
+                                         height: view.height - .navigationBarBottomY - .tabBarTopY)
     }
 }
 

@@ -37,38 +37,17 @@ class TabBarController: UITabBarController {
         }
     }
 
-    deinit {
-        print("deinit: \(self)")
-    }
-}
+    // 添加子控制器
+    private func addChildVc(childVcName: String,
+                            title: String,
+                            normalImg: String,
+                            selImg: String) {
 
-// MARK: - 设置 TabBar 属性
-extension TabBarController {
-
-    private func seUpTabBarAttr() {
-
-        if #available(iOS 13.0, *) {
-            tabBar.tintColor = UIColor.main
-            tabBar.unselectedItemTintColor = UIColor.tabBarNormal
-        } else {
-            UITabBarItem.appearance()
-            .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
-            UITabBarItem.appearance()
-            .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
+        guard let childVc: UIViewController = childVcName.classObject()
+        else {
+            assert(false, "error: \(childVcName) not init")
+            return
         }
-
-        tabBar.hero.modifiers = [.useGlobalCoordinateSpace,
-                                 .useNoSnapshot, .zPosition(10),
-                                 .translate(x: 0, y: 100, z: 0)]
-    }
-}
-
-// MARK: - 设置子控制器
-extension TabBarController {
-
-    private func addChildVc(childVcName: String, title: String, normalImg: String, selImg: String) {
-
-        let childVc = getVcFromString(childVcName)
 
         childVc.tabBarItem.image = UIImage(named: normalImg)
         childVc.tabBarItem.selectedImage = UIImage(named: selImg)
@@ -79,14 +58,26 @@ extension TabBarController {
         addChild(childNav)
     }
 
-    private func getVcFromString(_ vcName: String) -> UIViewController {
+    // 设置 TabBar 属性
+    private func seUpTabBarAttr() {
 
-        guard
-            let childVc: UIViewController = vcName.classObject()
-        else {
-            return UIViewController()
+        if #available(iOS 13.0, *) {
+            tabBar.tintColor = UIColor.main
+            tabBar.unselectedItemTintColor = UIColor.tabBarNormal
+        } else {
+            UITabBarItem.appearance()
+                .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tabBarNormal], for: .normal)
+            UITabBarItem.appearance()
+                .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
         }
 
-        return childVc
+        tabBar.hero.modifiers = [.useGlobalCoordinateSpace,
+                                 .useNoSnapshot,
+                                 .zPosition(10),
+                                 .translate(x: 0, y: 100, z: 0)]
+    }
+
+    deinit {
+        print("deinit: \(self)")
     }
 }
