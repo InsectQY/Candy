@@ -10,56 +10,84 @@ use_modular_headers!
 inhibit_all_warnings!
 
  # OC
-pod 'FDFullscreenPopGesture' # https://github.com/forkingdog/FDFullscreenPopGesture
-pod 'UITableView+FDTemplateLayoutCell' # https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
+ # https://github.com/forkingdog/FDFullscreenPopGesture
+pod 'FDFullscreenPopGesture'
+# https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
+pod 'UITableView+FDTemplateLayoutCell'
 # page
-pod 'JXCategoryView' # https://github.com/pujiaxin33/JXCategoryView
+# https://github.com/pujiaxin33/JXCategoryView
+pod 'JXCategoryView'
 # Video Player
+# https://github.com/renzifeng/ZFPlayer
 pod 'ZFPlayer'
-pod 'ZFPlayer/ijkplayer' # https://github.com/renzifeng/ZFPlayer
+pod 'ZFPlayer/ijkplayer'
 pod 'ZFPlayer/ControlView'
 # Search
-pod 'PYSearch' # https://github.com/ko1o/PYSearch
+# https://github.com/ko1o/PYSearch
+pod 'PYSearch'
 # Refresh
-pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh
+# https://github.com/CoderMJLee/MJRefresh
+pod 'MJRefresh'
 
  # Swift
 
 # RxSwift
-pod 'RxNetwork' # https://github.com/Pircate/RxNetwork
-pod 'RxNetwork/Cacheable' # https://github.com/Pircate/RxNetwork
-pod 'RxActivityIndicator' # https://github.com/InsectQY/RxActivityIndicator
-pod 'NSObject+Rx' # https://github.com/RxSwiftCommunity/NSObject-Rx
-pod 'RxDataSources' # https://github.com/RxSwiftCommunity/RxDataSources
-pod 'RxURLNavigator' # https://github.com/InsectQY/RxURLNavigator
-pod 'RxOptional' # https://github.com/RxSwiftCommunity/RxOptional
-pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git' # https://github.com/srv7/RxMJ
-pod 'RxReachability' # https://github.com/RxSwiftCommunity/RxReachability
+# https://github.com/Pircate/RxNetwork
+pod 'RxNetwork'
+# https://github.com/Pircate/RxNetwork
+pod 'RxNetwork/Cacheable'
+# https://github.com/InsectQY/RxActivityIndicator
+pod 'RxActivityIndicator'
+# https://github.com/RxSwiftCommunity/NSObject-Rx
+pod 'NSObject+Rx'
+# https://github.com/RxSwiftCommunity/RxDataSources
+pod 'RxDataSources'
+# https://github.com/InsectQY/RxURLNavigator
+pod 'RxURLNavigator'
+# https://github.com/RxSwiftCommunity/RxOptional
+pod 'RxOptional'
+# https://github.com/srv7/RxMJ
+pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git'
+# https://github.com/RxSwiftCommunity/RxReachability
+pod 'RxReachability'
 
 # UIImage Download
-pod 'Kingfisher' # https://github.com/onevcat/Kingfisher
-pod "KingfisherWebP" # https://github.com/Yeatse/KingfisherWebP
+# https://github.com/onevcat/Kingfisher
+pod 'Kingfisher'
+# https://github.com/Yeatse/KingfisherWebP
+pod "KingfisherWebP"
 # Codable
-pod 'CleanJSON' # https://github.com/Pircate/CleanJSON
+# https://github.com/Pircate/CleanJSON
+pod 'CleanJSON'
 # Keyboard
-pod 'IQKeyboardManagerSwift' # https://github.com/hackiftekhar/IQKeyboardManager
+# https://github.com/hackiftekhar/IQKeyboardManager
+pod 'IQKeyboardManagerSwift'
 # HUD
-pod 'NVActivityIndicatorView/Extended' # https://github.com/ninjaprox/NVActivityIndicatorView
+# https://github.com/ninjaprox/NVActivityIndicatorView
+pod 'NVActivityIndicatorView/Extended'
 # Transitions
-pod 'Hero' # https://github.com/HeroTransitions/Hero
-pod 'Jelly' # https://github.com/SebastianBoldt/Jelly
+# https://github.com/HeroTransitions/Hero
+pod 'Hero'
+# https://github.com/SebastianBoldt/Jelly
+pod 'Jelly'
 # UserDefaults
-pod 'DefaultsKit' # https://github.com/nmdias/DefaultsKit
+# https://github.com/nmdias/DefaultsKit
+pod 'DefaultsKit'
 # Code
-pod 'SwiftLint' # https://github.com/realm/SwiftLint
+# https://github.com/realm/SwiftLint
+pod 'SwiftLint'
 # Resources
-pod 'R.swift' # https://github.com/mac-cain13/R.swift
+# https://github.com/mac-cain13/R.swift
+pod 'R.swift'
 # Font
-pod 'UIFontComplete' # https://github.com/Nirma/UIFontComplete
+# https://github.com/Nirma/UIFontComplete
+pod 'UIFontComplete'
 # Toast
-pod 'Toast-Swift' # https://github.com/scalessec/Toast-Swift
+# https://github.com/scalessec/Toast-Swift
+pod 'Toast-Swift'
 # Placeholder
-pod 'EmptyDataSet-Swift' # https://github.com/Xiaoye220/EmptyDataSet-Swift
+# https://github.com/InsectQY/EmptyDataSetExtension
+pod 'EmptyDataSetExtension'
 
 end
 

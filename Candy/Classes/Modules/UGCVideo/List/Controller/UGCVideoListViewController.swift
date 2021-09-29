@@ -6,6 +6,7 @@
 //  Copyright © 2018 Insect. All rights reserved.
 //
 
+import EmptyDataSetExtension
 import Hero
 import RxOptional
 import UIKit
@@ -29,8 +30,8 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         collectionView.refreshFooter = RefreshFooter()
 
         collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.collectionView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
-                                                                           image: R.image.hg_defaultError()))
+            self?.collectionView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                                                        image: R.image.hg_defaultError()))
         }
     }
 

@@ -13,10 +13,8 @@
 		130E709F24ED158100F824AD /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E709E24ED158100F824AD /* UserApi.swift */; };
 		13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13114CB824EF9260008FFA4D /* UserInfoModel.swift */; };
 		132731112702DCB200BD381B /* String+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132731102702DCB200BD381B /* String+Style.swift */; };
-		132731132702DD8F00BD381B /* EmptyDataSetConfigExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132731122702DD8F00BD381B /* EmptyDataSetConfigExtension.swift */; };
 		134C180A260D7B5E003E2780 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C1809260D7B5E003E2780 /* UIViewControllerExtension.swift */; };
 		134C1812260D7FAB003E2780 /* DimensionConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C1811260D7FAB003E2780 /* DimensionConfigs.swift */; };
-		134CA2CE270302020022BCEE /* EmptyDataSetWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134CA2CD270302020022BCEE /* EmptyDataSetWrapper.swift */; };
 		134D706124EA2566002A4F12 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706024EA2566002A4F12 /* mapMany.swift */; };
 		134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */; };
 		134D706924EA303F002A4F12 /* filterMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134D706824EA303F002A4F12 /* filterMany.swift */; };
@@ -36,11 +34,8 @@
 		138EDAC12692D413003DA9FE /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDABE2692D413003DA9FE /* RichLabel.swift */; };
 		138EDAC22692D413003DA9FE /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDAC02692D413003DA9FE /* VerticalButton.swift */; };
 		13976E2B260D88EC00977F55 /* UIViewController+LoadingStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13976E2A260D88EC00977F55 /* UIViewController+LoadingStateable.swift */; };
-		13976E30260D8ECF00977F55 /* EmptyDataSetWrapperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13976E2F260D8ECF00977F55 /* EmptyDataSetWrapperExtension.swift */; };
-		13976E34260DA48E00977F55 /* EmptyDataSetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13976E33260DA48E00977F55 /* EmptyDataSetConfig.swift */; };
 		13976E39260DABEE00977F55 /* EmptyDataSetConfig + Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13976E38260DABEE00977F55 /* EmptyDataSetConfig + Rx.swift */; };
 		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
-		13D042D12704368C00935FD0 /* EmptyDataSetCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D042D02704368C00935FD0 /* EmptyDataSetCompatible.swift */; };
 		13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
 		180959112215142400A0818D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180959102215142400A0818D /* SnapshotHelper.swift */; };
@@ -259,10 +254,8 @@
 		130E709E24ED158100F824AD /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		13114CB824EF9260008FFA4D /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		132731102702DCB200BD381B /* String+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Style.swift"; sourceTree = "<group>"; };
-		132731122702DD8F00BD381B /* EmptyDataSetConfigExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSetConfigExtension.swift; sourceTree = "<group>"; };
 		134C1809260D7B5E003E2780 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		134C1811260D7FAB003E2780 /* DimensionConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionConfigs.swift; sourceTree = "<group>"; };
-		134CA2CD270302020022BCEE /* EmptyDataSetWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSetWrapper.swift; sourceTree = "<group>"; };
 		134D706024EA2566002A4F12 /* mapMany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		134D706224EA29E7002A4F12 /* VideoHallViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoHallViewController+Rx.swift"; sourceTree = "<group>"; };
 		134D706824EA303F002A4F12 /* filterMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMany.swift; sourceTree = "<group>"; };
@@ -282,11 +275,8 @@
 		138EDABE2692D413003DA9FE /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
 		138EDAC02692D413003DA9FE /* VerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		13976E2A260D88EC00977F55 /* UIViewController+LoadingStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingStateable.swift"; sourceTree = "<group>"; };
-		13976E2F260D8ECF00977F55 /* EmptyDataSetWrapperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSetWrapperExtension.swift; sourceTree = "<group>"; };
-		13976E33260DA48E00977F55 /* EmptyDataSetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSetConfig.swift; sourceTree = "<group>"; };
 		13976E38260DABEE00977F55 /* EmptyDataSetConfig + Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyDataSetConfig + Rx.swift"; sourceTree = "<group>"; };
 		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
-		13D042D02704368C00935FD0 /* EmptyDataSetCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSetCompatible.swift; sourceTree = "<group>"; };
 		13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoComment.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18095906221501DA00A0818D /* CandyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyUITests.swift; sourceTree = "<group>"; };
@@ -741,21 +731,8 @@
 			isa = PBXGroup;
 			children = (
 				1386E1A22612F3890092DA33 /* RxSwift */,
-				1386E1A12612F37F0092DA33 /* Public */,
 			);
 			path = EmptyDataSet;
-			sourceTree = "<group>";
-		};
-		1386E1A12612F37F0092DA33 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				134CA2CD270302020022BCEE /* EmptyDataSetWrapper.swift */,
-				13D042D02704368C00935FD0 /* EmptyDataSetCompatible.swift */,
-				13976E2F260D8ECF00977F55 /* EmptyDataSetWrapperExtension.swift */,
-				13976E33260DA48E00977F55 /* EmptyDataSetConfig.swift */,
-				132731122702DD8F00BD381B /* EmptyDataSetConfigExtension.swift */,
-			);
-			path = Public;
 			sourceTree = "<group>";
 		};
 		1386E1A22612F3890092DA33 /* RxSwift */ = {
@@ -2590,7 +2567,6 @@
 				E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */,
 				13976E39260DABEE00977F55 /* EmptyDataSetConfig + Rx.swift in Sources */,
 				E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */,
-				13D042D12704368C00935FD0 /* EmptyDataSetCompatible.swift in Sources */,
 				13693E9624ECBB8D0049D259 /* KKModel.swift in Sources */,
 				E5FAB71321C0B988002BF258 /* Emoji.swift in Sources */,
 				E59006422202E33600EE0838 /* NavigationMap.swift in Sources */,
@@ -2600,12 +2576,10 @@
 				E5859AC523CF042500ADCED8 /* TTResultHandle.swift in Sources */,
 				E5B0238E2291A23500D3111D /* UICollectionView+Rx.swift in Sources */,
 				E5E0204821B4FF5100A4CDF1 /* UICollectionView+Reusable.swift in Sources */,
-				13976E34260DA48E00977F55 /* EmptyDataSetConfig.swift in Sources */,
 				18B7895D2293A8BE0065E5D8 /* Notification+Rx.swift in Sources */,
 				E534047921BF7FBD008807DA /* CommentCell.swift in Sources */,
 				E5D749F021FEE0B300BCE75F /* ErrorTracker.swift in Sources */,
 				E5B0238C2291A1BC00D3111D /* UITableView+Rx.swift in Sources */,
-				132731132702DD8F00BD381B /* EmptyDataSetConfigExtension.swift in Sources */,
 				E5ED44CA21BE319B00451010 /* VideoCommentModel.swift in Sources */,
 				E5D9541A21E6DB23007FC606 /* EpisodeListFlowLayout.swift in Sources */,
 				E5E7235323D0415F0042C140 /* YGModel.swift in Sources */,
@@ -2620,7 +2594,6 @@
 				13031D2F24A337FE0010A440 /* UIViewController+JXCategoryView.swift in Sources */,
 				E578102621C8E7A8005BFFAC /* VideoHallFlowLayout.swift in Sources */,
 				1356166125DE5597006B115D /* EpisodePageViewModel.swift in Sources */,
-				13976E30260D8ECF00977F55 /* EmptyDataSetWrapperExtension.swift in Sources */,
 				E520A48021D7154900CDDB04 /* ReplyCommentViewController.swift in Sources */,
 				E5FC765821CCB96D00FB6FFD /* VideoHallTitleCell.swift in Sources */,
 				E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */,
@@ -2629,7 +2602,6 @@
 				E5859AC123CEF00600ADCED8 /* CustomMoyaResultable.swift in Sources */,
 				E595D95821DDE208005A6C00 /* UserUGCVideoView.swift in Sources */,
 				E5FB73A121B771CF0010D8A7 /* NewsListModel.swift in Sources */,
-				134CA2CE270302020022BCEE /* EmptyDataSetWrapper.swift in Sources */,
 				E5FB739921B767FD0010D8A7 /* VideoApi.swift in Sources */,
 				13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */,
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import UITableView_FDTemplateLayoutCell
+import EmptyDataSetExtension
 
 class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewModel> {
 
@@ -51,7 +52,7 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
 
-        let config = EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+        let config = EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
                                         image: R.image.hg_defaultError())
         tableView.refreshHeader?.beginRefreshing { [weak self] in
             self?.tableView.emptyDataSet.setConfig(config)

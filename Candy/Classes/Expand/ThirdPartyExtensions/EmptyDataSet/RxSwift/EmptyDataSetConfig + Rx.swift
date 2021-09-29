@@ -6,7 +6,7 @@
 //  Copyright © 2021 Insect. All rights reserved.
 //
 
-import EmptyDataSet_Swift
+import EmptyDataSetExtension
 import RxSwift
 import UIKit
 

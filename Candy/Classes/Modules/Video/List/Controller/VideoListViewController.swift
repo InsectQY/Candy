@@ -6,20 +6,20 @@
 //  Copyright © 2018 Insect. All rights reserved.
 //
 
+import EmptyDataSetExtension
 import UIKit
 import ZFPlayer
 
 class VideoListViewController: VMTableViewController<VideoListViewModel> {
-
     /// 视频类型
     private var category: String = ""
     /// 视频已经播放的时间
     private var currentTime: TimeInterval = 0
 
     // MARK: - LazyLoad
+
     private lazy var controlView = ZFPlayerControlView()
     private lazy var player: ZFPlayerController = {
-
         let player = ZFPlayerController(scrollView: tableView,
                                         playerManager: ZFIJKPlayerManager(),
                                         containerViewTag: 100)
@@ -30,6 +30,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
     }()
 
     // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpVideo()
@@ -41,6 +42,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
     }
 
     // MARK: - init
+
     init(category: String) {
         self.category = category
         super.init(style: .plain)
@@ -60,7 +62,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         tableView.refreshFooter = RefreshFooter()
 
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.emptyDataSet.setConfig(EmptyDataSetConfig(image: R.image.hg_defaultError()))
+            self?.tableView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(image: R.image.hg_defaultError()))
         }
     }
 
@@ -79,28 +81,28 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
         // 视频 URL
         output
-        .videoURLs
-        .drive(player.rx.assetURLs)
-        .disposed(by: rx.disposeBag)
+            .videoURLs
+            .drive(player.rx.assetURLs)
+            .disposed(by: rx.disposeBag)
 
         // 界面左右滚动/下拉刷新/上拉加载都停止播放视频
         NotificationCenter.default.rx
-        .notification(.pageDidScroll)
-        .mapToVoid()
-        .bind(to: player.rx.stop)
-        .disposed(by: rx.disposeBag)
+            .notification(.pageDidScroll)
+            .mapToVoid()
+            .bind(to: player.rx.stop)
+            .disposed(by: rx.disposeBag)
 
         viewModel
-        .refreshOutput
-        .headerRefreshing
-        .drive(player.rx.stop)
-        .disposed(by: rx.disposeBag)
+            .refreshOutput
+            .headerRefreshing
+            .drive(player.rx.stop)
+            .disposed(by: rx.disposeBag)
 
         viewModel
-        .refreshOutput
-        .footerRefreshing
-        .drive(player.rx.stop)
-        .disposed(by: rx.disposeBag)
+            .refreshOutput
+            .footerRefreshing
+            .drive(player.rx.stop)
+            .disposed(by: rx.disposeBag)
 
         // TableView 数据源
         output.items.drive(tableView.rx.items) { [unowned self] tableView, row, item in
@@ -112,17 +114,17 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
             // 视频播放点击
             cell.videoBtn.rx.tap
-            .mapTo(indexPath)
-            .bind(to: self.player.rx.playTheIndexPath())
-            .disposed(by: cell.disposeBag)
+                .mapTo(indexPath)
+                .bind(to: self.player.rx.playTheIndexPath())
+                .disposed(by: cell.disposeBag)
 
             // 视频信息
             cell.videoBtn
-            .rx.tap
-            .bind(to: self.controlView.rx.showTitle(item.content.title,
-                                                    coverURLString: item.content.video_detail_info.detail_video_large_image.url,
-                                                    fullScreenMode: .landscape))
-            .disposed(by: cell.disposeBag)
+                .rx.tap
+                .bind(to: self.controlView.rx.showTitle(item.content.title,
+                                                        coverURLString: item.content.video_detail_info.detail_video_large_image.url,
+                                                        fullScreenMode: .landscape))
+                .disposed(by: cell.disposeBag)
 
             return cell
         }
@@ -130,24 +132,22 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
 
         // tableView 点击事件
         tableView.rx.modelSelected(NewsListModel.self)
-        .map(\.content)
-        .map { [unowned self] in
-            ["news": $0,
-             "seekTime": self.currentTime]
-        }
-        .flatMap {
-            navigator.rx.push(VideoURL.detail.path,
-                              context: $0)
-        }
-        .subscribe { [weak self] _ in self?.currentTime = 0 }
-        .disposed(by: rx.disposeBag)
+            .map(\.content)
+            .map { [unowned self] in
+                ["news": $0,
+                 "seekTime": self.currentTime]
+            }
+            .flatMap {
+                navigator.rx.push(VideoURL.detail.path,
+                                  context: $0)
+            }
+            .subscribe { [weak self] _ in self?.currentTime = 0 }
+            .disposed(by: rx.disposeBag)
     }
 }
 
 extension VideoListViewController {
-
     private func setUpVideo() {
-
         player.playerPlayTimeChanged = { [weak self] _, currentTime, _ in
             self?.currentTime = currentTime
         }
@@ -159,8 +159,8 @@ extension VideoListViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension VideoListViewController: UITableViewDelegate {
 
+extension VideoListViewController: UITableViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollView.zf_scrollViewDidEndDecelerating()
     }

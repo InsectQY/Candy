@@ -6,11 +6,12 @@
 //  Copyright © 2018 Insect. All rights reserved.
 //
 
+import EmptyDataSetExtension
 import UIKit
 
 class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
-
     // MARK: - LazyLoad
+
     private lazy var topView = TopView(frame: CGRect(x: 0,
                                                      y: topH,
                                                      width: .screenWidth,
@@ -26,7 +27,6 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     /// 添加到 collectionView 上的
     private lazy var filterView: FilterView = {
-
         let filterView = FilterView(frame: .zero)
         filterView.delegate = self
         return filterView
@@ -34,7 +34,6 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     /// 添加到 view 上的
     private lazy var animateFilterView: FilterView = {
-
         let animateFilterView = FilterView(frame: .zero)
         animateFilterView.isHidden = true
         animateFilterView.delegate = self
@@ -52,6 +51,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     }
 
     // MARK: - LifeCycle
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         animateFilterView.frame = CGRect(x: 0,
@@ -77,58 +77,57 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         view.addSubview(animateFilterView)
         collectionView.addSubview(filterView)
 
-        collectionView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallFilterResultEmptyPlaceholder().emptyDataSetDescAttributed,
-                                                                 image: R.image.hg_defaultError(),
-                                                                 verticalOffset: topH + 180))
+        collectionView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(detail: R.string.localizable.videoHallFilterResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                                              image: R.image.hg_defaultError(),
+                                                                              verticalOffset: topH + 180))
     }
 
     override func bindViewModel() {
         super.bindViewModel()
 
         titleView.beginEdit
-        .asObservable()
-        .subscribe(viewModel.input.searchTapOb)
-        .disposed(by: rx.disposeBag)
+            .asObservable()
+            .subscribe(viewModel.input.searchTapOb)
+            .disposed(by: rx.disposeBag)
 
         collectionView.rx.modelSelected(VideoHallList.self)
-        .asObservable()
-        .subscribe(viewModel.input.selectionOb)
-        .disposed(by: rx.disposeBag)
+            .asObservable()
+            .subscribe(viewModel.input.selectionOb)
+            .disposed(by: rx.disposeBag)
 
         // 刷新
         viewModel.output
-        .filterViewHeight
-        .drive(rx.filterViewHeight)
-        .disposed(by: rx.disposeBag)
+            .filterViewHeight
+            .drive(rx.filterViewHeight)
+            .disposed(by: rx.disposeBag)
 
         // 视频分类
         viewModel.output
-        .categories
-        .drive(filterView.rx.categories)
-        .disposed(by: rx.disposeBag)
+            .categories
+            .drive(filterView.rx.categories)
+            .disposed(by: rx.disposeBag)
 
         viewModel.output
-        .categories
-        .drive(animateFilterView.rx.categories)
-        .disposed(by: rx.disposeBag)
+            .categories
+            .drive(animateFilterView.rx.categories)
+            .disposed(by: rx.disposeBag)
 
         // 某个分类下的数据
         viewModel.output
-        .items
-        .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallListCell.identifier,
-                                       cellType: VideoHallListCell.self)) { _, item, cell in
-            cell.item = item
-        }
-        .disposed(by: rx.disposeBag)
+            .items
+            .drive(collectionView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallListCell.identifier,
+                                           cellType: VideoHallListCell.self)) { _, item, cell in
+                cell.item = item
+            }
+            .disposed(by: rx.disposeBag)
 
         // 点击了筛选
         topView.rx.tap
-        .bind(to: rx.filterTap)
-        .disposed(by: rx.disposeBag)
+            .bind(to: rx.filterTap)
+            .disposed(by: rx.disposeBag)
     }
 
     func filterTap() {
-
         animateFilterView.isHidden = false
         UIView.animate(withDuration: 0.35) { [unowned self] in
             topView.alpha = 0
@@ -147,8 +146,8 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 }
 
 // MARK: - FilterViewProtocol
-extension VideoHallViewController: FilterViewProtocol {
 
+extension VideoHallViewController: FilterViewProtocol {
     func filterView(_ filterView: FilterView, didSelectAt row: Int, item: Int) {
         if filterView == self.filterView {
             animateFilterView.selItem(row: row, item: item)
@@ -163,10 +162,9 @@ extension VideoHallViewController: FilterViewProtocol {
 }
 
 // MARK: - UICollectionViewDelegate
+
 extension VideoHallViewController: UICollectionViewDelegate {
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
         let height = filterViewHeight
         let contentOffsetY = scrollView.contentOffset.y + height + topH
         filterView.y = -height + contentOffsetY - contentOffsetY * 0.3
@@ -174,7 +172,6 @@ extension VideoHallViewController: UICollectionViewDelegate {
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-
         animateFilterView.isHidden = true
         animateFilterView.y = -filterViewHeight
     }

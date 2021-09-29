@@ -6,7 +6,7 @@
 //  Copyright © 2019 Insect. All rights reserved.
 //
 
-import EmptyDataSet_Swift
+import EmptyDataSetExtension
 import UIKit
 
 class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearchResultViewModel> {
@@ -32,7 +32,7 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
         tableView.register(R.nib.videoHallSearchResultCell)
         tableView.refreshHeader = RefreshHeader()
 
-        tableView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+        tableView.emptyDataSet.setConfig(EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
                                                             image: R.image.hg_defaultError()))
         tableView.refreshHeader?.beginRefreshing { [weak self] in
             self?.tableView.emptyDataSet.initialize()

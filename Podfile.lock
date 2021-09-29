@@ -3,7 +3,9 @@ PODS:
   - CleanJSON (1.0.9)
   - DefaultsKit (0.2.0)
   - Differentiator (4.0.1)
-  - EmptyDataSet-Swift (5.0.0)
+  - DZNEmptyDataSet (1.8.1)
+  - EmptyDataSetExtension (1.0.1):
+    - DZNEmptyDataSet (~> 1.8.1)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.6.1)
   - IJKMediaFramework (0.1.5)
@@ -91,7 +93,7 @@ PODS:
 DEPENDENCIES:
   - CleanJSON
   - DefaultsKit
-  - EmptyDataSet-Swift
+  - EmptyDataSetExtension
   - FDFullscreenPopGesture
   - Hero
   - IQKeyboardManagerSwift
@@ -126,7 +128,8 @@ SPEC REPOS:
     - CleanJSON
     - DefaultsKit
     - Differentiator
-    - EmptyDataSet-Swift
+    - DZNEmptyDataSet
+    - EmptyDataSetExtension
     - FDFullscreenPopGesture
     - Hero
     - IJKMediaFramework
@@ -175,7 +178,8 @@ SPEC CHECKSUMS:
   CleanJSON: 910a36465ce4829e264a902ccf6d1455fdd9f980
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  EmptyDataSetExtension: 4e8dc4da00582ee1adc3a2f482202358116f82d2
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
@@ -211,6 +215,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 128b24a1b8d73a334392869915082a8f9a3b0e41
+PODFILE CHECKSUM: 0e6d2cd3e8993f6416c659dd9fa94f2b5adedec5
 
 COCOAPODS: 1.11.2
