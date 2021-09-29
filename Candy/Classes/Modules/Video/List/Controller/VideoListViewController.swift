@@ -71,9 +71,11 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         let output = viewModel.transform(input: input)
 
         // 数据源 nil 时点击
-        tableView.emptyDataSet.rx.didTapView()
-        .bind(to: rx.post(name: .videoNoConnectClick))
-        .disposed(by: rx.disposeBag)
+        if let config = tableView.emptyDataSet.config {
+            config.rx.didTapView
+                .bind(to: rx.post(name: .videoNoConnectClick))
+                .disposed(by: rx.disposeBag)
+        }
 
         // 视频 URL
         output

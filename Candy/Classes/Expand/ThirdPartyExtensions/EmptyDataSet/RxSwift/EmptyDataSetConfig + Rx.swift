@@ -6,23 +6,24 @@
 //  Copyright © 2021 Insect. All rights reserved.
 //
 
+import EmptyDataSet_Swift
 import RxSwift
 import UIKit
-import EmptyDataSet_Swift
 
 // MARK: - Reactive-Extension
 
-extension EmptyDataSetWrapper: ReactiveCompatible {}
+extension EmptyDataSetConfig: ReactiveCompatible {}
 
-extension Reactive where Base: EmptyDataSetWrapper {
+extension Reactive where Base: EmptyDataSetConfig {
 
     var isLoading: Binder<Bool> {
         Binder(base) { target, value in
-            target.config?.isLoading = value
+            target.isLoading = value
         }
     }
 
-    func didTapView() -> ControlEvent<Void> {
+    var didTapView: ControlEvent<Void> {
+
         let source: Observable<Void> = Observable.create { [weak control = self.base] observer in
 
             MainScheduler.ensureRunningOnMainThread()
@@ -31,7 +32,7 @@ extension Reactive where Base: EmptyDataSetWrapper {
                 return Disposables.create()
             }
 
-            control.config?.didTapView = {
+            control.didTapView = {
                 observer.on(.next(()))
             }
 

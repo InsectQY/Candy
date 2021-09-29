@@ -23,34 +23,31 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
     func bindViewModel() {
 
         bindError()
-        bindLoading()
+        bindEmptyDataSetView()
         bindHeader()
         bindFooter()
-        bindEmptyDataSetViewTap()
         viewModel.transform()
     }
 
-    // MARK: - 绑定加载状态
-    func bindLoading() {
+    // MARK: - 绑定 EmptyDataSet
+    func bindEmptyDataSetView() {
+
+        guard let config = tableView.emptyDataSet.config else { return }
+        // 数据源 nil 时点击
+        config.rx.didTapView
+            .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
+            .disposed(by: rx.disposeBag)
 
         viewModel
-        .loading
-        .drive(tableView.emptyDataSet.rx.isLoading)
-        .disposed(by: rx.disposeBag)
+            .loading
+            .drive(config.rx.isLoading)
+            .disposed(by: rx.disposeBag)
     }
 
     func bindError() {
         viewModel
         .error
         .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
-    }
-
-    // MARK: - 绑定没有网络时的点击事件
-    func bindEmptyDataSetViewTap() {
-
-        tableView.emptyDataSet.rx.didTapView()
-        .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
         .disposed(by: rx.disposeBag)
     }
 

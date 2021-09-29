@@ -6,14 +6,14 @@
 //  Copyright © 2019 Insect. All rights reserved.
 //
 
-import UIKit
 import EmptyDataSet_Swift
+import UIKit
 
 class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearchResultViewModel> {
-
     private var keyword: String = ""
 
     // MARK: - convenience
+
     init(keyword: String) {
         self.keyword = keyword
         super.init(style: .plain)
@@ -32,9 +32,10 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
         tableView.register(R.nib.videoHallSearchResultCell)
         tableView.refreshHeader = RefreshHeader()
 
+        tableView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                            image: R.image.hg_defaultError()))
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.emptyDataSet.setConfig(EmptyDataSetConfig(description: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
-                                                                      image: R.image.hg_defaultError()))
+            self?.tableView.emptyDataSet.initialize()
         }
     }
 
@@ -46,10 +47,10 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
 
         // TableView 数据源
         output.items
-        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallSearchResultCell.identifier,
-                                  cellType: VideoHallSearchResultCell.self)) { tableView, item, cell in
-            cell.item = item
-        }
-        .disposed(by: rx.disposeBag)
+            .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.videoHallSearchResultCell.identifier,
+                                      cellType: VideoHallSearchResultCell.self)) { _, item, cell in
+                cell.item = item
+            }
+            .disposed(by: rx.disposeBag)
     }
 }

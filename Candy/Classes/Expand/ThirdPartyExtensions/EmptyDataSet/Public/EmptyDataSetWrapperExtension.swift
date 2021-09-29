@@ -11,7 +11,7 @@ import UIKit
 
 private var context: UInt8 = 0
 
-public extension EmptyDataSetWrapper {
+public extension EmptyDataSetWrapper where Base: UIScrollView {
 
     var config: EmptyDataSetConfig? {
         base.emptyDataSetConfig
@@ -19,24 +19,15 @@ public extension EmptyDataSetWrapper {
 
     func setConfig(_ config: EmptyDataSetConfig = EmptyDataSetConfig()) {
         base.emptyDataSetConfig = config
-        initEmptyDataSet()
     }
 
     func reload() {
         base.reloadEmptyDataSet()
     }
 
-    private func initEmptyDataSet() {
+    func initialize() {
         base.emptyDataSetSource = config
         base.emptyDataSetDelegate = config
-        observeEmptyDataSetConfig()
-    }
-
-    private func observeEmptyDataSetConfig() {
-
-        config?.valueChanged = { [weak self] in
-            self?.reload()
-        }
     }
 }
 
@@ -52,6 +43,14 @@ fileprivate extension UIScrollView {
                                      &context,
                                      newValue,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            observeEmptyDataSetConfig()
+        }
+    }
+
+    private func observeEmptyDataSetConfig() {
+
+        emptyDataSetConfig?.valueChanged = { [weak self] in
+            self?.reloadEmptyDataSet()
         }
     }
 }

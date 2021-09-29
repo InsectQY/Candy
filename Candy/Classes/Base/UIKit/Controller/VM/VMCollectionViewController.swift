@@ -22,19 +22,24 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
     func bindViewModel() {
 
         bindError()
-        bindLoading()
+        bindEmptyDataSetView()
         bindHeader()
         bindFooter()
-        bindEmptyDataSetViewTap()
         viewModel.transform()
     }
 
     // MARK: - 绑定加载状态
-    func bindLoading() {
+    func bindEmptyDataSetView() {
+
+        guard let config = collectionView.emptyDataSet.config else { return }
 
         viewModel
         .loading
-        .drive(collectionView.emptyDataSet.rx.isLoading)
+        .drive(config.rx.isLoading)
+        .disposed(by: rx.disposeBag)
+
+        config.rx.didTapView
+        .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
         .disposed(by: rx.disposeBag)
     }
 
@@ -42,14 +47,6 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
         viewModel
         .error
         .drive(rx.showError)
-        .disposed(by: rx.disposeBag)
-    }
-
-    // MARK: - 绑定没有网络时的点击事件
-    func bindEmptyDataSetViewTap() {
-
-        collectionView.emptyDataSet.rx.didTapView()
-        .subscribe(viewModel.refreshInput.emptyDataSetViewTapOb)
         .disposed(by: rx.disposeBag)
     }
 

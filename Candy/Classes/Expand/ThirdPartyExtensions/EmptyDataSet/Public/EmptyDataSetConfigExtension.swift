@@ -74,11 +74,7 @@ extension EmptyDataSetConfig: EmptyDataSetDelegate {
     }
 
     public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
-        if isDisplay {
-            return !isLoading
-        } else {
-            return false
-        }
+        isDisplay ? !isLoading : false
     }
 
     public func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView) -> Bool {
