@@ -47,7 +47,7 @@ pod 'RxURLNavigator'
 # https://github.com/RxSwiftCommunity/RxOptional
 pod 'RxOptional'
 # https://github.com/srv7/RxMJ
-pod 'RxMJ', :git => 'https://github.com/InsectQY/RxMJ.git'
+pod 'RxMJ'
 # https://github.com/RxSwiftCommunity/RxReachability
 pod 'RxReachability'
 
@@ -87,7 +87,7 @@ pod 'UIFontComplete'
 pod 'Toast-Swift'
 # Placeholder
 # https://github.com/InsectQY/EmptyDataSetExtension
-pod 'EmptyDataSetExtension'
+pod 'EmptyDataSetExtension/RxSwift'
 
 end
 

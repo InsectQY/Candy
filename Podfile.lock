@@ -2,10 +2,14 @@ PODS:
   - Alamofire (5.4.4)
   - CleanJSON (1.0.9)
   - DefaultsKit (0.2.0)
-  - Differentiator (4.0.1)
+  - Differentiator (5.0.0)
   - DZNEmptyDataSet (1.8.1)
-  - EmptyDataSetExtension (1.0.1):
+  - EmptyDataSetExtension/Core (1.1.0):
     - DZNEmptyDataSet (~> 1.8.1)
+  - EmptyDataSetExtension/RxSwift (1.1.0):
+    - EmptyDataSetExtension/Core
+    - RxCocoa (~> 6.2.0)
+    - RxSwift (~> 6.2.0)
   - FDFullscreenPopGesture (1.1)
   - Hero (1.6.1)
   - IJKMediaFramework (0.1.5)
@@ -16,23 +20,23 @@ PODS:
   - KingfisherWebP (1.4.0):
     - Kingfisher (~> 7.0)
     - libwebp (>= 1.1.0)
-  - libwebp (1.2.0):
-    - libwebp/demux (= 1.2.0)
-    - libwebp/mux (= 1.2.0)
-    - libwebp/webp (= 1.2.0)
-  - libwebp/demux (1.2.0):
+  - libwebp (1.2.1):
+    - libwebp/demux (= 1.2.1)
+    - libwebp/mux (= 1.2.1)
+    - libwebp/webp (= 1.2.1)
+  - libwebp/demux (1.2.1):
     - libwebp/webp
-  - libwebp/mux (1.2.0):
+  - libwebp/mux (1.2.1):
     - libwebp/demux
-  - libwebp/webp (1.2.0)
+  - libwebp/webp (1.2.1)
   - MJRefresh (3.7.2)
-  - Moya/Core (14.0.0):
+  - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
-  - Moya/RxSwift (14.0.0):
+  - Moya/RxSwift (15.0.0):
     - Moya/Core
-    - RxSwift (~> 5.0)
-  - "NSObject+Rx (5.1.0)":
-    - RxSwift (~> 5.1)
+    - RxSwift (~> 6.0)
+  - "NSObject+Rx (5.2.2)":
+    - RxSwift (~> 6.2)
   - NVActivityIndicatorView/Base (5.1.1)
   - NVActivityIndicatorView/Extended (5.1.1):
     - NVActivityIndicatorView/Base
@@ -41,19 +45,19 @@ PODS:
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - ReachabilitySwift (5.0.0)
-  - RxActivityIndicator (1.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxCocoa (5.1.3):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxMJ (1.0.0):
+  - RxActivityIndicator (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxMJ (0.5.1):
     - MJRefresh
-    - RxCocoa (~> 5.0)
+    - RxCocoa (>= 4.5.0)
   - RxNetwork (1.0.2):
     - RxNetwork/Core (= 1.0.2)
   - RxNetwork/Cacheable (1.0.2):
@@ -61,19 +65,19 @@ PODS:
     - Storable
   - RxNetwork/Core (1.0.2):
     - Moya/RxSwift
-  - RxOptional (4.1.0):
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxReachability (1.1.0):
-    - ReachabilitySwift (~> 5.0)
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.3):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.3)
-  - RxURLNavigator (2.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxReachability (1.2.1):
+    - ReachabilitySwift (< 6.0, >= 5.0)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - RxURLNavigator (3.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
     - URLNavigator
   - Storable (0.1.1)
   - SwiftLint (0.44.0)
@@ -93,7 +97,7 @@ PODS:
 DEPENDENCIES:
   - CleanJSON
   - DefaultsKit
-  - EmptyDataSetExtension
+  - EmptyDataSetExtension/RxSwift
   - FDFullscreenPopGesture
   - Hero
   - IQKeyboardManagerSwift
@@ -108,7 +112,7 @@ DEPENDENCIES:
   - R.swift
   - RxActivityIndicator
   - RxDataSources
-  - RxMJ (from `https://github.com/InsectQY/RxMJ.git`)
+  - RxMJ
   - RxNetwork
   - RxNetwork/Cacheable
   - RxOptional
@@ -150,6 +154,7 @@ SPEC REPOS:
     - RxActivityIndicator
     - RxCocoa
     - RxDataSources
+    - RxMJ
     - RxNetwork
     - RxOptional
     - RxReachability
@@ -164,22 +169,13 @@ SPEC REPOS:
     - URLNavigator
     - ZFPlayer
 
-EXTERNAL SOURCES:
-  RxMJ:
-    :git: https://github.com/InsectQY/RxMJ.git
-
-CHECKOUT OPTIONS:
-  RxMJ:
-    :commit: fd4bc05a2bd707e84a5fe5205a109a0aa7bed47d
-    :git: https://github.com/InsectQY/RxMJ.git
-
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CleanJSON: 910a36465ce4829e264a902ccf6d1455fdd9f980
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EmptyDataSetExtension: 4e8dc4da00582ee1adc3a2f482202358116f82d2
+  EmptyDataSetExtension: fa623643143a4e6deea78d745dc3f9aad93a3e74
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
@@ -188,25 +184,25 @@ SPEC CHECKSUMS:
   JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   KingfisherWebP: f4b76064c50a36c4cadd37548496ecebfdcb39e8
-  libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
+  libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  RxActivityIndicator: b337e29a8399d4c8dc250defaf5874221d9bd27e
-  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxMJ: 38380e46c135fa8361c64f38e4ca79b14d6c3652
+  RxActivityIndicator: 2cc25088cfb3fda3c89848ad7a6f79017bb94a5b
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxMJ: 3fbf23c21d53c248b8da4d9de40ba650050bb4ae
   RxNetwork: b14e08b1ed874a0379496065be43ef0ee1ac0adb
-  RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
-  RxReachability: 3da1c23ba6d93dabc004290cda61dd9e7884422d
-  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
-  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
-  RxURLNavigator: 0f572321e73d71b4e7b483238be138a800023475
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
+  RxReachability: bfd13548bf1dac7a877082d13918a9f39bdb5c18
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxURLNavigator: 31bf8ab1ae0bf497a4f85e42bf416c2f7365ceed
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
@@ -215,6 +211,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 0e6d2cd3e8993f6416c659dd9fa94f2b5adedec5
+PODFILE CHECKSUM: fda9c3c4fcce151e10b68f9430c41d0e719e1cd9
 
 COCOAPODS: 1.11.2

@@ -30,8 +30,8 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
         collectionView.refreshFooter = RefreshFooter()
 
         collectionView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.collectionView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
-                                                                                        image: R.image.hg_defaultError()))
+            self?.collectionView.emptyDataSet.setConfigAndRun(EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                                                 image: R.image.hg_defaultError()))
         }
     }
 

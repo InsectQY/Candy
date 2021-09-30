@@ -62,7 +62,7 @@ class VideoListViewController: VMTableViewController<VideoListViewModel> {
         tableView.refreshFooter = RefreshFooter()
 
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(image: R.image.hg_defaultError()))
+            self?.tableView.emptyDataSet.setConfigAndRun(EmptyDataSetConfig(image: R.image.hg_defaultError()))
         }
     }
 

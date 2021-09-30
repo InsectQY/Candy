@@ -35,7 +35,7 @@ class VideoHallSearchResultViewController: VMTableViewController<VideoHallSearch
         tableView.emptyDataSet.setConfig(EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
                                                             image: R.image.hg_defaultError()))
         tableView.refreshHeader?.beginRefreshing { [weak self] in
-            self?.tableView.emptyDataSet.initialize()
+            self?.tableView.emptyDataSet.run()
         }
     }
 

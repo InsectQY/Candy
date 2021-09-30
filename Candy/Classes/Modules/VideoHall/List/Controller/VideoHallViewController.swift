@@ -77,9 +77,9 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
         view.addSubview(animateFilterView)
         collectionView.addSubview(filterView)
 
-        collectionView.emptyDataSet.setConfigAndInitialize(EmptyDataSetConfig(detail: R.string.localizable.videoHallFilterResultEmptyPlaceholder().emptyDataSetDescAttributed,
-                                                                              image: R.image.hg_defaultError(),
-                                                                              verticalOffset: topH + 180))
+        collectionView.emptyDataSet.setConfigAndRun(EmptyDataSetConfig(detail: R.string.localizable.videoHallFilterResultEmptyPlaceholder().emptyDataSetDescAttributed,
+                                                                       image: R.image.hg_defaultError(),
+                                                                       verticalOffset: topH + 180))
     }
 
     override func bindViewModel() {
