@@ -12,9 +12,21 @@ import UIKit
 
 // MARK: - Reactive-Extension
 public extension Reactive where Base: UIViewController {
+    
     var isLoading: Binder<Bool> {
         Binder(base) { target, value in
-            target.startLoading(isLoading: value)
+            if value {
+                target.view.startLoading()
+            } else {
+                target.view.stopLoading()
+            }
+        }
+    }
+
+    var showError: Binder<Error> {
+
+        Binder(base) { vc, error in
+            vc.view.show(error.asMoyaError?.responseErrorDescription ?? "网络请求失败")
         }
     }
 }

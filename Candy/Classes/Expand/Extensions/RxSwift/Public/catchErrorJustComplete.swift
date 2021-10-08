@@ -9,13 +9,9 @@
 import RxSwift
 
 extension ObservableType {
-    /**
-     Dismiss errors and complete the sequence instead
-     
-     - returns: An observable sequence that never errors and completes when an error occurs in the underlying sequence
-     */
+
     public func catchErrorJustComplete() -> Observable<Element> {
-        catchError { _ in
+        `catch` { _ in
             Observable.empty()
         }
     }

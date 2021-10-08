@@ -19,7 +19,6 @@ class LibsManager {
     static func setupLibs(with window: UIWindow? = nil) {
 
         setupKeyboardManager()
-        setupActivityView()
         setupNetwork()
         setupRouter()
         setupToast()
@@ -39,14 +38,6 @@ class LibsManager {
         // 15 sec
         ImageDownloader.default.downloadTimeout = Configs.Time.imageDownloadTimeout
 //        ImageCache.default.maxMemoryCost = 1
-    }
-
-    // MARK: - NVActivityIndicatorView
-    static func setupActivityView() {
-
-        NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
-        NVActivityIndicatorView.DEFAULT_COLOR = .main
-        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = .clear
     }
 
     // MARK: - RxNetwork

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxMJ
 
 final class VideoDetailViewModel: RefreshViewModel {
 

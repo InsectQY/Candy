@@ -52,6 +52,7 @@ extension UGCVideoPageViewModel {
         .request()
         .mapTTModelData(UGCVideoPageModel.self)
         .map(\.data)
+        .asObservable()
         .filterMany { $0.name != "关注" }
         .trackActivity(loading)
         .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])

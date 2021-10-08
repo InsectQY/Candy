@@ -9,37 +9,26 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxMJ
 
 extension ObservableType {
 
-	/**
-	Returns an observable sequence containing as many elements as its input but all of them are the constant provided as a parameter
-	
-	- parameter value: A constant that each element of the input sequence is being replaced with
-	- returns: An observable sequence containing the values `value` provided as a parameter
-	*/
-	public func mapTo<R>(_ value: R) -> Observable<R> {
-        map { _ in value }
-	}
-
     public func mapToVoid() -> Observable<Void> {
         map { _ in }
+    }
+
+    public func mapToFooterStateDefault() -> Observable<RxMJRefreshFooterState> {
+        map { _ in RxMJRefreshFooterState.default }
     }
 }
 
 extension SharedSequenceConvertibleType {
 
-    /**
-     Returns an Unit containing as many elements as its input but all of them are the constant provided as a parameter
-
-     - parameter value: A constant that each element of the input sequence is being replaced with
-     - returns: An unit containing the values `value` provided as a parameter
-     */
-    public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
-        map { _ in value }
-    }
-
     public func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
         map { _ in }
+    }
+
+    public func mapToFooterStateDefault() -> SharedSequence<SharingStrategy, RxMJRefreshFooterState> {
+        map { _ in RxMJRefreshFooterState.default }
     }
 }

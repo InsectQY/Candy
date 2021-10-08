@@ -50,6 +50,8 @@ pod 'RxOptional'
 pod 'RxMJ'
 # https://github.com/RxSwiftCommunity/RxReachability
 pod 'RxReachability'
+# https://github.com/RxSwiftCommunity/RxSwiftExt
+pod 'RxSwiftExt'
 
 # UIImage Download
 # https://github.com/onevcat/Kingfisher
@@ -64,7 +66,7 @@ pod 'CleanJSON'
 pod 'IQKeyboardManagerSwift'
 # HUD
 # https://github.com/ninjaprox/NVActivityIndicatorView
-pod 'NVActivityIndicatorView/Extended'
+pod 'NVActivityIndicatorView'
 # Transitions
 # https://github.com/HeroTransitions/Hero
 pod 'Hero'

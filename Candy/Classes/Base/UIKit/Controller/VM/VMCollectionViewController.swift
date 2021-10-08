@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxMJ
 
 /// 继承时需指定 RefreshViewModel 或其子类作为泛型。
 /// 该类实现 UICollectionView 的 header / footer 刷新逻辑。

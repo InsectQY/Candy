@@ -37,9 +37,9 @@ PODS:
     - RxSwift (~> 6.0)
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - NVActivityIndicatorView/Extended (5.1.1):
-    - NVActivityIndicatorView/Base
   - PYSearch (0.9.1)
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
@@ -75,6 +75,14 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
+    - RxSwiftExt/Core
   - RxURLNavigator (3.0.0):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
@@ -107,7 +115,7 @@ DEPENDENCIES:
   - KingfisherWebP
   - MJRefresh
   - "NSObject+Rx"
-  - NVActivityIndicatorView/Extended
+  - NVActivityIndicatorView
   - PYSearch
   - R.swift
   - RxActivityIndicator
@@ -117,6 +125,7 @@ DEPENDENCIES:
   - RxNetwork/Cacheable
   - RxOptional
   - RxReachability
+  - RxSwiftExt
   - RxURLNavigator
   - SwiftLint
   - Toast-Swift
@@ -160,6 +169,7 @@ SPEC REPOS:
     - RxReachability
     - RxRelay
     - RxSwift
+    - RxSwiftExt
     - RxURLNavigator
     - Storable
     - SwiftLint
@@ -202,6 +212,7 @@ SPEC CHECKSUMS:
   RxReachability: bfd13548bf1dac7a877082d13918a9f39bdb5c18
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   RxURLNavigator: 31bf8ab1ae0bf497a4f85e42bf416c2f7365ceed
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
@@ -211,6 +222,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: fda9c3c4fcce151e10b68f9430c41d0e719e1cd9
+PODFILE CHECKSUM: 84a3aef599dd3ba8143e1cecf577c354931e98d7
 
 COCOAPODS: 1.11.2
