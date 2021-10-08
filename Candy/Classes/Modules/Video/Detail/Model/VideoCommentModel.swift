@@ -41,7 +41,7 @@ class Comment: Codable {
     lazy var diggCountString = digg_count.countString
 
     /// 带有表情的富文本
-    lazy var attrText = emojiManager.convertEmoji(content: text, font: .pingFangSCRegular(16))
+    lazy var attrText = emojiManager.convertEmoji(content: text, font: .systemFont(ofSize: 16))
 
     /// 序列化好的时间
     lazy var createTimeString = create_time.timeFormat

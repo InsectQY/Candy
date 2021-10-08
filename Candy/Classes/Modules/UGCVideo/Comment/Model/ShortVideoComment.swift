@@ -38,7 +38,7 @@ public struct ShortVideoCommentItem: Codable {
     var replyComments: [ShortVideoCommentItem]
 
     var contentAttr: NSMutableAttributedString {
-        emojiManager.convertEmoji(content: content, font: .pingFangSCRegular(16))
+        emojiManager.convertEmoji(content: content, font: .systemFont(ofSize: 16))
     }
 
     var likeCountString: String {

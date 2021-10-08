@@ -11,14 +11,14 @@ import RxCocoa
 import UIKit
 
 // MARK: - Reactive-Extension
-public extension Reactive where Base: UIViewController {
+public extension Reactive where Base: UIView {
     
     var isLoading: Binder<Bool> {
         Binder(base) { target, value in
             if value {
-                target.view.startLoading()
+                target.startLoading()
             } else {
-                target.view.stopLoading()
+                target.stopLoading()
             }
         }
     }
@@ -26,7 +26,7 @@ public extension Reactive where Base: UIViewController {
     var showError: Binder<Error> {
 
         Binder(base) { vc, error in
-            vc.view.show(error.asMoyaError?.responseErrorDescription ?? "网络请求失败")
+            vc.show(error.asMoyaError?.responseErrorDescription ?? "网络请求失败")
         }
     }
 }

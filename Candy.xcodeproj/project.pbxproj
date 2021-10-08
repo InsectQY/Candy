@@ -52,7 +52,6 @@
 		18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */; };
 		18DC116B222397DF004FB1F6 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC116A222397DF004FB1F6 /* TopView.swift */; };
 		18EE6F2F229CE6AC007AF055 /* UGCVideoControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE6F2E229CE6AC007AF055 /* UGCVideoControlView.swift */; };
-		18F81D5B2296368D0028CA14 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D5A2296368D0028CA14 /* UIFontExtension.swift */; };
 		18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D5D229636B10028CA14 /* UIColorExtension.swift */; };
 		18F81D61229636E00028CA14 /* NotificationConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F81D60229636E00028CA14 /* NotificationConfigs.swift */; };
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
@@ -279,7 +278,6 @@
 		18C77EF5224A09990068A4B1 /* FilterView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterView+Rx.swift"; sourceTree = "<group>"; };
 		18DC116A222397DF004FB1F6 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		18EE6F2E229CE6AC007AF055 /* UGCVideoControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGCVideoControlView.swift; sourceTree = "<group>"; };
-		18F81D5A2296368D0028CA14 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		18F81D5D229636B10028CA14 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		18F81D60229636E00028CA14 /* NotificationConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConfigs.swift; sourceTree = "<group>"; };
 		18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentTopView.swift; sourceTree = "<group>"; };
@@ -573,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				1327310F2702DC9600BD381B /* String */,
-				18F81D592296366A0028CA14 /* UIFont */,
 				13709A3326EF217B00B1D12C /* JXCategoryView */,
 				137099F326EF203100B1D12C /* Int */,
 				137099F226EF1FC400B1D12C /* UIView */,
@@ -771,14 +768,6 @@
 				18DC116A222397DF004FB1F6 /* TopView.swift */,
 			);
 			path = Top;
-			sourceTree = "<group>";
-		};
-		18F81D592296366A0028CA14 /* UIFont */ = {
-			isa = PBXGroup;
-			children = (
-				18F81D5A2296368D0028CA14 /* UIFontExtension.swift */,
-			);
-			path = UIFont;
 			sourceTree = "<group>";
 		};
 		18F81D5C229636A60028CA14 /* UIColor */ = {
@@ -2391,7 +2380,6 @@
 				E5FAB72621C0FE28002BF258 /* UGCVideoDetailCell.swift in Sources */,
 				E5E5713221CB28A7005C2D6E /* VideoHallDetailViewModel.swift in Sources */,
 				E59112F721B655EA00436D08 /* VideoPageViewController.swift in Sources */,
-				18F81D5B2296368D0028CA14 /* UIFontExtension.swift in Sources */,
 				18C77EF6224A09990068A4B1 /* FilterView+Rx.swift in Sources */,
 				E5E1933121E88C25002CBAE8 /* HistoryManager.swift in Sources */,
 				E5E9B1EF21D4973F00B08281 /* TableView.swift in Sources */,

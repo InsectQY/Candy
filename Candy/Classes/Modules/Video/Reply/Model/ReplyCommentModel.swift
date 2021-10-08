@@ -30,7 +30,7 @@ class ReplyComment: Codable {
     let digg_count: Int
 
     /// 带有表情的富文本
-    lazy var attrText = emojiManager.convertEmoji(content: text, font: .pingFangSCRegular(16))
+    lazy var attrText = emojiManager.convertEmoji(content: text, font: .systemFont(ofSize: 16))
 
     /// 回复某条评论的富文本
     lazy var replyToText: NSMutableAttributedString = {

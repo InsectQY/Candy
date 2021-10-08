@@ -90,7 +90,6 @@ PODS:
   - Storable (0.1.1)
   - SwiftLint (0.44.0)
   - Toast-Swift (5.0.1)
-  - UIFontComplete (5.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
   - ZFPlayer (4.0.1):
@@ -129,7 +128,6 @@ DEPENDENCIES:
   - RxURLNavigator
   - SwiftLint
   - Toast-Swift
-  - UIFontComplete
   - "UITableView+FDTemplateLayoutCell"
   - ZFPlayer
   - ZFPlayer/ControlView
@@ -174,7 +172,6 @@ SPEC REPOS:
     - Storable
     - SwiftLint
     - Toast-Swift
-    - UIFontComplete
     - "UITableView+FDTemplateLayoutCell"
     - URLNavigator
     - ZFPlayer
@@ -217,11 +214,10 @@ SPEC CHECKSUMS:
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  UIFontComplete: 843cb7b58fd6503b3918447918ea6daaeaceccff
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 84a3aef599dd3ba8143e1cecf577c354931e98d7
+PODFILE CHECKSUM: 3c86ff45033ed14e3775b04a488fb23ce0289699
 
 COCOAPODS: 1.11.2

@@ -53,7 +53,7 @@ class LibsManager {
 
     static func setupToast() {
         ToastManager.shared.position = .center
-        ToastManager.shared.style.messageFont = .pingFangSCMedium(18)
+        ToastManager.shared.style.messageFont = .systemFont(ofSize: 18)
     }
 
     static func setupReachability() {

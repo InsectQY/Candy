@@ -21,7 +21,7 @@ class SearchTitleView: UIView {
 
         let searchTF = TextField(frame: bounds)
         searchTF.borderStyle = .roundedRect
-        searchTF.font = .pingFangSCRegular(15)
+        searchTF.font = .systemFont(ofSize: 15)
         searchTF.text = R.string.localizable.videoHallSearchPlaceholder()
         searchTF.leftViewMode = .always
         searchTF.leftView?.origin = CGPoint(x: 10, y: 0)

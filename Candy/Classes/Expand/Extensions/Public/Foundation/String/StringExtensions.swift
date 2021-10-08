@@ -1,11 +1,9 @@
 import UIKit
 
-extension String {
-
+public extension String {
     // 调整行间距
-    public func lineSpace(_ lineSpace: CGFloat
-        ) -> NSAttributedString {
-
+    func lineSpace(_ lineSpace: CGFloat
+    ) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self)
         let paragraphStyle = NSMutableParagraphStyle()
 
@@ -15,22 +13,18 @@ extension String {
         return attributedString
     }
 
-    public func classType<T>() -> T.Type? {
-
-        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
-            return nil
-        }
-        guard let nameSpaceClass = NSClassFromString(nameSpace + "." + self) else {
-            return nil
-        }
-        guard let classType = nameSpaceClass as? T.Type else {
+    func classType<T>() -> T.Type? {
+        
+        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String,
+              let nameSpaceClass = NSClassFromString(nameSpace + "." + self),
+              let classType = nameSpaceClass as? T.Type
+        else {
             return nil
         }
         return classType
     }
 
-    public func classObject<T: NSObject>() -> T? {
-
+    func classObject<T: NSObject>() -> T? {
         guard let classType: T.Type = classType() else {
             return nil
         }

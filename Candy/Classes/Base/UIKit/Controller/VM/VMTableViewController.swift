@@ -19,8 +19,6 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
         bindViewModel()
     }
 
-    /// 子类调用 super.bindViewModel 会自动创建 viewModel 对象。
-    /// 如果不需要自动创建 viewModel，不调用 super 即可。
     func bindViewModel() {
 
         bindError()
@@ -48,7 +46,7 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
     func bindError() {
         viewModel
         .error
-        .drive(rx.showError)
+        .drive(view.rx.showError)
         .disposed(by: rx.disposeBag)
     }
 

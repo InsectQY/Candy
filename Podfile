@@ -81,9 +81,6 @@ pod 'SwiftLint'
 # Resources
 # https://github.com/mac-cain13/R.swift
 pod 'R.swift'
-# Font
-# https://github.com/Nirma/UIFontComplete
-pod 'UIFontComplete'
 # Toast
 # https://github.com/scalessec/Toast-Swift
 pod 'Toast-Swift'
