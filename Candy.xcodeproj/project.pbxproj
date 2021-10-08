@@ -33,7 +33,6 @@
 		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		138EDAC12692D413003DA9FE /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDABE2692D413003DA9FE /* RichLabel.swift */; };
 		138EDAC22692D413003DA9FE /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDAC02692D413003DA9FE /* VerticalButton.swift */; };
-		13976E2B260D88EC00977F55 /* UIViewController+LoadingStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13976E2A260D88EC00977F55 /* UIViewController+LoadingStateable.swift */; };
 		13B75CF224EA599300AB4CAC /* compactMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B75CF124EA599300AB4CAC /* compactMapMany.swift */; };
 		13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */; };
 		18095907221501DA00A0818D /* CandyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18095906221501DA00A0818D /* CandyUITests.swift */; };
@@ -61,11 +60,10 @@
 		18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCD4812255CE16002EA93C /* ReplyCommentTopView.swift */; };
 		18FCD4842255CE60002EA93C /* ReplyCommentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FCD4832255CE60002EA93C /* ReplyCommentTopView.xib */; };
 		2E6F4A86E4B20236C00F743B /* libPods-Candy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 720256DF8580231CCC50F0AD /* libPods-Candy.a */; };
+		E51846AB2706D8F00097FB33 /* UIViewController+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51846AA2706D8F00097FB33 /* UIViewController+NVActivityIndicatorView.swift */; };
 		E51D60C82455DA810059171C /* VMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C52455DA810059171C /* VMViewController.swift */; };
 		E51D60C92455DA810059171C /* VMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C62455DA810059171C /* VMCollectionViewController.swift */; };
 		E51D60CA2455DA810059171C /* VMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60C72455DA810059171C /* VMTableViewController.swift */; };
-		E51D60D32455E5320059171C /* HUD+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60D12455E5320059171C /* HUD+Rx.swift */; };
-		E51D60D42455E5320059171C /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60D22455E5320059171C /* HUD.swift */; };
 		E51D60D92455E5E90059171C /* ColorConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D60D82455E5E90059171C /* ColorConfigs.swift */; };
 		E51E4DDB21E5937300E06AD7 /* VideoHallSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */; };
 		E51E4DDD21E594EC00E06AD7 /* VideoHallSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */; };
@@ -92,6 +90,7 @@
 		E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = E534048121BFB0EE008807DA /* NSData+CRC32.m */; };
 		E535153A23D0436500264064 /* YGResultHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E535153923D0436500264064 /* YGResultHandle.swift */; };
 		E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */; };
+		E54A93F027084EFA0039DD45 /* ActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54A93EF27084EFA0039DD45 /* ActivityIndicatorViewable.swift */; };
 		E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100021C890F8005BFFAC /* VideoHallApi.swift */; };
 		E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100721C8DE70005BFFAC /* VideoHallViewModel.swift */; };
 		E578101521C8DE70005BFFAC /* VideoHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100921C8DE70005BFFAC /* VideoHallViewController.swift */; };
@@ -264,7 +263,6 @@
 		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		138EDABE2692D413003DA9FE /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
 		138EDAC02692D413003DA9FE /* VerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
-		13976E2A260D88EC00977F55 /* UIViewController+LoadingStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingStateable.swift"; sourceTree = "<group>"; };
 		13B75CF124EA599300AB4CAC /* compactMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compactMapMany.swift; sourceTree = "<group>"; };
 		13E0B2FB24EBD2EB00518D5F /* ShortVideoComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoComment.swift; sourceTree = "<group>"; };
 		18095904221501DA00A0818D /* CandyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,11 +295,10 @@
 		3788FE6E54E0955E6A992E3F /* Pods-Candy.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.adhoc.xcconfig"; sourceTree = "<group>"; };
 		720256DF8580231CCC50F0AD /* libPods-Candy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Candy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAACEECCE95BE32AF7265AD /* Pods-Candy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Candy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Candy/Pods-Candy.release.xcconfig"; sourceTree = "<group>"; };
+		E51846AA2706D8F00097FB33 /* UIViewController+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		E51D60C52455DA810059171C /* VMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMViewController.swift; sourceTree = "<group>"; };
 		E51D60C62455DA810059171C /* VMCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMCollectionViewController.swift; sourceTree = "<group>"; };
 		E51D60C72455DA810059171C /* VMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMTableViewController.swift; sourceTree = "<group>"; };
-		E51D60D12455E5320059171C /* HUD+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HUD+Rx.swift"; sourceTree = "<group>"; };
-		E51D60D22455E5320059171C /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		E51D60D82455E5E90059171C /* ColorConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConfigs.swift; sourceTree = "<group>"; };
 		E51E4DDA21E5937300E06AD7 /* VideoHallSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResultViewController.swift; sourceTree = "<group>"; };
 		E51E4DDC21E594EC00E06AD7 /* VideoHallSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallSearchResult.swift; sourceTree = "<group>"; };
@@ -332,6 +329,7 @@
 		E534048421BFB15A008807DA /* Candy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Candy-Bridging-Header.h"; sourceTree = "<group>"; };
 		E535153923D0436500264064 /* YGResultHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGResultHandle.swift; sourceTree = "<group>"; };
 		E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeExtension.swift; sourceTree = "<group>"; };
+		E54A93EF27084EFA0039DD45 /* ActivityIndicatorViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		E578100021C890F8005BFFAC /* VideoHallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallApi.swift; sourceTree = "<group>"; };
 		E578100721C8DE70005BFFAC /* VideoHallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHallViewModel.swift; sourceTree = "<group>"; };
 		E578100921C8DE70005BFFAC /* VideoHallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHallViewController.swift; sourceTree = "<group>"; };
@@ -597,7 +595,7 @@
 		137099F226EF1FC400B1D12C /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				13976E2A260D88EC00977F55 /* UIViewController+LoadingStateable.swift */,
+				E51846AA2706D8F00097FB33 /* UIViewController+NVActivityIndicatorView.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -746,7 +744,6 @@
 				E578C02C23362753006C0CA1 /* Kingfisher */,
 				E578C02923362753006C0CA1 /* MJRefresh */,
 				E578C03423362E30006C0CA1 /* Toast */,
-				E51D60D02455E5220059171C /* HUD */,
 			);
 			path = ThirdPartyExtensions;
 			sourceTree = "<group>";
@@ -855,15 +852,6 @@
 				1379042425DFBC570072B707 /* VM */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E51D60D02455E5220059171C /* HUD */ = {
-			isa = PBXGroup;
-			children = (
-				E51D60D22455E5320059171C /* HUD.swift */,
-				E51D60D12455E5320059171C /* HUD+Rx.swift */,
-			);
-			path = HUD;
 			sourceTree = "<group>";
 		};
 		E51D60D52455E5550059171C /* Public */ = {
@@ -1049,6 +1037,14 @@
 				E534048421BFB15A008807DA /* Candy-Bridging-Header.h */,
 			);
 			path = "Bridging-Header";
+			sourceTree = "<group>";
+		};
+		E54A93EE27084E900039DD45 /* NVActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				E54A93EF27084EFA0039DD45 /* ActivityIndicatorViewable.swift */,
+			);
+			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
 		};
 		E5780FEA21C887DF005BFFAC /* VideoHall */ = {
@@ -1571,6 +1567,7 @@
 		E5E0203621B4FF5100A4CDF1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E54A93EE27084E900039DD45 /* NVActivityIndicatorView */,
 				E5E0203921B4FF5100A4CDF1 /* ViewModel */,
 			);
 			path = Protocols;
@@ -2395,7 +2392,6 @@
 				E5E0200F21B4FDED00A4CDF1 /* ImportFile.swift in Sources */,
 				E5E9F52621D5FEA00043ACED /* UGCVideoCommentViewModel.swift in Sources */,
 				E5B4EC3921F59EA90065AB80 /* ViewModel.swift in Sources */,
-				E51D60D32455E5320059171C /* HUD+Rx.swift in Sources */,
 				E5FE0DC821FAFF6000DE1DED /* View.swift in Sources */,
 				187677662229220F00A6D37A /* ScrollView.swift in Sources */,
 				E5FC766721CCC43900FB6FFD /* RoleCell.swift in Sources */,
@@ -2478,11 +2474,11 @@
 				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
 				132731112702DCB200BD381B /* String+Style.swift in Sources */,
 				E578C03F23363683006C0CA1 /* JellyManager.swift in Sources */,
+				E51846AB2706D8F00097FB33 /* UIViewController+NVActivityIndicatorView.swift in Sources */,
 				E5E0204521B4FF5100A4CDF1 /* ViewModelable.swift in Sources */,
 				E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */,
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
-				E51D60D42455E5320059171C /* HUD.swift in Sources */,
 				1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
 				1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */,
@@ -2517,6 +2513,7 @@
 				E5FC766321CCC3C700FB6FFD /* VideoHallRoleCell.swift in Sources */,
 				E578101E21C8DF1D005BFFAC /* VideoHallModel.swift in Sources */,
 				E5E01FDB21B4CCE600A4CDF1 /* AppDelegate.swift in Sources */,
+				E54A93F027084EFA0039DD45 /* ActivityIndicatorViewable.swift in Sources */,
 				18FCD4822255CE16002EA93C /* ReplyCommentTopView.swift in Sources */,
 				E5EC45F321EC8FC2000EEA16 /* DefaultsKeyConfigs.swift in Sources */,
 				134C180A260D7B5E003E2780 /* UIViewControllerExtension.swift in Sources */,
@@ -2529,7 +2526,6 @@
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
 				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,
-				13976E2B260D88EC00977F55 /* UIViewController+LoadingStateable.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
 				134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */,
@@ -2713,7 +2709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8SRP47XFRN;
+				DEVELOPMENT_TEAM = U3QZXY69QQ;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2877,7 +2873,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8SRP47XFRN;
+				DEVELOPMENT_TEAM = U3QZXY69QQ;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2902,7 +2898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8SRP47XFRN;
+				DEVELOPMENT_TEAM = U3QZXY69QQ;
 				INFOPLIST_FILE = Candy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

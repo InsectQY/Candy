@@ -14,30 +14,27 @@ import RxNetwork
 import Moya
 import Toast_Swift
 
-class LibsManager: NSObject {
+class LibsManager {
 
-    static let shared = LibsManager()
+    static func setupLibs(with window: UIWindow? = nil) {
 
-    func setupLibs(with window: UIWindow? = nil) {
-
-        let libsManager = LibsManager.shared
-        libsManager.setupKeyboardManager()
-        libsManager.setupActivityView()
-        libsManager.setupNetwork()
-        libsManager.setupRouter()
-        libsManager.setupToast()
-        libsManager.setupReachability()
+        setupKeyboardManager()
+        setupActivityView()
+        setupNetwork()
+        setupRouter()
+        setupToast()
+        setupReachability()
     }
 
     // MARK: - IQKeyboardManager
-    func setupKeyboardManager() {
+    static func setupKeyboardManager() {
 
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
     }
 
     // MARK: - Kingfisher
-    func setupKingfisher() {
+    static func setupKingfisher() {
 
         // 15 sec
         ImageDownloader.default.downloadTimeout = Configs.Time.imageDownloadTimeout
@@ -45,7 +42,7 @@ class LibsManager: NSObject {
     }
 
     // MARK: - NVActivityIndicatorView
-    func setupActivityView() {
+    static func setupActivityView() {
 
         NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
         NVActivityIndicatorView.DEFAULT_COLOR = .main
@@ -53,33 +50,22 @@ class LibsManager: NSObject {
     }
 
     // MARK: - RxNetwork
-    func setupNetwork() {
+    static func setupNetwork() {
 
         Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
         Network.Configuration.default.plugins = [CustomResultPlugin()]
     }
 
-    func setupRouter() {
+    static func setupRouter() {
         NavigationMap.initRouter()
     }
 
-    func setupToast() {
+    static func setupToast() {
         ToastManager.shared.position = .center
         ToastManager.shared.style.messageFont = .pingFangSCMedium(18)
     }
 
-    func setupReachability() {
+    static func setupReachability() {
         ReachabilityManager.shared.startNotifier()
-    }
-}
-
-extension LibsManager {
-
-    func removeKingfisherCache(completion handler: (() -> Void)?) {
-
-        ImageCache.default.clearMemoryCache()
-        ImageCache.default.clearDiskCache {
-            handler?()
-        }
     }
 }

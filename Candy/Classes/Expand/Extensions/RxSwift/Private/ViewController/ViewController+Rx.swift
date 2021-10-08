@@ -6,14 +6,13 @@
 //  Copyright © 2020 Insect. All rights reserved.
 //
 
-import UIKit
 import RxSwift
+import RxCocoa
+import UIKit
 
 // MARK: - Reactive-Extension
-extension Reactive where Base: ViewController {
-
+public extension Reactive where Base: UIViewController {
     var isLoading: Binder<Bool> {
-
         Binder(base) { target, value in
             target.startLoading(isLoading: value)
         }
