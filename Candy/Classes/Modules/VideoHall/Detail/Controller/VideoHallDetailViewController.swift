@@ -53,6 +53,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.qy.setIsTransparent(false)
+        navigationController?.navigationBar.qy.backgroundColor = .main
     }
 
     override func viewDidLayoutSubviews() {

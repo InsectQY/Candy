@@ -6,31 +6,29 @@
 //  Copyright © 2018 Insect. All rights reserved.
 //
 
+import RxDataSources
 import UIKit
 import ZFPlayer
-import RxDataSources
 
 class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
-
     private var video: NewsModel?
     private var seekTime: TimeInterval = 0
 
     // MARK: - LazyLoad
-    private lazy var videoView: VideoDetailHeader = {
 
+    private lazy var videoView: VideoDetailHeader = {
         let videoView = R.nib.videoDetailHeader.firstView(owner: nil)!
         videoView.video = video
         return videoView
     }()
 
-     private lazy var controlView: ZFPlayerControlView = {
-       let controlView = ZFPlayerControlView()
-       controlView.prepareShowLoading = true
-       return controlView
+    private lazy var controlView: ZFPlayerControlView = {
+        let controlView = ZFPlayerControlView()
+        controlView.prepareShowLoading = true
+        return controlView
     }()
 
     private lazy var player: ZFPlayerController = {
-
         let player = ZFPlayerController(playerManager: ZFIJKPlayerManager(),
                                         containerView: videoView.videoContainerView)
         player.controlView = controlView
@@ -42,15 +40,18 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     }()
 
     // MARK: - LifeCycle
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.isViewControllerDisappear = false
         navigationController?.navigationBar.qy.setIsTransparent(true)
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
         navigationController?.navigationBar.qy.setIsTransparent(false)
+        navigationController?.navigationBar.qy.backgroundColor = .main
     }
 
     override func viewDidLayoutSubviews() {
@@ -66,6 +67,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     }
 
     // MARK: - init
+
     init(video: NewsModel?, seekTime: TimeInterval = 0) {
         self.video = video
         self.seekTime = seekTime
@@ -77,6 +79,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     }
 
     // MARK: - override
+
     override var prefersStatusBarHidden: Bool {
         true
     }
@@ -108,7 +111,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
         let output = viewModel.transform(input: input)
 
         // 数据源
-        let dataSource = RxTableViewSectionedReloadDataSource<VideoDetailSection>(configureCell: { dataSource, tableView, indexPath, section in
+        let dataSource = RxTableViewSectionedReloadDataSource<VideoDetailSection>(configureCell: { _, tableView, _, section in
 
             switch section {
             case let .info(item):
@@ -133,19 +136,19 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
 
         // 绑定数据源
         output.sections
-        .drive(tableView.rx.items(dataSource: dataSource))
-        .disposed(by: rx.disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: rx.disposeBag)
 
         // 视频真实播放地址
         output.videoPlayInfo
-        .map(\.video_list.video_1.playURL)
-        .filterNil()
-        .drive(player.rx.assetURL)
-        .disposed(by: rx.disposeBag)
+            .map(\.video_list.video_1.playURL)
+            .filterNil()
+            .drive(player.rx.assetURL)
+            .disposed(by: rx.disposeBag)
 
         output.videoPlayInfo
-        .mapToVoid()
-        .drive(player.rx.seek(toTime: seekTime))
-        .disposed(by: rx.disposeBag)
+            .mapToVoid()
+            .drive(player.rx.seek(toTime: seekTime))
+            .disposed(by: rx.disposeBag)
     }
 }

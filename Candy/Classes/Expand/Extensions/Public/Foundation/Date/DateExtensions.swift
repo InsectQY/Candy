@@ -146,7 +146,7 @@ public extension Date {
 		}
 	}
 
-	/// SwifterSwift: Weekday.
+	/// SwifterSwift: Weekday. 
 	///
 	/// 	Date().weekday -> 5 // fifth day in the current week.
 	///

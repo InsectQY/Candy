@@ -31,6 +31,7 @@
 		1379AD9C2702A4D800A0882D /* UINavigationBarCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */; };
 		1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */; };
 		1379ADA42702ACEA00A0882D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ADA32702ACEA00A0882D /* R.generated.swift */; };
+		137E496727102BE200721856 /* Response+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E496627102BE200721856 /* Response+Rx.swift */; };
 		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
 		137F2CAC24EBB5A0004FF7DE /* ShortVideoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */; };
 		138EDAC12692D413003DA9FE /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EDABE2692D413003DA9FE /* RichLabel.swift */; };
@@ -136,8 +137,6 @@
 		E5E0204A21B4FF5100A4CDF1 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */; };
 		E5E0208321B5057600A4CDF1 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */; };
 		E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */; };
-		E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */; };
-		E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206321B5057600A4CDF1 /* Single+Codable.swift */; };
 		E5E0208B21B5057600A4CDF1 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206421B5057600A4CDF1 /* Response+Codable.swift */; };
 		E5E0208C21B5057600A4CDF1 /* CustomResultPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206621B5057600A4CDF1 /* CustomResultPlugin.swift */; };
 		E5E0208D21B5057600A4CDF1 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0206721B5057600A4CDF1 /* ErrorModel.swift */; };
@@ -255,6 +254,7 @@
 		1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarCompatible.swift; sourceTree = "<group>"; };
 		1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		1379ADA32702ACEA00A0882D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		137E496627102BE200721856 /* Response+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Rx.swift"; sourceTree = "<group>"; };
 		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
 		137F2CAB24EBB5A0004FF7DE /* ShortVideoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoApi.swift; sourceTree = "<group>"; };
 		138EDABE2692D413003DA9FE /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
@@ -371,8 +371,6 @@
 		E5E0204221B4FF5100A4CDF1 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		E5E0205921B5057600A4CDF1 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		E5E0205F21B5057600A4CDF1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Codable.swift"; sourceTree = "<group>"; };
-		E5E0206321B5057600A4CDF1 /* Single+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206421B5057600A4CDF1 /* Response+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
 		E5E0206621B5057600A4CDF1 /* CustomResultPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomResultPlugin.swift; sourceTree = "<group>"; };
 		E5E0206721B5057600A4CDF1 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -1588,9 +1586,8 @@
 		E5E0206121B5057600A4CDF1 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0206221B5057600A4CDF1 /* ObservableType+Codable.swift */,
-				E5E0206321B5057600A4CDF1 /* Single+Codable.swift */,
 				E5E0206421B5057600A4CDF1 /* Response+Codable.swift */,
+				137E496627102BE200721856 /* Response+Rx.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -2354,7 +2351,6 @@
 				E5E9B1E921D4762600B08281 /* VideoHallCellEnum.swift in Sources */,
 				E5E6800621E47E9400826132 /* VideoHallSearchViewController.swift in Sources */,
 				E5FE0DB521FAC0D900DE1DED /* TableViewController.swift in Sources */,
-				E5E0208A21B5057600A4CDF1 /* Single+Codable.swift in Sources */,
 				E5E0200F21B4FDED00A4CDF1 /* ImportFile.swift in Sources */,
 				E5E9F52621D5FEA00043ACED /* UGCVideoCommentViewModel.swift in Sources */,
 				E5B4EC3921F59EA90065AB80 /* ViewModel.swift in Sources */,
@@ -2431,8 +2427,8 @@
 				E5FB739921B767FD0010D8A7 /* VideoApi.swift in Sources */,
 				13114CB924EF9260008FFA4D /* UserInfoModel.swift in Sources */,
 				E5D749F321FEE8C600BCE75F /* LibsManager.swift in Sources */,
-				E5E0208921B5057600A4CDF1 /* ObservableType+Codable.swift in Sources */,
 				18F81D5E229636B10028CA14 /* UIColorExtension.swift in Sources */,
+				137E496727102BE200721856 /* Response+Rx.swift in Sources */,
 				1379ADA42702ACEA00A0882D /* R.generated.swift in Sources */,
 				E578C03123362753006C0CA1 /* Refresh.swift in Sources */,
 				132731112702DCB200BD381B /* String+Style.swift in Sources */,
