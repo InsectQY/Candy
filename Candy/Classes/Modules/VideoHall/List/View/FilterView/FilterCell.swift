@@ -3,7 +3,6 @@
 //  BookShopkeeper
 //
 //  Created by InsectQY on 2018/4/24.
-//  Copyright © 2018年 dingding. All rights reserved.
 //
 
 import UIKit

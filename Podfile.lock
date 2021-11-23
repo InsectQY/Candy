@@ -13,10 +13,10 @@ PODS:
   - FDFullscreenPopGesture (1.1)
   - Hero (1.6.1)
   - IJKMediaFramework (0.1.5)
-  - IQKeyboardManagerSwift (6.5.6)
+  - IQKeyboardManagerSwift (6.5.9)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.9)
-  - Kingfisher (7.0.0)
+  - Kingfisher (7.1.1)
   - KingfisherWebP (1.4.0):
     - Kingfisher (~> 7.0)
     - libwebp (>= 1.1.0)
@@ -41,7 +41,7 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PYSearch (0.9.1)
-  - R.swift (5.4.0):
+  - R.swift (6.0.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - ReachabilitySwift (5.0.0)
@@ -88,16 +88,16 @@ PODS:
     - RxSwift (~> 6.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.44.0)
+  - SwiftLint (0.45.0)
   - Toast-Swift (5.0.1)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
-  - ZFPlayer (4.0.1):
-    - ZFPlayer/Core (= 4.0.1)
-  - ZFPlayer/ControlView (4.0.1):
+  - ZFPlayer (4.0.3):
+    - ZFPlayer/Core (= 4.0.3)
+  - ZFPlayer/ControlView (4.0.3):
     - ZFPlayer/Core
-  - ZFPlayer/Core (4.0.1)
-  - ZFPlayer/ijkplayer (4.0.1):
+  - ZFPlayer/Core (4.0.3)
+  - ZFPlayer/ijkplayer (4.0.3):
     - IJKMediaFramework
     - ZFPlayer/Core
 
@@ -186,10 +186,10 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
-  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   KingfisherWebP: f4b76064c50a36c4cadd37548496ecebfdcb39e8
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
@@ -197,7 +197,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
-  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift: 5ec056f5ba2744de1c3f6deeb4882ae2630f6e63
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxActivityIndicator: 2cc25088cfb3fda3c89848ad7a6f79017bb94a5b
@@ -212,11 +212,11 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   RxURLNavigator: 31bf8ab1ae0bf497a4f85e42bf416c2f7365ceed
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
-  ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
+  ZFPlayer: 624c92de06eb34df322c3b53b4c9ce760f528f7a
 
 PODFILE CHECKSUM: 3c86ff45033ed14e3775b04a488fb23ce0289699
 

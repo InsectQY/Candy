@@ -13,11 +13,9 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
     // MARK: - LazyLoad
 
     private lazy var topView = TopView(frame: CGRect(x: 0,
-                                                     y: topH,
+                                                     y: .navigationBarBottomY,
                                                      width: .screenWidth,
                                                      height: 44))
-
-    private lazy var topH = (navigationController?.navigationBar.height ?? 0) + UIApplication.shared.statusBarFrame.size.height
 
     /// 搜索框
     private lazy var titleView = SearchTitleView(frame: CGRect(x: SearchTitleView.x,
@@ -79,7 +77,7 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
         collectionView.emptyDataSet.setConfigAndRun(EmptyDataSetConfig(detail: R.string.localizable.videoHallFilterResultEmptyPlaceholder().emptyDataSetDescAttributed,
                                                                        image: R.image.hg_defaultError(),
-                                                                       verticalOffset: topH + 180))
+                                                                       verticalOffset: .navigationBarBottomY))
     }
 
     override func bindViewModel() {
@@ -129,9 +127,9 @@ class VideoHallViewController: VMCollectionViewController<VideoHallViewModel> {
 
     func filterTap() {
         animateFilterView.isHidden = false
-        UIView.animate(withDuration: 0.35) { [unowned self] in
-            topView.alpha = 0
-            animateFilterView.y = self.topH
+        UIView.animate(withDuration: 0.35) {
+            self.topView.alpha = 0
+            self.animateFilterView.y = CGFloat.navigationBarBottomY
         }
     }
 
@@ -165,10 +163,10 @@ extension VideoHallViewController: FilterViewProtocol {
 
 extension VideoHallViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let height = filterViewHeight
-        let contentOffsetY = scrollView.contentOffset.y + height + topH
-        filterView.y = -height + contentOffsetY - contentOffsetY * 0.3
-        topView.alpha = scrollView.contentOffset.y <= (-height - topH) ? 0 : scrollView.contentOffset.y / contentOffsetY * 2
+        let contentOffsetY = scrollView.contentOffset.y + filterViewHeight + .navigationBarBottomY
+        filterView.y = -filterViewHeight + contentOffsetY - contentOffsetY * 0.3
+        topView.alpha = scrollView.contentOffset.y <= (-filterViewHeight - .navigationBarBottomY) ? 0 : scrollView.contentOffset.y / contentOffsetY
+                * 2
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
