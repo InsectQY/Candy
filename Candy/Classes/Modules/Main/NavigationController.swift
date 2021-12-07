@@ -23,7 +23,7 @@ class NavigationController: UINavigationController {
         // 导航栏背景和文字设置
         let navigationBar = UINavigationBar.appearance()
         navigationBar.qy.backgroundColor = .main
-        navigationBar.qy.titleTextForegroundColor = .white
+        navigationBar.qy.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

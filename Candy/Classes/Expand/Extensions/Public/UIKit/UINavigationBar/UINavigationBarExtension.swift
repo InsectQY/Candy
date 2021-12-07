@@ -56,34 +56,6 @@ public extension UINavigationBarWrapper where Base: UINavigationBar {
         }
     }
 
-    var titleTextForegroundColor: UIColor? {
-
-        set {
-
-            if let value = newValue {
-                titleTextAttributes[.foregroundColor] = value
-            }
-        }
-
-        get {
-            titleTextAttributes[.foregroundColor] as? UIColor
-        }
-    }
-
-    var titleTextFont: UIFont? {
-
-        set {
-
-            if let value = newValue {
-                titleTextAttributes[.font] = value
-            }
-        }
-
-        get {
-            titleTextAttributes[.font] as? UIFont
-        }
-    }
-
     var backgroundColor: UIColor? {
 
         set {
