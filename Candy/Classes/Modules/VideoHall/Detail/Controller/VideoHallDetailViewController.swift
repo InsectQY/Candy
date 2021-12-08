@@ -8,6 +8,7 @@
 
 import UIKit
 import ZFPlayer
+import QYUINavigationBarExtension
 
 class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewModel> {
 
@@ -42,7 +43,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.qy.setIsTransparent(true)
+        navigationController?.qy.setIsTransparent(true)
     }
 
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ class VideoHallDetailViewController: VMTableViewController<VideoHallDetailViewMo
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.qy.setIsTransparent(false)
+        navigationController?.qy.setIsTransparent(false)
         navigationController?.navigationBar.qy.backgroundColor = .main
     }
 

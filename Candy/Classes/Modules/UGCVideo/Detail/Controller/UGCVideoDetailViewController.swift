@@ -9,6 +9,7 @@
 import UIKit
 import ZFPlayer
 import Hero
+import QYUINavigationBarExtension
 
 class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewModel> {
 
@@ -35,7 +36,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
     // MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.qy.setIsTransparent(true)
+        navigationController?.qy.setIsTransparent(true)
     }
 
     override func viewDidLoad() {
@@ -45,7 +46,7 @@ class UGCVideoDetailViewController: VMCollectionViewController<UGCVideoListViewM
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.qy.setIsTransparent(false)
+        navigationController?.qy.setIsTransparent(false)
         navigationController?.navigationBar.qy.backgroundColor = .main
     }
 

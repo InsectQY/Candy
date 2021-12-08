@@ -27,9 +27,6 @@
 		13709A3526EF228200B1D12C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13709A3426EF228200B1D12C /* UIApplicationExtension.swift */; };
 		1374983224E6906800677F39 /* JXCategoryView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1374983124E6906800677F39 /* JXCategoryView+Rx.swift */; };
 		1379042025DFA0F80072B707 /* ViewModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379041F25DFA0F80072B707 /* ViewModelObject.swift */; };
-		1379AD9B2702A4D800A0882D /* UINavigationBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */; };
-		1379AD9C2702A4D800A0882D /* UINavigationBarCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */; };
-		1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */; };
 		1379ADA42702ACEA00A0882D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ADA32702ACEA00A0882D /* R.generated.swift */; };
 		137E496727102BE200721856 /* Response+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E496627102BE200721856 /* Response+Rx.swift */; };
 		137F2CAA24EBB1F5004FF7DE /* ShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */; };
@@ -250,9 +247,6 @@
 		13709A3426EF228200B1D12C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		1374983124E6906800677F39 /* JXCategoryView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXCategoryView+Rx.swift"; sourceTree = "<group>"; };
 		1379041F25DFA0F80072B707 /* ViewModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelObject.swift; sourceTree = "<group>"; };
-		1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarWrapper.swift; sourceTree = "<group>"; };
-		1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarCompatible.swift; sourceTree = "<group>"; };
-		1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		1379ADA32702ACEA00A0882D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		137E496627102BE200721856 /* Response+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Rx.swift"; sourceTree = "<group>"; };
 		137F2CA924EBB1F5004FF7DE /* ShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortVideoModel.swift; sourceTree = "<group>"; };
@@ -547,7 +541,6 @@
 		137099ED26EF1C4200B1D12C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				1379AD972702A4D800A0882D /* UINavigationBar */,
 				13031D2724A337FE0010A440 /* UIViewController */,
 				E5E0205C21B5057600A4CDF1 /* UIView */,
 				18F81D5C229636A60028CA14 /* UIColor */,
@@ -670,16 +663,6 @@
 				E51D60C62455DA810059171C /* VMCollectionViewController.swift */,
 			);
 			path = VM;
-			sourceTree = "<group>";
-		};
-		1379AD972702A4D800A0882D /* UINavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				1379AD982702A4D800A0882D /* UINavigationBarWrapper.swift */,
-				1379AD992702A4D800A0882D /* UINavigationBarCompatible.swift */,
-				1379AD9A2702A4D800A0882D /* UINavigationBarExtension.swift */,
-			);
-			path = UINavigationBar;
 			sourceTree = "<group>";
 		};
 		1379ADA22702ACC700A0882D /* Generated */ = {
@@ -2383,7 +2366,6 @@
 				E5FA89FE21BA37620084F3C3 /* UGCVideoListViewController.swift in Sources */,
 				E5FA8A0921BA395A0084F3C3 /* UGCVideoListModel.swift in Sources */,
 				18DC116B222397DF004FB1F6 /* TopView.swift in Sources */,
-				1379AD9C2702A4D800A0882D /* UINavigationBarCompatible.swift in Sources */,
 				E520A48321D718B100CDDB04 /* ReplyCommentViewModel.swift in Sources */,
 				E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */,
 				13E0B2FC24EBD2EB00518D5F /* ShortVideoComment.swift in Sources */,
@@ -2438,7 +2420,6 @@
 				E578C03723362E30006C0CA1 /* Toast+UIView.swift in Sources */,
 				E5D9541721E6D568007FC606 /* EpisodeListViewController.swift in Sources */,
 				E534046221BF4B9B008807DA /* VideoDetailModel.swift in Sources */,
-				1379AD9D2702A4D800A0882D /* UINavigationBarExtension.swift in Sources */,
 				1300983E270FE06400FAC435 /* UITableView+Rx.swift in Sources */,
 				E5E0208E21B5057600A4CDF1 /* StringExtensions.swift in Sources */,
 				1849100E225494E6001D9974 /* UGCVideoCommentHeaderView.swift in Sources */,
@@ -2463,7 +2444,6 @@
 				18F81D61229636E00028CA14 /* NotificationConfigs.swift in Sources */,
 				13693E9824ECBD440049D259 /* KKResponseCodable.swift in Sources */,
 				E5E0208821B5057600A4CDF1 /* UIViewExtension.swift in Sources */,
-				1379AD9B2702A4D800A0882D /* UINavigationBarWrapper.swift in Sources */,
 				E5FE0DC621FAFE8700DE1DED /* ImageView.swift in Sources */,
 				E5FAB72A21C1012E002BF258 /* UGCVideoDetailFlowLayout.swift in Sources */,
 				E5FB73A321B772FC0010D8A7 /* VideoListViewModel.swift in Sources */,

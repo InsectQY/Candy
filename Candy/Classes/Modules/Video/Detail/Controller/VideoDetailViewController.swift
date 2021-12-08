@@ -9,6 +9,7 @@
 import RxDataSources
 import UIKit
 import ZFPlayer
+import QYUINavigationBarExtension
 
 class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     private var video: NewsModel?
@@ -44,13 +45,13 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.isViewControllerDisappear = false
-        navigationController?.navigationBar.qy.setIsTransparent(true)
+        navigationController?.qy.setIsTransparent(true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.isViewControllerDisappear = true
-        navigationController?.navigationBar.qy.setIsTransparent(false)
+        navigationController?.qy.setIsTransparent(false)
         navigationController?.navigationBar.qy.backgroundColor = .main
     }
 

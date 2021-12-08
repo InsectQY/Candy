@@ -16,7 +16,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.9)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.9)
-  - Kingfisher (7.1.1)
+  - Kingfisher (7.1.2)
   - KingfisherWebP (1.4.0):
     - Kingfisher (~> 7.0)
     - libwebp (>= 1.1.0)
@@ -41,6 +41,7 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PYSearch (0.9.1)
+  - QYUINavigationBarExtension (1.0.0)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -116,6 +117,7 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - NVActivityIndicatorView
   - PYSearch
+  - QYUINavigationBarExtension
   - R.swift
   - RxActivityIndicator
   - RxDataSources
@@ -155,6 +157,7 @@ SPEC REPOS:
     - "NSObject+Rx"
     - NVActivityIndicatorView
     - PYSearch
+    - QYUINavigationBarExtension
     - R.swift
     - R.swift.Library
     - ReachabilitySwift
@@ -189,7 +192,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
-  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   KingfisherWebP: f4b76064c50a36c4cadd37548496ecebfdcb39e8
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
@@ -197,6 +200,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
+  QYUINavigationBarExtension: 503bfd7415e46f64da94dfa9f342f1e18d7edd95
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -218,6 +222,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: 624c92de06eb34df322c3b53b4c9ce760f528f7a
 
-PODFILE CHECKSUM: 3c86ff45033ed14e3775b04a488fb23ce0289699
+PODFILE CHECKSUM: 9be34831b51b707fe99f30a0c8cd47f2a210a5db
 
 COCOAPODS: 1.11.2

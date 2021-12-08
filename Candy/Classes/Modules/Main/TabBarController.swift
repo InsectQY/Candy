@@ -67,7 +67,7 @@ class TabBarController: UITabBarController {
             UITabBarItem.appearance()
                 .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.main], for: .selected)
         }
-
+        
         if #available(iOS 15.0, *) {
             tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         }

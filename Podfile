@@ -87,6 +87,8 @@ pod 'Toast-Swift'
 # Placeholder
 # https://github.com/InsectQY/EmptyDataSetExtension
 pod 'EmptyDataSetExtension/RxSwift'
+# https://github.com/InsectQY/QYUINavigationBarExtension
+pod 'QYUINavigationBarExtension'
 
 end
 
