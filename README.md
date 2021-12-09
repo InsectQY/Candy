@@ -10,7 +10,7 @@ Video iOS client written in RxSwift and MVVM
 
 - Xcode 12 +
 - Swift 5.3
-- iOS 10.0 +
+- iOS 12.0 +
 
 ## Download Release
 
