@@ -26,7 +26,7 @@ public extension Reactive where Base: UIView {
     var showError: Binder<Error> {
 
         Binder(base) { vc, error in
-            vc.show(error.asMoyaError?.responseErrorDescription ?? "网络请求失败")
+            vc.show("网络请求失败")
         }
     }
 }

@@ -89,6 +89,8 @@ pod 'Toast-Swift'
 pod 'EmptyDataSetExtension/RxSwift'
 # https://github.com/InsectQY/QYUINavigationBarExtension
 pod 'QYUINavigationBarExtension'
+# https://github.com/InsectQY/MoyaResultValidate
+pod 'MoyaResultValidate'
 
 end
 

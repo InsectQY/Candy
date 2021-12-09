@@ -147,7 +147,7 @@ extension VideoApi: TargetType {
     }
 }
 
-extension VideoApi: TTResultHandle {}
+extension VideoApi: TTResultValidate {}
 
 extension String {
 

@@ -19,10 +19,6 @@ public extension TargetType {
         nil
     }
 
-    var sampleData: Data {
-        "".data(using: String.Encoding.utf8)!
-    }
-
     var validationType: ValidationType {
         .successCodes
     }

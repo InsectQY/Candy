@@ -30,11 +30,15 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.2.1)
   - MJRefresh (3.7.5)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - MoyaResultValidate (0.3.0):
+    - Moya (~> 15.0)
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
   - NVActivityIndicatorView (5.1.1):
@@ -114,6 +118,7 @@ DEPENDENCIES:
   - Kingfisher
   - KingfisherWebP
   - MJRefresh
+  - MoyaResultValidate
   - "NSObject+Rx"
   - NVActivityIndicatorView
   - PYSearch
@@ -154,6 +159,7 @@ SPEC REPOS:
     - libwebp
     - MJRefresh
     - Moya
+    - MoyaResultValidate
     - "NSObject+Rx"
     - NVActivityIndicatorView
     - PYSearch
@@ -197,6 +203,7 @@ SPEC CHECKSUMS:
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  MoyaResultValidate: 0b417d6e5020e0114f4026f68e8c2e1730e2697d
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
@@ -222,6 +229,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   ZFPlayer: 624c92de06eb34df322c3b53b4c9ce760f528f7a
 
-PODFILE CHECKSUM: 9be34831b51b707fe99f30a0c8cd47f2a210a5db
+PODFILE CHECKSUM: 06e8fe03f4b256471dab0128d0f2465d634bd69d
 
 COCOAPODS: 1.11.2

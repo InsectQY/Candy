@@ -13,6 +13,7 @@ import Kingfisher
 import RxNetwork
 import Moya
 import Toast_Swift
+import MoyaResultValidate
 
 class LibsManager {
 
@@ -44,7 +45,7 @@ class LibsManager {
     static func setupNetwork() {
 
         Network.Configuration.default.timeoutInterval = Configs.Time.netWorkTimeout
-        Network.Configuration.default.plugins = [CustomResultPlugin()]
+        Network.Configuration.default.plugins = [MoyaResultValidatePlugin()]
     }
 
     static func setupRouter() {
