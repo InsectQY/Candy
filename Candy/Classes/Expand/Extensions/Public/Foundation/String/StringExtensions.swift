@@ -2,8 +2,7 @@ import UIKit
 
 public extension String {
     // 调整行间距
-    func lineSpace(_ lineSpace: CGFloat
-    ) -> NSAttributedString {
+    func lineSpace(_ lineSpace: CGFloat) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self)
         let paragraphStyle = NSMutableParagraphStyle()
 

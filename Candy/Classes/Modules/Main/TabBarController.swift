@@ -27,33 +27,45 @@ class TabBarController: UITabBarController {
         }
 
         for dict in dictArray {
-            guard let vcName = dict["vcName"] as? String else { continue }
-            guard let normalImg = dict["normalImg"] as? String else { continue }
-            guard let selImg = dict["selImg"] as? String else { continue }
-            guard let title = dict["title"] as? String else { continue }
+            let vcName = dict["vcName"] as? String
+            let normalImage = dict["normalImage"] as? String
+            let selectedImage = dict["selectedImage"] as? String
+            let title = dict["title"] as? String
+            let navigationName = dict["navigationName"] as? String
 
-            addChildVc(childVcName: vcName, title: title, normalImg: normalImg, selImg: selImg)
+            addChildVc(vcName: vcName,
+                       title: title,
+                       normalImage: normalImage,
+                       selectedImage: selectedImage,
+                       navigationName: navigationName)
         }
     }
 
     // 添加子控制器
-    private func addChildVc(childVcName: String,
-                            title: String,
-                            normalImg: String,
-                            selImg: String) {
-        guard let childVc: UIViewController = childVcName.classObject()
+    private func addChildVc(vcName: String?,
+                            title: String?,
+                            normalImage: String?,
+                            selectedImage: String?,
+                            navigationName: String?) {
+        guard
+            let vcName = vcName,
+            let childVc: UIViewController = vcName.classObject()
         else {
-            assert(false, "error: \(childVcName) not init")
+            assert(false, "UIViewController not init")
             return
         }
 
-        childVc.tabBarItem.image = UIImage(named: normalImg)
-        childVc.tabBarItem.selectedImage = UIImage(named: selImg)
+        childVc.tabBarItem.image = UIImage(named: normalImage ?? "")
+        childVc.tabBarItem.selectedImage = UIImage(named: selectedImage ?? "")
         childVc.tabBarItem.title = title
 
-        let childNav = NavigationController(rootViewController: childVc)
-
-        addChild(childNav)
+        if
+            let navigationName = navigationName,
+            let navigation: UINavigationController.Type = navigationName.classType() {
+            addChild(navigation.init(rootViewController: childVc))
+        } else {
+            addChild(childVc)
+        }
     }
 
     // 设置 TabBar 属性

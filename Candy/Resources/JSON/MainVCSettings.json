@@ -2,19 +2,24 @@
     {
     "vcName": "VideoHallViewController",
     "title": "放映厅",
-    "normalImg": "fangyingting-hui",
-    "selImg": "fangyingting-hong"
-},
- {
+    "normalImage": "fangyingting-hui",
+    "selectedImage": "fangyingting-hong",
+    "navigationName": "NavigationController"
+    },
+    
+    {
     "vcName": "VideoPageViewController",
     "title": "视频",
-    "normalImg": "shipin-hui",
-    "selImg": "shipin-hong"
- },
- {
+    "normalImage": "shipin-hui",
+    "selectedImage": "shipin-hong",
+    "navigationName": "NavigationController"
+    },
+    
+    {
      "vcName": "UGCVideoListViewController",
      "title": "小视频",
-     "normalImg": "xiaoshipin-hui",
-     "selImg": "xiaoshipin-hong"
- }
+     "normalImage": "xiaoshipin-hui",
+     "selectedImage": "xiaoshipin-hong",
+     "navigationName": "NavigationController"
+    }
  ]

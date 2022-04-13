@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.4)
+  - Alamofire (5.5.0)
   - CleanJSON (1.0.9)
   - DefaultsKit (0.2.0)
   - Differentiator (5.0.0)
@@ -16,7 +16,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.9)
   - Jelly (2.2.2)
   - JXCategoryView (1.5.9)
-  - Kingfisher (7.1.2)
+  - Kingfisher (7.2.1)
   - KingfisherWebP (1.4.0):
     - Kingfisher (~> 7.0)
     - libwebp (>= 1.1.0)
@@ -93,7 +93,7 @@ PODS:
     - RxSwift (~> 6.0)
     - URLNavigator
   - Storable (0.1.1)
-  - SwiftLint (0.45.1)
+  - SwiftLint (0.47.0)
   - Toast-Swift (5.0.1)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - URLNavigator (2.3.0)
@@ -186,7 +186,7 @@ SPEC REPOS:
     - ZFPlayer
 
 SPEC CHECKSUMS:
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   CleanJSON: 910a36465ce4829e264a902ccf6d1455fdd9f980
   DefaultsKit: 6c767941b2c3fe34c4d70e300e6c3b80c94964dd
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
@@ -198,7 +198,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
-  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   KingfisherWebP: f4b76064c50a36c4cadd37548496ecebfdcb39e8
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
@@ -223,7 +223,7 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   RxURLNavigator: 31bf8ab1ae0bf497a4f85e42bf416c2f7365ceed
   Storable: 31d19a4f897d68d1f1843604b60e12e5c2e1db5f
-  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
+  SwiftLint: d41cc46a2ae58ac6d9f26954bc89f1d72e71fdef
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
