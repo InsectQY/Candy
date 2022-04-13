@@ -9,7 +9,6 @@ import Moya
 
 /// 视频 + 小视频请求
 enum VideoApi {
-
     /// 视频分类
     case category
     /// 视频列表(参数: 视频分类)
@@ -39,9 +38,11 @@ enum VideoApi {
 }
 
 extension VideoApi: TargetType {
+    var method: Moya.Method {
+        Method.get
+    }
 
     var baseURL: URL {
-
         switch self {
         case .parsePlayInfo:
             return URL(string: Configs.Network.videoParseUrl)!
@@ -82,7 +83,6 @@ extension VideoApi: TargetType {
     }
 
     var task: Task {
-
         var parameters = ParameterManger.shared.TTParameter
 
         switch self {
@@ -145,19 +145,21 @@ extension VideoApi: TargetType {
             return nil
         }
     }
+
+    var validationType: ValidationType {
+        .successCodes
+    }
 }
 
 extension VideoApi: TTResultValidate {}
 
-extension String {
-
-    public func parseVideoURL() -> (r: UInt32, s: UInt64) {
-
-        let r = arc4random() // 随机数
+public extension String {
+    func parseVideoURL() -> (r: UInt32, s: UInt64) {
+        let r = UInt32.random(in: 0 ..< 10) // 随机数
         let url: NSString = "/video/urls/v/1/toutiao/mp4/\(self)?r=\(r)" as NSString
         let data: NSData = url.data(using: String.Encoding.utf8.rawValue)! as NSData
         // 使用 crc32 校验
-        var crc32: UInt64 = UInt64(data.getCRC32())
+        var crc32 = UInt64(data.getCRC32())
         // crc32 可能为负数，要保证其为正数
         if crc32 < 0 { crc32 += 0x100000000 }
         // 拼接 url

@@ -9,7 +9,6 @@
 import Moya
 
 enum UserApi {
-
     /// 作者信息
     case profile(String)
     /// 相似作者推荐
@@ -35,7 +34,6 @@ extension UserApi: TargetType {
     }
 
     var task: Task {
-
         var parameters: [String: Any] = ["app": "pearl",
                                          "did": "04D90309-3DDF-4246-8747-5C761062793C"]
         switch self {
@@ -49,6 +47,18 @@ extension UserApi: TargetType {
             parameters["cursor"] = cursor
         }
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
+
+    var validationType: ValidationType {
+        .successCodes
+    }
+
+    var method: Moya.Method {
+        .get
+    }
+
+    var headers: [String: String]? {
+        nil
     }
 }
 

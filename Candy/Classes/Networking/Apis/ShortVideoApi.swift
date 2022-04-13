@@ -10,7 +10,6 @@
 import Moya
 
 enum ShortVideoApi {
-
     /// 视频列表
     case list
     /// 评论
@@ -18,6 +17,11 @@ enum ShortVideoApi {
 }
 
 extension ShortVideoApi: TargetType {
+
+    var method: Moya.Method {
+        .get
+    }
+
     var baseURL: URL {
         URL(string: Configs.Network.kuaiKanUrl)!
     }
@@ -32,7 +36,6 @@ extension ShortVideoApi: TargetType {
     }
 
     var task: Task {
-
         var parameters: [String: Any] = ["app": "pearl"]
         switch self {
         case .list:
@@ -43,6 +46,14 @@ extension ShortVideoApi: TargetType {
             parameters["cursor"] = cursor
         }
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
+
+    var validationType: ValidationType {
+        .successCodes
+    }
+
+    var headers: [String: String]? {
+        nil
     }
 }
 

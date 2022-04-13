@@ -25,6 +25,10 @@ enum VideoHallApi {
 
 extension VideoHallApi: TargetType {
 
+    var method: Moya.Method {
+        .get
+    }
+
     var baseURL: URL {
         URL(string: Configs.Network.yangGuangUrl)!
     }
@@ -72,5 +76,13 @@ extension VideoHallApi: TargetType {
             parameters["en_qc"] = 1
         }
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
+
+    var validationType: ValidationType {
+        .successCodes
+    }
+
+    var headers: [String: String]? {
+        nil
     }
 }

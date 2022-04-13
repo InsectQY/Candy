@@ -24,13 +24,7 @@ public extension UIApplication {
 
     static func getRootViewController(_ inViewController: UIViewController?) -> UIViewController? {
 
-        var rootViewController: UIViewController? = inViewController
-
-        while inViewController?.presentedViewController != nil {
-            rootViewController = rootViewController?.presentedViewController
-        }
-
-        guard let rootVc = rootViewController else { return nil }
+        guard let rootVc = inViewController else { return nil }
 
         if rootVc.isKind(of: UINavigationController.self) {
             return getRootViewController((rootVc as? UINavigationController)?.visibleViewController)

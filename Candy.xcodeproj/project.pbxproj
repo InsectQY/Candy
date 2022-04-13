@@ -84,7 +84,6 @@
 		E534047A21BF7FBD008807DA /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E534047821BF7FBD008807DA /* CommentCell.xib */; };
 		E534048221BFB0EE008807DA /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = E534048121BFB0EE008807DA /* NSData+CRC32.m */; };
 		E535153A23D0436500264064 /* YGResultValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E535153923D0436500264064 /* YGResultValidate.swift */; };
-		E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */; };
 		E578100121C890F8005BFFAC /* VideoHallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100021C890F8005BFFAC /* VideoHallApi.swift */; };
 		E578101421C8DE70005BFFAC /* VideoHallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100721C8DE70005BFFAC /* VideoHallViewModel.swift */; };
 		E578101521C8DE70005BFFAC /* VideoHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578100921C8DE70005BFFAC /* VideoHallViewController.swift */; };
@@ -309,7 +308,6 @@
 		E534048121BFB0EE008807DA /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		E534048421BFB15A008807DA /* Candy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Candy-Bridging-Header.h"; sourceTree = "<group>"; };
 		E535153923D0436500264064 /* YGResultValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YGResultValidate.swift; sourceTree = "<group>"; };
-		E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeExtension.swift; sourceTree = "<group>"; };
 		E578100021C890F8005BFFAC /* VideoHallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHallApi.swift; sourceTree = "<group>"; };
 		E578100721C8DE70005BFFAC /* VideoHallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHallViewModel.swift; sourceTree = "<group>"; };
 		E578100921C8DE70005BFFAC /* VideoHallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHallViewController.swift; sourceTree = "<group>"; };
@@ -1167,7 +1165,6 @@
 		E5859AC723CF060200ADCED8 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				E545190823CDA09700EBDBAD /* TargetTypeExtension.swift */,
 				13693E9C24ECC0CB0049D259 /* HandleProtocol */,
 				13693E9B24ECC0BD0049D259 /* Codable */,
 			);
@@ -2431,7 +2428,6 @@
 				1379042025DFA0F80072B707 /* ViewModelObject.swift in Sources */,
 				E5FA8A0721BA38560084F3C3 /* UGCVideoListFlowLayout.swift in Sources */,
 				1876776822292EB200A6D37A /* CollectionReusableView.swift in Sources */,
-				E545190923CDA09700EBDBAD /* TargetTypeExtension.swift in Sources */,
 				E59006482202F0AF00EE0838 /* VideoHallURL.swift in Sources */,
 				E5E3242721DC819E002DC676 /* JXPagerListContainerView.m in Sources */,
 				134D706324EA29E7002A4F12 /* VideoHallViewController+Rx.swift in Sources */,
