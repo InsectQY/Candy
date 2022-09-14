@@ -15,7 +15,7 @@ class UGCVideoCommentHeaderView: View {
     @IBOutlet private weak var commentCountLabel: Label!
     public var count: Int? {
         didSet {
-            guard let count = count else { return }
+            guard let count else { return }
             commentCountLabel.text = "\(count)条评论"
         }
     }

@@ -37,7 +37,7 @@ class JellyManager {
 
     static func UGCReplyComment(presentingVc: UIViewController?) -> Animator? {
 
-        guard let presentingVc = presentingVc else { return nil }
+        guard let presentingVc else { return nil }
         let interaction = InteractionConfiguration(presentingViewController: presentingVc,
                                                    completionThreshold: 0.5,
                                                    dragMode: .canvas)

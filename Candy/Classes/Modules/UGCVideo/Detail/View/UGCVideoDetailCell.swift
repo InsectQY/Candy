@@ -36,7 +36,7 @@ class UGCVideoDetailCell: CollectionViewCell {
     public var item: ShortVideoItem? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             if item.videoInfo.coverImg.width > item.videoInfo.coverImg.height {
                 coverImage.contentMode = .scaleAspectFit
                 coverImage.clipsToBounds = false

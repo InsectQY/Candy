@@ -28,7 +28,7 @@ class VideoListCell: TableViewCell {
 
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             titleLabel.text = item.title
 
             let imageSize = CGSize(width: 40 * .scale, height: 40 * .scale)

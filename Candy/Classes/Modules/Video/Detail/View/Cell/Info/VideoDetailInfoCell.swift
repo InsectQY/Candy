@@ -19,7 +19,7 @@ class VideoDetailInfoCell: TableViewCell {
 
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             abstractLabel.text = item.abstract
             playCountLabel.text = "\(item.video_detail_info.videoWatchCountString)次播放"
             titleLabel.text = item.title

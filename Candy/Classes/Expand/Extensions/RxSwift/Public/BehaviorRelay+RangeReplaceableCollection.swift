@@ -14,7 +14,7 @@ public extension BehaviorRelay where Element: RangeReplaceableCollection {
 
         AnyObserver { [weak self] event in
 
-            guard let self = self else { return }
+            guard let self else { return }
             
             switch event {
             case .next(let data):

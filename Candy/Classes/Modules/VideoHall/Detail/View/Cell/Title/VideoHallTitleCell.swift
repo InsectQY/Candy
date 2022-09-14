@@ -16,7 +16,7 @@ class VideoHallTitleCell: TableViewCell {
     public var item: VideoHallDetailModel? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             titleLabel.text = item.Album.title
             let sub = "\(item.Album.tag_list.joined(separator: "·"))·\(item.Album.area_list.joined(separator: "·"))"
             subTitleLabel.text = !item.Album.bottom_label.isEmpty ? "\(item.Album.year)·\(item.Album.bottom_label)·\(sub)" : "\(item.Album.year)·\(sub)"

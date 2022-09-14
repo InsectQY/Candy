@@ -104,7 +104,7 @@ class VMCollectionViewController<RVM: RefreshViewModel>: CollectionViewControlle
         viewModel
         .refreshError
         .map { [weak self] _ -> RxMJRefreshFooterState in
-            guard let self = self else { return .hidden }
+            guard let self else { return .hidden }
             return self.collectionView.isTotalDataEmpty ? .hidden : .default
         }
         .drive(refreshFooter.rx.refreshFooterState)

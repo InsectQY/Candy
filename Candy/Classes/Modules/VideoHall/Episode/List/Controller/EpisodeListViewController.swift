@@ -56,7 +56,7 @@ extension EpisodeListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        guard let item = item else { return 0 }
+        guard let item else { return 0 }
         return item.end - item.start
     }
 

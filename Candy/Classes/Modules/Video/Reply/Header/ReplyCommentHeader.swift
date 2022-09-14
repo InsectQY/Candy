@@ -20,7 +20,7 @@ class ReplyCommentHeader: UIView {
     public var item: ShortVideoCommentItem? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             userNameLabel.text = item.nickName
             var options: [KingfisherOptionsInfoItem] = []
             if item.headUrls.first?.isWebP ?? false {

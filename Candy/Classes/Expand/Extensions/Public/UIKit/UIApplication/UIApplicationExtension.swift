@@ -24,14 +24,14 @@ public extension UIApplication {
 
     static func getRootViewController(_ inViewController: UIViewController?) -> UIViewController? {
 
-        guard let rootVc = inViewController else { return nil }
+        guard let inViewController else { return nil }
 
-        if rootVc.isKind(of: UINavigationController.self) {
-            return getRootViewController((rootVc as? UINavigationController)?.visibleViewController)
-        } else if rootVc.isKind(of: UITabBarController.self) {
-            return getRootViewController((rootVc as? UITabBarController)?.selectedViewController)
+        if inViewController.isKind(of: UINavigationController.self) {
+            return getRootViewController((inViewController as? UINavigationController)?.visibleViewController)
+        } else if inViewController.isKind(of: UITabBarController.self) {
+            return getRootViewController((inViewController as? UITabBarController)?.selectedViewController)
         } else {
-            return rootVc
+            return inViewController
         }
     }
 }

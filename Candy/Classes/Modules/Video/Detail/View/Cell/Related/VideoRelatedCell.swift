@@ -18,7 +18,7 @@ class VideoRelatedCell: TableViewCell {
     public var item: NewsModel? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             titleLabel.text = item.title
             subTitleLabel.text = "\(item.source)  \(item.video_detail_info.videoWatchCountString)次播放"
             thumbImage

@@ -104,7 +104,7 @@ class VMTableViewController<RVM: RefreshViewModel>: TableViewController {
         viewModel
         .refreshError
         .map { [weak self] _ -> RxMJRefreshFooterState in
-            guard let self = self else { return .hidden }
+            guard let self else { return .hidden }
             return self.tableView.isTotalDataEmpty ? .hidden : .default
         }
         .drive(refreshFooter.rx.refreshFooterState)

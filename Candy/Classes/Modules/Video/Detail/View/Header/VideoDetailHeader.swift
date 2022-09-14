@@ -20,7 +20,7 @@ class VideoDetailHeader: View {
     public var video: NewsModel? {
         didSet {
 
-            guard let video = video else { return }
+            guard let video else { return }
             nameLabel.text = video.user_info.name
             let imageSize = CGSize(width: 40 * .scale, height: 40 * .scale)
             avatarImage.qy_setImage(video.user_info.avatar_url,

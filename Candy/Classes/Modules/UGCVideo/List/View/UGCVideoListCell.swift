@@ -18,7 +18,7 @@ class UGCVideoListCell: CollectionViewCell {
     public var item: ShortVideoItem? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             coverImage.qy_setImage(item.videoInfo.coverImg.urls.first?.url ?? "",
                                    options: [KfOptions.fadeTransition(Configs.Time.imageTransition)])
             titleLabel.text = item.caption

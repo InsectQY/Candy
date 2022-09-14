@@ -15,7 +15,7 @@ class VideoHallIntroCell: TableViewCell {
     public var item: VideoHallDetailModel? {
         didSet {
 
-            guard let item = item else { return }
+            guard let item else { return }
             introLabel.attributedText = item.Album.intro.lineSpace(10)
         }
     }
