@@ -37,7 +37,7 @@ class EpisodeViewController: VMViewController<EpisodePageViewModel> {
         return categoryView
     }()
 
-    // swiftlint:disable force_unwrapping
+    // swiftlint:disable:next force_unwrapping
     private lazy var listContainerView = JXCategoryListContainerView(type: .scrollView,
                                                                      delegate: self)!
 

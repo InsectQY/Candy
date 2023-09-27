@@ -18,7 +18,7 @@ class VideoDetailViewController: VMTableViewController<VideoDetailViewModel> {
     // MARK: - LazyLoad
 
     private lazy var videoView: VideoDetailHeader = {
-        let videoView = R.nib.videoDetailHeader.firstView(owner: nil)!
+        let videoView = R.nib.videoDetailHeader.firstView(withOwner: nil)!
         videoView.video = video
         return videoView
     }()

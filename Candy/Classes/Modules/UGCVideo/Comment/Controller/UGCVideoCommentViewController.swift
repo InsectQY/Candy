@@ -16,7 +16,7 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
     private var commentCount: Int?
 
     // MARK: - LazyLoad
-    private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(owner: nil)!
+    private lazy var headerView = R.nib.ugcVideoCommentHeaderView.firstView(withOwner: nil)!
 
     // MARK: - LifeCycle
     override func viewDidLayoutSubviews() {

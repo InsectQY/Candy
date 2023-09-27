@@ -4,10 +4,6 @@
 //
 //  Created by 杨蒙 on 2017/12/18.
 //  Copyright © 2017年 hrscy. All rights reserved.
-// swiftlint:disable force_cast
-// swiftlint:disable force_try
-// swiftlint:disable empty_count
-// swiftlint:disable force_unwrapping
 
 import UIKit
 
@@ -24,11 +20,11 @@ struct EmojiManager {
         // 获取 emoji_sort.plist 的路径
         let arrayPath = R.file.emoji_sortPlist()?.path
         // 根据 plist 文件 读取数据
-        let emojiSorts = NSArray(contentsOfFile: arrayPath!) as! [String]
+        let emojiSorts = NSArray(contentsOfFile: arrayPath!) as? [String] ?? []
         // 获取 emoji_mapping.plist 的路径
         let mappingPath = R.file.emoji_mappingPlist()?.path
         // 根据 plist 文件 读取数据
-        let emojiMapping = NSDictionary(contentsOfFile: mappingPath!) as! [String: String]
+        let emojiMapping = NSDictionary(contentsOfFile: mappingPath!) as? [String: String] ?? [:]
         // 临时数组
         var temps = [Emoji]()
         // 遍历
@@ -50,6 +46,7 @@ struct EmojiManager {
 
         // 判断分页是否有剩余
         let count = emojis.count % 21
+        // swiftlint:disable:next empty_count
         guard count != 0 else { return }
         // 添加空白表情
         for index in count..<21 {
@@ -65,6 +62,7 @@ struct EmojiManager {
         // emoji 表情的正则表达式
         let emojiPattern = "\\[.*?\\]"
         // 创建正则表达式对象，匹配 emoji 表情
+        // // swiftlint:disable:next force_try
         let regex = try! NSRegularExpression(pattern: emojiPattern, options: [])
         // 开始匹配，返回结果
         let results = regex.matches(in: content, options: [], range: NSRange(location: 0, length: content.count))

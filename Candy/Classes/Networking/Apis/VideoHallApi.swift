@@ -4,7 +4,7 @@
 //
 //  Created by Insect on 2018/12/18.
 //  Copyright © 2018 Insect. All rights reserved.
-//  swiftlint:disable force_unwrapping
+//  swiftlint:disable:next force_unwrapping
 
 import Moya
 

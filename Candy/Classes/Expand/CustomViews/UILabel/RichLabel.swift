@@ -1,7 +1,6 @@
 //
 //  RichLabel.swift
-// swiftlint:disable force_try
-// swiftlint:disable force_unwrapping
+// swiftlint:disable:next force_unwrapping
 
 import UIKit
 
@@ -100,6 +99,7 @@ extension RichLabel {
 
     func rangesOfLink() -> [NSRange] {
         // 检测正则表达式，NSDataDetector 是 NSRegularExpression 的子类
+        // swiftlint:disable:next force_try
         let regex = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         return results(from: regex)
     }
@@ -107,6 +107,7 @@ extension RichLabel {
     /// 返回正则表达式匹配的结果范围
     func ranges(from pattern: String) -> [NSRange] {
         // 创建正则表达式对象
+        // swiftlint:disable:next force_try
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         return results(from: regex)
     }

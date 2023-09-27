@@ -14,7 +14,7 @@ class ReplyCommentViewController: TableViewController {
     private var comment: ShortVideoCommentItem?
 
     // MARK: - LazyLoad
-    private lazy var topView = R.nib.replyCommentTopView.firstView(owner: nil)!
+    private lazy var topView = R.nib.replyCommentTopView.firstView(withOwner: nil)!
 
     // MARK: - LifeCycle
     override func viewDidLayoutSubviews() {
@@ -72,7 +72,7 @@ extension ReplyCommentViewController {
 
     private func setUpTableHeader() {
 
-        let headerView = R.nib.replyCommentHeader.firstView(owner: nil)!
+        let headerView = R.nib.replyCommentHeader.firstView(withOwner: nil)!
         headerView.item = comment
         let height = headerView
         .systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)

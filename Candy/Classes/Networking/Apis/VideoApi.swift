@@ -4,7 +4,7 @@
 //
 //  Created by QY on 2018/11/16.
 //  Copyright © 2018年 Insect. All rights reserved.
-//  swiftlint:disable force_unwrapping
+//  swiftlint:disable:next force_unwrapping
 import Moya
 
 /// 视频 + 小视频请求

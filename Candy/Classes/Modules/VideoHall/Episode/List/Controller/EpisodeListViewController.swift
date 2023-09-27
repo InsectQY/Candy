@@ -60,7 +60,7 @@ extension EpisodeListViewController: UICollectionViewDataSource {
         return item.end - item.start
     }
 
-    //  swiftlint:disable force_unwrapping
+    //  swiftlint:disable:next force_unwrapping
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.episodeCell.identifier,
@@ -75,7 +75,7 @@ extension EpisodeListViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension EpisodeListViewController: UICollectionViewDelegate {
 
-    //  swiftlint:disable force_unwrapping
+    //  swiftlint:disable:next force_unwrapping
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NotificationCenter.default
         .post(name: .clickEpisode,

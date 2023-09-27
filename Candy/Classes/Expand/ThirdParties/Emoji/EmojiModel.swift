@@ -15,12 +15,4 @@ struct Emoji {
     var png = ""
     var isDelete = false
     var isEmpty = false
-
-    init(id: String = "", name: String = "", png: String = "", isDelete: Bool = false, isEmpty: Bool = false) {
-        self.id = id
-        self.name = name
-        self.png = png
-        self.isDelete = isDelete
-        self.isEmpty = isEmpty
-    }
 }
