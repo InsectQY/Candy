@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanJSON
 
 final class UGCVideoCommentViewModel: RefreshViewModel {
 
@@ -17,7 +16,7 @@ final class UGCVideoCommentViewModel: RefreshViewModel {
 
     struct Output {
         /// 数据源
-        let items: Driver<[ShortVideoCommentItem]>
+        let items: Driver<[UGCVideoCommentModel]>
     }
 }
 
@@ -26,64 +25,24 @@ extension UGCVideoCommentViewModel: ViewModelable {
     func transform(input: UGCVideoCommentViewModel.Input) -> UGCVideoCommentViewModel.Output {
 
         // 所有评论
-        let elements = BehaviorRelay<[ShortVideoCommentItem]>(value: [])
-        // 下一页角标
-        let nextCursor = BehaviorRelay<String>(value: "0")
+        let elements = BehaviorRelay<[UGCVideoCommentModel]>(value: [])
 
         // 加载最新评论
         let loadNew = refreshOutput
         .headerRefreshing
         .flatMapLatest { [unowned self] in
-            self.request(id: input.id,
-                         offset: "0")
+            self.request(id: input.id)
         }
-        // 加载更多评论
-        let loadMore = refreshOutput
-        .footerRefreshing
-        .flatMapLatest { [unowned self] in
-            self.request(id: input.id,
-                         offset: nextCursor.value)
-        }
-
-        // 下一页角标
-        loadNew
-        .map(\.nextCursor)
-        .drive(nextCursor)
-        .disposed(by: disposeBag)
-
-        loadMore
-        .map(\.nextCursor)
-        .drive(nextCursor)
-        .disposed(by: disposeBag)
 
         // 数据源绑定
         loadNew
-        .map(\.comments)
         .drive(elements)
-        .disposed(by: disposeBag)
-
-        loadMore
-        .map(\.comments)
-        .drive(elements.append)
         .disposed(by: disposeBag)
 
         // 头部刷新状态
         loadNew
         .mapTo(false)
         .drive(refreshInput.headerRefreshStateOb)
-        .disposed(by: disposeBag)
-
-        // 尾部刷新状态
-        Driver.merge(
-            loadNew.map { [unowned self] in
-                self.footerState($0.hasMore)
-            },
-            loadMore.map { [unowned self] in
-                self.footerState($0.hasMore)
-            }
-        )
-        .startWith(.hidden)
-        .drive(refreshInput.footerRefreshStateOb)
         .disposed(by: disposeBag)
 
         let output = Output(items: elements.asDriver())
@@ -94,11 +53,11 @@ extension UGCVideoCommentViewModel: ViewModelable {
 
 extension UGCVideoCommentViewModel {
 
-    func request(id: String, offset: String) -> Driver<ShortVideoComment> {
-        ShortVideoApi
-        .comment(id: id, cursor: offset)
+    func request(id: String) -> Driver<[UGCVideoCommentModel]> {
+        MacoooApi
+        .comment(id)
         .request()
-        .mapKKComment()
+        .mapObject([UGCVideoCommentModel].self)
         .trackActivity(loading)
         .trackError(refreshError)
         .asDriverOnErrorJustComplete()

@@ -9,52 +9,45 @@
 import Foundation
 
 final class UGCVideoPageViewModel: ViewModel {
-
     struct Input {
         let emptyDataSetViewTap: Observable<Void>
     }
 
-    struct Output {
-
-    }
+    struct Output {}
 
     /// 分类数据
     let category = BehaviorRelay<[VideoCategory]>(value: [])
 }
 
 extension UGCVideoPageViewModel {
-
     @discardableResult
     func transform(input: UGCVideoPageViewModel.Input) -> UGCVideoPageViewModel.Output {
-
         input.emptyDataSetViewTap
-        .asDriverOnErrorJustComplete()
-        .flatMap { [unowned self] in
-            self.request()
-        }
-        .drive(category)
-        .disposed(by: disposeBag)
+            .asDriverOnErrorJustComplete()
+            .flatMap { [unowned self] in
+                self.request()
+            }
+            .drive(category)
+            .disposed(by: disposeBag)
 
         // 获取视频分类
         request()
-        .drive(category)
-        .disposed(by: disposeBag)
+            .drive(category)
+            .disposed(by: disposeBag)
 
         return Output()
     }
 }
 
 extension UGCVideoPageViewModel {
-
     func request() -> Driver<[VideoCategory]> {
-
-        VideoApi.ugcCategory
-        .request()
-        .mapTTModelData(UGCVideoPageModel.self)
-        .map(\.data)
-        .asObservable()
-        .filterMany { $0.name != "关注" }
-        .trackActivity(loading)
-        .asDriver(onErrorJustReturn: [VideoCategory(category: "hotsoon_video", name: "推荐")])
+        MacoooApi
+            .category
+            .request()
+            .mapObject(UGCVideoPageModel.self, atKeyPath: "confs")
+            .map(\.channels)
+            .asObservable()
+            .trackActivity(loading)
+            .asDriver(onErrorJustReturn: [])
     }
 }

@@ -27,11 +27,6 @@ extension UIScrollView {
 
 public class RefreshHeader: MJRefreshGifHeader {
 
-    /// 初始化
-    override public func prepare() {
-        super.prepare()
-
-    }
 }
 
 public class RefreshFooter: MJRefreshAutoStateFooter {

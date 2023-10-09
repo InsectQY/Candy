@@ -9,18 +9,15 @@
 import Foundation
 
 struct UGCVideoListModel: Codable {
-
     /// 单条视频内容(返回数据为 JSON 字符串)
     let content: UGCVideoModel
 }
 
 struct UGCVideoModel: Codable {
-
     let raw_data: RawData
 }
 
 struct RawData: Codable {
-
     /// ID
     let group_id: String
     let item_id: String
@@ -37,12 +34,10 @@ struct RawData: Codable {
 }
 
 struct User: Codable {
-
     let info: MediaInfo
 }
 
 struct Action: Codable {
-
     /// 评论数量
     let comment_count: Int
     /// 播放量
@@ -64,7 +59,6 @@ struct Action: Codable {
 }
 
 struct UGCVideo: Codable {
-
     /// 视频播放地址
     let play_addr: UrlList
     /// 视频图片
@@ -81,5 +75,65 @@ struct UrlList: Codable {
 
     var firstURL: URL? {
         URL(string: url_list.first ?? "")
+    }
+}
+
+struct UGCListModel: Codable {
+    var caption: String
+    var channelCodes: [String]
+    var dnwable: Bool
+    var download_times: Int
+    var favorites: Int
+    var height: Int
+    var hotspot3: Float
+    var iapProductId: String
+    var is_video: Bool
+    var isFavorited: Bool
+    var isKoreaStar: Bool
+    var isLiked: Bool
+    var isLimitable: Bool
+    var isPointable: Bool
+    var likes: Int = 0
+    var location: String
+    var price: Int = 0
+    var profile_code: String
+    var profileInstance: UGCUserProfile
+    var public_slots: [UrlSlots]
+    var resDeepTypeName: String
+    var resTypeCode: String
+    var resTypeName: String
+    var shortcode: String
+    var slots: [UrlSlots]
+    var temp_hotspot: Float
+    var temp_hotspot_3: Float
+    var thumbnail: String
+    var type: String
+    var upload_ts: String
+    var video_duration: Float
+    var width: Int
+
+    var videoUrl: String {
+        "\(Configs.Network.macooResUrl)/e/\(shortcode)/\(slots.first?.video ?? "")"
+    }
+
+    var imageUrl: String {
+        "\(Configs.Network.macooResUrl)/e/\(shortcode)/\(slots.first?.pic ?? "")"
+    }
+}
+
+struct UrlSlots: Codable {
+    var pic: String
+    var video: String
+}
+
+struct UGCUserProfile: Codable {
+    var avatar: String
+    var channel_codes: [String]
+    var code: String
+    var description: String
+    var name: String
+
+    var avatarUrl: String {
+        "\(Configs.Network.macooResUrl)\(avatar)"
     }
 }

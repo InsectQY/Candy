@@ -14,7 +14,10 @@ import UIKit
 class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewModel> {
     // MARK: - init
 
-    init() {
+    private var code: String = ""
+
+    init(code: String) {
+        self.code = code
         super.init(collectionViewLayout: UGCVideoListFlowLayout())
     }
 
@@ -37,6 +40,8 @@ class UGCVideoListViewController: VMCollectionViewController<UGCVideoListViewMod
 
     override func bindViewModel() {
         super.bindViewModel()
+
+        viewModel.input.codeOb.onNext(code)
 
         collectionView.rx.itemSelected
             .asDriver()

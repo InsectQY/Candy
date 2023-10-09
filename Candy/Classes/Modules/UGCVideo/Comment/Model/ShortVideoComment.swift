@@ -50,3 +50,16 @@ public struct ShortVideoCommentItem: Codable {
         realCreateTime.timeFormat
     }
 }
+
+struct UGCVideoCommentModel: Codable {
+    var child_comment_count: Int
+    var create_ts: String
+    var first_level_id: String
+    var id: String
+    var is_liked: Bool
+    var is_logged_in: Bool
+    var likes: Int
+    var shortcode: String
+    var text: String
+    var username: String
+}

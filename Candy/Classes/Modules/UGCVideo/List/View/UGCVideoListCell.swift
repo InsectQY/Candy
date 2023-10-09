@@ -12,19 +12,17 @@ class UGCVideoListCell: CollectionViewCell {
 
     @IBOutlet private weak var diggCountLabel: Label!
     @IBOutlet private weak var titleLabel: Label!
-    @IBOutlet private weak var playCountLabel: Label!
     @IBOutlet private(set) weak var coverImage: ImageView!
 
-    public var item: ShortVideoItem? {
+    public var item: UGCListModel? {
         didSet {
 
             guard let item else { return }
-            coverImage.qy_setImage(item.videoInfo.coverImg.urls.first?.url ?? "",
+            coverImage.qy_setImage(item.imageUrl,
                                    options: [KfOptions.fadeTransition(Configs.Time.imageTransition)])
             titleLabel.text = item.caption
-            playCountLabel.text = "\(item.viewCountString)次播放"
-            diggCountLabel.text = "\(item.likeCountString)赞"
-            hero.id = item.itemId
+            diggCountLabel.text = "\(item.likes)赞"
+            hero.id = item.shortcode
         }
     }
 }

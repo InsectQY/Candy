@@ -129,7 +129,6 @@ extension VideoHallDetailViewModel {
         .request()
         .mapObject(TTModel<VideoPlayInfo>.self,
                    atKeyPath: "video_info")
-        .debug()
         .filter(\.isSuccess)
         .map(\.data)
         .trackActivity(loading)

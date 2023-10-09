@@ -10,5 +10,5 @@ import Foundation
 
 struct UGCVideoPageModel: Codable {
 
-    let data: [VideoCategory]
+    let channels: [VideoCategory]
 }

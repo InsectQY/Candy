@@ -10,7 +10,7 @@ import Foundation
 
 struct VideoCategory: Codable, Equatable {
 
-    let category: String
+    let code: String
     /// 分类名称
     let name: String
 }

@@ -17,8 +17,10 @@ struct Configs {
         static let videoParseUrl = "https://i.snssdk.com"
         /// 阳光宽频网
         static let yangGuangUrl = "https://365yg.com"
-        /// 快看点
-        static let kuaiKanUrl = "https://api.yuncheapp.cn"
+        /// 火酷
+        static let macoooUrl = "http://hc-api.macooo.com"
+        /// 火酷资源
+        static let macooResUrl = "https://img1-hc-app.macooo.com"
     }
 
     struct Time {

@@ -15,11 +15,12 @@ class UGCVideoTitleView: JXCategoryTitleView {
 
         super.init(frame: frame)
 
-        titleColor = .white
+        titleColor = UIColor(red: 0.91, green: 0.92, blue: 0.98, alpha: 1.00)
         isTitleColorGradientEnabled = true
         isTitleLabelZoomEnabled = true
-        titleLabelZoomScale = 1.2
+        titleLabelZoomScale = 1.4
         isAverageCellSpacingEnabled = false
+        titleSelectedColor = .white
     }
 
     required init?(coder aDecoder: NSCoder) {

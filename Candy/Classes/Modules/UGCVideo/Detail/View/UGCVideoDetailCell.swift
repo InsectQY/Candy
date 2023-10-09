@@ -33,24 +33,23 @@ class UGCVideoDetailCell: CollectionViewCell {
     @IBOutlet private weak var commentBtn: Button!
     @IBOutlet private weak var shareBtn: Button!
 
-    public var item: ShortVideoItem? {
+    public var item: UGCListModel? {
         didSet {
 
             guard let item else { return }
-            if item.videoInfo.coverImg.width > item.videoInfo.coverImg.height {
+            if item.width > item.height {
                 coverImage.contentMode = .scaleAspectFit
                 coverImage.clipsToBounds = false
             } else {
                 coverImage.contentMode = .scaleAspectFill
                 coverImage.clipsToBounds = true
             }
-            let imageURL = item.videoInfo.coverImg.urls.first?.url
-            coverImage.qy_setImage(imageURL)
-            bgImage.qy_setImage(imageURL)
+            coverImage.qy_setImage(item.imageUrl)
+            bgImage.qy_setImage(item.imageUrl)
             abstractLabel.text = item.caption
-            userNameLabel.text = item.authorInfo.nickname
-            avatarImage.qy_setImage(item.authorInfo.headUrls.first?.url)
-            hero.id = item.itemId
+            userNameLabel.text = item.profileInstance.name
+            avatarImage.qy_setImage(item.profileInstance.avatarUrl)
+            hero.id = item.shortcode
         }
     }
 
@@ -60,9 +59,9 @@ class UGCVideoDetailCell: CollectionViewCell {
     }
 
     // MARK: - 点击评论
-    @IBAction private func commentBtnDidClick(_ sender: Any) {
+    @IBAction private func commentBtnDidClick() {
 
-        let vc = UGCVideoCommentViewController(id: item?.itemId, commentCount: item?.cmtCnt)
+        let vc = UGCVideoCommentViewController(id: item?.shortcode, commentCount: 0)
         let animator = JellyManager.UGCVideoComment()
         animator.prepare(presentedViewController: vc)
         parentVC?.present(vc, animated: true, completion: nil)

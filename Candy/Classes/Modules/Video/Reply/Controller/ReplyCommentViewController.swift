@@ -56,13 +56,12 @@ class ReplyCommentViewController: TableViewController {
 
         guard let replyComment = comment?.replyComments else { return }
 
-        Driver.just(replyComment)
-        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
-                                  cellType: CommentCell.self)) { _, item, cell in
-            cell.isReply = true
-            cell.item = item
-        }
-        .disposed(by: rx.disposeBag)
+//        Driver.just(replyComment)
+//        .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
+//                                  cellType: CommentCell.self)) { _, item, cell in
+//            cell.item = item
+//        }
+//        .disposed(by: rx.disposeBag)
 
         topView.count = comment?.replyComments.count
     }

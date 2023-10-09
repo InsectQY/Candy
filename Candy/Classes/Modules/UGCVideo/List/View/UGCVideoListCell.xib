@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,12 +25,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ugc_video_list_play_32x32_" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-dG-VNR" customClass="ImageView" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="5" y="313" width="24" height="24"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5次播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR5-X6-7iU" customClass="Label" customModule="Candy" customModuleProvider="target">
-                        <rect key="frame" x="34" y="315.5" width="47" height="19"/>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3赞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro3-a1-6o0" customClass="Label" customModule="Candy" customModuleProvider="target">
                         <rect key="frame" x="210" y="315.5" width="21" height="19"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
@@ -54,22 +46,19 @@
                 <constraint firstAttribute="bottom" secondItem="iZH-AR-fl3" secondAttribute="bottom" id="5NK-Bj-Yl1"/>
                 <constraint firstItem="6TE-gT-sa8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5tv-s3-LEn"/>
                 <constraint firstItem="oL9-uN-8RG" firstAttribute="leading" secondItem="zQ5-dG-VNR" secondAttribute="leading" id="DPQ-Fl-cJk"/>
-                <constraint firstItem="FR5-X6-7iU" firstAttribute="centerY" secondItem="zQ5-dG-VNR" secondAttribute="centerY" id="LVN-aY-8sI"/>
                 <constraint firstItem="zQ5-dG-VNR" firstAttribute="top" secondItem="oL9-uN-8RG" secondAttribute="bottom" constant="5" id="Pcx-rU-3GA"/>
                 <constraint firstAttribute="trailing" secondItem="iZH-AR-fl3" secondAttribute="trailing" id="Sxw-6f-PSV"/>
                 <constraint firstItem="zQ5-dG-VNR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="TBK-mw-7TB"/>
                 <constraint firstAttribute="trailing" secondItem="6TE-gT-sa8" secondAttribute="trailing" id="WvC-TV-G6E"/>
                 <constraint firstItem="6TE-gT-sa8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="exG-w2-iNu"/>
-                <constraint firstItem="Ro3-a1-6o0" firstAttribute="bottom" secondItem="FR5-X6-7iU" secondAttribute="bottom" id="goi-Zf-OHi"/>
+                <constraint firstItem="Ro3-a1-6o0" firstAttribute="centerY" secondItem="zQ5-dG-VNR" secondAttribute="centerY" id="i6T-HD-KLW"/>
                 <constraint firstAttribute="trailing" secondItem="Ro3-a1-6o0" secondAttribute="trailing" constant="5" id="lQm-HI-wfM"/>
                 <constraint firstItem="oL9-uN-8RG" firstAttribute="trailing" secondItem="Ro3-a1-6o0" secondAttribute="trailing" id="tyH-k5-h11"/>
-                <constraint firstItem="FR5-X6-7iU" firstAttribute="leading" secondItem="zQ5-dG-VNR" secondAttribute="trailing" constant="5" id="uMC-Zg-8Nx"/>
             </constraints>
             <size key="customSize" width="236" height="342"/>
             <connections>
                 <outlet property="coverImage" destination="6TE-gT-sa8" id="Uxx-3e-2CR"/>
                 <outlet property="diggCountLabel" destination="Ro3-a1-6o0" id="3WQ-Ko-Dxg"/>
-                <outlet property="playCountLabel" destination="FR5-X6-7iU" id="o2J-P0-eX5"/>
                 <outlet property="titleLabel" destination="oL9-uN-8RG" id="Pi4-7o-hRz"/>
             </connections>
             <point key="canvasLocation" x="17.600000000000001" y="51.27436281859071"/>

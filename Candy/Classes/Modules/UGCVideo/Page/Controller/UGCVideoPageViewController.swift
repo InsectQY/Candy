@@ -11,13 +11,10 @@ import JXCategoryView
 
 class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
 
-    private let menuH: CGFloat = 44
-    private let menuW: CGFloat = .screenWidth * 0.8
-
     // MARK: - LazyLoad
     private lazy var categoryView: UGCVideoTitleView = {
 
-        let categoryView = UGCVideoTitleView(frame: CGRect(x: 0, y: 0, width: menuW, height: menuH))
+        let categoryView = UGCVideoTitleView(frame: .zero)
         categoryView.delegate = self
         categoryView.listContainer = listContainerView
         return categoryView
@@ -38,16 +35,17 @@ class UGCVideoPageViewController: VMViewController<UGCVideoPageViewModel> {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        listContainerView.frame = view.bounds
+        categoryView.frame = CGRect(x: 0, y: 0, width: .screenWidth, height: 44)
+        listContainerView.frame = CGRect(x: 0,
+                                         y: .navigationBarBottomY,
+                                         width: .screenWidth,
+                                         height: .screenHeight - .navigationBarBottomY - .tabBarHeight)
     }
 
     override func makeUI() {
         super.makeUI()
 
-        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        let customView = UIView(frame: CGRect(x: 0, y: 0, width: menuW, height: menuH))
-        customView.addSubview(categoryView)
-        navigationItem.leftBarButtonItem = BarButtonItem(customView: customView)
+        navigationItem.titleView = categoryView
         view.addSubview(listContainerView)
     }
 
@@ -75,7 +73,7 @@ extension UGCVideoPageViewController: JXCategoryListContainerViewDelegate {
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        UGCVideoListViewController()
+        UGCVideoListViewController(code: viewModel.category.value[index].code)
     }
 }
 

@@ -16,7 +16,7 @@
     },
     
     {
-     "vcName": "UGCVideoListViewController",
+     "vcName": "UGCVideoPageViewController",
      "title": "小视频",
      "normalImage": "xiaoshipin-hui",
      "selectedImage": "xiaoshipin-hong",

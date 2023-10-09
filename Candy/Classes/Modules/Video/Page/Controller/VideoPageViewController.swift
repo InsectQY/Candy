@@ -94,6 +94,6 @@ extension VideoPageViewController: JXCategoryListContainerViewDelegate {
     }
 
     func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
-        VideoListViewController(category: viewModel.category.value[index].category)
+        VideoListViewController(category: viewModel.category.value[index].code)
     }
 }

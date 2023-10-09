@@ -14,7 +14,7 @@ class CommentCell: TableViewCell {
 
     @IBOutlet private weak var replyBtn: Button!
     @IBOutlet private weak var timeLabel: Label!
-    @IBOutlet private weak var commentLabel: RichLabel!
+    @IBOutlet private weak var commentLabel: UILabel!
     @IBOutlet private weak var userNameLabel: Label!
     @IBOutlet private weak var avatarImage: ImageView!
     @IBOutlet private weak var diggCountBtn: Button!
@@ -28,7 +28,6 @@ class CommentCell: TableViewCell {
         }
     }
 
-    /// 单条评论详情
     public var item: ShortVideoCommentItem? {
         didSet {
 
@@ -58,6 +57,18 @@ class CommentCell: TableViewCell {
         }
     }
 
+    public var ugcComment: UGCVideoCommentModel? {
+        didSet {
+
+            guard let ugcComment else { return }
+            commentLabel.text = ugcComment.text
+            userNameLabel.text = ugcComment.username
+            timeLabel.text = ugcComment.create_ts
+            diggCountBtn.setTitle("\(ugcComment.likes)", for: .normal)
+            replyBtn.setTitle("\(ugcComment.child_comment_count)回复", for: .normal)
+        }
+    }
+
 //    /// 回复某条评论的详情
 //    public var reply: ShortVideoCommentItem? {
 //        didSet {
@@ -78,15 +89,15 @@ class CommentCell: TableViewCell {
     // 查看回复评论
     @IBAction private func replyBtnDidClick(_ sender: Any) {
 
-        let vc = ReplyCommentViewController(comment: item)
-
-        var animator: Animator?
-        if isUGCVideo {
-            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
-        } else {
-            animator = JellyManager.videoReplyComment()
-        }
-        animator?.prepare(presentedViewController: vc)
-        parentVC?.present(vc, animated: true, completion: nil)
+//        let vc = ReplyCommentViewController(comment: item)
+//
+//        var animator: Animator?
+//        if isUGCVideo {
+//            animator = JellyManager.UGCReplyComment(presentingVc: parentVC)
+//        } else {
+//            animator = JellyManager.videoReplyComment()
+//        }
+//        animator?.prepare(presentedViewController: vc)
+//        parentVC?.present(vc, animated: true, completion: nil)
     }
 }

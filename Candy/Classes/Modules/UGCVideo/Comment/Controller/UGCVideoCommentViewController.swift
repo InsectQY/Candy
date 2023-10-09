@@ -49,7 +49,6 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         view.addSubview(headerView)
         tableView.register(R.nib.commentCell)
         tableView.refreshHeader = RefreshHeader()
-        tableView.refreshFooter = RefreshFooter()
         tableView.delegate = self
 
         let config = EmptyDataSetConfig(detail: R.string.localizable.videoHallSearchResultEmptyPlaceholder().emptyDataSetDescAttributed,
@@ -68,12 +67,14 @@ class UGCVideoCommentViewController: VMTableViewController<UGCVideoCommentViewMo
         output.items
         .drive(tableView.rx.items(cellIdentifier: R.reuseIdentifier.commentCell.identifier,
                                   cellType: CommentCell.self)) { _, item, cell in
-            cell.isUGCVideo = true
-            cell.item = item
+            cell.ugcComment = item
         }
         .disposed(by: rx.disposeBag)
 
-        headerView.count = commentCount
+        output.items.drive { [weak self] in
+            self?.headerView.count = $0.count
+        }
+        .disposed(by: rx.disposeBag)
     }
 }
 
